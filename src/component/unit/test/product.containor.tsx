@@ -11,10 +11,6 @@ export default function TestPage() {
     Pick<IQuery, "fetchUseditems">,
     IQueryFetchUseditemsArgs
   >(FETCH_USED_ITEMS);
-
-  const rendom = 123;
-  const random = 1234;
-  const random1 = 12345;
-  const random2 = 12345;
+  
   return <TestPageUI data={data} />;
 }
