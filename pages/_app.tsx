@@ -7,6 +7,7 @@ function MyApp({ Component, pageProps }: AppProps) {
   const uplodLink = createUploadLink({
     uri: "http://backend06.codebootcamp.co.kr/graphql",
   });
+  
   const client = new ApolloClient({
     link: ApolloLink.from([uplodLink]),
     cache: new InMemoryCache(),
