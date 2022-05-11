@@ -12,5 +12,7 @@ export default function TestPage() {
     IQueryFetchUseditemsArgs
   >(FETCH_USED_ITEMS);
 
+  const rendom = 123;
+
   return <TestPageUI data={data} />;
 }
