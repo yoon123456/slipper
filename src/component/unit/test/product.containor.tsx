@@ -13,6 +13,7 @@ export default function TestPage() {
   >(FETCH_USED_ITEMS);
 
   const rendom = 123;
+  const random = 1234;
 
   return <TestPageUI data={data} />;
 }
