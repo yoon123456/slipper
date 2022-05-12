@@ -5,9 +5,9 @@ import HeaderContainor from "../layout/header/header.containor";
 import Footer from "./footer/index";
 
 const Body = styled.div`
-  display: flex;
+  /* display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: center; */
 `;
 
 interface ILayoutProps {
