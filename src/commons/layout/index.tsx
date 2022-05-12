@@ -15,20 +15,25 @@ interface ILayoutProps {
 }
 
 const HIDDEN_HEADERS = [
-  "/a",
+  "/",
+  // ...
+];
+const HIDDEN_FOOTER = [
+  "",
   // ...
 ];
 
 export default function Layout(props: ILayoutProps) {
   const router = useRouter();
   const isHiddenHeader = HIDDEN_HEADERS.includes(router.asPath);
+  const isHiddenFooter = HIDDEN_FOOTER.includes(router.asPath);
 
   return (
     <>
       {/* {!isHiddenHeader && <LayoutHeader />} */}
       {!isHiddenHeader && <HeaderContainor />}
       <Body>{props.children}</Body>
-      {!isHiddenHeader && <Footer />}
+      {!isHiddenFooter && <Footer />}
     </>
   );
 }
