@@ -4,7 +4,8 @@ import { createUploadLink } from "apollo-upload-client";
 import { AppProps } from "next/app";
 import { Global } from "@emotion/react";
 import { globalStyles } from "../src/commons/styles/globalstyles";
-
+import Layout from "../src/commons/layout";
+import { RecoilRoot } from "recoil";
 function MyApp({ Component, pageProps }: AppProps) {
   const uplodLink = createUploadLink({
     uri: "http://backend06.codebootcamp.co.kr/graphql",
@@ -16,10 +17,14 @@ function MyApp({ Component, pageProps }: AppProps) {
   });
 
   return (
-    <ApolloProvider client={client}>
-                <Global styles={globalStyles} />
-      <Component {...pageProps} />
-    </ApolloProvider>
+    <RecoilRoot>
+      <ApolloProvider client={client}>
+        <Global styles={globalStyles} />
+        <Layout>
+          <Component {...pageProps} />
+        </Layout>
+      </ApolloProvider>
+    </RecoilRoot>
   );
 }
 
