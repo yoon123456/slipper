@@ -1,3 +1,4 @@
+import "antd/dist/antd.css";
 import { ApolloClient, ApolloProvider, InMemoryCache } from "@apollo/client";
 import { ApolloLink } from "@apollo/client";
 import { createUploadLink } from "apollo-upload-client";
