@@ -1,3 +1,4 @@
+// 해리 작업 5/11
 import styled from "@emotion/styled";
 import { Menu, Dropdown, Button } from "antd";
 import { useMovetoPage } from "../hooks/movePage";
@@ -11,8 +12,8 @@ const HamMenu = styled.div`
 `;
 
 const HamIcon = styled.img`
-  width: 70px;
-  height: 70px;
+  width: 80px;
+  height: 80px;
 `;
 
 export default function Ham() {
@@ -54,7 +55,7 @@ export default function Ham() {
       {/* <Dropdown overlay={menu} placement="bottom" arrow> */}
       {/* <Dropdown overlay={menu} arrow> */}
       <Dropdown overlay={menu}>
-        <HamIcon src="/image/ham.png" />
+        <HamIcon src="/image/hamFill.png" />
         {/* <Button>bottom</Button> */}
       </Dropdown>
     </>
