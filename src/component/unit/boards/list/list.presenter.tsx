@@ -11,11 +11,68 @@ export default function ListPresenter() {
         </S.SearchButton>
       </S.WrapperTop>
       <Category />
-      <S.WrapperMiddle>
-        <S.Icon>만족도</S.Icon>
-        <S.Categoty>카테고리</S.Categoty>
-        <S.Title>제목</S.Title>
-      </S.WrapperMiddle>
+      <S.Wrapper>
+        <S.Gallery>
+          <S.A>
+            <S.Img src="/image/listimage.png" />
+            <S.Figcaption>
+              <S.Icon>만족도</S.Icon>
+              <S.Categoty>카테고리</S.Categoty>
+              <S.Title>제목</S.Title>
+            </S.Figcaption>
+          </S.A>
+        </S.Gallery>
+        <S.Gallery>
+          <S.A>
+            <S.Img src="/image/listimage.png" />
+            <S.Figcaption>
+              <S.Icon>만족도</S.Icon>
+              <S.Categoty>카테고리</S.Categoty>
+              <S.Title>제목</S.Title>
+            </S.Figcaption>
+          </S.A>
+        </S.Gallery>
+        <S.Gallery>
+          <S.A>
+            <S.Img src="/image/listimage.png" />
+            <S.Figcaption>
+              <S.Icon>만족도</S.Icon>
+              <S.Categoty>카테고리</S.Categoty>
+              <S.Title>제목</S.Title>
+            </S.Figcaption>
+          </S.A>
+        </S.Gallery>
+        <S.Gallery>
+          <S.A>
+            <S.Img src="/image/listimage.png" />
+            <S.Figcaption>
+              <S.Icon>만족도</S.Icon>
+              <S.Categoty>카테고리</S.Categoty>
+              <S.Title>제목</S.Title>
+            </S.Figcaption>
+          </S.A>
+        </S.Gallery>
+        <S.Gallery>
+          <S.A>
+            <S.Img src="/image/listimage.png" />
+            <S.Figcaption>
+              <S.Icon>만족도</S.Icon>
+              <S.Categoty>카테고리</S.Categoty>
+              <S.Title>제목</S.Title>
+            </S.Figcaption>
+          </S.A>
+        </S.Gallery>
+        <S.Gallery>
+          <S.A>
+            <S.Img src="/image/listimage.png" />
+            <S.Figcaption>
+              <S.Icon>만족도</S.Icon>
+              <S.Categoty>카테고리</S.Categoty>
+              <S.Title>제목</S.Title>
+            </S.Figcaption>
+          </S.A>
+        </S.Gallery>
+      </S.Wrapper>
       <S.WrapperBottom>
         <S.Button>글쓰기</S.Button>
       </S.WrapperBottom>

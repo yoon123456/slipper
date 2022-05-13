@@ -1,3 +1,4 @@
+// 예원 작업 5/11
 import styled from "@emotion/styled";
 
 const WrapperOut = styled.div`
@@ -11,13 +12,13 @@ const WrapperOut = styled.div`
 `;
 
 const Box = styled.div`
-  width: 120px;
+  width: 95px;
   height: 35px;
   display: flex;
   justify-content: center;
   align-items: center;
   background-color: #f2f2f2;
-  font-size: 20px;
+  font-size: 16px;
   border-radius: 30px;
   box-shadow: 0px 2px 1px 1px #d1cbcb;
   cursor: pointer;
@@ -25,6 +26,7 @@ const Box = styled.div`
     background-color: #b0d5cd;
     color: white;
   }
+  margin-right: 10px;
 `;
 
 export default function Category() {
