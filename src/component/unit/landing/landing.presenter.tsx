@@ -1,6 +1,7 @@
 import * as S from "./landing.styles";
 import * as React from "react";
 import Logo from "../../../commons/logo";
+import { yellow } from "@mui/material/colors";
 
 const images = [
   {
@@ -27,7 +28,7 @@ export default function LandingPresenter() {
         <S.LogoBox>
           <Logo />
         </S.LogoBox>
-        <S.Ham src="/image/ham.png"></S.Ham>
+        <S.Ham src="/image/hamWhite.png"></S.Ham>
         <S.H1>
           <span>s</span>
           <span>l</span>

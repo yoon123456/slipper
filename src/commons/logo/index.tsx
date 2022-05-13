@@ -1,7 +1,7 @@
 import styled from "@emotion/styled";
 
 const LogoBox = styled.div`
-  /* background-color: #008af6; */
+  /* background-color: #fff314; */
 `;
 const LogoText = styled.div`
   font-family: "Luckiest Guy", cursive;
