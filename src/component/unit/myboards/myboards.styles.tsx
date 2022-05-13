@@ -4,72 +4,16 @@ export const WrapperOut = styled.div`
   width: 50%;
   margin: 0 auto;
 `;
-export const WrapperTop = styled.div`
-  width: 80%;
-  margin: 0 auto;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  padding: 40px;
-`;
-export const SearchBar = styled.input`
-  width: 80%;
-  height: 50px;
-  background-color: #f2f2f2;
-  border: none;
-  border-radius: 10px;
-  box-shadow: 0px 2px 1px 1px #d1cbcb;
-  outline: none;
-  padding: 20px;
-  font-size: 20px;
-`;
-export const SearchButton = styled.div`
-  width: 50px;
-  height: 50px;
-  background-color: #f2f2f2;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-radius: 20%;
-  box-shadow: 0px 2px 1px 1px #d1cbcb;
-  cursor: pointer;
-`;
-
-export const Serach = styled.img`
-  width: 40px;
-  height: 40px;
-`;
-
-export const WrapperBottom = styled.div`
-  width: 100%;
-  display: flex;
-  justify-content: flex-end;
-  padding: 20px;
-`;
-
-export const Button = styled.div`
-  width: 100px;
-  height: 35px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: #f2f2f2;
-  font-size: 18px;
-  border-radius: 30px;
-  box-shadow: 0px 2px 1px 1px #d1cbcb;
-  cursor: pointer;
-  :hover {
-    background-color: #008af6;
-    color: white;
-  }
-`;
-
+export const WrapperLeft = styled.div``;
+export const UserPhoto = styled.div``;
+export const UserName = styled.div``;
+export const UserEmail = styled.div``;
+export const WrapperRight = styled.div``;
 export const Wrapper = styled.div`
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
 `;
-
 // hover
 
 export const Gallery = styled.div`

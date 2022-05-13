@@ -23,7 +23,7 @@ const Box = styled.div`
   box-shadow: 0px 2px 1px 1px #d1cbcb;
   cursor: pointer;
   :hover {
-    background-color: #b0d5cd;
+    background-color: #ffcfec;
     color: white;
   }
   margin-right: 10px;

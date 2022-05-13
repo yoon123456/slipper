@@ -1,7 +1,7 @@
 import Category from "../../../../commons/category";
 import * as S from "./detail.styles";
 
-export default function EditPresenter() {
+export default function DetailPresenter() {
   return (
     <S.WrapperOut>
       <S.WrapperTop>
