@@ -25,12 +25,14 @@ export const WrapperInUser = styled.div`
   width: 120px;
   margin: auto;
   text-align: center;
+  color: white;
 `;
 
 export const WrapperInMy = styled.div`
   width: 100px;
   margin: auto;
   text-align: center;
+  color: white;
 `;
 // 햄버거
 export const WrapperInHam = styled.div`

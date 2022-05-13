@@ -2,8 +2,8 @@ import styled from "@emotion/styled";
 
 const WarpperOut = styled.div`
   width: 100%;
-  background-color: #f5f4f4;
   padding-bottom: 3%;
+  border-top: 1px solid gainsboro;
 `;
 
 const WarpperIn = styled.div`

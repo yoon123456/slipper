@@ -26,7 +26,7 @@ export const lockimg = styled.img`
 
 export const WrapperInIn = styled.div`
   width: 40%;
-  height: 53%;
+  height: 49%;
   position: absolute;
   top: 10%;
   left: 28%;
@@ -156,7 +156,7 @@ export const CategoryGo = styled.img`
   width: 1.5%;
   position: absolute;
   right: 26.5%;
-  top: 70.5%;
+  top: 71.8%;
 `;
 
 export const CategorySignUp = styled.div`
@@ -208,7 +208,7 @@ export const WrapperOr = styled.div`
   font-weight: 700;
   position: absolute;
   left: 47%;
-  top: 75%;
+  top: 76%;
 `;
 
 export const WrapperRightOrSpace = styled.div`
@@ -236,7 +236,7 @@ export const WrapperSnsMenu = styled.div`
   display:flex;
   position:absolute;
   left:20%;
-  top:82%;
+  top:83%;
 `;
 
 export const WrapperSnsGoolge = styled.div`
@@ -287,5 +287,5 @@ export const WrapperPersonImg = styled.img`
   height: 73%;
   position: absolute;
   left: 30%;
-  top: 18%;
+  top: 25%;
 `;
