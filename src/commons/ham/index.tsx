@@ -12,8 +12,10 @@ const HamMenu = styled.div`
 `;
 
 const HamIcon = styled.img`
-  width: 80px;
-  height: 80px;
+  width: 60px;
+  height: 40px;
+  margin: 20px;
+  padding-left: 10px;
 `;
 
 export default function Ham() {
@@ -55,7 +57,7 @@ export default function Ham() {
       {/* <Dropdown overlay={menu} placement="bottom" arrow> */}
       {/* <Dropdown overlay={menu} arrow> */}
       <Dropdown overlay={menu}>
-        <HamIcon src="/image/hamFill.png" />
+        <HamIcon src="/image/hamWhite.png" />
         {/* <Button>bottom</Button> */}
       </Dropdown>
     </>
