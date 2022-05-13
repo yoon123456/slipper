@@ -1,9 +1,6 @@
 import * as S from "./landing.styles";
 import * as React from "react";
-
-import Box from "@mui/material/Box";
-
-import Typography from "@mui/material/Typography";
+import Logo from "../../../commons/logo";
 
 const images = [
   {
@@ -27,129 +24,52 @@ export default function LandingPresenter() {
   return (
     <S.WrapperOut>
       <S.WrapperTop>
+        <S.LogoBox>
+          <Logo />
+        </S.LogoBox>
         <S.Ham src="/image/ham.png"></S.Ham>
-        <S.Slipper src="/image/slipper.png"></S.Slipper>
+        <S.H1>
+          <span>s</span>
+          <span>l</span>
+          <span>i</span>
+          <span>p</span>
+          <span>p</span>
+          <span>e</span>
+          <span>r</span>
+        </S.H1>
         <S.MainFlex>
-          <S.MainImg src="/image/test.jpeg"></S.MainImg>
-          <S.MainOrange>
+          <S.Main>
+            <S.MainImg src="/image/night.webp"></S.MainImg>
+          </S.Main>
+          <S.MainBlue>
             <S.TextBox>
-              <S.MainText>"슬리퍼가 대신 다녀올게."</S.MainText>
+              슬리퍼가
+              {/* <S.MainText>"슬리퍼가 대신 다녀올게."</S.MainText>
               <S.SubText>
                 이사가는 곳 동네 인프라를 이제는 슬리퍼로 알아보세요!
-              </S.SubText>
+              </S.SubText> */}
+              <S.TextIn>
+                <S.TextO>
+                  <S.TextFirst style={{ backgroundColor: "#42c58a" }}>
+                    work
+                  </S.TextFirst>
+                </S.TextO>
+                <S.TextOut>
+                  <S.TextSecond style={{ backgroundColor: "#4ec7f3" }}>
+                    lifestyle
+                  </S.TextSecond>
+                </S.TextOut>
+                <S.TextOut>
+                  <S.TextLast style={{ backgroundColor: "#DC143C" }}>
+                    everything
+                  </S.TextLast>
+                </S.TextOut>
+              </S.TextIn>
+              대신 다녀올게!
             </S.TextBox>
-          </S.MainOrange>
+          </S.MainBlue>
         </S.MainFlex>
       </S.WrapperTop>
-      {/* <S.WrapperBottom>
-        <S.ImageBox>
-          <S.ButtonBox>
-            <S.WriteImage src="/image/writebutton.png"></S.WriteImage>
-          </S.ButtonBox>
-          <S.ButtonBox>
-            <S.SearchImage src="/image/searchbutton.png"></S.SearchImage>
-          </S.ButtonBox>
-          <S.ButtonBox>
-            <S.MypageImage src="/image/mypagebutton.png"></S.MypageImage>
-          </S.ButtonBox>
-        </S.ImageBox>
-      </S.WrapperBottom> */}
-
-      <Box
-        sx={{
-          display: "flex",
-          flexWrap: "wrap",
-          minWidth: 300,
-          width: "100%",
-          height: "100vh",
-        }}
-      >
-        {/* {images.map((image) => ( */}
-        <S.ImageButton
-          focusRipple
-          // key={image.title}
-          key={"Breakfast"}
-          style={{
-            width: "33.3%",
-          }}
-        >
-          <S.WriteImage src="/image/writebutton.png"></S.WriteImage>
-          <S.ImageBackdrop className="MuiImageBackdrop-root" />
-          <S.Image>
-            <Typography
-              component="span"
-              variant="subtitle1"
-              color="inherit"
-              sx={{
-                position: "relative",
-                p: 4,
-                pt: 2,
-                pb: (theme) => `calc(${theme.spacing(1)} + 6px)`,
-              }}
-            >
-              {"내돈 내삶!"}
-              <S.ImageMarked className="MuiImageMarked-root" />
-            </Typography>
-          </S.Image>
-        </S.ImageButton>
-
-        <S.ImageButton
-          focusRipple
-          // key={image.title}
-          key={"Burgers"}
-          style={{
-            width: "33.3%",
-          }}
-        >
-          <S.SearchImage src="/image/searchbutton.png"></S.SearchImage>
-          <S.ImageBackdrop className="MuiImageBackdrop-root" />
-          <S.Image>
-            <Typography
-              component="span"
-              variant="subtitle1"
-              color="inherit"
-              sx={{
-                position: "relative",
-                p: 4,
-                pt: 2,
-                pb: (theme) => `calc(${theme.spacing(1)} + 6px)`,
-              }}
-            >
-              {"어떤 곳이 궁금한가요?"}
-              <S.ImageMarked className="MuiImageMarked-root" />
-            </Typography>
-          </S.Image>
-        </S.ImageButton>
-
-        <S.ImageButton
-          focusRipple
-          // key={image.title}
-          key={"Camera"}
-          style={{
-            width: "33.3%",
-          }}
-        >
-          <S.MypageImage src="/image/mypagebutton.png"></S.MypageImage>
-          <S.ImageBackdrop className="MuiImageBackdrop-root" />
-          <S.Image>
-            <Typography
-              component="span"
-              variant="subtitle1"
-              color="inherit"
-              sx={{
-                position: "relative",
-                p: 4,
-                pt: 2,
-                pb: (theme) => `calc(${theme.spacing(1)} + 6px)`,
-              }}
-            >
-              {"내 정보"}
-              <S.ImageMarked className="MuiImageMarked-root" />
-            </Typography>
-          </S.Image>
-        </S.ImageButton>
-        {/* ))} */}
-      </Box>
     </S.WrapperOut>
   );
 }
