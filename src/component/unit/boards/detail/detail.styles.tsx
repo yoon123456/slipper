@@ -91,25 +91,26 @@ export const Contents = styled.div`
   background-color: blueviolet;
 `;
 export const WrapperBottom = styled.div`
+  width: 50%;
+  margin: 0 auto;
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
   align-items: center;
   padding: 20px;
 `;
 export const Button = styled.div`
-  width: 95px;
-  height: 35px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: #ffffff;
+  width: 90px;
+  height: 40px;
+  padding: 5px;
+  text-align: center;
   font-size: 16px;
-  border-radius: 30px;
-  box-shadow: 0px 2px 1px 1px #d1cbcb;
+  font-weight: bold;
+  color: #008af6;
+  border: 2px solid #008af6;
+  border-radius: 17px;
   cursor: pointer;
   :hover {
     background-color: #008af6;
     color: white;
   }
-  margin-right: 10px;
 `;

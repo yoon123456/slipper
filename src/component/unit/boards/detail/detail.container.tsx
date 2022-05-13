@@ -1,5 +1,5 @@
-import EditPresenter from "./detail.presenter";
+import DetailPresenter from "./detail.presenter";
 
-export default function EditContainer() {
-  return <EditPresenter />;
+export default function DetailContainer() {
+  return <DetailPresenter />;
 }
