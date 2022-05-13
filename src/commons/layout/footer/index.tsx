@@ -2,29 +2,27 @@ import styled from "@emotion/styled";
 
 const WarpperOut = styled.div`
   width: 100%;
-  height: 240px;
   background-color: #f5f4f4;
+  padding-bottom: 3%;
 `;
 
 const WarpperIn = styled.div`
   width: 100%;
-  height: 240px;
   padding-left: 20px;
 `;
 
 const WarpperTop = styled.div`
   width: 100%;
-  height: 80px;
+  padding-bottom: 2%;
 `;
 
 const WarpperMiddle = styled.div`
   width: 100%;
-  height: 80px;
+  padding-bottom: 2%;
   color: #a9a9a9;
 `;
 const WarpperBottom = styled.div`
   width: 100%;
-  height: 50px;
   display: flex;
 `;
 const WarpperImg = styled.div`
@@ -70,7 +68,7 @@ export default function Footer() {
         <WarpperIn>
           <WarpperTop></WarpperTop>
           <WarpperMiddle>
-            이사사는 곳 인프라는 한눈에 보고싶은 당신을 위한 서비스
+            이사가는 곳 인프라를 한눈에 보고싶은 당신을 위한 서비스
           </WarpperMiddle>
           <WarpperBottom>
             <WarpperImg>

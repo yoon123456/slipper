@@ -14,14 +14,8 @@ interface ILayoutProps {
   children: ReactNode;
 }
 
-const HIDDEN_HEADERS = [
-  "/",
-  // ...
-];
-const HIDDEN_FOOTER = [
-  "",
-  // ...
-];
+const HIDDEN_HEADERS = ["/", "/login"];
+const HIDDEN_FOOTER = ["/", "/login"];
 
 export default function Layout(props: ILayoutProps) {
   const router = useRouter();

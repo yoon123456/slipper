@@ -2,7 +2,7 @@ import styled from "@emotion/styled";
 
 export const WrapperOut = styled.div`
   width: 100%;
-  background-color: #e5965d;
+  background-color: #008af6;
   display: flex;
   justify-content: space-between;
 `;
