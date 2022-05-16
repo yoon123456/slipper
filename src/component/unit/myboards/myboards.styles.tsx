@@ -2,112 +2,67 @@ import styled from "@emotion/styled";
 
 export const WrapperOut = styled.div`
   width: 100%;
-  margin: 0 auto;
-`;
-export const WrapperLeft = styled.div``;
-export const UserPhoto = styled.div``;
-export const UserName = styled.div``;
-export const UserEmail = styled.div``;
-export const WrapperRight = styled.div``;
-export const Wrapper = styled.div`
+  margin: 5% 0 0 0;
   display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
-`;
-// hover
-
-export const Gallery = styled.div`
-  width: 30%;
-  height: 250px;
-  overflow: hidden;
-
-  display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-  border-radius: 10%;
-  margin-bottom: 20px;
+  font-family: "HallymGothic-Regular";
 `;
-export const A = styled(Gallery)`
-  display: block; /* 영역적용위해 사용 */
-  width: 100%;
-  height: 100%;
-  position: relative; /* absolute의 기본기준은 body로 처리 - 현재 요소로 기준변경 */
-`;
-
-export const Figcaption = styled(Gallery)`
-  width: 100%;
-  /* height: 100%; */
-  background-color: rgba(0, 0, 0, 0.7);
-
-  /* display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center; */
-
-  position: absolute; /* 이미지와 겹치게 처리 */
-  top: 0;
-  left: 0;
-
-  color: #fff;
-  text-align: center;
-  line-height: 200px;
-
-  opacity: 0; /* 처음엔 안보이고 */
-
-  transition: 0.3s;
-  :hover {
-    opacity: 1;
-  }
-`;
-export const Img = styled.img`
-  width: 100%;
-`;
-export const Icon = styled.div`
-  position: absolute;
-  top: -70px;
-  right: 10px;
-  height: 20px;
-`;
-export const Categoty = styled.div`
-  position: absolute;
-  top: -50px;
-`;
-export const Title = styled.div`
-  position: absolute;
-  top: 10px;
-`;
-
-// 각각의 글 상세로 들어가는것 수정해본것
 export const UserContents = styled.div`
-  width: 40%;
+  width: 95%;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   justify-content: space-around;
   position: relative;
-  padding-top: 20px;
   cursor: pointer;
+  box-shadow: 6px 4px 6px -5px gainsboro;
+  border-radius: 10px;
+  margin: 0 auto 20px auto;
+  :hover {
+    box-shadow: 5px 5px 15px 5px #e1e1e1;
+  }
+`;
+export const ImageWrap = styled.div`
+  width: 40%;
+  height: 160px;
+`;
+export const UserWrap = styled.div`
+  width: 60%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-left: 5%;
 `;
 export const Image = styled.img`
   width: 100%;
-  height: 180px;
+  height: 100%;
   object-fit: cover;
-  border-radius: 30px;
-  :hover {
-    opacity: 0.7;
-  }
+  border-radius: 10px 0 0 10px;
+  position: relative;
 `;
-export const Heart = styled.div`
+export const Heart = styled.img`
   position: absolute;
-  top: 30px;
-  right: 20px;
-  color: white;
+  top: 6%;
+  left: 34%;
   width: 20px;
   height: 20px;
+  z-index: 1;
+  cursor: pointer;
 `;
+export const ListTitleWrap = styled.div`
+  padding: 3%;
+`;
+
 export const ListTitle = styled.div`
-  font-size: 20px;
+  font-size: 2rem;
   font-weight: 500;
 `;
 export const ListHometown = styled.div`
   color: #7b7e7e;
+  font-size: 1rem;
+`;
+export const ListShopName = styled.div`
+  color: #2a2f2f;
+  font-size: 1.5rem;
 `;
