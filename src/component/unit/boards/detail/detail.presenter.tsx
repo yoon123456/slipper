@@ -1,3 +1,5 @@
+// 예원작업 5/16
+
 import Category from "../../../../commons/category";
 import * as S from "./detail.styles";
 

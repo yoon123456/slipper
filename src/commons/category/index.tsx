@@ -8,7 +8,7 @@ const WrapperOut = styled.div`
   flex-direction: row;
   justify-content: space-around;
   align-items: center;
-  padding: 20px;
+  padding: 20px 20px 20px 20px;
 `;
 
 const Box = styled.div`
@@ -18,7 +18,7 @@ const Box = styled.div`
   justify-content: center;
   align-items: center;
   background-color: #ffffff;
-  font-size: 16px;
+  font-size: 1.4rem;
   border-radius: 30px;
   box-shadow: 0px 2px 4px 0px #e1e1e1;
   cursor: pointer;

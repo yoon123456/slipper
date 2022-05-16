@@ -4,8 +4,10 @@ export const WrapperOut = styled.div`
   width: 100%;
   margin: 0 0 0 0;
   display: flex;
+  flex-direction: column;
   justify-content: center;
-  /* align-items: center; */
+  align-items: center;
+  font-family: "HallymGothic-Regular";
 `;
 export const WrapperLeft = styled.div`
   width: 50%;
@@ -23,7 +25,12 @@ export const WrapperTop = styled.div`
   display: flex;
   justify-content: space-around;
   align-items: center;
-  padding: 100px 0 40px 0;
+  padding: 30px 0 0 0;
+`;
+
+export const WrapperBody = styled.div`
+  display: flex;
+  width: 90%;
 `;
 export const SearchBar = styled.input`
   width: 100%;
@@ -34,20 +41,18 @@ export const SearchBar = styled.input`
   box-shadow: 0px 2px 4px 0px #e1e1e1;
   outline: none;
   padding: 20px;
-  font-size: 20px;
+  font-size: 2rem;
 `;
 export const SearchButton = styled.div`
-  width: 28%;
+  width: 15%;
   height: 40px;
   margin: 0 auto;
   background-color: #ffffff;
-  display: flex;
   justify-content: center;
   align-items: center;
   border: 2px solid #008af6;
   border-radius: 10px;
   color: #008af6;
-  /* box-shadow: 0px 3px 11px 5px #e1e1e1; */
   cursor: pointer;
   :hover {
     background-color: #008af6;
@@ -56,36 +61,43 @@ export const SearchButton = styled.div`
 `;
 
 export const Serach = styled.div`
-  font-size: 18px;
+  font-size: 1.8rem;
   font-weight: bold;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 2%;
 `;
 export const CategoryWrap = styled.div`
   width: 80%;
-  margin: 0 auto 40px auto;
+  margin: 0 auto;
 `;
 export const WrapperMiddle = styled.div`
   width: 100%;
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
   align-items: center;
-  border-bottom: 2px solid #bbbebe6f;
-  border-top: 2px solid #bbbebe6f;
-  padding: 10px 7%;
-  margin: 70px 0 70px 0;
+  padding: 2% 7%;
 `;
 export const WrapperArray = styled.div`
-  width: 20%;
+  width: 8%;
   display: flex;
   justify-content: space-around;
 `;
 export const Array = styled.div`
   width: 50%;
+  text-align: end;
+  font-size: 1.2rem;
   cursor: pointer;
   :hover {
-    font-weight: bold;
+    font-size: 1.4rem;
   }
 `;
-export const WrapperWrite = styled.div``;
+export const WrapperWrite = styled.div`
+  width: 40%;
+  display: flex;
+  align-items: center;
+`;
 
 export const WrapperBottom = styled.div`
   width: 100%;
@@ -95,21 +107,23 @@ export const WrapperBottom = styled.div`
 `;
 
 export const Button = styled.div`
-  width: 100px;
+  width: 8%;
   height: 35px;
   display: flex;
-  justify-content: center;
   align-items: center;
-  font-size: 18px;
-  /* box-shadow: 0px 3px 11px 5px #e1e1e1; */
+  font-size: 1.8rem;
   cursor: pointer;
   :hover {
     font-weight: bold;
   }
 `;
+export const Pen = styled.img`
+  width: 20px;
+`;
 export const WrapperRight = styled.div`
-  width: 40%;
+  width: 45%;
   height: 100vh;
+  margin-left: 5%;
   /* overflow-y: hidden; */
 `;
 export const Map = styled.img`
@@ -120,104 +134,128 @@ export const Map = styled.img`
 
 export const Wrapper = styled.div`
   display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
-`;
-
-// hover
-
-export const Gallery = styled.div`
-  width: 30%;
-  height: 250px;
-  overflow: hidden;
-
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-radius: 10%;
-  margin-bottom: 20px;
-`;
-export const A = styled(Gallery)`
-  display: block; /* 영역적용위해 사용 */
-  width: 100%;
-  height: 100%;
-  position: relative; /* absolute의 기본기준은 body로 처리 - 현재 요소로 기준변경 */
-`;
-
-export const Figcaption = styled(Gallery)`
-  width: 100%;
-  /* height: 100%; */
-  background-color: rgba(0, 0, 0, 0.7);
-
-  /* display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center; */
-
-  position: absolute; /* 이미지와 겹치게 처리 */
-  top: 0;
-  left: 0;
-
-  color: #fff;
-  text-align: center;
-  line-height: 200px;
-
-  opacity: 0; /* 처음엔 안보이고 */
-
-  transition: 0.3s;
-  :hover {
-    opacity: 1;
-  }
-`;
-export const Img = styled.img`
-  width: 100%;
-`;
-export const Icon = styled.div`
-  position: absolute;
-  top: -70px;
-  right: 10px;
-  height: 20px;
-`;
-export const Categoty = styled.div`
-  position: absolute;
-  top: -50px;
-`;
-export const Title = styled.div`
-  position: absolute;
-  top: 10px;
 `;
 
-// 각각의 글 상세로 들어가는것 수정해본것
+// 각각의 글 상세로 들어가는것 수정2
 export const UserContents = styled.div`
-  width: 40%;
+  width: 95%;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   justify-content: space-around;
   position: relative;
-  padding-top: 20px;
   cursor: pointer;
+  box-shadow: 6px 4px 6px -5px gainsboro;
+  border-radius: 10px;
+  margin: 0 auto 20px auto;
+  :hover {
+    box-shadow: 5px 5px 15px 5px #e1e1e1;
+  }
+`;
+export const ImageWrap = styled.div`
+  width: 40%;
+  height: 160px;
+`;
+export const UserWrap = styled.div`
+  width: 60%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-left: 5%;
 `;
 export const Image = styled.img`
   width: 100%;
-  height: 180px;
+  height: 100%;
   object-fit: cover;
-  border-radius: 30px;
-  :hover {
-    opacity: 0.7;
-  }
+  border-radius: 10px 0 0 10px;
+  position: relative;
 `;
-export const Heart = styled.div`
+export const Heart = styled.img`
   position: absolute;
-  top: 30px;
-  right: 20px;
-  color: white;
+  top: 6%;
+  left: 34%;
+  color: red;
   width: 20px;
   height: 20px;
+  z-index: 1;
+  cursor: pointer;
 `;
+export const ListTitleWrap = styled.div`
+  padding: 3%;
+`;
+
 export const ListTitle = styled.div`
-  font-size: 20px;
+  font-size: 2rem;
   font-weight: 500;
 `;
 export const ListHometown = styled.div`
   color: #7b7e7e;
+  font-size: 1rem;
 `;
+export const ListShopName = styled.div`
+  color: #2a2f2f;
+  font-size: 1.5rem;
+`;
+
+// hover
+
+// export const Gallery = styled.div`
+//   width: 30%;
+//   height: 250px;
+//   overflow: hidden;
+
+//   display: flex;
+//   justify-content: center;
+//   align-items: center;
+//   border-radius: 10%;
+//   margin-bottom: 20px;
+// `;
+// export const A = styled(Gallery)`
+//   display: block; /* 영역적용위해 사용 */
+//   width: 100%;
+//   height: 100%;
+//   position: relative; /* absolute의 기본기준은 body로 처리 - 현재 요소로 기준변경 */
+// `;
+
+// export const Figcaption = styled(Gallery)`
+//   width: 100%;
+//   /* height: 100%; */
+//   background-color: rgba(0, 0, 0, 0.7);
+
+//   /* display: flex;
+//   flex-direction: column;
+//   justify-content: center;
+//   align-items: center; */
+
+//   position: absolute; /* 이미지와 겹치게 처리 */
+//   top: 0;
+//   left: 0;
+
+//   color: #fff;
+//   text-align: center;
+//   line-height: 200px;
+
+//   opacity: 0; /* 처음엔 안보이고 */
+
+//   transition: 0.3s;
+//   :hover {
+//     opacity: 1;
+//   }
+// `;
+// export const Img = styled.img`
+//   width: 100%;
+// `;
+// export const Icon = styled.div`
+//   position: absolute;
+//   top: -70px;
+//   right: 10px;
+//   height: 20px;
+// `;
+// export const Categoty = styled.div`
+//   position: absolute;
+//   top: -50px;
+// `;
+// export const Title = styled.div`
+//   position: absolute;
+//   top: 10px;
+// `;

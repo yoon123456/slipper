@@ -83,7 +83,7 @@ export const Residence = styled.div`
   font-size: 16px;
 `;
 export const Rating = styled.div`
-  width: 20%;
+  width: 12%;
   font-size: 16px;
 `;
 export const Good = styled.img`
