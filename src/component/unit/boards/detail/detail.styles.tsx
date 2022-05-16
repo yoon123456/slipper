@@ -47,10 +47,9 @@ export const UserContents = styled.div`
 export const TopRight = styled.div`
   width: 80%;
 `;
-export const Map = styled.div`
+export const Map = styled.img`
   width: 100%;
   height: 200px;
-  background-color: brown;
 `;
 export const CategoryWrap = styled.div`
   width: 100%;
@@ -61,6 +60,7 @@ export const WrapperMiddle = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  padding-top: 20px;
 `;
 export const Title = styled.div`
   width: 100%;
@@ -72,6 +72,7 @@ export const Title = styled.div`
 `;
 export const ResidenceWrap = styled.div`
   width: 100%;
+  height: 30px;
   display: flex;
   justify-content: space-between;
 `;
@@ -85,10 +86,18 @@ export const Rating = styled.div`
   width: 20%;
   font-size: 16px;
 `;
+export const Good = styled.img`
+  width: 33.3%;
+`;
+export const Soso = styled.img`
+  width: 33.3%;
+`;
+export const Bad = styled.img`
+  width: 30%;
+`;
 export const Contents = styled.div`
   width: 100%;
   height: 200px;
-  background-color: blueviolet;
 `;
 export const WrapperBottom = styled.div`
   width: 50%;
