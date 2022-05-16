@@ -1,7 +1,7 @@
 // 해리 작업 5/12
+import "react-quill/dist/quill.snow.css";
 import Category from "../../../../commons/category";
 import * as S from "./write.styles";
-import "react-quill/dist/quill.snow.css";
 
 export default function WritePresenter(props) {
   return (
