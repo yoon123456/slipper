@@ -2,13 +2,15 @@ import styled from "@emotion/styled";
 
 const WarpperOut = styled.div`
   width: 100%;
-  padding-bottom: 3%;
+  height: 17%;
   border-top: 1px solid gainsboro;
+  bottom: 0%;
+  position: absolute;
 `;
 
 const WarpperIn = styled.div`
   width: 100%;
-  padding-left: 20px;
+  padding-left: 80px;
 `;
 
 const WarpperTop = styled.div`
