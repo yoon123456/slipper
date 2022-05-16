@@ -1,7 +1,5 @@
-import LandingPresenter from "./landing.presenter"
+import LandingPresenter from "./landing.presenter";
 
-export default function LandingContainer(){
-  return (
-    <LandingPresenter />
-  )
+export default function LandingContainer() {
+  return <LandingPresenter />;
 }

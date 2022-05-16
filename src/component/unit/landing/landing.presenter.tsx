@@ -2,6 +2,7 @@ import * as S from "./landing.styles";
 import * as React from "react";
 import Logo from "../../../commons/logo";
 import { yellow } from "@mui/material/colors";
+import { useMovetoPage } from "../../../commons/hooks/movePage";
 
 const images = [
   {
@@ -22,6 +23,8 @@ const images = [
 ];
 
 export default function LandingPresenter() {
+  const { onClickMoveToPage } = useMovetoPage();
+
   return (
     <S.WrapperOut>
       <S.WrapperTop>
@@ -67,6 +70,10 @@ export default function LandingPresenter() {
                 </S.TextOut>
               </S.TextIn>
               대신 다녀올게!
+              <S.ArrowBox onClick={onClickMoveToPage("/boards")}>
+                <S.Arrow src="/image/arrow2.png"></S.Arrow>
+                <S.ArrowSpan>내게 딱_맞는 동네 찾으러 가기</S.ArrowSpan>
+              </S.ArrowBox>
             </S.TextBox>
           </S.MainBlue>
         </S.MainFlex>

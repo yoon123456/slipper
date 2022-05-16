@@ -1,31 +1,46 @@
 import styled from "@emotion/styled";
 
-export const WrapperOut = styled.div`
-  width: 50%;
+export const Wrapper = styled.div`
+  display: flex;
+  height: 100vh;
+`;
+export const ImageBox = styled.div`
+  width: 100%;
   margin: 0 auto;
+  margin-top: 40px;
+`;
+export const Image = styled.img`
+  width: 100%;
+`;
+export const WrapperLeft = styled.div`
+  width: 40%;
+  background-color: white;
+`;
+
+export const WrapperOut = styled.div`
+  width: 60%;
   border-radius: 41px 41px 41px 41px;
   -moz-border-radius: 41px 41px 41px 41px;
   -webkit-border-radius: 41px 41px 41px 41px;
   background-color: white;
-  -webkit-box-shadow: 10px 10px 20px 3px rgba(214, 214, 214, 1);
-  -moz-box-shadow: 10px 10px 20px 3px rgba(214, 214, 214, 1);
-  box-shadow: 10px 10px 20px 3px rgba(214, 214, 214, 1);
 `;
 export const WrapperIn = styled.div`
-  width: 70%;
+  width: 60%;
   margin: 0 auto;
   padding-top: 40px;
 `;
 export const Join = styled.div`
   text-align: center;
-  font-size: 25px;
+  font-size: 50px;
   font-weight: bold;
+  color: #008af6;
+  margin-top: 50px;
 `;
 export const Profile = styled.div`
   display: flex;
   justify-content: space-between;
 
-  padding-top: 50px;
+  padding-top: 70px;
 `;
 export const ProfileBox = styled.div`
   width: 70%;
@@ -97,17 +112,17 @@ export const Introduce = styled.input`
 `;
 export const JoinSlipper = styled.div`
   width: 20%;
-  height: 40px;
-  line-height: 1.5;
+  height: 50px;
+  line-height: 2.2;
   margin: 0 auto;
-  margin-top: 20px;
   padding: 5px;
+  margin-top: 30px;
   text-align: center;
-  font-size: 16px;
+  font-size: 1.6rem;
   font-weight: bold;
   color: #008af6;
   border: 2px solid #008af6;
-  border-radius: 17px;
+  border-radius: 25px;
   cursor: pointer;
   :hover {
     background-color: #008af6;

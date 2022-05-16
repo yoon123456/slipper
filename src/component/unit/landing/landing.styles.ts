@@ -27,7 +27,7 @@ export const LogoBox = styled2.div`
 export const Ham = styled2.img`
   position: absolute;
   right: 0;
-  width: 100px;
+  width: 80px;
   padding: 10px;
   margin: 30px;
   z-index: 2;
@@ -58,43 +58,50 @@ export const TextBox = styled2.div`
   transform: translate(50%, -80%);
   color:#ffff;
   text-transform: uppercase;
-  font-size:40px;
+  font-size:4rem;
   font-weight:bold;
   padding-top:200px;  
   // position:fixed;
-  width:100%;
+  // width:100%;
   bottom:45%;
   display:block;
 `;
 export const TextIn = styled2.div`
-height:50px;
-overflow:hidden;
+  height:50px;
+  overflow:hidden;
 `;
 export const TextO = styled2.div`
-animation: ${show} 5s linear infinite;
+  animation: ${show} 5s linear infinite;
+
 `;
 export const TextOut = styled2.div`
 `;
 export const TextFirst = styled2.div`
-color:#fff;
-padding:4px 12px;
-height:45px;
-margin-bottom:45px;
-display:inline-block;
+  color:#fff;
+  padding:4px 12px;
+  height:45px;
+  margin-bottom:45px;
+  display:inline-block;
+  font-size: 3.3rem;
+
 `;
 export const TextSecond = styled2.div`
-color:#fff;
-padding:4px 12px;
-height:45px;
-margin-bottom:45px;
-display:inline-block;
+  color:#fff;
+  padding:4px 12px;
+  height:45px;
+  margin-bottom:45px;
+  display:inline-block;
+  font-size: 3.3rem;
+
 `;
 export const TextLast = styled2.div`
-color:#fff;
-padding:4px 12px;
-height:45px;
-margin-bottom:45px;
-display:inline-block;
+  color:#fff;
+  padding:4px 12px;
+  height:45px;
+  margin-bottom:45px;
+  display:inline-block;
+  font-size: 3.3rem;
+
 `;
 export const bounce = keyframes`
   100% {
@@ -123,7 +130,7 @@ export const H1 = styled2.h1`
       top: 20px;
       display: inline-block;
       -webkit-animation: ${bounce} 0.3s ease infinite alternate;
-      font-size: 140px;
+      font-size: 14rem;
       color: #fff;
       z-index:2;
       text-shadow: 0 1px 0 #ccc, 0 2px 0 #ccc, 0 3px 0 #ccc, 0 4px 0 #ccc,
@@ -235,3 +242,26 @@ export const ImageMarked = styled("span")(({ theme }) => ({
   left: "calc(50% - 9px)",
   transition: theme.transitions.create("opacity"),
 }));
+
+export const ArrowBox = styled2.div`
+  height: 40px;
+  margin-top: 50px;
+  font-size: 2.3rem;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  border: 2px solid white;
+  border-radius: 10px;
+  cursor: pointer;
+
+  :hover{
+    background-color: white;
+    color: #008af6;
+    text-align: center;
+  
+  }
+`;
+export const Arrow = styled2.img`
+`;
+export const ArrowSpan = styled2.div`
+`;
