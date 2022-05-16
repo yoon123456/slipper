@@ -1,66 +1,44 @@
 import * as S from "./login.styles";
 
-export default function LoginPresenter() {
+export default function JoinPresenter() {
   return (
-    <>
+    <S.Wrapper>
       <S.WrapperOut>
         <S.WrapperIn>
-          <S.WrapperPerson>
-            <S.WrapperPersonImg src="/image/loginPerson.png" />
-          </S.WrapperPerson>
-          <S.WrapperInIn>
-            <S.lockBox>
-              <S.lockimg src="/image/lock.png" />
-            </S.lockBox>
+          {/* <S.Join>{"Hi, I'm slipper"}</S.Join> */}
+          <S.Join>{"Welcome to Slipper"}</S.Join>
+          <S.Profile>
+            <S.ProfileBox>
+              <S.InputProfile type="text" placeholder="아이디(이메일)" />
+              <S.PasswordCheck type="password" placeholder="비밀번호" />
+            </S.ProfileBox>
+          </S.Profile>
 
-            <S.WrapperInInFirst>
-              <S.LoginBox>로그인</S.LoginBox>
-            </S.WrapperInInFirst>
+          <S.JoinSlipper>슬리퍼 신기</S.JoinSlipper>
 
-            <S.WrapperEmailBox>
-              <S.EmailBox placeholder="아이디(이메일)"></S.EmailBox>
-            </S.WrapperEmailBox>
+          <S.Menu>
+            <S.MenuBox>
+              <S.IdFind>아이디 찾기</S.IdFind>
+              <S.PasswordFind>비밀번호 찾기</S.PasswordFind>
+              <S.Sign>슬리퍼 만들기</S.Sign>
+            </S.MenuBox>
+          </S.Menu>
 
-            <S.WrapperPassowrdBox>
-              <S.PasswordBox
-                type={"password"}
-                placeholder="비밀번호"
-              ></S.PasswordBox>
-            </S.WrapperPassowrdBox>
+          <S.Sns>
+            <S.Orbox>
+              <S.OrLeft></S.OrLeft>
+              <S.Or>Sns</S.Or>
+              <S.OrRight></S.OrRight>
+            </S.Orbox>
 
-            <S.WrapperLoginBtn>
-              <S.LoginBtn type="submit">슬리퍼 신기</S.LoginBtn>
-            </S.WrapperLoginBtn>
-
-            <S.WrapperCategory>
-              <S.CategoryId>아이디찾기</S.CategoryId>
-              <S.CategoryPassword>비밀번호찾기</S.CategoryPassword>
-              <S.CategorySpace>
-                <S.CategoryGo src="/image/Vector.png" />
-              </S.CategorySpace>
-              <S.CategorySignUp>회원가입</S.CategorySignUp>
-            </S.WrapperCategory>
-            <S.WrapperSns>
-              <S.WrapperLeftSns></S.WrapperLeftSns>
-              <S.WrapperleftOrSpace></S.WrapperleftOrSpace>
-              <S.WrapperOr>or</S.WrapperOr>
-              <S.WrapperRightOrSpace></S.WrapperRightOrSpace>
-              <S.WrapperRightSns></S.WrapperRightSns>
-            </S.WrapperSns>
-            <S.WrapperSnsMenu>
-              <S.WrapperSnsKaoKao>
-                <S.WrapperSnsKaoKaoImage src="/image/kakao.png"></S.WrapperSnsKaoKaoImage>
-              </S.WrapperSnsKaoKao>
-              <S.WrapperSnsGoolge>
-                <S.WrapperSnsGoogleImage src="https://upload.wikimedia.org/wikipedia/commons/0/09/IOS_Google_icon.png"></S.WrapperSnsGoogleImage>
-              </S.WrapperSnsGoolge>
-              <S.WrapperSnsNaver>
-                <S.WrapperSnsNaverImage src="/image/naver.png"></S.WrapperSnsNaverImage>
-              </S.WrapperSnsNaver>
-            </S.WrapperSnsMenu>
-          </S.WrapperInIn>
+            <S.SnsBox>
+              <S.KaKao src="/image/kakao.png" />
+              <S.Google src="https://upload.wikimedia.org/wikipedia/commons/0/09/IOS_Google_icon.png" />
+              <S.Naver src="/image/naver.png" />
+            </S.SnsBox>
+          </S.Sns>
         </S.WrapperIn>
       </S.WrapperOut>
-    </>
+    </S.Wrapper>
   );
 }

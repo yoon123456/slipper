@@ -1,291 +1,172 @@
 import styled from "@emotion/styled";
 
-export const WrapperOut = styled.div`
-  width: 100vw;
-`;
-
-export const WrapperIn = styled.div`
-  width: 50%;
+export const Wrapper = styled.div`
+  display: flex;
   height: 100vh;
-  margin: auto;
-  position: relative;
+  margin: 0 auto;
 `;
 
-export const lockBox = styled.div`
-  margin: auto;
+export const WrapperOut = styled.div`
+  width: 30%;
   position: absolute;
-  width: 20%;
-  right: -8%;
-  top: -6%;
-`;
-
-export const lockimg = styled.img`
-  width: 80%;
-  left: 45%;
-`;
-
-export const WrapperInIn = styled.div`
-  width: 40%;
-  height: 49%;
-  position: absolute;
-  top: 10%;
-  left: 28%;
-  transform: translate(-3%, 20%);
+  top: 45%;
+  left: 50%;
+  transform: translate(-50%, -45%);
+  /* background-color: red; */
   border-radius: 41px 41px 41px 41px;
   -moz-border-radius: 41px 41px 41px 41px;
   -webkit-border-radius: 41px 41px 41px 41px;
-  background-color: white;
   -webkit-box-shadow: 10px 10px 20px 3px rgba(214, 214, 214, 1);
   -moz-box-shadow: 10px 10px 20px 3px rgba(214, 214, 214, 1);
   box-shadow: 10px 10px 20px 3px rgba(214, 214, 214, 1);
+  margin: 0 auto;
 `;
-
-export const WrapperInInFirst = styled.div`
-  width: 100%;
-`;
-
-export const LoginBox = styled.div`
-  width: 100%;
-  padding-top: 30px;
-  padding-bottom: 40px;
-  text-align: center;
-  font-family: "Inter";
-  font-style: normal;
-  font-weight: 700;
-  font-size: 30px;
-  line-height: 61px;
-`;
-export const WrapperEmailBox = styled.div`
-  width: 100%;
-  text-align: center;
-  font-family: "Inter";
-  font-style: normal;
-  font-weight: 700;
-  line-height: 61px;
-`;
-
-export const EmailBox = styled.input`
-  width: 65%;
-  height: 50px;
-  box-sizing: border-box
-  text-align: center;
-  font-family: "Inter";
-  font-style: normal;
-  border: 1px solid #FFFFFF;
-  font-weight: 700;
-  font-size: 18px;
-  line-height: 61px;
-  border-bottom: 1px solid gainsboro;
-`;
-
-export const WrapperPassowrdBox = styled.div`
-  width: 100%;
-  padding-top: 20px;
-  text-align: center;
-  font-family: "Inter";
-  font-style: normal;
-  font-weight: 700;
-  line-height: 61px;
-`;
-
-export const PasswordBox = styled.input`
-  width: 65%;
-  height: 50px;
-  font-family: "Inter";
-  font-style: normal;
-  border: 1px solid #ffffff;
-  font-weight: 700;
-  font-size: 18px;
-  border-bottom: 1px solid gainsboro;
-`;
-
-export const WrapperLoginBtn = styled.div`
-  width: 100%;
-  padding-top: 20px;
-  text-align: center;
-  font-family: "Inter";
-  font-style: normal;
-  font-weight: 700;
-`;
-
-export const LoginBtn = styled.button`
-  width: 70%;
-  border-radius: 10px;
-  font-weight: 700;
-  font-size: 13px;
-  line-height: 61px;
-  background-color: #008af6;
-  border: 1px solid #ffffff;
-`;
-
-export const WrapperCategory = styled.div`
-  width: 100%;
-  text-align: center;
-  font-family: "Inter";
-  font-style: normal;
-  font-weight: 700;
-  display: flex;
-  justify-content: center;
-`;
-
-export const CategoryId = styled.div`
-  width: 20%;
-  box-sizing: border-box;
-  font-family: "Inter";
-  font-size: 12px;
-  line-height: 61px;
-  text-decoration: underline;
-`;
-
-export const CategoryPassword = styled.div`
-  width: 20%;
-  box-sizing: border-box;
-  font-family: "Inter";
-  font-style: normal;
-  font-size: 12px;
-  line-height: 61px;
-  text-decoration: underline;
-`;
-
-export const CategorySpace = styled.div`
-  width: 20%;
-  line-height: 61px;
-`;
-
-export const CategoryGo = styled.img`
-  width: 1.5%;
-  position: absolute;
-  right: 26.5%;
-  top: 71.8%;
-`;
-
-export const CategorySignUp = styled.div`
-  width: 20%;
-  box-sizing: border-box;
-  font-family: "Inter";
-  font-size: 12px;
-  line-height: 61px;
-  display: block;
-  text-decoration: underline;
-`;
-
-export const WrapperSns = styled.div`
-  width: 100%;
-  text-align: center;
-  font-family: "Inter";
-  font-style: normal;
-  font-weight: 200;
-  display: flex;
-`;
-
-export const WrapperLeftSns = styled.div`
-  width: 48%;
-  text-align: center;
-  font-family: "Inter";
-  font-style: normal;
-  font-weight: 700;
-  display: flex;
-  justify-content: center;
-  border-top: 1px solid #999999;
-`;
-
-export const WrapperleftOrSpace = styled.div`
-  width: 3%;
-  height: 5%;
-  text-align: center;
-  font-family: "Inter";
-  font-style: normal;
-  font-weight: 700;
-  background-color: yellow;
-`;
-
-export const WrapperOr = styled.div`
-  width: 5%;
-  height: 5%;
-  text-align: center;
-  font-family: "Inter";
-  font-style: normal;
-  font-weight: 700;
-  position: absolute;
-  left: 47%;
-  top: 76%;
-`;
-
-export const WrapperRightOrSpace = styled.div`
-  width: 3%;
-  height: 5%;
-  text-align: center;
-  font-family: "Inter";
-  font-style: normal;
-  font-weight: 700;
-  background-color: yellow;
-`;
-
-export const WrapperRightSns = styled.div`
-  width: 50%;
-  display: flex;
-  justify-content: center;
-  border-top: 1px solid #999999;
-`;
-
-export const WrapperSnsMenu = styled.div`
-  width: 65%;
-  padding-top:30px
-  padding-bottom:100px
-  line-height: 61px;
-  display:flex;
-  position:absolute;
-  left:20%;
-  top:83%;
-`;
-
-export const WrapperSnsGoolge = styled.div`
-  width: 30%;
-  line-height: 61px;
-  margin: auto;
-`;
-
-export const WrapperSnsGoogleImage = styled.img`
-  width: 50%;
-  box-sizing: border-box
-  border-radius: 10px;
-`;
-
-export const WrapperSnsKaoKao = styled.div`
-  width: 30%;
-  line-height: 61px;
-  margin: auto;
-`;
-
-export const WrapperSnsKaoKaoImage = styled.img`
-  width: 50%;
-  box-sizing: border-box
-  border-radius: 10px;
-`;
-
-export const WrapperSnsNaver = styled.div`
-  width: 30%;
-  border-radius: 10px;
-  line-height: 61px;
-`;
-export const WrapperSnsNaverImage = styled.img`
-  width: 50%;
-  box-sizing: border-box
-  border-radius: 10px;
-`;
-
-export const WrapperPerson = styled.div`
-  width: 20%;
-  height: 55%;
-  position: absolute;
-  top: 20%;
-  left: 5%;
-`;
-
-export const WrapperPersonImg = styled.img`
+export const WrapperIn = styled.div`
   width: 80%;
-  height: 73%;
-  position: absolute;
-  left: 30%;
-  top: 25%;
+  margin: 0 auto;
+`;
+export const Join = styled.div`
+  text-align: center;
+  font-size: 50px;
+  font-weight: bold;
+  color: #008af6;
+  margin-top: 5%;
+  @media (min-width: 1024px > min-width:) {
+  }
+`;
+export const Profile = styled.div`
+  /* padding-top: 10%; */
+  margin: 0 auto;
+  /* border: 2px solid black; */
+`;
+export const ProfileBox = styled.div`
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+`;
+export const InputProfile = styled.input`
+  width: 90%;
+  border: none;
+  border-bottom: 2px solid gainsboro;
+  padding: 10px;
+  margin: 10px;
+`;
+
+export const PasswordCheck = styled.input`
+  width: 90%;
+  border: none;
+  border-bottom: 2px solid gainsboro;
+  padding: 10px;
+  margin: 10px;
+`;
+
+export const Menu = styled.div`
+  width: 100%;
+  font-size: 13px;
+  color: gray;
+  margin: 0 auto;
+  margin-top: 5%;
+`;
+
+export const MenuBox = styled.div`
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  margin: 0 auto;
+`;
+export const IdFind = styled.div`
+  cursor: pointer;
+  text-decoration: underline;
+`;
+export const PasswordFind = styled.div`
+  cursor: pointer;
+  text-decoration: underline;
+`;
+export const Sign = styled.div`
+  cursor: pointer;
+  text-decoration: underline;
+  margin-left: 10%;
+`;
+
+export const Sns = styled.div`
+  width: 100%;
+  margin: 0 auto;
+`;
+export const Orbox = styled.div`
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+`;
+export const Or = styled.div`
+  margin-top: 4%;
+`;
+export const OrLeft = styled.div`
+  width: 40%;
+  border-bottom: 2px solid gainsboro;
+  margin-top: 4%;
+  margin-right: 2%;
+`;
+export const OrRight = styled.div`
+  width: 40%;
+  border-bottom: 2px solid gainsboro;
+  margin-top: 4%;
+  margin-left: 2%;
+`;
+
+export const SnsBox = styled.div`
+  width: 100%;
+  margin-top: 4%;
+  margin-bottom: 4%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+`;
+
+export const KaKao = styled.img`
+  width: 10%;
+  cursor: pointer;
+  :hover {
+    transform: scale(1.2);
+    transition: all 300ms ease-in;
+  }
+`;
+export const Google = styled.img`
+  width: 10%;
+  cursor: pointer;
+  :hover {
+    transform: scale(1.2);
+    transition: all 300ms ease-in;
+  }
+`;
+export const Naver = styled.img`
+  width: 10%;
+  cursor: pointer;
+  :hover {
+    transform: scale(1.2);
+    transition: all 300ms ease-in;
+  }
+`;
+
+export const JoinSlipper = styled.div`
+  width: 30%;
+  line-height: 2.2;
+  margin: 0 auto;
+  padding: 1%;
+  margin-top: 5%;
+  text-align: center;
+  /* font-size: 13px; */
+  font-weight: bold;
+  color: #008af6;
+  border: 2px solid #008af6;
+  border-radius: 25px;
+  cursor: pointer;
+  :hover {
+    background-color: #008af6;
+    color: white;
+  }
 `;
