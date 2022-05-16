@@ -9,7 +9,7 @@ import Layout from "../src/commons/layout";
 import { RecoilRoot } from "recoil";
 function MyApp({ Component, pageProps }: AppProps) {
   const uplodLink = createUploadLink({
-    uri: "http://backend06.codebootcamp.co.kr/graphql",
+    uri: "https://backend.slipperofficial.shop/graphql",
   });
 
   const client = new ApolloClient({
