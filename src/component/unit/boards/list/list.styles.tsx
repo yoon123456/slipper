@@ -1,44 +1,91 @@
 import styled from "@emotion/styled";
 
 export const WrapperOut = styled.div`
+  width: 100%;
+  margin: 0 0 0 0;
+  display: flex;
+  justify-content: center;
+  /* align-items: center; */
+`;
+export const WrapperLeft = styled.div`
   width: 50%;
   margin: 0 auto;
+  height: 100vh;
+  overflow: scroll;
+  ::-webkit-scrollbar {
+    display: none;
+  }
 `;
+
 export const WrapperTop = styled.div`
   width: 80%;
   margin: 0 auto;
   display: flex;
   justify-content: space-around;
   align-items: center;
-  padding: 40px;
+  padding: 100px 0 40px 0;
 `;
 export const SearchBar = styled.input`
-  width: 80%;
+  width: 100%;
   height: 50px;
-  background-color: #f2f2f2;
+  background-color: #ffffff;
   border: none;
   border-radius: 10px;
-  box-shadow: 0px 2px 1px 1px #d1cbcb;
+  box-shadow: 0px 2px 4px 0px #e1e1e1;
   outline: none;
   padding: 20px;
   font-size: 20px;
 `;
 export const SearchButton = styled.div`
-  width: 50px;
-  height: 50px;
-  background-color: #f2f2f2;
+  width: 28%;
+  height: 40px;
+  margin: 0 auto;
+  background-color: #ffffff;
   display: flex;
   justify-content: center;
   align-items: center;
-  border-radius: 20%;
-  box-shadow: 0px 2px 1px 1px #d1cbcb;
+  border: 2px solid #008af6;
+  border-radius: 10px;
+  color: #008af6;
+  /* box-shadow: 0px 3px 11px 5px #e1e1e1; */
   cursor: pointer;
+  :hover {
+    background-color: #008af6;
+    color: white;
+  }
 `;
 
-export const Serach = styled.img`
-  width: 40px;
-  height: 40px;
+export const Serach = styled.div`
+  font-size: 18px;
+  font-weight: bold;
 `;
+export const CategoryWrap = styled.div`
+  width: 80%;
+  margin: 0 auto 40px auto;
+`;
+export const WrapperMiddle = styled.div`
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 2px solid #bbbebe6f;
+  border-top: 2px solid #bbbebe6f;
+  padding: 10px 7%;
+  margin: 70px 0 70px 0;
+`;
+export const WrapperArray = styled.div`
+  width: 20%;
+  display: flex;
+  justify-content: space-around;
+`;
+export const Array = styled.div`
+  width: 50%;
+  cursor: pointer;
+  :hover {
+    font-weight: bold;
+  }
+`;
+export const WrapperWrite = styled.div``;
 
 export const WrapperBottom = styled.div`
   width: 100%;
@@ -53,15 +100,22 @@ export const Button = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #f2f2f2;
   font-size: 18px;
-  border-radius: 30px;
-  box-shadow: 0px 2px 1px 1px #d1cbcb;
+  /* box-shadow: 0px 3px 11px 5px #e1e1e1; */
   cursor: pointer;
   :hover {
-    background-color: #008af6;
-    color: white;
+    font-weight: bold;
   }
+`;
+export const WrapperRight = styled.div`
+  width: 40%;
+  height: 100vh;
+  /* overflow-y: hidden; */
+`;
+export const Map = styled.img`
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 `;
 
 export const Wrapper = styled.div`
@@ -131,4 +185,39 @@ export const Categoty = styled.div`
 export const Title = styled.div`
   position: absolute;
   top: 10px;
+`;
+
+// 각각의 글 상세로 들어가는것 수정해본것
+export const UserContents = styled.div`
+  width: 40%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  position: relative;
+  padding-top: 20px;
+  cursor: pointer;
+`;
+export const Image = styled.img`
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 30px;
+  :hover {
+    opacity: 0.7;
+  }
+`;
+export const Heart = styled.div`
+  position: absolute;
+  top: 30px;
+  right: 20px;
+  color: white;
+  width: 20px;
+  height: 20px;
+`;
+export const ListTitle = styled.div`
+  font-size: 20px;
+  font-weight: 500;
+`;
+export const ListHometown = styled.div`
+  color: #7b7e7e;
 `;

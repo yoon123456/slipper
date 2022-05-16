@@ -17,14 +17,13 @@ const Box = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #f2f2f2;
+  background-color: #ffffff;
   font-size: 16px;
   border-radius: 30px;
-  box-shadow: 0px 2px 1px 1px #d1cbcb;
+  box-shadow: 0px 2px 4px 0px #e1e1e1;
   cursor: pointer;
   :hover {
-    background-color: #ffcfec;
-    color: white;
+    color: #008af6;
   }
   margin-right: 10px;
 `;
@@ -40,3 +39,4 @@ export default function Category() {
     </WrapperOut>
   );
 }
+// ffcfec

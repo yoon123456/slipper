@@ -1,7 +1,7 @@
 import styled from "@emotion/styled";
 
 export const WrapperOut = styled.div`
-  width: 50%;
+  width: 100%;
   margin: 0 auto;
 `;
 export const WrapperLeft = styled.div``;
@@ -75,4 +75,39 @@ export const Categoty = styled.div`
 export const Title = styled.div`
   position: absolute;
   top: 10px;
+`;
+
+// 각각의 글 상세로 들어가는것 수정해본것
+export const UserContents = styled.div`
+  width: 40%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  position: relative;
+  padding-top: 20px;
+  cursor: pointer;
+`;
+export const Image = styled.img`
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 30px;
+  :hover {
+    opacity: 0.7;
+  }
+`;
+export const Heart = styled.div`
+  position: absolute;
+  top: 30px;
+  right: 20px;
+  color: white;
+  width: 20px;
+  height: 20px;
+`;
+export const ListTitle = styled.div`
+  font-size: 20px;
+  font-weight: 500;
+`;
+export const ListHometown = styled.div`
+  color: #7b7e7e;
 `;
