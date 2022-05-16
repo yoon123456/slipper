@@ -6,7 +6,7 @@ import MypicksPresenter from "../mypicks/mypicks.presenter";
 import PaymentPresenter from "../payment/payment.presenter";
 import * as S from "./mypage.styles";
 
-export default function MyPagePresenter(props) {
+export default function MyPagePresenter(props: any) {
   return (
     <S.WrapperOut>
       <S.WrapperLeft>

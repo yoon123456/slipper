@@ -20,6 +20,7 @@ export default function Roadview() {
 
   const viewRoadview = () => {
     console.log(lat);
+    console.log(lng);
     const script = document.createElement("script");
     script.src =
       "//dapi.kakao.com/v2/maps/sdk.js?appkey=10933d05118bfc99d732e83a2814b76a&libraries=services&autoload=false";
@@ -30,8 +31,9 @@ export default function Roadview() {
         const roadviewContainer = document.getElementById("roadview");
         const roadview = new window.kakao.maps.Roadview(roadviewContainer);
         const roadviewClient = new window.kakao.maps.RoadviewClient();
-        const position = new window.kakao.maps.LatLng(lat, lng);
+        const position = new window.kakao.maps.LatLng(37.56646, 126.98121);
         //좌표(position) 정보에서 가장 가까운 로드뷰 정보 출력
+        console.log(position);
         roadviewClient.getNearestPanoId(position, 50, (panoId: any) => {
           if (panoId == null) {
             alert("로드뷰 정보가 없는 지역입니다.");

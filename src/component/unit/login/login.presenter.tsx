@@ -6,7 +6,8 @@ export default function JoinPresenter() {
       <S.WrapperOut>
         <S.WrapperIn>
           {/* <S.Join>{"Hi, I'm slipper"}</S.Join> */}
-          <S.Join>{"Welcome to Slipper"}</S.Join>
+          <S.Join>{"Hi"}</S.Join>
+          <S.Join>{"i'm slipper"}</S.Join>
           <S.Profile>
             <S.ProfileBox>
               <S.InputProfile type="text" placeholder="아이디(이메일)" />

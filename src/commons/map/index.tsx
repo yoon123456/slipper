@@ -15,7 +15,7 @@ export default function KakaoMapPage() {
         const mapContainer = document.getElementById("map");
         const mapOption = {
           center: new window.kakao.maps.LatLng(37.56646, 126.98121), // 지도의 중심좌표
-          level: 3, // 지도의 확대 레벨
+          level: 4, // 지도의 확대 레벨
           mapTypeId: window.kakao.maps.MapTypeId.ROADMAP, // 지도종류
         };
 

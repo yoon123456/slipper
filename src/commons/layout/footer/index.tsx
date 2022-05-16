@@ -2,10 +2,9 @@ import styled from "@emotion/styled";
 
 const WarpperOut = styled.div`
   width: 100%;
-  height: 17%;
+  /* height: 17%; */
   border-top: 1px solid gainsboro;
   bottom: 0%;
-  position: absolute;
 `;
 
 const WarpperIn = styled.div`
@@ -22,10 +21,13 @@ const WarpperMiddle = styled.div`
   width: 100%;
   padding-bottom: 2%;
   color: #a9a9a9;
+  font-family: "HallymGothic-Regular";
+  font-size: 1.5rem;
 `;
 const WarpperBottom = styled.div`
   width: 100%;
   display: flex;
+  padding-bottom: 3%;
 `;
 const WarpperImg = styled.div`
   display: flex;
@@ -40,24 +42,34 @@ const WarpperImgEmail = styled.div`
   display: flex;
 `;
 
-const WarpperCall = styled.div``;
-const WarpperPhoneNumber = styled.div``;
+const WarpperCall = styled.div`
+  font-family: "HallymGothic-Regular";
+`;
+const WarpperPhoneNumber = styled.div`
+  font-family: "HallymGothic-Regular";
+`;
 const WarpperPhoneBox = styled.div`
   display: column;
   justify-content: center;
   margin: auto;
   color: #a9a9a9;
   padding-left: 10px;
+  font-size: 2rem;
 `;
 
-const WarpperEmailAddress = styled.div``;
-const WarpperEmailAnswer = styled.div``;
+const WarpperEmailAddress = styled.div`
+  font-family: "HallymGothic-Regular";
+`;
+const WarpperEmailAnswer = styled.div`
+  font-family: "HallymGothic-Regular";
+`;
 const WarpperEmailBox = styled.div`
   display: column;
   justify-content: center;
   margin: auto;
   color: #a9a9a9;
   padding-left: 10px;
+  font-size: 2rem;
 `;
 const Space = styled.div`
   width: 150px;

@@ -12,7 +12,6 @@ export const WrapperOut = styled.div`
   top: 45%;
   left: 50%;
   transform: translate(-50%, -45%);
-  /* background-color: red; */
   border-radius: 41px 41px 41px 41px;
   -moz-border-radius: 41px 41px 41px 41px;
   -webkit-border-radius: 41px 41px 41px 41px;
@@ -20,6 +19,7 @@ export const WrapperOut = styled.div`
   -moz-box-shadow: 10px 10px 20px 3px rgba(214, 214, 214, 1);
   box-shadow: 10px 10px 20px 3px rgba(214, 214, 214, 1);
   margin: 0 auto;
+  padding: 2%;
 `;
 export const WrapperIn = styled.div`
   width: 80%;
@@ -27,17 +27,16 @@ export const WrapperIn = styled.div`
 `;
 export const Join = styled.div`
   text-align: center;
-  font-size: 50px;
+  font-size: 5rem;
   font-weight: bold;
   color: #008af6;
-  margin-top: 5%;
-  @media (min-width: 1024px > min-width:) {
-  }
+  /* @media (min-width: 1024px > min-width:) {
+  } */
 `;
 export const Profile = styled.div`
   /* padding-top: 10%; */
   margin: 0 auto;
-  /* border: 2px solid black; */
+  font-size: 2.5rem;
 `;
 export const ProfileBox = styled.div`
   width: 100%;
@@ -45,6 +44,7 @@ export const ProfileBox = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  padding-top: 10%;
 `;
 export const InputProfile = styled.input`
   width: 90%;
@@ -64,7 +64,7 @@ export const PasswordCheck = styled.input`
 
 export const Menu = styled.div`
   width: 100%;
-  font-size: 13px;
+  font-size: 3rem;
   color: gray;
   margin: 0 auto;
   margin-top: 5%;
@@ -76,6 +76,7 @@ export const MenuBox = styled.div`
   justify-content: space-evenly;
   align-items: center;
   margin: 0 auto;
+  padding-top: 10%;
 `;
 export const IdFind = styled.div`
   cursor: pointer;
@@ -101,6 +102,7 @@ export const Orbox = styled.div`
   justify-content: center;
   align-items: center;
   margin: 0 auto;
+  padding-top: 10%;
 `;
 export const Or = styled.div`
   margin-top: 4%;
@@ -128,7 +130,7 @@ export const SnsBox = styled.div`
 `;
 
 export const KaKao = styled.img`
-  width: 10%;
+  width: 15%;
   cursor: pointer;
   :hover {
     transform: scale(1.2);
@@ -136,7 +138,7 @@ export const KaKao = styled.img`
   }
 `;
 export const Google = styled.img`
-  width: 10%;
+  width: 18%;
   cursor: pointer;
   :hover {
     transform: scale(1.2);
@@ -144,7 +146,7 @@ export const Google = styled.img`
   }
 `;
 export const Naver = styled.img`
-  width: 10%;
+  width: 15%;
   cursor: pointer;
   :hover {
     transform: scale(1.2);
@@ -153,13 +155,13 @@ export const Naver = styled.img`
 `;
 
 export const JoinSlipper = styled.div`
-  width: 30%;
+  width: 40%;
   line-height: 2.2;
   margin: 0 auto;
   padding: 1%;
-  margin-top: 5%;
+  margin-top: 12%;
+  font-size: 1.5rem;
   text-align: center;
-  /* font-size: 13px; */
   font-weight: bold;
   color: #008af6;
   border: 2px solid #008af6;
