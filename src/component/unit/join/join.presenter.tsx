@@ -1,6 +1,6 @@
 import * as S from "./join.styles";
 
-export default function JoinPresenter() {
+export default function JoinPresenter(props: any) {
   return (
     <S.Wrapper>
       <S.WrapperLeft>
@@ -19,17 +19,14 @@ export default function JoinPresenter() {
             </S.ProfileBox>
             <S.MyImage></S.MyImage>
           </S.Profile>
-
           <S.PasswordCheck type="password" placeholder="비밀번호" />
           <S.PasswordCheck type="password" placeholder="비밀번호 확인" />
-
           <S.Check>
             <S.TelBox>
               <S.Tel type="tel" name="phone1" />-
               <S.Tel type="tel" name="phone2" />-
               <S.Tel type="tel" name="phone3" />
             </S.TelBox>
-
             <S.NumberAsk>인증번호 요청</S.NumberAsk>
           </S.Check>
           <S.CheckNumber>
@@ -37,7 +34,9 @@ export default function JoinPresenter() {
             <S.CheckEnd>인증완료</S.CheckEnd>
           </S.CheckNumber>
           <S.Introduce type="textarea" placeholder="간단한 소개글" />
-          <S.JoinSlipper>슬리퍼 신기</S.JoinSlipper>
+          <S.JoinSlipper onClick={props.onClickSlipper}>
+            슬리퍼 신기
+          </S.JoinSlipper>
         </S.WrapperIn>
       </S.WrapperOut>
     </S.Wrapper>
