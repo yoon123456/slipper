@@ -5,12 +5,14 @@ export const WrapperOut = styled.div`
   width: 50%;
   /* margin: 0 auto; */
   margin: 50px auto;
-  /* padding: 10px; */
+  padding: 10px;
   display: flex;
   flex-direction: row;
   border-radius: 40px;
-  background-color: #1d1a5c;
+  /* background-color: #1d1a5c; */
+  background-color: #008af6;
   box-shadow: 0px 0px 10px gray;
+  font-family: "HallymGothic-Regular";
 `;
 export const WrapperLeft = styled.div`
   width: 30%;
@@ -22,16 +24,26 @@ export const WrapperLeft = styled.div`
   padding-top: 50px;
   padding-bottom: 80px;
 `;
-export const Nickname = styled.div`
-  font-size: 16px;
+export const NicknameWrapper = styled.div`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+`;
+export const NicknameFront = styled.div`
+  font-size: 2.3rem;
   font-weight: bold;
+  color: white;
+`;
+export const Nickname = styled.div`
+  font-size: 2rem;
+  /* font-weight: bold; */
   color: white;
 `;
 export const ProfileImage = styled.img`
   width: 60%;
   height: 170px;
   margin: 40px;
-  background-color: gray;
+  background-color: white;
 `;
 export const MenuWrapper = styled.div`
   display: flex;
@@ -41,29 +53,36 @@ export const MenuWrapper = styled.div`
   width: 100%;
   color: white;
   text-align: center;
-  padding: 10px;
+  /* padding-left: 8%; */
+  padding: 0% 10% 0% 25%;
+  /* padding: 10px;
   padding-left: 80px;
-  padding-right: 40px;
+  padding-right: 40px; */
   height: 60px;
+  font-size: 2.3rem;
   :hover {
     /* color: #1d1a5c; */
-    background-color: #352d7b;
-    border-radius: 20px;
+    background-color: #88baf959;
+    border-radius: 30px;
     font-weight: bold;
-    font-size: 18px;
-    padding: 7px;
-    padding-left: 50px;
-    padding-right: 50px;
-    margin-left: 45px;
+    font-size: 2.5rem;
+    padding: 0% 0.5% 0% 15%;
+    width: 80%;
+    /* margin: 0% 20% 0% 20%; */
+    /* margin: 10%; */
+    /* padding: 7px;
+    padding-left: 55px;
+    padding-right: 60px; */
+    /* margin-left: 45px;
+    margin-right: 45px; */
   }
   cursor: pointer;
 `;
 export const Icon = styled.img`
   /* width: 20%; */
-  height: 70%;
+  height: 50%;
 `;
 export const MenuButton = styled.div`
-  /* font-size: 12px; */
   font-weight: bold;
   /* color: #1d1a5c; */
   width: 80%;
@@ -71,5 +90,6 @@ export const MenuButton = styled.div`
 export const WrapperRight = styled.div`
   width: 70%;
   border-radius: 40px;
-  background-color: #f5f7f9;
+  /* background-color: #f5f7f9; */
+  background-color: white;
 `;

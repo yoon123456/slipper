@@ -4,18 +4,20 @@ import { Menu, Dropdown, Button } from "antd";
 import { useMovetoPage } from "../hooks/movePage";
 
 const HamMenu = styled.div`
-  font-size: 12px;
+  font-family: "HallymGothic-Regular";
+  font-size: 1.5rem;
   text-align: center;
   font-weight: bold;
-  margin-bottom: 5px;
-  margin-top: 5px;
+  /* margin-bottom: 10px; */
+  /* margin-top: 10px; */
+  margin: 10px;
 `;
 
 const HamIcon = styled.img`
-  width: 60px;
-  height: 40px;
+  width: 80px;
+  height: 35px;
   margin: 20px;
-  padding-left: 10px;
+  padding-left: 40px;
 `;
 
 export default function Ham() {
@@ -24,21 +26,19 @@ export default function Ham() {
   const menu = (
     <Menu
       items={[
+        // {
+        //   label: (
+        //     <HamMenu onClick={onClickMoveToPage("/login")}>로그인</HamMenu>
+        //   ),
+        // },
         {
           label: (
-            <HamMenu onClick={onClickMoveToPage("/login")}>로그인</HamMenu>
+            <HamMenu onClick={onClickMoveToPage("/mypage")}>내 신발장</HamMenu>
           ),
         },
         {
           label: (
-            <HamMenu onClick={onClickMoveToPage("/mypage")}>마이페이지</HamMenu>
-          ),
-        },
-        {
-          label: (
-            <HamMenu onClick={onClickMoveToPage("/myboards")}>
-              내가 쓴 글
-            </HamMenu>
+            <HamMenu onClick={onClickMoveToPage("/mypicks")}>찜한 글</HamMenu>
           ),
         },
         {

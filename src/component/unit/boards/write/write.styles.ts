@@ -2,6 +2,7 @@
 import styled from "@emotion/styled";
 
 export const WrapperOut = styled.div`
+  font-family: "HallymGothic-Regular";
   width: 50%;
   margin: 0 auto;
   display: flex;
@@ -19,7 +20,7 @@ export const WrapperTop = styled.div`
 `;
 export const CategoryHeader = styled.div`
   width: 80px;
-  font-size: 20px;
+  font-size: 1.9rem;
   font-weight: bold;
   color: #008af6;
 `;
@@ -33,7 +34,7 @@ export const Title = styled.input`
   border: none;
   border-bottom: 1px solid #dcdcdc;
   padding: 10px;
-  font-size: 16px;
+  font-size: 1.6rem;
   outline: none;
 `;
 export const CenterRow = styled.div`
@@ -49,7 +50,7 @@ export const Period = styled.input`
   border: none;
   border-bottom: 1px solid #dcdcdc;
   padding: 10px;
-  font-size: 16px;
+  font-size: 1.6rem;
   outline: none;
 `;
 export const RatingWrapper = styled.div`
@@ -62,7 +63,7 @@ export const RatingWrapper = styled.div`
   padding-right: 20px;
 `;
 export const RatingHeader = styled.div`
-  font-size: 16px;
+  font-size: 1.6rem;
   font-weight: bold;
   color: #008af6;
 `;
@@ -98,7 +99,7 @@ export const Store = styled.input`
   border: none;
   border-bottom: 1px solid #dcdcdc;
   padding: 10px;
-  font-size: 16px;
+  font-size: 1.6rem;
   outline: none;
   margin-bottom: 20px;
 `;
@@ -107,7 +108,7 @@ export const Address = styled.input`
   border: none;
   border-bottom: 1px solid #dcdcdc;
   padding: 10px;
-  font-size: 16px;
+  font-size: 1.6rem;
   outline: none;
   margin-bottom: 20px;
 `;
@@ -127,7 +128,7 @@ export const Button = styled.div`
   height: 40px;
   padding: 5px;
   text-align: center;
-  font-size: 16px;
+  font-size: 1.6rem;
   font-weight: bold;
   color: #008af6;
   border: 2px solid #008af6;

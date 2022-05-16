@@ -10,19 +10,22 @@ export default function MyPagePresenter(props: any) {
   return (
     <S.WrapperOut>
       <S.WrapperLeft>
-        <S.Nickname>부천토박이 님의 MYPAGE</S.Nickname>
+        <S.NicknameWrapper>
+          <S.NicknameFront>부천토박이 </S.NicknameFront>
+          <S.Nickname>님의 신발장</S.Nickname>
+        </S.NicknameWrapper>
         <S.ProfileImage></S.ProfileImage>
         <S.MenuWrapper onClick={props.onClickMyinfo}>
           <S.Icon src="/image/myinfo.png"></S.Icon>
           <S.MenuButton>개인 정보</S.MenuButton>
         </S.MenuWrapper>
-        <S.MenuWrapper onClick={props.onClickMyboards}>
-          <S.Icon src="/image/myboards.png"></S.Icon>
-          <S.MenuButton>내가 쓴 글</S.MenuButton>
-        </S.MenuWrapper>
         <S.MenuWrapper onClick={props.onClickMypicks}>
           <S.Icon src="/image/mypicks.png"></S.Icon>
           <S.MenuButton>찜한 글</S.MenuButton>
+        </S.MenuWrapper>
+        <S.MenuWrapper onClick={props.onClickMyboards}>
+          <S.Icon src="/image/myboards.png"></S.Icon>
+          <S.MenuButton>내가 쓴 글</S.MenuButton>
         </S.MenuWrapper>
         <S.MenuWrapper onClick={props.onClickPayment}>
           <S.Icon src="/image/pay.png"></S.Icon>
