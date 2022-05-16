@@ -3,93 +3,73 @@ import styled from "@emotion/styled";
 
 export const WrapperOut = styled.div`
   width: 50%;
-  margin: 0 auto;
-  padding-bottom: 90px;
-  padding-top: 90px;
-`;
-export const WrapperTop = styled.div`
-  width: 100%;
+  /* margin: 0 auto; */
+  margin: 50px auto;
+  /* padding: 10px; */
   display: flex;
   flex-direction: row;
+  border-radius: 40px;
+  background-color: #1d1a5c;
+  box-shadow: 0px 0px 10px gray;
 `;
 export const WrapperLeft = styled.div`
   width: 30%;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
-  padding: 10px;
+  /* padding: 20px; */
+  padding-top: 50px;
+  padding-bottom: 80px;
+`;
+export const Nickname = styled.div`
+  font-size: 16px;
+  font-weight: bold;
+  color: white;
 `;
 export const ProfileImage = styled.img`
-  width: 100%;
-  height: 200px;
+  width: 60%;
+  height: 170px;
+  margin: 40px;
+  background-color: gray;
 `;
-export const Introduction = styled.div`
+export const MenuWrapper = styled.div`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  /* justify-content: space-between; */
   width: 100%;
-  height: 150px;
-  font-size: 16px;
-  margin-top: 20px;
-  border: 4px solid #ffcfec;
-  border-style: dashed;
-  border-radius: 15px;
+  color: white;
+  text-align: center;
   padding: 10px;
+  padding-left: 80px;
+  padding-right: 40px;
+  height: 60px;
+  :hover {
+    /* color: #1d1a5c; */
+    background-color: #352d7b;
+    border-radius: 20px;
+    font-weight: bold;
+    font-size: 18px;
+    padding: 7px;
+    padding-left: 50px;
+    padding-right: 50px;
+    margin-left: 45px;
+  }
+  cursor: pointer;
+`;
+export const Icon = styled.img`
+  /* width: 20%; */
+  height: 70%;
+`;
+export const MenuButton = styled.div`
+  /* font-size: 12px; */
+  font-weight: bold;
+  /* color: #1d1a5c; */
+  width: 80%;
 `;
 export const WrapperRight = styled.div`
   width: 70%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  padding: 10px;
-  padding-bottom: 120px;
-`;
-export const RightRow = styled.div`
-  width: 100%;
-  height: 40px;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-`;
-export const Header = styled.div`
-  width: 20%;
-  font-size: 16px;
-  font-weight: bold;
-  /* color: #ffcfec; */
-  color: #008af6;
-  text-align: center;
-`;
-export const Contents = styled.div`
-  width: 80%;
-  font-size: 16px;
-`;
-export const PaymentDetails = styled.div`
-  width: 80%;
-  height: 150px;
-  display: flex;
-  flex-direction: column;
-`;
-export const WrapperBottom = styled.div`
-  width: 100%;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-around;
-  padding-left: 250px;
-  padding-right: 250px;
-  margin-top: 40px;
-`;
-export const Button = styled.div`
-  width: 90px;
-  height: 40px;
-  padding: 5px;
-  text-align: center;
-  font-size: 16px;
-  font-weight: bold;
-  color: #008af6;
-  border: 2px solid #008af6;
-  border-radius: 17px;
-  cursor: pointer;
-  :hover {
-    background-color: #008af6;
-    color: white;
-  }
+  border-radius: 40px;
+  background-color: #f5f7f9;
 `;
