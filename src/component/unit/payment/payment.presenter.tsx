@@ -13,9 +13,15 @@ export default function PaymentPresenter() {
 
         <S.WarrapRight>
           <S.WarrapRight2>
-            <S.WarrapInRightInput3 placeholder="3달간 슬리퍼를 신어보세요!" />
-            <S.WarrapInRightInput2 placeholder="2달간 슬리퍼를 신어보세요!" />
-            <S.WarrapInRightInput1 placeholder="1달간 슬리퍼를 신어보세요!" />
+            <S.WarrapInRightInput3>
+              3달간 슬리퍼를 신어보세요!
+            </S.WarrapInRightInput3>
+            <S.WarrapInRightInput2>
+              1달간 슬리퍼를 신어보세요!
+            </S.WarrapInRightInput2>
+            <S.WarrapInRightInput1>
+              7일간 슬리퍼를 신어보세요!
+            </S.WarrapInRightInput1>
           </S.WarrapRight2>
         </S.WarrapRight>
         <S.WarrapInRightBottom>

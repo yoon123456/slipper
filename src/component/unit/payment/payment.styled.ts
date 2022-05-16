@@ -1,20 +1,21 @@
 import styled from "@emotion/styled";
 
 export const Warrap = styled.div`
-  width: 40%;
-  position: absolute;
+  width: 100%;
+
+  /* position: absolute;
   top: 45%;
   left: 50%;
-  transform: translate(-50%, -45%);
+  transform: translate(-50%, -45%); */
   display: flex;
   flex-wrap: wrap;
-  border-radius: 41px 41px 41px 41px;
+  /* border-radius: 41px 41px 41px 41px;
   -moz-border-radius: 41px 41px 41px 41px;
-  -webkit-border-radius: 41px 41px 41px 41px;
-  background-color: white;
-  -webkit-box-shadow: 10px 10px 20px 3px rgba(214, 214, 214, 1);
+  -webkit-border-radius: 41px 41px 41px 41px; */
+  /* background-color: white; */
+  /* -webkit-box-shadow: 10px 10px 20px 3px rgba(214, 214, 214, 1);
   -moz-box-shadow: 10px 10px 20px 3px rgba(214, 214, 214, 1);
-  box-shadow: 10px 10px 20px 3px rgba(214, 214, 214, 1);
+  box-shadow: 10px 10px 20px 3px rgba(214, 214, 214, 1); */
   margin: 0 auto;
 `;
 
@@ -72,34 +73,37 @@ export const WarrapRight2 = styled.div`
   align-items: center;
 `;
 
-export const WarrapInRightInput3 = styled.input`
+export const WarrapInRightInput3 = styled.div`
   width: 90%;
   height: 20%;
   border-radius: 10px;
   border: 1px solid #d4d4d4;
-  margin-bottom: 3%;
+  /* margin-bottom: 3%; */
   border: none;
   border-bottom: 1px solid gainsboro;
+  font-size: 1.5rem;
 `;
 
-export const WarrapInRightInput2 = styled.input`
+export const WarrapInRightInput2 = styled.div`
   width: 90%;
   height: 20%;
   border-radius: 10px;
   border: 1px solid #d4d4d4;
-  margin-bottom: 3%;
+  /* margin-bottom: 3%; */
   border: none;
   border-bottom: 1px solid gainsboro;
+  font-size: 1.5rem;
 `;
 
-export const WarrapInRightInput1 = styled.input`
+export const WarrapInRightInput1 = styled.div`
   width: 90%;
   height: 20%;
   border-radius: 10px;
   border: 1px solid #d4d4d4;
-  margin-bottom: 3%;
+  /* margin-bottom: 3%; */
   border: none;
   border-bottom: 1px solid gainsboro;
+  font-size: 1.5rem;
 `;
 
 export const WarrapInRightBottom = styled.div`
