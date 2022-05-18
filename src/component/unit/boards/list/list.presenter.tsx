@@ -4,19 +4,19 @@ import Category from "../../../../commons/category";
 import * as S from "./list.styles";
 import { useMovetoPage } from "../../../../commons/hooks/movePage";
 import KakaoMapPage from "../../../../commons/map";
-export default function ListPresenter() {
+import { IListPresenter } from "./list.types";
+import SearchBar from "../../../../commons/searchBar";
+export default function ListPresenter(props: IListPresenter) {
   const { onClickMoveToPage } = useMovetoPage();
 
   return (
     <S.WrapperOut>
       <S.WrapperTop>
-        <S.SearchBar type="text" placeholder="원하는 동네로 이동해보세요" />
+        <SearchBar />
         <S.CategoryWrap>
           <Category />
         </S.CategoryWrap>
-        <S.SearchButton>
-          <S.Serach>검색</S.Serach>
-        </S.SearchButton>
+        <S.SearchButton>검색</S.SearchButton>
       </S.WrapperTop>
       <S.WrapperMiddle>
         <S.WrapperWrite>
@@ -31,7 +31,7 @@ export default function ListPresenter() {
       <S.WrapperBody>
         <S.WrapperLeft>
           <S.Wrapper>
-            <S.UserContents onClick={onClickMoveToPage("/boards/edit")}>
+            <S.UserContents onClick={props.onClickDetail}>
               <S.ImageWrap>
                 <S.Image src={"/image/listimage.png"} />
                 <S.Heart src="/image/pickheart.png" />
