@@ -3,7 +3,7 @@ import MyPagePresenter from "./mypage.presenter";
 import { useState } from "react";
 
 export default function MyPageContainer() {
-  const [mypageRight, setMypageRight] = useState("");
+  const [mypageRight, setMypageRight] = useState("myinformation");
 
   const onClickMyinfo = () => {
     setMypageRight("myinformation");
@@ -13,9 +13,6 @@ export default function MyPageContainer() {
   };
   const onClickMypicks = () => {
     setMypageRight("mypicks");
-  };
-  const onClickPayment = () => {
-    setMypageRight("payment");
   };
   const onClickMypaids = () => {
     setMypageRight("mypaids");
@@ -28,7 +25,6 @@ export default function MyPageContainer() {
         onClickMyinfo={onClickMyinfo}
         onClickMyboards={onClickMyboards}
         onClickMypicks={onClickMypicks}
-        onClickPayment={onClickPayment}
         onClickMypaids={onClickMypaids}
       />
     </>

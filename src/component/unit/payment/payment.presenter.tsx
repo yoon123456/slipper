@@ -1,47 +1,44 @@
-import * as S from "./payment.styled";
+// 해리 수정 5/18
+import * as S from "./payment.styles";
 
 export default function PaymentPresenter() {
   return (
-    <>
-      <S.Warrap>
-        <S.WarrapLeft>
-          <S.WarrapLeft2>
-            <S.WarrapInLeft src="/image/searchbutton.png"></S.WarrapInLeft>
-            <S.WarrapInLeftCuponDiv />
-          </S.WarrapLeft2>
-        </S.WarrapLeft>
-
-        <S.WarrapRight>
-          <S.WarrapRight2>
-            <S.WarrapInRightInput3>
-              3달간 슬리퍼를 신어보세요!
-            </S.WarrapInRightInput3>
-            <S.WarrapInRightInput2>
-              1달간 슬리퍼를 신어보세요!
-            </S.WarrapInRightInput2>
-            <S.WarrapInRightInput1>
-              7일간 슬리퍼를 신어보세요!
-            </S.WarrapInRightInput1>
-          </S.WarrapRight2>
-        </S.WarrapRight>
-        <S.WarrapInRightBottom>
-          <S.WarrapInLeftCupon />
-          <S.WarrapInRightInput />
-          <S.WarrapInRightBtn>슬리퍼 구매</S.WarrapInRightBtn>
-        </S.WarrapInRightBottom>
-      </S.Warrap>
-    </>
+    <S.WrapperOut>
+      <S.BodyWrapper>
+        <S.Head>Choose your SLIPPER!</S.Head>
+        <S.VoucherWrapper>
+          <S.Voucher>
+            {/* <S.Explain>7일간 슬리퍼를 신어보세요!</S.Explain> */}
+            <S.ExplainRow>
+              <S.ExplainColored>7일간 </S.ExplainColored>
+              <S.Explain>슬리퍼를 신어보세요!</S.Explain>
+            </S.ExplainRow>
+            <S.Price>₩2,000</S.Price>
+            <S.Period>/ 7days</S.Period>
+            <S.Button>Get started</S.Button>
+          </S.Voucher>
+          <S.Voucher>
+            {/* <S.Explain>1달간 슬리퍼를 신어보세요!</S.Explain> */}
+            <S.ExplainRow>
+              <S.ExplainColored>1달간 </S.ExplainColored>
+              <S.Explain>슬리퍼를 신어보세요!</S.Explain>
+            </S.ExplainRow>
+            <S.Price>₩7,000</S.Price>
+            <S.Period>/ 1month</S.Period>
+            <S.Button>Get started</S.Button>
+          </S.Voucher>
+          <S.Voucher>
+            {/* <S.Explain>3달간 슬리퍼를 신어보세요!</S.Explain> */}
+            <S.ExplainRow>
+              <S.ExplainColored>3달간 </S.ExplainColored>
+              <S.Explain>슬리퍼를 신어보세요!</S.Explain>
+            </S.ExplainRow>
+            <S.Price>₩20,000</S.Price>
+            <S.Period>/ 3months</S.Period>
+            <S.Button>Get started</S.Button>
+          </S.Voucher>
+        </S.VoucherWrapper>
+      </S.BodyWrapper>
+    </S.WrapperOut>
   );
 }
-
-// <S.WarrapRight>
-// <S.WarrapInRight>
-//   <S.WarrapInput3Week placeholder="3달간 슬리퍼를 신어보세요!" />
-//   <S.WarrapInput2Week placeholder="2달간 슬리퍼를 신어보세요!" />
-//   <S.WarrapInput1Week placeholder="1달간 슬리퍼를 신어보세요!" />
-//   <S.WarrapInSplipperBox>
-//     <S.WarrapInputWeek />
-//     {/* <S.WarraPaymentButton>슬리퍼 구매!</S.WarraPaymentButton> */}
-//   </S.WarrapInSplipperBox>
-// </S.WarrapInRight>
-// </S.WarrapRight>

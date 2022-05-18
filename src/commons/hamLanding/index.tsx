@@ -54,7 +54,7 @@ export default function Ham() {
       {/* <Dropdown overlay={menu} placement="bottom" arrow> */}
       {/* <Dropdown overlay={menu} arrow> */}
       <Dropdown overlay={menu}>
-        <HamIcon src="/image/hamBorder.png" />
+        <HamIcon src="/image/hamWhite.png" />
         {/* <Button>bottom</Button> */}
       </Dropdown>
     </>

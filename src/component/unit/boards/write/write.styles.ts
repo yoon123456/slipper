@@ -3,64 +3,47 @@ import styled from "@emotion/styled";
 
 export const WrapperOut = styled.div`
   font-family: "HallymGothic-Regular";
-  width: 50%;
+  width: 100%;
   margin: 0 auto;
   display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  padding-top: 60px;
-  padding-bottom: 60px;
-`;
-export const WrapperTop = styled.div`
-  width: 100%;
-  display: flex;
   flex-direction: row;
-  align-items: center;
-  margin-bottom: 20px;
 `;
-export const CategoryHeader = styled.div`
-  width: 80px;
-  font-size: 1.9rem;
-  font-weight: bold;
+export const StepWrapperColored = styled.div`
+  width: 33.3%;
+  padding: 2%;
+  background-color: #008af6;
+  box-shadow: 3px 0px 8px 3px rgba(217, 217, 217, 1);
+  border: none;
+`;
+export const StepWrapper = styled.div`
+  width: 33.3%;
+  padding: 2%;
+  box-shadow: 14px 0px 6px -7px rgba(237, 237, 237, 1);
+  border: none;
+`;
+export const StepHead = styled.div`
+  margin-bottom: 1%;
+  font-size: 3rem;
   color: #008af6;
 `;
-export const WrapperCenter = styled.div`
-  width: 100%;
-`;
-export const Title = styled.input`
-  width: 100%;
-  margin-top: 20px;
-  margin-bottom: 20px;
-  border: none;
-  border-bottom: 1px solid #dcdcdc;
-  padding: 10px;
+export const StepExplain = styled.div`
+  margin-bottom: 7%;
   font-size: 1.6rem;
-  outline: none;
 `;
-export const CenterRow = styled.div`
+export const Head = styled.div`
+  margin-bottom: 1%;
+  font-size: 1.5rem;
+  color: #008af6;
+  /* color: white; */
+`;
+export const Input = styled.input`
   width: 100%;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-around;
-  margin-bottom: 30px;
-`;
-export const Period = styled.input`
-  width: 70%;
+  padding: 1%;
+  margin-bottom: 4%;
   border: none;
-  border-bottom: 1px solid #dcdcdc;
-  padding: 10px;
-  font-size: 1.6rem;
+  border-bottom: 1px solid gainsboro;
   outline: none;
-`;
-export const RatingWrapper = styled.div`
-  width: 30%;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-around;
-  padding-left: 20px;
-  padding-right: 20px;
+  font-size: 1.4rem;
 `;
 export const RatingHeader = styled.div`
   font-size: 1.6rem;
@@ -71,11 +54,31 @@ export const Rating = styled.img`
   width: 25px;
   height: 25px;
 `;
-export const Contents = styled.div`
+export const RatingWrapper = styled.div`
+  margin-bottom: 4%;
+`;
+export const Map = styled.img`
   width: 100%;
-  height: 300px;
-  background-color: #dcdcdc;
-  margin-bottom: 30px;
+  height: 50%;
+  margin-bottom: 5%;
+`;
+export const Store = styled.input`
+  width: 100%;
+  padding: 1%;
+  font-size: 1.4rem;
+  border: none;
+  border-bottom: 1px solid #dcdcdc;
+  outline: none;
+  margin-bottom: 5%;
+`;
+export const Address = styled.input`
+  width: 100%;
+  border: none;
+  border-bottom: 1px solid #dcdcdc;
+  padding: 10px;
+  font-size: 1.6rem;
+  outline: none;
+  margin-bottom: 20px;
 `;
 export const ImageWrapper = styled.div`
   display: flex;
@@ -88,29 +91,6 @@ export const Image = styled.div`
   width: 22%;
   height: 200px;
   background-color: #dcdcdc;
-`;
-export const Map = styled.img`
-  width: 100%;
-  height: 250px;
-  margin-bottom: 10px;
-`;
-export const Store = styled.input`
-  width: 100%;
-  border: none;
-  border-bottom: 1px solid #dcdcdc;
-  padding: 10px;
-  font-size: 1.6rem;
-  outline: none;
-  margin-bottom: 20px;
-`;
-export const Address = styled.input`
-  width: 100%;
-  border: none;
-  border-bottom: 1px solid #dcdcdc;
-  padding: 10px;
-  font-size: 1.6rem;
-  outline: none;
-  margin-bottom: 20px;
 `;
 export const WrapperBottom = styled.div`
   width: 100%;
