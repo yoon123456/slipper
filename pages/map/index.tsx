@@ -1,8 +1,8 @@
-import KakaoMapPage from "../../src/commons/kakao/map.container";
+import KeyWord from "../../src/commons/kakao/keyword/kakaomap.container";
 export default function Map() {
   return (
     <>
-      <KakaoMapPage />
+      <KeyWord />
     </>
   );
 }
