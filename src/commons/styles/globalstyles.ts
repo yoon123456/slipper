@@ -30,4 +30,11 @@ export const globalStyles = css`
     font-weight: 400;
     font-style: normal;
   }
+
+  @font-face {
+    font-family: "Luckiest Guy";
+    src: local("Luckiest Guy") url("/fonts/LuckiesGuy-Regular.woff")
+      format("woff");
+    font-display: swap;
+  }
 `;

@@ -1,4 +1,6 @@
 import { useRouter } from "next/router";
+import QuestionWriteContainer from "../question/write/questionwrite.container";
+import QuestionWritePresenter from "../question/write/questionwrite.presenter";
 import JoinPresenter from "./join.presenter";
 
 export default function JoinContainer() {
@@ -9,5 +11,9 @@ export default function JoinContainer() {
   };
   // setTimeout(onClickSlipper, 1000);
 
-  return <JoinPresenter onClickSlipper={onClickSlipper} />;
+  return (
+    <>
+      <JoinPresenter onClickSlipper={onClickSlipper} />
+    </>
+  );
 }
