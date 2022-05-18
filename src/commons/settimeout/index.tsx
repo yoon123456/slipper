@@ -41,7 +41,7 @@ export default function SetTimeOut() {
   const router = useRouter();
 
   const onClickSlipper = () => {
-    router.push(`/boards`);
+    router.push(`/login`);
   };
   setTimeout(onClickSlipper, 3000);
 

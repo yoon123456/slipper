@@ -47,4 +47,5 @@ export const Write = styled.div`
   text-align: center;
   background-color: ${(props: IWriteButtonProps) =>
     props.isActive ? "#008af6" : "none"};
+  color: ${(props: IWriteButtonProps) => (props.isActive ? "white" : "black")};
 `;
