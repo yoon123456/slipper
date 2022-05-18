@@ -94,7 +94,7 @@ export const Array = styled.div`
   }
 `;
 export const WrapperWrite = styled.div`
-  width: 40%;
+  width: 42%;
   display: flex;
   align-items: center;
 `;
@@ -107,7 +107,7 @@ export const WrapperBottom = styled.div`
 `;
 
 export const Button = styled.div`
-  width: 8%;
+  width: 10%;
   height: 35px;
   display: flex;
   align-items: center;
