@@ -32,27 +32,18 @@ export const WrapperBody = styled.div`
   display: flex;
   width: 90%;
 `;
-export const SearchBar = styled.input`
-  width: 100%;
-  height: 50px;
-  background-color: #ffffff;
-  border: none;
-  border-radius: 10px;
-  box-shadow: 0px 2px 4px 0px #e1e1e1;
-  outline: none;
-  padding: 20px;
-  font-size: 2rem;
-`;
 export const SearchButton = styled.div`
   width: 15%;
   height: 40px;
   margin: 0 auto;
   background-color: #ffffff;
+  display: flex;
   justify-content: center;
   align-items: center;
   border: 2px solid #008af6;
   border-radius: 10px;
   color: #008af6;
+  font-size: 1.8rem;
   cursor: pointer;
   :hover {
     background-color: #008af6;
@@ -78,25 +69,27 @@ export const WrapperMiddle = styled.div`
   justify-content: flex-start;
   align-items: center;
   padding: 2% 7%;
+  margin: 0;
 `;
-export const WrapperArray = styled.div`
-  width: 8%;
+export const WrapperWrite = styled.div`
+  width: 20%;
   display: flex;
-  justify-content: space-around;
+  align-items: center;
+`;
+
+export const WrapperArray = styled.div`
+  width: 45%;
+  display: flex;
+  justify-content: center;
 `;
 export const Array = styled.div`
-  width: 50%;
+  width: 10%;
   text-align: end;
   font-size: 1.2rem;
   cursor: pointer;
   :hover {
     font-size: 1.4rem;
   }
-`;
-export const WrapperWrite = styled.div`
-  width: 42%;
-  display: flex;
-  align-items: center;
 `;
 
 export const WrapperBottom = styled.div`
@@ -107,11 +100,11 @@ export const WrapperBottom = styled.div`
 `;
 
 export const Button = styled.div`
-  width: 10%;
+  width: 15%;
   height: 35px;
   display: flex;
   align-items: center;
-  font-size: 1.8rem;
+  font-size: 1.5rem;
   cursor: pointer;
   :hover {
     font-weight: bold;
@@ -124,7 +117,6 @@ export const WrapperRight = styled.div`
   width: 45%;
   height: 100vh;
   margin-left: 5%;
-  /* overflow-y: hidden; */
 `;
 export const Map = styled.img`
   width: 100%;
