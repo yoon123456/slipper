@@ -1,10 +1,38 @@
+import styled from "@emotion/styled";
 import { useEffect, useState } from "react";
-
+import Roadview from "../map/roadview";
+import Keyword from "./keyword";
 declare const window: typeof globalThis & {
   kakao: any;
 };
 
+const Button = styled.button`
+  position: absolute;
+  width: 3%;
+  height: 3%;
+  z-index: 2;
+`;
+
+const ButtonView = styled.button`
+  position: absolute;
+  width: 3%;
+  height: 3%;
+  left: 3%;
+  z-index: 2;
+`;
+
+const Div = styled.div`
+  display: flex;
+  z-index: 2;
+`;
+
 export default function KakaoMapPage() {
+  const [isActive, setIsActive] = useState(false);
+
+  // const onClickFlag = () => {
+  //   setIsActive(true);
+  // };
+
   function locationLoadSuccess(pos: any) {
     const script = document.createElement("script");
     script.src =
@@ -43,23 +71,36 @@ export default function KakaoMapPage() {
       locationLoadSuccess,
       locationLoadError
     );
+
+    setIsActive(false);
   }
 
   function locationLoadError(pos: any) {
     alert("위치 정보를 가져오는데 실패했습니다.");
   }
 
-  return (
-    <div>
-      <button type="button" onClick={getCurrentPosBtn}>
-        현재위치
-      </button>
+  // useEffect(() => {
+  //   if (!isActive) getCurrentPosBtn();
+  // });
 
-      <div
-        id="map"
-        style={{ width: "1000px", height: "400px", display: "block" }}
-      ></div>
-    </div>
+  return (
+    <Div>
+      {/* <Roadview isActive={isActive} setIsActive={setIsActive} /> */}
+      <Button type="button" onClick={getCurrentPosBtn}>
+        현재위치
+      </Button>
+      {isActive ? (
+        <div
+          id="map"
+          style={{ width: "0px", height: "400px", display: "block" }}
+        ></div>
+      ) : (
+        <div
+          id="map"
+          style={{ width: "950px", height: "1060px", display: "block" }}
+        ></div>
+      )}
+    </Div>
   );
 }
 

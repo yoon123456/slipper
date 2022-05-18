@@ -21,5 +21,6 @@
     "**/*.tsx",
     "src/commons/layout/header/header.queries.ts"
   ],
-  "exclude": ["node_modules"]
+  "exclude": ["node_modules"],
+  "types": ["kakao.maps.d.ts"]
 }
