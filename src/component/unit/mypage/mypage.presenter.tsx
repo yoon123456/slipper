@@ -1,12 +1,13 @@
 // 해리 작업 5/13
-import MyBoardsPresenter from "../myboards/myboards.presenter";
 import MyinformationPresenter from "../myinformation/myinformation.presenter";
-import MypaidsPresenter from "../mypaids/mypaids.presenter";
+import MyBoardsPresenter from "../myboards/myboards.presenter";
 import MypicksPresenter from "../mypicks/mypicks.presenter";
 import PaymentPresenter from "../payment/payment.presenter";
+import MypaidsPresenter from "../mypaids/mypaids.presenter";
 import * as S from "./mypage.styles";
 
 export default function MyPagePresenter(props: any) {
+  // console.log(props.hamMypageRight);
   return (
     <S.WrapperOut>
       <S.WrapperLeft>
@@ -37,11 +38,16 @@ export default function MyPagePresenter(props: any) {
         </S.MenuWrapper>
       </S.WrapperLeft>
       <S.WrapperRight>
-        {props.openMyinfo && <MyinformationPresenter />}
-        {props.openMyboards && <MyBoardsPresenter />}
-        {props.openMypicks && <MypicksPresenter />}
-        {props.openPayment && <PaymentPresenter />}
-        {props.openMypaids && <MypaidsPresenter />}
+        {(props.mypageRight === "myinformation" ||
+          props.hamMypageRight === "myinformation") && (
+          <MyinformationPresenter />
+        )}
+        {props.mypageRight === "myboards" && <MyBoardsPresenter />}
+        {(props.mypageRight === "mypicks" ||
+          props.hamMypageRight === "mypicks") && <MypicksPresenter />}
+        {(props.mypageRight === "payment" ||
+          props.hamMypageRight === "payment") && <PaymentPresenter />}
+        {props.mypageRight === "mypaids" && <MypaidsPresenter />}
       </S.WrapperRight>
     </S.WrapperOut>
   );
