@@ -1,5 +1,12 @@
 import styled from "@emotion/styled";
-import { Map, MapMarker, MapTypeId, MapInfoWindow } from "react-kakao-maps-sdk";
+import {
+  Map,
+  MapMarker,
+  MapTypeId,
+  MapInfoWindow,
+  Roadview,
+  CustomOverlayRoadview,
+} from "react-kakao-maps-sdk";
 export const War = styled.div`
   width: 100%;
   height: 100%;
@@ -52,3 +59,5 @@ export const KaoKaoMessage = styled.div`
   }
 `;
 export const KaoKaoMapInfoWindow = styled(MapInfoWindow)``;
+export const kaoKaoRoadview = styled(Roadview)``;
+export const kaoKaoCustomOverlayRoadview = styled(CustomOverlayRoadview)``;

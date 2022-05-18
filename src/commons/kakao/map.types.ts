@@ -11,12 +11,19 @@ export interface KaoKaoMap {
   lat: any;
   lng: any;
   isActive: boolean;
+  isRoadview: boolean;
   onClickTrrapic: () => void;
-  // data?: Pick<IQuery, "fetchUseditem">;
+  onClickRoadView: () => void;
+  onErrorGetNearestPanoId?: (target: kakao.maps.Roadview) => void;
+  onPositionChanged?: (target: kakao.maps.Roadview) => void;
 }
 
 export interface IProsFlag {
   isActive: boolean;
+}
+
+export interface RoadViewPorps {
+  position: any;
 }
 
 // export interface ProductIprops {
