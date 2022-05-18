@@ -73,10 +73,11 @@ export const TelBox = styled.div`
   width: 35%;
 `;
 export const Tel = styled.input`
-  width: 30%;
-  height: 25px;
-  border: none;
+  width: 90%;
+  height: 30px;
   border: 1px solid gainsboro;
+  margin-right: 20pxs;
+  border-radius: 5px;
 `;
 export const NumberAsk = styled.div`
   width: 100px;
@@ -116,7 +117,7 @@ export const Introduce = styled.input`
   border: none;
   border: 2px solid gainsboro;
 `;
-export const JoinSlipper = styled.div`
+export const JoinSlipper = styled.button`
   width: 20%;
   height: 50px;
   line-height: 2.2;
@@ -135,3 +136,4 @@ export const JoinSlipper = styled.div`
     color: white;
   }
 `;
+export const Error = styled.span``;

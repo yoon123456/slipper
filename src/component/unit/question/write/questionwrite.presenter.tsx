@@ -8,7 +8,11 @@ export default function QuestionWritePresenter(props: IQuestionWritePresenter) {
         <S.Person src="/image/person.png"></S.Person>
       </S.PersonBox>
       <S.RightBox>
-        <S.QuestionInput type="text" onChange={props.onChangeQuestion} />
+        <S.QuestionInput
+          type="text"
+          onChange={props.onChangeQuestion}
+          placeholder="댓글 추가..."
+        />
         <S.Box isActive={props.isActive}>
           <S.ButtonBox>
             <S.Cancel>취소</S.Cancel>

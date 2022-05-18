@@ -33,8 +33,9 @@ export const globalStyles = css`
 
   @font-face {
     font-family: "Luckiest Guy";
-    src: local("Luckiest Guy") url("/fonts/LuckiesGuy-Regular.woff")
-      format("woff");
+    src: url("https://fonts.googleapis.com/css2?family=Luckiest+Guy&display=swap%27")
+      /* src: local("Luckiest Guy") url("/fonts/LuckiesGuy-Regular.woff") */
+      format("woff2");
     font-display: swap;
   }
 `;
