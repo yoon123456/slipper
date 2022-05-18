@@ -99,7 +99,7 @@ export const ButtonWrapper = styled.div`
   flex-direction: row;
   align-items: center;
   justify-content: space-around;
-  margin-top: 130px;
+  margin-top: 80px;
   /* padding-top: 100px; */
   padding-left: 200px;
   padding-right: 200px;

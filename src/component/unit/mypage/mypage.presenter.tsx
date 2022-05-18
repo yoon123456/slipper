@@ -2,7 +2,6 @@
 import MyinformationPresenter from "../myinformation/myinformation.presenter";
 import MyBoardsPresenter from "../myboards/myboards.presenter";
 import MypicksPresenter from "../mypicks/mypicks.presenter";
-import PaymentPresenter from "../payment/payment.presenter";
 import MypaidsPresenter from "../mypaids/mypaids.presenter";
 import * as S from "./mypage.styles";
 
@@ -16,7 +15,7 @@ export default function MyPagePresenter(props: any) {
           <S.Nickname>님의 신발장</S.Nickname>
         </S.NicknameWrapper>
         <S.ProfileImage></S.ProfileImage>
-        <S.MenuWrapper onClick={props.onClickMyinfo}>
+        <S.MenuWrapper id="myinfoBtn" onClick={props.onClickMyinfo}>
           <S.Icon src="/image/myinfo.png"></S.Icon>
           <S.MenuButton>개인 정보</S.MenuButton>
         </S.MenuWrapper>
@@ -28,25 +27,15 @@ export default function MyPagePresenter(props: any) {
           <S.Icon src="/image/myboards.png"></S.Icon>
           <S.MenuButton>내가 쓴 글</S.MenuButton>
         </S.MenuWrapper>
-        <S.MenuWrapper onClick={props.onClickPayment}>
-          <S.Icon src="/image/pay.png"></S.Icon>
-          <S.MenuButton>결제하기</S.MenuButton>
-        </S.MenuWrapper>
         <S.MenuWrapper onClick={props.onClickMypaids}>
           <S.Icon src="/image/mypaids.png"></S.Icon>
           <S.MenuButton>결제내역</S.MenuButton>
         </S.MenuWrapper>
       </S.WrapperLeft>
       <S.WrapperRight>
-        {(props.mypageRight === "myinformation" ||
-          props.hamMypageRight === "myinformation") && (
-          <MyinformationPresenter />
-        )}
+        {props.mypageRight === "myinformation" && <MyinformationPresenter />}
         {props.mypageRight === "myboards" && <MyBoardsPresenter />}
-        {(props.mypageRight === "mypicks" ||
-          props.hamMypageRight === "mypicks") && <MypicksPresenter />}
-        {(props.mypageRight === "payment" ||
-          props.hamMypageRight === "payment") && <PaymentPresenter />}
+        {props.mypageRight === "mypicks" && <MypicksPresenter />}
         {props.mypageRight === "mypaids" && <MypaidsPresenter />}
       </S.WrapperRight>
     </S.WrapperOut>

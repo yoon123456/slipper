@@ -30,12 +30,12 @@ export const NicknameWrapper = styled.div`
   align-items: center;
 `;
 export const NicknameFront = styled.div`
-  font-size: 2.3rem;
+  font-size: 2rem;
   font-weight: bold;
   color: white;
 `;
 export const Nickname = styled.div`
-  font-size: 2rem;
+  font-size: 1.8rem;
   /* font-weight: bold; */
   color: white;
 `;
