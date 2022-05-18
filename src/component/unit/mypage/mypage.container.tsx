@@ -3,64 +3,34 @@ import MyPagePresenter from "./mypage.presenter";
 import { useState } from "react";
 
 export default function MyPageContainer() {
-  const [openMyinfo, setOpenMyinfo] = useState(true);
-  const [openMyboards, setOpenMyboards] = useState(false);
-  const [openMypicks, setOpenMypicks] = useState(false);
-  const [openPayment, setOpenPayment] = useState(false);
-  const [openMypaids, setOpenMypaids] = useState(false);
+  const [mypageRight, setMypageRight] = useState("");
 
   const onClickMyinfo = () => {
-    setOpenMyinfo(true);
-    setOpenMyboards(false);
-    setOpenMypicks(false);
-    setOpenPayment(false);
-    setOpenMypaids(false);
+    setMypageRight("myinformation");
   };
-
   const onClickMyboards = () => {
-    setOpenMyinfo(false);
-    setOpenMyboards(true);
-    setOpenMypicks(false);
-    setOpenPayment(false);
-    setOpenMypaids(false);
+    setMypageRight("myboards");
   };
-
   const onClickMypicks = () => {
-    setOpenMyinfo(false);
-    setOpenMyboards(false);
-    setOpenMypicks(true);
-    setOpenPayment(false);
-    setOpenMypaids(false);
+    setMypageRight("mypicks");
   };
-
   const onClickPayment = () => {
-    setOpenMyinfo(false);
-    setOpenMyboards(false);
-    setOpenMypicks(false);
-    setOpenPayment(true);
-    setOpenMypaids(false);
+    setMypageRight("payment");
   };
-
   const onClickMypaids = () => {
-    setOpenMyinfo(false);
-    setOpenMyboards(false);
-    setOpenMypicks(false);
-    setOpenPayment(false);
-    setOpenMypaids(true);
+    setMypageRight("mypaids");
   };
 
   return (
-    <MyPagePresenter
-      openMyinfo={openMyinfo}
-      openMyboards={openMyboards}
-      openMypicks={openMypicks}
-      openPayment={openPayment}
-      openMypaids={openMypaids}
-      onClickMyinfo={onClickMyinfo}
-      onClickMyboards={onClickMyboards}
-      onClickMypicks={onClickMypicks}
-      onClickPayment={onClickPayment}
-      onClickMypaids={onClickMypaids}
-    />
+    <>
+      <MyPagePresenter
+        mypageRight={mypageRight}
+        onClickMyinfo={onClickMyinfo}
+        onClickMyboards={onClickMyboards}
+        onClickMypicks={onClickMypicks}
+        onClickPayment={onClickPayment}
+        onClickMypaids={onClickMypaids}
+      />
+    </>
   );
 }

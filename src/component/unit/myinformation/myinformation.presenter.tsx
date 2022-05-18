@@ -1,6 +1,5 @@
 // 해리 작업 5/15
 import { useState } from "react";
-import MyPagePresenter from "../mypage/mypage.presenter";
 import * as S from "./myinformation.styles";
 
 export default function MyinformationPresenter() {
