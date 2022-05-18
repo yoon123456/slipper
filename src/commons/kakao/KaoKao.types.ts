@@ -5,15 +5,14 @@
 //   UseFormGetValues,
 //   UseFormHandleSubmit,
 // } from "react-hook-form";
-import { IQuery } from "../../commons/types/generated/types";
+import { IQuery } from "../types/generated/types";
 
 export interface KaoKaoMap {
-  address: string;
-  setLat: any;
-  setLng: any;
   lat: any;
   lng: any;
-  data?: Pick<IQuery, "fetchUseditem">;
+  isActive: boolean;
+  onClickTrrapic: () => void;
+  // data?: Pick<IQuery, "fetchUseditem">;
 }
 
 export interface IProsFlag {

@@ -1,10 +1,8 @@
-import KakaoMapPage from "../../src/commons/map/index";
-import Roadview from "../../src/commons/map/roadview";
+import KakaoMapPage from "../../src/commons/kakao/map.container";
 export default function Map() {
   return (
     <>
       <KakaoMapPage />
-      <Roadview />
     </>
   );
 }

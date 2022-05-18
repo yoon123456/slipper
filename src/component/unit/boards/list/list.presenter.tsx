@@ -3,7 +3,7 @@
 import Category from "../../../../commons/category";
 import * as S from "./list.styles";
 import { useMovetoPage } from "../../../../commons/hooks/movePage";
-
+import KakaoMapPage from "../../../../commons/map";
 export default function ListPresenter() {
   const { onClickMoveToPage } = useMovetoPage();
 
@@ -101,7 +101,8 @@ export default function ListPresenter() {
           <S.WrapperBottom></S.WrapperBottom>
         </S.WrapperLeft>
         <S.WrapperRight>
-          <S.Map src={"/image/mapimage.png"} />
+          {/* <S.Map src={"/image/mapimage.png"} /> */}
+          <KakaoMapPage />
         </S.WrapperRight>
       </S.WrapperBody>
     </S.WrapperOut>
