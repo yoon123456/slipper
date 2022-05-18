@@ -31,6 +31,10 @@ const Typing = styled.div`
   border-right: 3px solid;
   font-family: "HallymGothic-Regular";
   font-size: 3rem;
+  margin-bottom: 200px;
+  font-style: italic;
+  background-color: #008af6;
+  color: white;
 `;
 
 export default function SetTimeOut() {
