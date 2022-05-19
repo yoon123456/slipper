@@ -63,6 +63,7 @@ export const MyImage = styled.div`
 export const Check = styled.div`
   display: flex;
   padding-top: 30px;
+  align-items: center;
 `;
 export const CheckNumber = styled.div`
   display: flex;
@@ -79,12 +80,16 @@ export const Tel = styled.input`
   margin-right: 20pxs;
   border-radius: 5px;
 `;
-export const NumberAsk = styled.div`
+export const NumberAsk = styled.button`
   width: 100px;
   line-height: 3;
   text-align: center;
   background-color: #f2f2f2;
+  border: none;
   border-radius: 10px;
+`;
+export const NumberBox = styled.div`
+  margin-left: 3%;
 `;
 
 export const Input = styled.input`
@@ -123,10 +128,12 @@ export const JoinSlipper = styled.button`
   line-height: 2.2;
   margin: 0 auto;
   padding: 5px;
-  margin-top: 30px;
+  margin-top: 8%;
+  margin-left: 40%;
   text-align: center;
   font-size: 1.6rem;
   font-weight: bold;
+  background-color: white;
   color: #008af6;
   border: 2px solid #008af6;
   border-radius: 25px;

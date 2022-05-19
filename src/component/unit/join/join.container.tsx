@@ -13,9 +13,9 @@ const schema = yup.object({
   email: yup
     .string()
     .matches(
-      /^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$/
+      /^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$/,
+      "이메일 형식이 적합하지 않습니다"
     )
-    .email("이메일 형식이 적합하지 않습니다")
     .required("이메일은 필수입력사항 입니다"),
 
   pw: yup
@@ -45,6 +45,8 @@ export default function JoinContainer() {
   });
   const [phoneNum, setPhoneNum] = useState("");
   const [proofNum, setProofNum] = useState("");
+  const [flag, setFlag] = useState(false);
+  const [isActive, setIsActive] = useState(true);
   // mutation 적어줄 자리
   const [createUser] = useMutation(CREATE_USER);
   const [getToken] = useMutation(GET_TOKEN);
@@ -52,10 +54,14 @@ export default function JoinContainer() {
 
   const onChangePhoneNum = (event: ChangeEvent<HTMLInputElement>) => {
     setPhoneNum(event.target.value);
+    if (event.target.value.length === 11) {
+      setIsActive(false);
+    }
   };
   const onChangeProofNum = (event: ChangeEvent<HTMLInputElement>) => {
     setProofNum(event.target.value);
   };
+
   const onClickGetToken = async () => {
     try {
       await getToken({
@@ -67,7 +73,9 @@ export default function JoinContainer() {
     } catch (error) {
       alert(error);
     }
+    setFlag(true);
   };
+
   const onClickCheckProof = async () => {
     try {
       await proofToken({
@@ -115,6 +123,9 @@ export default function JoinContainer() {
         onChangeProofNum={onChangeProofNum}
         onClickGetToken={onClickGetToken}
         onClickCheckProof={onClickCheckProof}
+        phoneNum={phoneNum}
+        flag={flag}
+        isActive={isActive}
       />
     </>
   );
