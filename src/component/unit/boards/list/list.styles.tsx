@@ -100,7 +100,7 @@ export const WrapperBottom = styled.div`
 `;
 
 export const Button = styled.div`
-  width: 15%;
+  width: 20%;
   height: 35px;
   display: flex;
   align-items: center;

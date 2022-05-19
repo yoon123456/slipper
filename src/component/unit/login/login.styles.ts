@@ -61,7 +61,10 @@ export const PasswordCheck = styled.input`
   padding: 10px;
   margin: 10px;
 `;
-
+export const Error = styled.div`
+  color: red;
+  font-size: 1rem;
+`;
 export const Menu = styled.div`
   width: 100%;
   font-size: 3rem;
@@ -154,7 +157,13 @@ export const Naver = styled.img`
   }
 `;
 
-export const JoinSlipper = styled.div`
+export const JoinWrap = styled.div`
+  width: 100%;
+  display: flex;
+  justify-content: center;
+`;
+
+export const JoinSlipper = styled.button`
   width: 40%;
   line-height: 2.2;
   margin: 0 auto;
@@ -164,6 +173,7 @@ export const JoinSlipper = styled.div`
   text-align: center;
   font-weight: bold;
   color: #008af6;
+  background-color: white;
   border: 2px solid #008af6;
   border-radius: 25px;
   cursor: pointer;
