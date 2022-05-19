@@ -1,25 +1,29 @@
+import _ from "lodash";
 import Script from "next/script";
 import { ChangeEvent, useEffect, useState } from "react";
 import KakaomapPresenter from "./kakaomap.presenter";
+import { KaoKeyWord } from "./kakaomap.types";
 
-export default function KaKaoMapContainer() {
+export default function KaKaoMapContainer(props: KaoKeyWord) {
   const [info, setInfo] = useState();
   const [lat, setLat] = useState("");
   const [lng, setLng] = useState("");
   const [markers, setMarkers] = useState([]);
   const [map, setMap] = useState();
   const [keyword, setKeyword] = useState("");
+  const getDebounce = _.debounce((data: string) => {
+    props.onChangeKeyword(data);
+  }, 200);
 
-  const onChangeKeyword = (e: any) => {
-    e.preventDefault();
-    setKeyword(e.target.value);
-  };
-  // console.log(keyword);
+  function onChangeSearchbar(event: ChangeEvent<HTMLInputElement>) {
+    getDebounce(event.target.value);
+    setKeyword(event.target.value);
+  }
   useEffect(() => {
     if (!map) return;
     const ps = new kakao.maps.services.Places();
-
-    ps.keywordSearch("북가좌", (data, status, _pagination) => {
+    const ss = keyword.replaceAll(keyword, `${keyword}`);
+    ps.keywordSearch(ss, (data, status, _pagination) => {
       if (status === kakao.maps.services.Status.OK) {
         const bounds = new kakao.maps.LatLngBounds();
         let markers = [];
@@ -32,8 +36,7 @@ export default function KaKaoMapContainer() {
             },
             content: data[i].place_name,
           });
-
-          // @ts-ignore
+          // @ts-ignore~
           bounds.extend(new kakao.maps.LatLng(data[i].y, data[i].x));
           setLat(data[i].y);
           setLng(data[i].x);
@@ -52,10 +55,9 @@ export default function KaKaoMapContainer() {
       lng={lng}
       setMap={setMap}
       markers={markers}
+      onChangeSearchbar={onChangeSearchbar}
       info={info}
       setInfo={setInfo}
-      onChangeKeyword={onChangeKeyword}
-      keyword={keyword}
     />
   );
 }

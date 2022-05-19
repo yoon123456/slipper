@@ -14,3 +14,7 @@ export const KakaoMapTypeId = styled(MapTypeId)``;
 export const KakaoMapInfoWindow = styled(MapInfoWindow)``;
 export const KakaoMapRoadview = styled(Roadview)``;
 export const KakaoCustomOverlayRoadview = styled(CustomOverlayRoadview)``;
+export const KaKaoWarp = styled.div`
+  width: 100%;
+  height: 100vh;
+`;

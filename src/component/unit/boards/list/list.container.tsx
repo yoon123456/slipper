@@ -12,7 +12,7 @@ export default function ListContainer() {
   const { onClickMoveToPage } = useMovetoPage();
   const [isMapActive, setIsMapActive] = useState(false);
   const [isClickedNum, setIsClickedNum] = useRecoilState(isClickedNumState);
-
+  const [keyword, setKeyword] = useState(""); // Chan 검색기능 추가
   const onClickDetail = () => {
     setIsClickedNum((prev) => prev + 1);
     localStorage.setItem("isClickedNum", String(isClickedNum));
@@ -30,10 +30,16 @@ export default function ListContainer() {
     setIsMapActive(true);
   };
 
+  //chan 검색 기능 추가 22.05.19
+  function onChangeKeyword(value: string) {
+    setKeyword(value);
+  }
+
   return (
     <ListPresenter
       onClickDetail={onClickDetail}
       onClickSearch={onClickSearch}
+      onChangeKeyword={onChangeKeyword}
     />
   );
 }

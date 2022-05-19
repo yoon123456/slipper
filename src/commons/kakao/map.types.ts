@@ -16,6 +16,7 @@ export interface KaoKaoMap {
   onClickRoadView: () => void;
   onErrorGetNearestPanoId?: (target: kakao.maps.Roadview) => void;
   onPositionChanged?: (target: kakao.maps.Roadview) => void;
+  onclickGeoLocation?: () => void;
 }
 
 export interface IProsFlag {

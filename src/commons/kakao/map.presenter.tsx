@@ -23,7 +23,7 @@ export default function MapView(props: KaoKaoMap) {
           style={{
             // 지도의 크기
             width: "100%",
-            height: "400px",
+            height: "50%",
           }}
           level={3} // 지도의 확대 레벨
         >
@@ -51,6 +51,7 @@ export default function MapView(props: KaoKaoMap) {
           )}
           <button onClick={props.onClickTrrapic}>교통정보</button>
           <button onClick={props.onClickRoadView}>로드뷰</button>
+          <button onClick={props.onclickGeoLocation}>현재위치</button>
         </S.KakaoMap>
         {props.isRoadview ? (
           <S.kaoKaoRoadview // 로드뷰를 표시할 Container
@@ -62,7 +63,7 @@ export default function MapView(props: KaoKaoMap) {
             }}
             style={{
               width: "100%",
-              height: "450px",
+              height: "50%",
             }}
             onErrorGetNearestPanoId={props.onErrorGetNearestPanoId}
           >

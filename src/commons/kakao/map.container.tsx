@@ -22,6 +22,16 @@ export default function KakaoMapPage() {
     setIsRoadview(true);
   };
 
+  const onclickGeoLocation = () => {
+    const handleSuccess = (pos: any) => {
+      const { latitude, longitude } = pos.coords;
+      setLat(latitude);
+      setLng(longitude);
+    };
+    const { geolocation } = navigator;
+    geolocation.getCurrentPosition(handleSuccess);
+  };
+
   useEffect(() => {
     const handleSuccess = (pos: any) => {
       const { latitude, longitude } = pos.coords;
@@ -41,6 +51,7 @@ export default function KakaoMapPage() {
       isRoadview={isRoadview}
       onClickTrrapic={onClickTrrapic}
       onClickRoadView={onClickRoadView}
+      onclickGeoLocation={onclickGeoLocation}
     />
   );
 }
