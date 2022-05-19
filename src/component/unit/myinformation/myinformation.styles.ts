@@ -10,17 +10,15 @@ export const WrapperRight = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  padding: 100px 40px 0px 10px;
+  /* padding: 100px 40px 0px 10px; */
 `;
 export const Body = styled.div`
   width: 100%;
-  /* height: 100%; */
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-  /* padding-top: 60px; */
-  /* padding-bottom: 100px; */
-  margin-top: 50px;
+  margin-top: 7%;
+  padding-right: 3%;
 `;
 export const BodyRow = styled.div`
   width: 100%;
@@ -32,40 +30,44 @@ export const BodyRow = styled.div`
   margin-bottom: 30px;
 `;
 export const Header = styled.div`
-  width: 20%;
+  width: 15%;
   font-size: 1.6rem;
   font-weight: bold;
   /* color: #ffcfec; */
   color: #008af6;
   text-align: center;
 `;
+export const ProfileImgEdit = styled.img`
+  width: 20%;
+  height: 150px;
+  margin-right: 65%;
+  background-color: #f5f7f9;
+  border: none;
+  border-radius: 10px;
+`;
 export const Contents = styled.div`
-  width: 80%;
+  width: 85%;
   height: 40px;
   font-size: 1.4rem;
-  color: black;
-  /* box-shadow: 0px 0px 5px gray; */
   border-radius: 10px;
-  padding: 1.5%;
-  padding-left: 2%;
+  padding: 1.3%;
+  /* padding-left: 2%; */
   background-color: #f5f7f9;
 `;
 export const ContentsEdit = styled.input`
-  width: 80%;
+  width: 85%;
   height: 40px;
   font-size: 1.4rem;
   color: black;
-  /* box-shadow: 0px 0px 5px gray; */
   border-radius: 10px;
-  padding: 1.5%;
-  /* padding-left: 16px; */
+  padding: 1.4%;
   background-color: #f5f7f9;
   border: none;
   outline: none;
 `;
 export const Introduction = styled.div`
-  width: 80%;
-  height: 150px;
+  width: 85%;
+  height: 260px;
   overflow: scroll;
   ::-webkit-scrollbar {
     display: none;
@@ -78,7 +80,7 @@ export const Introduction = styled.div`
   background-color: #f5f7f9;
 `;
 export const IntroductionEdit = styled.input`
-  width: 80%;
+  width: 85%;
   height: 150px;
   overflow: scroll;
   ::-webkit-scrollbar {
@@ -99,7 +101,7 @@ export const ButtonWrapper = styled.div`
   flex-direction: row;
   align-items: center;
   justify-content: space-around;
-  margin-top: 80px;
+  margin-top: 7%;
   /* padding-top: 100px; */
   padding-left: 200px;
   padding-right: 200px;

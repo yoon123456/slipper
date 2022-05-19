@@ -7,7 +7,10 @@ export default function WritePresenter(props) {
   return (
     <S.WrapperOut>
       <S.StepWrapper>
-        <S.StepHead>Step1</S.StepHead>
+        <S.StepHeadWrapper>
+          <S.StepImg src="/image/writeSlipper.png" />
+          <S.StepHead>Step1</S.StepHead>
+        </S.StepHeadWrapper>
         <S.StepExplain>거주기간, 만족도, 내용을 작성해주세요</S.StepExplain>
         <S.Head>거주기간</S.Head>
         <S.Input placeholder="거주기간을 입력해주세요."></S.Input>
@@ -22,31 +25,44 @@ export default function WritePresenter(props) {
             style={{ width: 22, height: 22 }}
           ></S.Rating>
         </S.RatingWrapper>
-        <S.Head>카테고리</S.Head>
+        <S.HeadCategory>카테고리</S.HeadCategory>
         <Category />
-        <S.Head>내용</S.Head>
+        <S.HeadContents>내용</S.HeadContents>
         <props.ReactQuill style={{ height: 200 }} />
       </S.StepWrapper>
       <S.StepWrapper>
-        <S.StepHead>Step2</S.StepHead>
-        <S.StepExplain>가게 위치를 알려주세요</S.StepExplain>
+        <S.StepHeadWrapper>
+          <S.StepImg src="/image/writeSlipper.png" />
+          <S.StepHead>Step2</S.StepHead>
+        </S.StepHeadWrapper>
+        <S.StepExplain>가게는 어디에 있나요?</S.StepExplain>
+        <S.Head>가게 위치</S.Head>
         <S.Map src="/image/mapEx.png"></S.Map>
-        <S.Input placeholder="가게 이름"></S.Input>
-        <S.Input placeholder="가게 주소"></S.Input>
+        <S.Head>가게 이름</S.Head>
+        <S.Input placeholder="가게 이름을 작성해주세요."></S.Input>
+        <S.Head>가게 주소</S.Head>
+        <S.Input placeholder="가게 주소를 작성해주세요."></S.Input>
       </S.StepWrapper>
       <S.StepWrapper>
-        <S.StepHead>Step3</S.StepHead>
-        <S.StepExplain>사진을 등록해주세요</S.StepExplain>
+        <S.StepHeadWrapper>
+          <S.StepImg src="/image/writeSlipper.png" />
+          <S.StepHead>Step3</S.StepHead>
+        </S.StepHeadWrapper>
+        <S.StepExplain>사진을 공유해주세요</S.StepExplain>
         <S.ImageWrapper>
-          <S.Image></S.Image>
-          <S.Image></S.Image>
-          <S.Image></S.Image>
-          <S.Image></S.Image>
+          <S.ImageRow>
+            <S.Image></S.Image>
+            <S.Image></S.Image>
+          </S.ImageRow>
+          <S.ImageRow>
+            <S.Image></S.Image>
+            <S.Image></S.Image>
+          </S.ImageRow>
         </S.ImageWrapper>
-        <S.WrapperBottom>
+        <S.ButtonWrapper>
           <S.Button>취소</S.Button>
           <S.Button>등록</S.Button>
-        </S.WrapperBottom>
+        </S.ButtonWrapper>
       </S.StepWrapper>
     </S.WrapperOut>
   );

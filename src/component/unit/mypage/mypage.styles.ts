@@ -1,47 +1,33 @@
 // 해리 작업 5/13
 import styled from "@emotion/styled";
+import { IProps } from "./mypage.types";
 
+export const Wrapper = styled.div`
+  width: 100%;
+  background-color: #f5f7f9;
+`;
 export const WrapperOut = styled.div`
-  width: 50%;
-  /* margin: 0 auto; */
-  margin: 50px auto;
-  padding: 10px;
+  width: 60%;
+  margin: 0 auto;
+  padding: 1%;
   display: flex;
   flex-direction: row;
-  border-radius: 40px;
-  /* background-color: #1d1a5c; */
-  background-color: #008af6;
-  box-shadow: 0px 0px 10px gray;
+  justify-content: center;
   font-family: "HallymGothic-Regular";
 `;
 export const WrapperLeft = styled.div`
-  width: 30%;
+  width: 20%;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
-  /* padding: 20px; */
-  padding-top: 50px;
-  padding-bottom: 80px;
-`;
-export const NicknameWrapper = styled.div`
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-`;
-export const NicknameFront = styled.div`
-  font-size: 2rem;
-  font-weight: bold;
-  color: white;
-`;
-export const Nickname = styled.div`
-  font-size: 1.8rem;
-  /* font-weight: bold; */
-  color: white;
+  background-color: white;
+  margin-right: 2%;
+  padding: 5% 0% 17% 0%;
 `;
 export const ProfileImage = styled.img`
   width: 60%;
-  height: 170px;
+  height: 120px;
   margin: 40px;
   background-color: white;
 `;
@@ -49,47 +35,53 @@ export const MenuWrapper = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
-  /* justify-content: space-between; */
+  justify-content: center;
   width: 100%;
-  color: white;
+  /* color: gray; */
   text-align: center;
-  /* padding-left: 8%; */
-  padding: 0% 10% 0% 25%;
-  /* padding: 10px;
-  padding-left: 80px;
-  padding-right: 40px; */
+  padding: 0% 10% 0% 22%;
   height: 60px;
-  font-size: 2.3rem;
-  :hover {
-    /* color: #1d1a5c; */
-    background-color: #88baf959;
-    border-radius: 30px;
-    font-weight: bold;
-    font-size: 2.5rem;
-    padding: 0% 0.5% 0% 15%;
-    width: 80%;
-    /* margin: 0% 20% 0% 20%; */
-    /* margin: 10%; */
-    /* padding: 7px;
-    padding-left: 55px;
-    padding-right: 60px; */
-    /* margin-left: 45px;
-    margin-right: 45px; */
-  }
+  font-size: 2.5rem;
   cursor: pointer;
+  /* :hover {
+    width: 100%;
+    background-color: #f5f7f9;
+    font-size: 2.8rem;
+    padding: 0% 10% 0% 22%;
+  } */
 `;
 export const Icon = styled.img`
-  /* width: 20%; */
   height: 50%;
 `;
 export const MenuButton = styled.div`
-  font-weight: bold;
-  /* color: #1d1a5c; */
   width: 80%;
+  color: ${(props: IProps) => (props.mypageRight ? "#008af6" : "black")};
 `;
 export const WrapperRight = styled.div`
-  width: 70%;
-  border-radius: 40px;
-  /* background-color: #f5f7f9; */
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+`;
+export const NicknameWrapper = styled.div`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  background-color: none;
+  padding: 3%;
+`;
+export const NicknameFront = styled.div`
+  font-size: 2.3rem;
+  font-weight: bold;
+  color: #008af6;
+`;
+export const Nickname = styled.div`
+  font-size: 2.2rem;
+  color: #008af6;
+`;
+export const Right = styled.div`
+  width: 100%;
+  height: 650px;
+  padding: 5%;
   background-color: white;
+  border: 1px solid #f5f7f9;
 `;
