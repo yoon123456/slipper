@@ -28,13 +28,12 @@ export default function Ham() {
       items={[
         {
           label: (
-            <HamMenu onClick={onClickMoveToPage("/mypage")}>내 신발장</HamMenu>
-            // <HamMenu onClick={onClickToMypage}>내 신발장</HamMenu>
+            <HamMenu onClick={onClickMoveToPage("/boards/new")}>글쓰기</HamMenu>
           ),
         },
         {
           label: (
-            <HamMenu onClick={onClickMoveToPage("/boards/new")}>글쓰기</HamMenu>
+            <HamMenu onClick={onClickMoveToPage("/mypage")}>내 신발장</HamMenu>
           ),
         },
         {
@@ -42,7 +41,11 @@ export default function Ham() {
             <HamMenu onClick={onClickMoveToPage("/payment")}>
               이용권 결제
             </HamMenu>
-            // <HamMenu onClick={onClickToPay}>이용권 결제</HamMenu>
+          ),
+        },
+        {
+          label: (
+            <HamMenu onClick={onClickMoveToPage("/login")}>로그인</HamMenu>
           ),
         },
       ]}

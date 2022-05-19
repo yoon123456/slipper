@@ -2,17 +2,16 @@ import styled from "@emotion/styled";
 
 export const WrapperOut = styled.div`
   width: 100%;
-  padding: 5% 5% 0% 5%;
+  /* padding: 5%; */
 `;
 export const Head = styled.div`
-  font-size: 2.2rem;
-  padding: 5%;
+  font-size: 2rem;
   border-bottom: 1px solid gainsboro;
+  padding: 0% 1% 2% 2%;
 `;
 export const BodyWrapper = styled.div`
   display: flex;
   flex-direction: column;
-  padding: 5% 0 5% 0;
 `;
 export const BodyHeadWrapper = styled.div`
   width: 100%;
@@ -20,10 +19,10 @@ export const BodyHeadWrapper = styled.div`
   flex-direction: row;
   align-items: center;
   justify-content: space-around;
-  padding: 1% 5% 1% 5%;
+  padding: 5% 5% 1% 5%;
 `;
 export const BodyHead = styled.div`
-  font-size: 1.5rem;
+  font-size: 1.6rem;
   width: 30%;
   text-align: center;
   padding-right: 4%;
