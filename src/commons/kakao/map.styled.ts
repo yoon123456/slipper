@@ -9,13 +9,14 @@ import {
 } from "react-kakao-maps-sdk";
 export const War = styled.div`
   width: 100%;
-  height: 100%;
-  border: 2px solid red;
+  height: 100vh;
   z-index: 2px;
 `;
 export const KakaoMap = styled(Map)`
   position: relative;
   width: 100%;
+  height: 100vh;
+  border: 1px solid red;
 `;
 export const Message = styled.input`
   width: 7%;
@@ -44,7 +45,7 @@ export const KaoKaoMarker = styled(MapMarker)``;
 export const KaoKaoMapTypeId = styled(MapTypeId)``;
 export const KaoKaoWindowDiv = styled.div`
   width: 100%;
-  height: 100%;
+  height: 100vh;
 `;
 export const KaoKaoMessage = styled.div`
   animation: motion 0.3s linear 0s infinite alternate;
@@ -59,5 +60,7 @@ export const KaoKaoMessage = styled.div`
   }
 `;
 export const KaoKaoMapInfoWindow = styled(MapInfoWindow)``;
-export const kaoKaoRoadview = styled(Roadview)``;
+export const kaoKaoRoadview = styled(Roadview)`
+  width: 100%;
+`;
 export const kaoKaoCustomOverlayRoadview = styled(CustomOverlayRoadview)``;

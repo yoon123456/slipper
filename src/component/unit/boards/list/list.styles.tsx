@@ -115,8 +115,9 @@ export const Pen = styled.img`
 `;
 export const WrapperRight = styled.div`
   width: 45%;
-  height: 100vh;
+  /* height: 100%; */
   margin-left: 5%;
+  /* border: 2px solid red; */
 `;
 export const Map = styled.img`
   width: 100%;

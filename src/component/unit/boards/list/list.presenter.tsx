@@ -3,16 +3,17 @@
 import Category from "../../../../commons/category";
 import * as S from "./list.styles";
 import { useMovetoPage } from "../../../../commons/hooks/movePage";
-import KakaoMapPage from "../../../../commons/map";
+import KakaoMapPage from "../../../../commons/kakao/map.container";
+import KeyWord from "../../../../commons/kakao/keyword/kakaomap.container";
 import { IListPresenter } from "./list.types";
-import SearchBar from "../../../../commons/searchBar";
+import Searchbars01 from "../../../../commons/searchBar/Searchbars01.container";
 export default function ListPresenter(props: IListPresenter) {
   const { onClickMoveToPage } = useMovetoPage();
-
   return (
     <S.WrapperOut>
       <S.WrapperTop>
-        <SearchBar />
+        {/* chan 검색 기능 추가 22.05.19 */}
+        <Searchbars01 onChangeKeyword={props.onChangeKeyword} />
         <S.CategoryWrap>
           <Category />
         </S.CategoryWrap>
@@ -101,8 +102,8 @@ export default function ListPresenter(props: IListPresenter) {
           <S.WrapperBottom></S.WrapperBottom>
         </S.WrapperLeft>
         <S.WrapperRight>
-          {/* <S.Map src={"/image/mapimage.png"} /> */}
-          <KakaoMapPage />
+          {/* chan 지도 기능 추가 22.05.19 */}
+          <KeyWord onChangeKeyword={props.onChangeKeyword} />
         </S.WrapperRight>
       </S.WrapperBody>
     </S.WrapperOut>

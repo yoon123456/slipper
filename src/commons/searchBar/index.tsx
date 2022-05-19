@@ -1,4 +1,6 @@
 import styled from "@emotion/styled";
+import { useState } from "react";
+import { ISearchbars01UIProps } from "./Searchbars01.types";
 
 const Search = styled.input`
   width: 100%;
@@ -12,6 +14,12 @@ const Search = styled.input`
   font-size: 2rem;
 `;
 
-export default function SearchBar() {
-  return <Search type="text" placeholder="원하는 동네로 이동해보세요" />;
+export default function SearchBar(props: ISearchbars01UIProps) {
+  return (
+    <Search
+      type="text"
+      placeholder="원하는 동네로 이동해보세요"
+      onChange={props.onChangeSearchbar}
+    />
+  );
 }
