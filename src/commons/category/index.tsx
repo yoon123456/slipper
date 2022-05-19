@@ -12,20 +12,20 @@ const WrapperOut = styled.div`
 `;
 
 const Box = styled.div`
-  width: 95px;
+  width: 18%;
   height: 35px;
   display: flex;
   justify-content: center;
   align-items: center;
   background-color: #ffffff;
-  font-size: 1.4rem;
+  font-size: 1.3rem;
   border-radius: 30px;
   box-shadow: 0px 2px 4px 0px #e1e1e1;
   cursor: pointer;
   :hover {
     color: #008af6;
   }
-  margin-right: 10px;
+  margin-right: 2%;
 `;
 
 export default function Category() {
