@@ -14,10 +14,10 @@ const HamMenu = styled.div`
 `;
 
 const HamIcon = styled.img`
-  width: 80px;
-  height: 35px;
+  width: 90px;
+  height: 65px;
   margin: 20px;
-  padding-left: 40px;
+  padding-left: 20px;
 `;
 
 export default function Ham() {

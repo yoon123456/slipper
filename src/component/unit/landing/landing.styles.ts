@@ -24,13 +24,11 @@ export const WrapperTop = styled2.div`
 export const LogoBox = styled2.div`
   position: absolute;
 `;
-export const Ham = styled2.img`
+export const HamBox = styled2.div`
   position: absolute;
   right: 0;
-  width: 80px;
   padding: 10px;
   margin: 30px;
-  z-index: 2;
 `;
 export const MainFlex = styled2.div`
   display: flex;

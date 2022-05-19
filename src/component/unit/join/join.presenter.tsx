@@ -1,3 +1,4 @@
+import Number from "../../../commons/timer";
 import * as S from "./join.styles";
 import { IJoinPresenterProps } from "./join.types";
 
@@ -46,14 +47,20 @@ export default function JoinPresenter(props: IJoinPresenterProps) {
             <S.Check>
               <S.TelBox>
                 <S.Tel
-                  type="tel"
+                  type="number"
                   name="phone"
                   onChange={props.onChangePhoneNum}
                 />
               </S.TelBox>
-              <S.NumberAsk onClick={props.onClickGetToken}>
+              <S.NumberAsk
+                onClick={props.onClickGetToken}
+                disabled={props.isActive}
+              >
                 인증번호 요청
               </S.NumberAsk>
+              <S.NumberBox>
+                <Number flag={props.flag} />
+              </S.NumberBox>
             </S.Check>
             <S.CheckNumber>
               <S.Input
@@ -70,7 +77,6 @@ export default function JoinPresenter(props: IJoinPresenterProps) {
               placeholder="간단한 소개글"
               {...props.register("introduce")}
             />
-
             <S.JoinSlipper>슬리퍼 신기</S.JoinSlipper>
           </S.WrapperIn>
         </S.WrapperOut>

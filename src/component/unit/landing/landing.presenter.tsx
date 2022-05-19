@@ -1,8 +1,8 @@
 import * as S from "./landing.styles";
 import * as React from "react";
 import Logo from "../../../commons/logo";
-import { yellow } from "@mui/material/colors";
 import { useMovetoPage } from "../../../commons/hooks/movePage";
+import Ham from "../../../commons/hamLanding";
 
 const images = [
   {
@@ -31,7 +31,11 @@ export default function LandingPresenter() {
         <S.LogoBox>
           <Logo />
         </S.LogoBox>
-        <S.Ham src="/image/hamWhite.png"></S.Ham>
+        {/* <S.Ham src="/image/hamWhite.png"></S.Ham> */}
+        <S.HamBox>
+          <Ham />
+        </S.HamBox>
+
         <S.H1>
           <span>s</span>
           <span>l</span>

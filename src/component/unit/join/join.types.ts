@@ -18,4 +18,7 @@ export interface IJoinPresenterProps {
   onChangeProofNum: (event: ChangeEvent<HTMLInputElement>) => void;
   onClickGetToken: () => void;
   onClickCheckProof: () => void;
+  phoneNum: any;
+  flag: boolean;
+  isActive: boolean;
 }
