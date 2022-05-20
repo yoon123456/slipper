@@ -17,7 +17,7 @@ export default function ListPresenter(props: IListPresenter) {
         <S.CategoryWrap>
           <Category />
         </S.CategoryWrap>
-        <S.SearchButton>검색</S.SearchButton>
+        <S.SearchButton type="submit">검색</S.SearchButton>
       </S.WrapperTop>
       <S.WrapperMiddle>
         <S.WrapperWrite>
@@ -103,7 +103,10 @@ export default function ListPresenter(props: IListPresenter) {
         </S.WrapperLeft>
         <S.WrapperRight>
           {/* chan 지도 기능 추가 22.05.19 */}
-          <KeyWord onChangeKeyword={props.onChangeKeyword} />
+          <KeyWord
+            onChangeKeyword={props.onChangeKeyword}
+            keyword={props.keyword}
+          />
         </S.WrapperRight>
       </S.WrapperBody>
     </S.WrapperOut>

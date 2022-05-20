@@ -32,7 +32,7 @@ export const WrapperBody = styled.div`
   display: flex;
   width: 90%;
 `;
-export const SearchButton = styled.div`
+export const SearchButton = styled.button`
   width: 15%;
   height: 40px;
   margin: 0 auto;
