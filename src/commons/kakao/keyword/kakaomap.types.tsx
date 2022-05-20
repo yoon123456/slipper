@@ -10,6 +10,10 @@ export interface KaoKaoMap {
   keyword: string;
   onChangeKeyword: (event: any) => void;
   onChangeSearchbar: (event: ChangeEvent<HTMLInputElement>) => void;
+  handleFocus: () => void;
+  geoLat: number;
+  geoLng: number;
+
   // isActive: boolean;
   // isRoadview: boolean;
   // onClickTrrapic: () => void;
@@ -20,4 +24,5 @@ export interface KaoKaoMap {
 
 export interface KaoKeyWord {
   onChangeKeyword: (event: any) => void;
+  keyword: string;
 }

@@ -6,7 +6,6 @@ export default function KakaomapPresenter(props: KaoKaoMap) {
   return (
     <>
       <input type="text" onChange={props.onChangeSearchbar} />
-      <button type="submit">검색</button>
       <Script
         type="text/javascript"
         src="//dapi.kakao.com/v2/maps/sdk.js?appkey=10933d05118bfc99d732e83a2814b76a&libraries=services&autoload=false"
@@ -15,8 +14,8 @@ export default function KakaomapPresenter(props: KaoKaoMap) {
       <S.KaKaoWarp>
         <S.KaKaoMap // 로드뷰를 표시할 Container
           center={{
-            lat: 37.566826,
-            lng: 126.9786567,
+            lat: props.geoLat,
+            lng: props.geoLng,
           }}
           style={{
             width: "100%",
