@@ -29,7 +29,7 @@ const schema = yup.object({
   pwCheck: yup
     .string()
     .oneOf([yup.ref("pw"), null], "비밀번호가 일치하지 않습니다")
-    .required("비밀번호는 필수 입력 사항입니다"),
+    .required("비밀번호를 확인해주세요."),
 
   nickname: yup
     .string()
@@ -47,7 +47,8 @@ export default function JoinContainer() {
   const [proofNum, setProofNum] = useState("");
   const [flag, setFlag] = useState(false);
   const [isActive, setIsActive] = useState(true);
-  // mutation 적어줄 자리
+  const [fileUrl, setFileUrl] = useState([""]);
+
   const [createUser] = useMutation(CREATE_USER);
   const [getToken] = useMutation(GET_TOKEN);
   const [proofToken] = useMutation(PROOF_TOKEN);
@@ -60,6 +61,11 @@ export default function JoinContainer() {
   };
   const onChangeProofNum = (event: ChangeEvent<HTMLInputElement>) => {
     setProofNum(event.target.value);
+  };
+
+  const onChangeFileUrl = (fileUrl: string) => {
+    const newFileUrl = [fileUrl];
+    setFileUrl(newFileUrl);
   };
 
   const onClickGetToken = async () => {
@@ -91,6 +97,7 @@ export default function JoinContainer() {
   };
   const onClickJoin = async (data: IFromValues) => {
     if (data.email && data.pw && data.nickname) {
+      // data 이름 바꾸기
       try {
         const result = await createUser({
           variables: {
@@ -99,7 +106,7 @@ export default function JoinContainer() {
               pw: data.pw,
               nickname: data.nickname,
               phone: String(phoneNum),
-              image: data.image,
+              image: fileUrl, //   result.data.createBoard._id;
               introduce: data.introduce,
             },
           },
@@ -126,6 +133,8 @@ export default function JoinContainer() {
         phoneNum={phoneNum}
         flag={flag}
         isActive={isActive}
+        onChangeFileUrl={onChangeFileUrl}
+        fileUrl={fileUrl}
       />
     </>
   );

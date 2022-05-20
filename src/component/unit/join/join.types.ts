@@ -18,7 +18,9 @@ export interface IJoinPresenterProps {
   onChangeProofNum: (event: ChangeEvent<HTMLInputElement>) => void;
   onClickGetToken: () => void;
   onClickCheckProof: () => void;
+  onChangeFileUrl: (fileUrl: string) => void;
   phoneNum: any;
   flag: boolean;
   isActive: boolean;
+  fileUrl?: string[];
 }

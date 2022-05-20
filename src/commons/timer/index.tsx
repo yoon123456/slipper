@@ -1,4 +1,15 @@
 import React, { useState, useEffect } from "react";
+import styled from "@emotion/styled";
+
+const Divbox = styled.div``;
+const Boxin = styled.div`
+  padding-top: 10%;
+`;
+const Num = styled.h2`
+  font-size: 1.5rem;
+  font-weight: 400;
+  color: gray;
+`;
 
 export default function Number(props: any) {
   const [minutes, setMinutes] = useState(3);
@@ -24,12 +35,12 @@ export default function Number(props: any) {
   }, [minutes, seconds, props.flag]);
 
   return (
-    <div className="App">
-      <div>
-        <h2>
+    <Divbox>
+      <Boxin>
+        <Num>
           {minutes}:{seconds < 10 ? `0${seconds}` : seconds}
-        </h2>
-      </div>
-    </div>
+        </Num>
+      </Boxin>
+    </Divbox>
   );
 }
