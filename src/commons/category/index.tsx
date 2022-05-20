@@ -1,7 +1,7 @@
 // 예원 작업 5/11
 import styled from "@emotion/styled";
 
-const WrapperOut = styled.div`
+const CategoryWrapperOut = styled.div`
   width: 100%;
   margin: 0 auto;
   display: flex;
@@ -30,13 +30,13 @@ const Box = styled.div`
 
 export default function Category() {
   return (
-    <WrapperOut>
+    <CategoryWrapperOut>
       <Box>#카페</Box>
       <Box>#음식</Box>
       <Box>#의류</Box>
       <Box>#유흥시설</Box>
       <Box>#편의시설</Box>
-    </WrapperOut>
+    </CategoryWrapperOut>
   );
 }
 // ffcfec
