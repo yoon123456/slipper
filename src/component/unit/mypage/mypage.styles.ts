@@ -81,7 +81,7 @@ export const Nickname = styled.div`
 export const Right = styled.div`
   width: 100%;
   height: 650px;
-  padding: 5%;
+  padding: 0% 5% 5% 5%;
   background-color: white;
   border: 1px solid #f5f7f9;
 `;

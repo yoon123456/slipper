@@ -6,6 +6,7 @@ import * as S from "./myboards.styles";
 export default function MyBoardsPresenter() {
   return (
     <S.WrapperOut>
+      <S.Head>내가 쓴 글</S.Head>
       <S.UserContents>
         <S.ImageWrap>
           <S.Image src={"/image/listimage.png"} />
