@@ -19,7 +19,8 @@
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx",
-    "src/commons/layout/header/header.queries.ts"
+    "src/commons/layout/header/header.queries.ts",
+    "src/commons/libraries/data.js"
   ],
   "exclude": ["node_modules"],
   "types": ["kakao.maps.d.ts"]
