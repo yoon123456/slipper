@@ -11,12 +11,11 @@ export const ImageBox = styled.div`
 `;
 export const Image = styled.img`
   width: 90%;
-  margin-left: 10%;
+  margin-left: 20%;
 `;
 export const WrapperLeft = styled.div`
   width: 40%;
   background-color: white;
-  /* border-right: 1px solid gainsboro; */
 `;
 
 export const WrapperOut = styled.div`
@@ -27,7 +26,7 @@ export const WrapperOut = styled.div`
   background-color: white;
 `;
 export const WrapperIn = styled.div`
-  width: 40%;
+  width: 45%;
   margin: 0 auto;
   padding-top: 40px;
 `;
@@ -40,20 +39,19 @@ export const Join = styled.div`
 export const Profile = styled.div`
   display: flex;
   justify-content: space-between;
-  padding-top: 60px;
+  padding-top: 10%;
 `;
 export const ProfileBox = styled.div`
   width: 70%;
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
+  justify-content: center;
 `;
 export const InputProfile = styled.input`
   width: 70%;
   border: none;
   border-bottom: 2px solid gainsboro;
-  padding: 10px;
-  /* margin: 10px; */
+  margin-top: 10%;
 `;
 export const MyImage = styled.div`
   width: 150px;
@@ -71,20 +69,21 @@ export const CheckNumber = styled.div`
 `;
 
 export const TelBox = styled.div`
-  width: 35%;
+  width: 45%;
 `;
 export const Tel = styled.input`
   width: 90%;
   height: 30px;
   border: 1px solid gainsboro;
-  margin-right: 20pxs;
+  margin-right: 20px;
   border-radius: 5px;
 `;
 export const NumberAsk = styled.button`
   width: 100px;
   line-height: 3;
   text-align: center;
-  background-color: #f2f2f2;
+  background-color: #008af6;
+  color: white;
   border: none;
   border-radius: 10px;
 `;
@@ -107,11 +106,11 @@ export const CheckEnd = styled.div`
   border-radius: 10px;
 `;
 export const PasswordCheck = styled.input`
-  width: 48%;
+  width: 63%;
   display: block;
   border: none;
   border-bottom: 2px solid gainsboro;
-  padding: 10px;
+  padding-bottom: 10px;
   margin-top: 40px;
 `;
 export const Introduce = styled.input`
@@ -143,4 +142,6 @@ export const JoinSlipper = styled.button`
     color: white;
   }
 `;
-export const Error = styled.span``;
+export const Error = styled.span`
+  color: red;
+`;

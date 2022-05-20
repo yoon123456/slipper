@@ -1,3 +1,4 @@
+import ImageProfile from "../../../commons/imageProfile";
 import Number from "../../../commons/timer";
 import * as S from "./join.styles";
 import { IJoinPresenterProps } from "./join.types";
@@ -25,22 +26,25 @@ export default function JoinPresenter(props: IJoinPresenterProps) {
                 <S.Error>{props.formState.errors.email?.message}</S.Error>
                 <S.InputProfile
                   type="text"
-                  placeholder="닉네임"
+                  placeholder="닉네임은 8자 이내로 입력해주세요."
                   {...props.register("nickname")}
                 />
                 <S.Error>{props.formState.errors.nickname?.message}</S.Error>
               </S.ProfileBox>
-              <S.MyImage></S.MyImage>
+              <ImageProfile
+                onChangeFileUrl={props.onChangeFileUrl}
+                fileUrl={props.fileUrl}
+              />
             </S.Profile>
             <S.PasswordCheck
               type="password"
-              placeholder="비밀번호"
+              placeholder="비밀번호는 영문,숫자,특수문자를 포함한 8자리~16자리입니다."
               {...props.register("pw")}
             />
             <S.Error>{props.formState.errors.pw?.message}</S.Error>
             <S.PasswordCheck
               type="password"
-              placeholder="비밀번호 확인"
+              placeholder="비밀번호를 확인하세요."
               {...props.register("pwCheck")}
             />
             <S.Error>{props.formState.errors.pwCheck?.message}</S.Error>
@@ -50,6 +54,7 @@ export default function JoinPresenter(props: IJoinPresenterProps) {
                   type="number"
                   name="phone"
                   onChange={props.onChangePhoneNum}
+                  placeholder={"'-'를 제외하고 휴대폰 번호를 입력해주세요."}
                 />
               </S.TelBox>
               <S.NumberAsk
@@ -65,7 +70,7 @@ export default function JoinPresenter(props: IJoinPresenterProps) {
             <S.CheckNumber>
               <S.Input
                 type="text"
-                placeholder="인증번호"
+                placeholder="인증번호 6자리"
                 onChange={props.onChangeProofNum}
               />
               <S.CheckEnd onClick={props.onClickCheckProof}>
