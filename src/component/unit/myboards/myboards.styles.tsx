@@ -9,6 +9,13 @@ export const WrapperOut = styled.div`
   align-items: center;
   font-family: "HallymGothic-Regular";
 `;
+export const Head = styled.div`
+  width: 100%;
+  font-size: 2rem;
+  border-bottom: 1px solid gainsboro;
+  padding: 0% 1% 2% 2%;
+  margin-bottom: 4%;
+`;
 export const UserContents = styled.div`
   width: 95%;
   display: flex;

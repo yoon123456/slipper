@@ -7,7 +7,7 @@ export const WrapperOut = styled.div`
 export const Head = styled.div`
   font-size: 2rem;
   border-bottom: 1px solid gainsboro;
-  padding: 0% 1% 2% 2%;
+  padding: 5% 1% 2% 2%;
 `;
 export const BodyWrapper = styled.div`
   display: flex;

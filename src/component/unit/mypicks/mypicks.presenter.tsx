@@ -5,6 +5,7 @@ import * as S from "./mypicks.styles";
 export default function MypicksPresenter() {
   return (
     <S.WrapperOut>
+      <S.Head>찜한 글</S.Head>
       <S.UserContents>
         <S.ImageWrap>
           <S.Image src={"/image/listimage.png"} />
