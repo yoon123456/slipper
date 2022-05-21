@@ -8,7 +8,6 @@ const CategoryWrapperOut = styled.div`
   flex-direction: row;
   justify-content: space-around;
   align-items: center;
-  padding: 20px 20px 20px 20px;
 `;
 
 const Box = styled.div`
@@ -25,7 +24,6 @@ const Box = styled.div`
   :hover {
     color: #008af6;
   }
-  margin-right: 2%;
 `;
 
 export default function Category() {

@@ -45,6 +45,7 @@ export default function KaKaoMapContainer(props: KaoKeyWord) {
     ps.keywordSearch(props.keyword, (data, status, _pagination) => {
       console.log(data);
       setAddress(data);
+      console.log(address);
       if (status === kakao.maps.services.Status.OK) {
         const bounds = new kakao.maps.LatLngBounds();
         var coffeePositions = [];

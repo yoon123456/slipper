@@ -2,7 +2,7 @@
 
 import { useMutation, useQuery } from "@apollo/client";
 import { useRouter } from "next/router";
-import { MouseEvent } from "react";
+import { MouseEvent, useState } from "react";
 import { useMovetoPage } from "../../../../commons/hooks/movePage";
 import {
   IMutation,
@@ -13,6 +13,7 @@ import { DELETE_BOARD, FETCH_BOARD } from "./detail.query";
 
 export default function DetailContainer() {
   const router = useRouter();
+  const [aaa, setAAA] = useState("");
 
   // 게시글 상세 내용 가져오기 Query
   const { data } = useQuery(FETCH_BOARD, {
