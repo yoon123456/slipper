@@ -3,45 +3,54 @@ import styled from "@emotion/styled";
 
 export const WrapperOut = styled.div`
   font-family: "HallymGothic-Regular";
-  width: 100%;
-  /* margin: 0 auto; */
+  width: 50%;
+  margin: 0 auto;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
 `;
-export const StepWrapperColored = styled.div`
-  width: 33.3%;
-  padding: 2%;
-  background-color: #008af6;
-  box-shadow: 3px 0px 8px 3px rgba(217, 217, 217, 1);
-  border: none;
-`;
-export const StepWrapper = styled.div`
-  width: 33.3%;
-  padding: 2%;
-  box-shadow: 14px 0px 6px -7px rgba(237, 237, 237, 1);
-  border: none;
-`;
-export const StepHeadWrapper = styled.div`
+export const TopWrapper = styled.div`
+  width: 100%;
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
+  /* background-color: red; */
 `;
-export const StepImg = styled.img`
-  width: 6%;
-  height: 6%;
-  margin-right: 1%;
+export const TopColumn = styled.div`
+  width: 33.5%;
+  /* border: 1px solid #008af6; */
+  /* border-bottom: none; */
+  box-shadow: 5px -5px 9px 5px rgba(184, 184, 184, 1);
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
 `;
-export const StepHead = styled.div`
-  margin-bottom: 1%;
-  font-size: 3rem;
-  color: #008af6;
+export const TopRow = styled.div`
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+`;
+export const TopImg = styled.img`
+  width: 15%;
+  height: 15%;
+  /* margin-right: 1%; */
+`;
+export const Top = styled.div`
+  font-size: 2rem;
+`;
+export const TopDetail = styled.div`
   text-align: center;
 `;
-export const StepExplain = styled.div`
-  margin-bottom: 10%;
-  font-size: 1.6rem;
-  text-align: center;
+export const StepWrapper = styled.div`
+  width: 100%;
+  padding: 10%;
+  border-radius: 41px 41px 41px 41px;
+  -moz-border-radius: 41px 41px 41px 41px;
+  -webkit-border-radius: 41px 41px 41px 41px;
+  -webkit-box-shadow: 10px 10px 20px 3px rgba(214, 214, 214, 1);
+  -moz-box-shadow: 10px 10px 20px 3px rgba(214, 214, 214, 1);
+  box-shadow: 10px 10px 20px 3px rgba(214, 214, 214, 1);
 `;
 export const Head = styled.div`
   margin-bottom: 1.5%;
@@ -116,6 +125,12 @@ export const RatingWrapper = styled.div`
 export const Rating = styled.img`
   width: 25px;
   height: 25px;
+`;
+export const StepButton = styled.button`
+  width: 5%;
+  height: 5%;
+  cursor: pointer;
+  margin-top: 10%;
 `;
 export const Map = styled.img`
   width: 100%;
