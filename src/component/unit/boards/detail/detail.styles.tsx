@@ -2,21 +2,17 @@ import styled from "@emotion/styled";
 import Slider from "react-slick";
 
 export const WrapperOut = styled.div`
-  width: 100%;
+  width: 70%;
   height: 100vh;
-  background: linear-gradient(
-    to right,
-    white 0%,
-    white 50%,
-    #f5f7f9 50%,
-    #f5f7f9 100%
-  );
+  margin: 0 auto;
+
   display: flex;
   flex-direction: column;
   position: relative;
 `;
 export const WrapperTop = styled.div`
   width: 100%;
+  height: 100%;
   display: flex;
   flex-direction: row;
 `;
@@ -24,18 +20,24 @@ export const TopLeft = styled.div`
   width: 50%;
   display: flex;
   flex-direction: column;
-  padding: 7% 7% 5% 13%;
+  padding: 5%;
 `;
 export const EditDeleteWrap = styled.div`
-  width: 3%;
+  width: 10%;
   position: absolute;
-  top: 3%;
+  top: 5%;
   right: 2%;
   display: flex;
   justify-content: space-between;
 `;
+export const UserWriteDate = styled.div`
+  font-size: 1rem;
+  color: gray;
+  padding-top: 2%;
+`;
+
 export const Icon = styled.img`
-  width: 40%;
+  width: 10%;
   cursor: pointer;
 `;
 // slider
@@ -72,75 +74,81 @@ export const Img = styled.img`
 //
 export const TopRight = styled.div`
   width: 50%;
-  padding-top: 2%;
-  padding: 7% 13% 10% 5%;
+  margin: 2% auto;
+  padding: 6%;
+  border-radius: 41px 41px 41px 41px;
+  -moz-border-radius: 41px 41px 41px 41px;
+  -webkit-border-radius: 41px 41px 41px 41px;
+  -webkit-box-shadow: 10px 10px 20px 3px rgba(214, 214, 214, 1);
+  -moz-box-shadow: 10px 10px 20px 3px rgba(214, 214, 214, 1);
+  box-shadow: 10px 10px 20px 3px rgba(214, 214, 214, 1);
 `;
+export const UserTitle = styled.div`
+  width: 100%;
+  font-size: 3rem;
+  padding-left: 2%;
+`;
+
 export const UserInfoWrap = styled.div`
   width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0 0 2% 5%;
-`;
-export const UserWrap = styled.div`
-  width: 100%;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-  padding: 1% 3% 1% 1%;
+  padding: 2%;
 `;
 export const User = styled.div`
   width: 30%;
   display: flex;
-  flex-direction: column;
 `;
 export const UserImg = styled.img`
-  width: 7%;
-`;
-export const UserName = styled.div`
-  width: 100%;
-  font-size: 1.7rem;
-`;
-export const UserWriteDate = styled.div`
-  width: 100%;
-  font-size: 1rem;
-  color: gray;
-  padding-top: 2%;
+  width: 20%;
 `;
 
-export const UserTitle = styled.div`
-  width: 100%;
-  font-size: 2.7rem;
-  padding: 3% 0 3% 5%;
+export const UserName = styled.div`
+  width: 70%;
+  font-size: 1.7rem;
+  margin-left: 10%;
+  display: flex;
+  align-items: center;
 `;
+export const UserLivingWrap = styled.div`
+  width: 70%;
+  display: flex;
+`;
+
 export const UserLiving = styled.div`
-  width: 60%;
+  width: 30%;
   height: 30px;
   font-size: 1.5rem;
   color: gray;
   padding: 0 5% 0 3%;
   display: flex;
   justify-content: flex-end;
+  align-items: center;
+`;
+export const UserLivingPeriod = styled.div`
+  width: 70%;
+  font-size: 1.5rem;
+  color: gray;
+  display: flex;
+  align-items: center;
 `;
 export const UserMiddle = styled.div`
   width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 4% 2% 4% 5%;
+  padding: 3% 2% 5% 2%;
 `;
 export const ShopName = styled.div`
-  width: 30%;
-  font-size: 2rem;
-  padding-left: 3%;
+  width: 50%;
+  font-size: 2.5rem;
 `;
 export const ShopRatingWrap = styled.div`
-  width: 70%;
+  width: 50%;
   display: flex;
   justify-content: flex-end;
   align-items: center;
-  padding-right: 10%;
 `;
 export const ShopRating = styled.div`
   width: 20%;
@@ -151,17 +159,18 @@ export const RatingWrap = styled.div`
 `;
 
 export const UserContents = styled.div`
-  width: 94%;
-  max-height: 300px;
+  text-align: justify;
+  width: 100%;
+  max-height: 350px;
   font-size: 1.5rem;
-  padding: 2%;
-  margin: 2% 0 0 2%;
+  padding: 4%;
+  margin: 5% 0;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 0.5px 2px;
+  border-radius: 5%;
   overflow: scroll;
   ::-webkit-scrollbar {
     display: none;
   }
-  border-radius: 3%;
-  /* background-color: #fbfbfd; */
 `;
 
 export const Map = styled.img`
@@ -170,7 +179,7 @@ export const Map = styled.img`
 `;
 export const CategoryWrap = styled.div`
   width: 100%;
-  padding: 0px;
+  padding: 5% 0 4% 0;
 `;
 
 export const Good = styled.img`
@@ -185,14 +194,14 @@ export const Bad = styled.img`
 
 export const WrapperBottom = styled.div`
   width: 50%;
-  margin: 30px auto;
+  margin: 10% auto;
   display: flex;
   justify-content: space-around;
   align-items: center;
-  padding: 20px;
+  padding: 3%;
 `;
 export const Button = styled.div`
-  width: 90px;
+  width: 50%;
   height: 40px;
   padding: 5px;
   text-align: center;

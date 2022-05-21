@@ -1,5 +1,4 @@
 import styled from "@emotion/styled";
-import { useState } from "react";
 import { ISearchbars01UIProps } from "./Searchbars01.types";
 
 const Search = styled.input`
