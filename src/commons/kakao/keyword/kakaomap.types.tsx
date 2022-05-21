@@ -13,16 +13,14 @@ export interface KaoKaoMap {
   handleFocus: () => void;
   geoLat: number;
   geoLng: number;
-
-  // isActive: boolean;
-  // isRoadview: boolean;
-  // onClickTrrapic: () => void;
-  // onClickRoadView: () => void;
-  // onErrorGetNearestPanoId?: (target: kakao.maps.Roadview) => void;
-  // onPositionChanged?: (target: kakao.maps.Roadview) => void;
+  markerClick: (info: any) => (address: any) => void;
 }
 
 export interface KaoKeyWord {
   onChangeKeyword: (event: any) => void;
   keyword: string;
+}
+
+export interface ContentProps {
+  markers: any;
 }

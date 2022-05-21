@@ -3,19 +3,23 @@ import { ChangeEvent, useEffect, useState } from "react";
 import KakaomapPresenter from "./kakaomap.presenter";
 import { KaoKeyWord } from "./kakaomap.types";
 import { useRecoilState } from "recoil";
-import { addressName } from "../../store";
+import { addressName } from "../../store/index";
+import { kakaoAddress } from "../../store/kakaounit";
+import { string } from "yup";
+
 export default function KaKaoMapContainer(props: KaoKeyWord) {
   const [info, setInfo] = useState();
   const [lat, setLat] = useState("");
   const [lng, setLng] = useState("");
   const [geoLat, setgeoLat] = useState(0);
   const [geoLng, setgeoLng] = useState(0);
-  const [address, setAddress] = useRecoilState(addressName);
-  // const [address, setAddress] = useState([]);
+  const [address, setAddress] = useRecoilState(kakaoAddress);
+  let aaa: string[] = [];
   const [markers, setMarkers] = useState([]);
   const [map, setMap] = useState();
   const [keyword, setKeyword] = useState("");
   const [isActive, setIsActive] = useState(false);
+
   // const inputRef = useRef<HTMLInputElement>(null);
   // const address = [];
   const getDebounce = _.debounce((data: string) => {
@@ -27,6 +31,12 @@ export default function KaKaoMapContainer(props: KaoKeyWord) {
     getDebounce(event.target.value);
     setKeyword(props.keyword);
   }
+
+  const markerClick = (marker: any) => () => {
+    setAddress(marker);
+    setInfo(marker);
+    console.log(marker, 12312412412412);
+  };
 
   useEffect(() => {
     const handleSuccess = (pos: any) => {
@@ -43,23 +53,24 @@ export default function KaKaoMapContainer(props: KaoKeyWord) {
     if (!map) return;
     const ps = new kakao.maps.services.Places();
     ps.keywordSearch(props.keyword, (data, status, _pagination) => {
-      console.log(data);
-      setAddress(data);
       if (status === kakao.maps.services.Status.OK) {
         const bounds = new kakao.maps.LatLngBounds();
-        var coffeePositions = [];
         let markers = [];
         for (var i = 0; i < data.length; i++) {
           // @ts-ignore
-          coffeePositions = new kakao.maps.LatLng(data[i].y, data[i].x);
           markers.push({
             position: {
               lat: data[i].y,
               lng: data[i].x,
             },
             content: data[i].place_name,
+            address_name: data[i].address_name,
+            group_code: data[i].category_group_code,
+            group_name: data[i].category_group_name,
+            phone: data[i].phone,
+            place_url: data[i].place_url,
+            road_name: data[i].road_address_name,
           });
-          // address.push(data[i].place_name);
           // @ts-ignore~
           bounds.extend(new kakao.maps.LatLng(data[i].y, data[i].x));
           setLat(data[i].y);
@@ -81,6 +92,8 @@ export default function KaKaoMapContainer(props: KaoKeyWord) {
       markers={markers}
       onChangeSearchbar={onChangeSearchbar}
       info={info}
+      markerClick={markerClick}
+      // markerClick={markerClick}
       // onChange={onChange}
       setInfo={setInfo}
       keyword={props.keyword}
