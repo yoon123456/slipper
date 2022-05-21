@@ -12,8 +12,13 @@ const ReactQuill = dynamic(() => import("react-quill"), { ssr: false });
 export default function WriteContainer() {
   const [startDate, SetStartDate] = useState("");
   const [endDate, SetEndDate] = useState("");
+  // const [secondActive, SetSecondActive] = useState(false);
+  // const [thirdActive, SetThirdActive] = useState(true);
+  const [activeStep, SetActiveStep] = useState("first");
   const [fileUrls, setFileUrls] = useState(["", "", "", ""]);
+
   const [createBoard] = useMutation(CREATE_BOARD);
+
   const { register, handleSubmit, setValue, trigger, getValues, reset } =
     useForm({ mode: "onChange" });
 
@@ -29,6 +34,19 @@ export default function WriteContainer() {
     console.log(value);
     setValue("contents", value === "<p><br></p>" ? "" : value);
     trigger("contents");
+  };
+
+  const onClickFirstNext = () => {
+    SetActiveStep("second");
+  };
+  const onClickSecondPrev = () => {
+    SetActiveStep("first");
+  };
+  const onClickSecondNext = () => {
+    SetActiveStep("third");
+  };
+  const onClickThirdPrev = () => {
+    SetActiveStep("second");
   };
 
   const onChangeFileUrls = (fileUrl: string, index: number) => {
@@ -69,6 +87,13 @@ export default function WriteContainer() {
       reset={reset}
       fileUrls={fileUrls}
       onChangeFileUrls={onChangeFileUrls}
+      // secondActive={secondActive}
+      // thirdActive={thirdActive}
+      activeStep={activeStep}
+      onClickFirstNext={onClickFirstNext}
+      onClickSecondPrev={onClickSecondPrev}
+      onClickSecondNext={onClickSecondNext}
+      onClickThirdPrev={onClickThirdPrev}
       onClickWriteBoard={onClickWriteBoard}
     />
   );
