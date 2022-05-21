@@ -1,7 +1,7 @@
-import Search from "antd/lib/transfer/search";
 import Script from "next/script";
 import { KaoKaoMap } from "../keyword/kakaomap.types";
 import * as S from "./kakaomap.styled";
+import Contents from "../contents/content";
 export default function KakaomapPresenter(props: KaoKaoMap) {
   return (
     <>
@@ -25,16 +25,41 @@ export default function KakaomapPresenter(props: KaoKaoMap) {
           onCreate={props.setMap}
         >
           {props.markers.map((marker: any) => (
-            <S.KakaoMapMarker
-              key={`marker-${marker.content}-${marker.position.lat},${marker.position.lng}`}
-              position={marker.position}
-              onClick={() => props.setInfo(marker)}
-            >
-              {props.info && props.info.content === marker.content && (
-                <div style={{ color: "#000" }}>{marker.content}</div>
-              )}
-            </S.KakaoMapMarker>
+            <>
+              <S.KakaoMapMarker
+                key={`marker-${marker.content}-${marker.position.lat},${marker.position.lng}`}
+                position={marker.position}
+                onClick={props.markerClick(marker)}
+                infoWindowOptions={{
+                  style: { backgroundColor: "red", width: "200px" },
+                }}
+              >
+                {props.info && props.info.content === marker.content && (
+                  <S.MarkerDiv>
+                    <S.MarkerDiv2>
+                      <S.MarkerContent style={{ color: "" }}>
+                        {/* {marker.content} */}
+                      </S.MarkerContent>
+                      <S.MarkerAddress style={{ color: "" }}>
+                        {/* {marker.address_name} */}
+                      </S.MarkerAddress>
+                    </S.MarkerDiv2>
+                  </S.MarkerDiv>
+                )}
+              </S.KakaoMapMarker>
+              <S.KaKaoOverLay
+                position={marker.position}
+                xAnchor={0.5}
+                yAnchor={2.3}
+              >
+                <Contents markers={props.markers} />
+              </S.KaKaoOverLay>
+            </>
           ))}
+
+          <S.KakaoMapMarker
+            position={{ lat: props.geoLat, lng: props.geoLng }}
+          ></S.KakaoMapMarker>
         </S.KaKaoMap>
       </S.KaKaoWarp>
     </>

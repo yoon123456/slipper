@@ -6,13 +6,14 @@ import { useRecoilState } from "recoil";
 import { useMovetoPage } from "../../../../commons/hooks/movePage";
 import { isClickedNumState } from "../../../../commons/store";
 import ListPresenter from "./list.presenter";
-
+import { kakaoAddress } from "../../../../commons/store/kakaounit";
 export default function ListContainer() {
   const router = useRouter();
   const { onClickMoveToPage } = useMovetoPage();
   const [isMapActive, setIsMapActive] = useState(false);
   const [isClickedNum, setIsClickedNum] = useRecoilState(isClickedNumState);
   const [keyword, setKeyword] = useState(""); // Chan 검색기능 추가
+  const [kakaoaaa] = useRecoilState(kakaoAddress);
 
   const onClickDetail = () => {
     setIsClickedNum((prev) => prev + 1);
@@ -30,8 +31,13 @@ export default function ListContainer() {
   //chan 검색 기능 추가 22.05.19
   function onChangeKeyword(value: string) {
     setKeyword(value);
+    // console.log(kakaoaaa.address_name);
+    // console.log(kakaoaaa.phone);
+    // console.log(kakaoaaa.group_code);
+    // console.log(kakaoaaa.group_name);
+    // console.log(kakaoaaa.place_url);
+    // console.log(kakaoaaa.road_name);
   }
-
   return (
     <ListPresenter
       onClickDetail={onClickDetail}

@@ -42,7 +42,7 @@ export default function MapView(props: KaoKaoMap) {
             xAnchor={0.5}
             yAnchor={1.1}
           >
-            <Contents />
+            {/* <Contents /> */}
           </CustomOverlayMap>
           {props.isActive ? (
             <S.KaoKaoMapTypeId type={kakao.maps.MapTypeId.TRAFFIC} />
@@ -76,7 +76,7 @@ export default function MapView(props: KaoKaoMap) {
               xAnchor={0.5}
               yAnchor={0.5}
             >
-              <Contents />
+              {/* <Contents /> */}
             </S.kaoKaoCustomOverlayRoadview>
           </S.kaoKaoRoadview>
         ) : (
