@@ -6,7 +6,7 @@ export const CREATE_USER = gql`
       email
       nickname
       phone
-      image
+      imageUrl
       introduce
     }
   }
