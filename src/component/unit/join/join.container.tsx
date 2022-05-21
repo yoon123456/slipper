@@ -46,12 +46,16 @@ export default function JoinContainer() {
   const [phoneNum, setPhoneNum] = useState("");
   const [proofNum, setProofNum] = useState("");
   const [flag, setFlag] = useState(false);
-  const [isActive, setIsActive] = useState(true);
   const [fileUrl, setFileUrl] = useState([""]);
+
+  const [isActive, setIsActive] = useState(true);
+  const [isActived, setIsActived] = useState(true);
 
   const [createUser] = useMutation(CREATE_USER);
   const [getToken] = useMutation(GET_TOKEN);
   const [proofToken] = useMutation(PROOF_TOKEN);
+
+  const [isEdit, setIsEdit] = useState(false);
 
   const onChangePhoneNum = (event: ChangeEvent<HTMLInputElement>) => {
     setPhoneNum(event.target.value);
@@ -61,6 +65,7 @@ export default function JoinContainer() {
   };
   const onChangeProofNum = (event: ChangeEvent<HTMLInputElement>) => {
     setProofNum(event.target.value);
+    console.log(proofNum);
   };
 
   const onChangeFileUrl = (fileUrl: string) => {
@@ -83,6 +88,10 @@ export default function JoinContainer() {
   };
 
   const onClickCheckProof = async () => {
+    if (proofNum === "") {
+      alert("안돼");
+      return;
+    }
     try {
       await proofToken({
         variables: {
@@ -95,6 +104,7 @@ export default function JoinContainer() {
       Modal.error({ content: "인증에 실패하였습니다" });
     }
   };
+
   const onClickJoin = async (data: IFromValues) => {
     if (data.email && data.pw && data.nickname) {
       // data 이름 바꾸기
@@ -106,7 +116,7 @@ export default function JoinContainer() {
               pw: data.pw,
               nickname: data.nickname,
               phone: String(phoneNum),
-              image: fileUrl, //   result.data.createBoard._id;
+              image: fileUrl,
               introduce: data.introduce,
             },
           },
@@ -117,6 +127,13 @@ export default function JoinContainer() {
         Modal.error({ content: "슬리퍼 획득 실패" });
       }
     }
+  };
+
+  const onClickAgreeJoin = () => {
+    setIsEdit(true);
+  };
+  const onClickRadio = () => {
+    setIsActived(false);
   };
 
   return (
@@ -133,8 +150,12 @@ export default function JoinContainer() {
         phoneNum={phoneNum}
         flag={flag}
         isActive={isActive}
+        isActived={isActived}
         onChangeFileUrl={onChangeFileUrl}
         fileUrl={fileUrl}
+        onClickAgreeJoin={onClickAgreeJoin}
+        isEdit={isEdit}
+        onClickRadio={onClickRadio}
       />
     </>
   );

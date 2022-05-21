@@ -22,5 +22,10 @@ export interface IJoinPresenterProps {
   phoneNum: any;
   flag: boolean;
   isActive: boolean;
+  isActived: boolean;
+  isEdit: boolean;
   fileUrl?: string[];
+
+  onClickAgreeJoin: () => void;
+  onClickRadio: () => void;
 }

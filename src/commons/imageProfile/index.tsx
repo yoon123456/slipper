@@ -10,31 +10,24 @@ const UPLOAD_PROFILE_IMAGE = gql`
 `;
 
 const UploadImage = styled.img`
-  width: 30%;
-  height: 30%;
-  margin-right: 24px;
+  /* width: 30%;
+  height: 30%; */
   cursor: pointer;
 `;
 
 const UploadButton = styled.div`
-  width: 30%;
-  height: 30%;
+  width: 25%;
+  height: 25%;
   background-color: none;
-  /* background-color: #bdbdbd; */
-  margin-right: 24px;
+  margin-top: 20px;
   outline: none;
   border: none;
   cursor: pointer;
 `;
 
 const UploadImageBox = styled.img`
-  width: 60%;
+  width: 100%;
 `;
-const UploadMent = styled.div`
-  margin-top: 10%;
-  font-size: 1.3rem;
-`;
-
 const UploadFileHidden = styled.input`
   display: none;
 `;
@@ -71,8 +64,7 @@ export default function ImageProfile(props: IImageProfileProps) {
         <UploadImage onClick={onClickImgUpload} src={`${props.fileUrl}`} />
       ) : (
         <UploadButton type="button" onClick={onClickImgUpload}>
-          <UploadImageBox src="/image/upload.gif"></UploadImageBox>
-          <UploadMent>프로필 이미지 등록↑</UploadMent>
+          <UploadImageBox src="/image/profile.png"></UploadImageBox>
         </UploadButton>
       )}
       <UploadFileHidden

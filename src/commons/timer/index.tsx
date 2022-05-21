@@ -9,6 +9,7 @@ const Num = styled.h2`
   font-size: 1.5rem;
   font-weight: 400;
   color: gray;
+  margin-top: 5%;
 `;
 
 export default function Number(props: any) {
