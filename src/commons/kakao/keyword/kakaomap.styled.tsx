@@ -10,7 +10,9 @@ import {
 import styled from "@emotion/styled";
 
 export const KaKaoMap = styled(Map)``;
-export const KakaoMapMarker = styled(MapMarker)``;
+export const KakaoMapMarker = styled(MapMarker)`
+  background-color: transparent;
+`;
 export const KakaoMapTypeId = styled(MapTypeId)``;
 export const KakaoMapInfoWindow = styled(MapInfoWindow)``;
 export const KakaoMapRoadview = styled(Roadview)``;
@@ -128,35 +130,27 @@ export const MarkerUrl = styled.div`
   width: 100%;
 `;
 export const BtnWarrp = styled.div`
-  width: 50%;
-  float: right;
+  width: 40%;
 `;
 export const KaoKaoMapTypeId = styled(MapTypeId)``;
 export const CaffeBtn = styled.img`
   width: 13%;
-  float: right;
 `;
 export const HospitalBtn = styled.img`
   width: 13%;
-  float: right;
 `;
 export const StoreBtn = styled.img`
   width: 13%;
-  float: right;
 `;
 export const SchoolBtn = styled.img`
   width: 13%;
-  float: right;
 `;
 export const FoodBtn = styled.img`
   width: 13%;
-  float: right;
 `;
 export const MartBtn = styled.img`
   width: 13%;
-  float: right;
 `;
 export const PublicBtn = styled.img`
   width: 13%;
-  float: right;
 `;
