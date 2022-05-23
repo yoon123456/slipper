@@ -10,8 +10,7 @@ const UPLOAD_PROFILE_IMAGE = gql`
 `;
 
 const UploadImage = styled.img`
-  /* width: 30%;
-  height: 30%; */
+  width: 30%;
   cursor: pointer;
 `;
 

@@ -116,7 +116,7 @@ export default function JoinContainer() {
               pw: data.pw,
               nickname: data.nickname,
               phone: String(phoneNum),
-              image: fileUrl,
+              imageUrl: String(fileUrl),
               introduce: data.introduce,
             },
           },
