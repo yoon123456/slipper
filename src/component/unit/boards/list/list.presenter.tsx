@@ -44,42 +44,38 @@ export default function ListPresenter(props: IListPresenter) {
         </S.WrapperMiddle>
         <S.WrapperBody>
           <S.WrapperLeft>
-            {/* 에원 무한스클롤 기능 추가 5.22 */}
-            <div style={{ height: "100%", overflow: "auto" }}>
+            {/* 에원 무한스크롤 기능 추가 5.22 */}
+            <S.Infinite style={{ height: "100%", overflow: "auto" }}>
               <InfiniteScroll
                 pageStart={0}
                 loadMore={props.onLoadMore}
                 hasMore={true}
                 useWindow={false}
               >
-                {/* {props.data.fetchBoardsPage?.map((el: any) => ( */}
-                <S.Wrapper key={uuidv4()}>
-                  <S.UserContents
-                    // id={el.id}
-                    onClick={props.onClickDetail}
-                  >
-                    <S.ImageWrap>
-                      <S.Image src={"/image/listimage.png"} />
-                      <S.Heart src="/image/pickheart.png" />
-                    </S.ImageWrap>
-                    <S.UserWrap>
-                      <S.ListTitle>광교호수공원으로 놀러와</S.ListTitle>
-                      <S.ListHometown>원천동</S.ListHometown>
-                      <S.ListShopName>도미노피자</S.ListShopName>
-                    </S.UserWrap>
-                  </S.UserContents>
-                </S.Wrapper>
-                {/* ))} */}
+                {props.data?.testFetchBoardsPage?.map((el: any) => (
+                  <S.Wrapper key={uuidv4()}>
+                    <S.UserContents
+                      id={el._source.id}
+                      onClick={props.onClickDetail}
+                    >
+                      <S.ImageWrap>
+                        <S.Image src={el._source.thumbnail} />
+                        <S.Heart src="/image/pickheart.png" />
+                      </S.ImageWrap>
+                      <S.UserWrap>
+                        <S.ListTitle>{el._source.title}</S.ListTitle>
+                        <S.ListHometown>{el._source.address}</S.ListHometown>
+                        <S.ListShopName>{el._source.place}</S.ListShopName>
+                      </S.UserWrap>
+                    </S.UserContents>
+                  </S.Wrapper>
+                ))}
               </InfiniteScroll>
-            </div>
-            {/* <S.WrapperBottom></S.WrapperBottom> */}
+            </S.Infinite>
           </S.WrapperLeft>
           <S.WrapperRight>
             {/* chan 지도 기능 추가 22.05.19 */}
-            <KeyWord
-              onChangeKeyword={props.onChangeKeyword}
-              keyword={props.keyword}
-            />
+            <KeyWord />
           </S.WrapperRight>
         </S.WrapperBody>
       </S.WrapperContents>

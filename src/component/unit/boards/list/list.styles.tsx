@@ -16,6 +16,9 @@ export const WrapperLeft = styled.div`
   margin: 0 auto;
   height: 100vh;
   overflow: scroll;
+`;
+
+export const Infinite = styled.div`
   ::-webkit-scrollbar {
     display: none;
   }
@@ -136,6 +139,9 @@ export const WrapperRight = styled.div`
 export const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
+  ::-webkit-scrollbar {
+    display: none;
+  }
 `;
 
 // 각각의 글 상세로 들어가는것 수정

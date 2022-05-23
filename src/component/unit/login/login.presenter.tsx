@@ -33,7 +33,7 @@ export default function JoinPresenter(props: IJoinPresenter) {
               <S.MenuBox>
                 <S.IdFind>아이디 찾기</S.IdFind>
                 <S.PasswordFind>비밀번호 찾기</S.PasswordFind>
-                <S.Sign>슬리퍼 만들기</S.Sign>
+                <S.Sign onClick={props.onClickGoJoin}>슬리퍼 만들기</S.Sign>
               </S.MenuBox>
             </S.Menu>
 

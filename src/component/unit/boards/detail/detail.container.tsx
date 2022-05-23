@@ -13,12 +13,12 @@ import { DELETE_BOARD, FETCH_BOARD } from "./detail.query";
 
 export default function DetailContainer() {
   const router = useRouter();
-  const [aaa, setAAA] = useState("");
 
   // 게시글 상세 내용 가져오기 Query
   const { data } = useQuery(FETCH_BOARD, {
     variables: { boardId: String(router.query.boardId) },
   });
+  console.log(data, "ddd");
 
   // 게시글 삭제 Mutation
   const [deleteBoard] = useMutation<
