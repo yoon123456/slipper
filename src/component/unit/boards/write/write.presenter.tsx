@@ -5,11 +5,12 @@ import ImageBoardUpload from "../../../../commons/imageBoard";
 import { v4 as uuidv4 } from "uuid";
 // import { useEffect } from "react";
 import { DatePicker, Space } from "antd";
-import KeyWord from "../../../../commons/map/keyword";
+import KeyWord from "../../../../commons/kakao/keyword/kakaomap.container";
+import { IWritePresenter } from "./write.types";
 
 const { RangePicker } = DatePicker;
 
-export default function WritePresenter(props) {
+export default function WritePresenter(props: IWritePresenter) {
   // useEffect(() => {
   //   props.reset({ contents: props.data?.fetchUseditem.contents });
   // }, [props.data]);
@@ -82,14 +83,16 @@ export default function WritePresenter(props) {
                 {/* <RangePicker onChange={props.onChangeRange} bordered={false} /> */}
                 <S.StyledRangePicker
                   onChange={props.onChangeRange}
-                  bordered={false}
+                  // bordered={false}
                 />
               </Space>
               <S.Head>글 제목</S.Head>
               <S.Input
+                type="text"
                 placeholder="제목을 입력해주세요."
                 {...props.register("title")}
-              ></S.Input>
+                defaultValue={props.data?.fetchBoard.title || ""}
+              />
               <S.Head>인프라 사용 만족도</S.Head>
               <S.RatingWrapper>
                 <S.Rating src="/image/ratingGood.png"></S.Rating>
@@ -120,15 +123,25 @@ export default function WritePresenter(props) {
             <S.StepBody>
               <S.Head>위치</S.Head>
               <S.Map src="/image/mapEx.png"></S.Map>
-              {/* <S.Map>
-                <KeyWord />
-              </S.Map> */}
+              {/* <S.Map> */}
+              {/* <S.StyledKeyWord /> */}
+              {/* <KeyWord /> */}
+              {/* </S.Map> */}
               <S.Head>카테고리</S.Head>
-              <S.Input placeholder="카테고리를 입력해주세요."></S.Input>
+              <S.Input
+                placeholder="카테고리를 입력해주세요."
+                defaultValue={props.data?.fetchBoard.category || ""}
+              />
               <S.Head>상호명</S.Head>
-              <S.Input placeholder="가게 이름을 입력해주세요."></S.Input>
+              <S.Input
+                placeholder="가게 이름을 입력해주세요."
+                defaultValue={props.data?.fetchBoard.place || ""}
+              />
               <S.Head>주소</S.Head>
-              <S.Input placeholder="가게 주소를 입력해주세요."></S.Input>
+              <S.Input
+                placeholder="가게 주소를 입력해주세요."
+                defaultValue={props.data?.fetchBoard.address || ""}
+              />
             </S.StepBody>
             <S.StepBottom>
               <S.StepButton type="button" onClick={props.onClickSecondPrev}>
@@ -151,6 +164,7 @@ export default function WritePresenter(props) {
                     index={index}
                     fileUrl={el}
                     onChangeFileUrls={props.onChangeFileUrls}
+                    defaultValue={props.data?.fetchBoard.images.imageUrl || ""}
                   />
                 ))}
               </S.ImageRow>
@@ -159,8 +173,16 @@ export default function WritePresenter(props) {
               <S.StepButton type="button" onClick={props.onClickThirdPrev}>
                 이전
               </S.StepButton>
-              <S.StepButton type="button" onClick={props.onClickWriteBoard}>
-                등록
+              <S.StepButton
+                type="button"
+                // onClick={props.onClickWriteBoard}
+                onClick={
+                  props.isEdit
+                    ? props.onClickEditBoard
+                    : props.onClickWriteBoard
+                }
+              >
+                {props.isEdit ? "수정" : "등록"}
               </S.StepButton>
             </S.StepBottom>
           </S.StepWrapper>

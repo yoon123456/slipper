@@ -2,6 +2,7 @@
 import styled from "@emotion/styled";
 import { DatePicker, Space } from "antd";
 const { RangePicker } = DatePicker;
+import KeyWord from "../../../../commons/kakao/keyword/kakaomap.container";
 
 export const WrapperOut = styled.div`
   font-family: "HallymGothic-Regular";
@@ -86,71 +87,9 @@ export const Head = styled.div`
   /* color: white; */
 `;
 export const StyledRangePicker = styled(RangePicker)`
-  width: 200%;
-  margin-bottom: 10%;
+  width: 130%;
+  margin-bottom: 12%;
   /* padding: 3% 3% 3% 0; */
-`;
-export const DateWrapper = styled.div`
-  width: 100%;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-between;
-`;
-export const Date = styled.input`
-  width: 30%;
-  margin-bottom: 6%;
-  border: none;
-  border-bottom: 1px solid gainsboro;
-  outline: none;
-  font-size: 1.2rem;
-  color: gray;
-`;
-export const DateBetween = styled.div`
-  width: 12%;
-  color: gray;
-  text-align: center;
-  font-size: 2rem;
-  margin-bottom: 6%;
-`;
-export const DateButton = styled.button`
-  width: 5.5%;
-  height: 23px;
-  margin-bottom: 6%;
-  background-color: white;
-  color: gray;
-  border: 1px solid gainsboro;
-  border-radius: 5px;
-  text-align: center;
-  cursor: pointer;
-  :hover {
-    color: #008af6;
-    border: 1px solid #008af6;
-  }
-  /* width: 6%;
-  height: 22px;
-  margin-bottom: 6%;
-  color: gray;
-  font-size: 1.1rem;
-  text-decoration: none;
-  text-shadow: 0px 0px 0px #f0f0f0;
-  border: none;
-  border-radius: 5px;
-  background-color: white;
-  background: linear-gradient(to bottom, white 5%, #ffffff 100%);
-  display: inline-block;
-  box-shadow: 3px 3px 5px 0 rgba(0, 0, 0, 0.25),
-    -4px -4px 5px 0 rgba(255, 255, 255, 0.3);
-  cursor: pointer;
-  :hover {
-    background: linear-gradient(to bottom, #ffffff 5%, #f0f0f0 100%);
-    background-color: #ffffff;
-    color: #008af6;
-  }
-  :active {
-    position: relative;
-    top: 1px;
-  } */
 `;
 export const HeadCategory = styled.div`
   margin-bottom: 0;
@@ -221,6 +160,9 @@ export const Map = styled.img`
   width: 100%;
   height: 35%;
   margin-bottom: 6%;
+`;
+export const StyledKeyWord = styled(KeyWord)`
+  height: 100px;
 `;
 // export const ImageWrapper = styled.div`
 //   width: 100%;
