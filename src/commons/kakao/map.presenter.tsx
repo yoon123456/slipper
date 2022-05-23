@@ -14,7 +14,7 @@ export default function MapView(props: KaoKaoMap) {
         strategy="beforeInteractive"
       />
       <S.War>
-        <S.KakaoMap // 지도를 표시할 Container
+        {/* <S.KakaoMap // 지도를 표시할 Container
           center={{
             // 지도의 중심좌표
             lat: props.lat,
@@ -43,7 +43,7 @@ export default function MapView(props: KaoKaoMap) {
             yAnchor={1.1}
           >
             {/* <Contents /> */}
-          </CustomOverlayMap>
+        {/* </CustomOverlayMap>
           {props.isActive ? (
             <S.KaoKaoMapTypeId type={kakao.maps.MapTypeId.TRAFFIC} />
           ) : (
@@ -52,7 +52,8 @@ export default function MapView(props: KaoKaoMap) {
           <button onClick={props.onClickTrrapic}>교통정보</button>
           <button onClick={props.onClickRoadView}>로드뷰</button>
           <button onClick={props.onclickGeoLocation}>현재위치</button>
-        </S.KakaoMap>
+        </S.KakaoMap> } */}
+
         {props.isRoadview ? (
           <S.kaoKaoRoadview // 로드뷰를 표시할 Container
             position={{

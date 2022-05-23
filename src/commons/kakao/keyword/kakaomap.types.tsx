@@ -1,6 +1,18 @@
 import { ChangeEvent } from "react";
+import { Roadview } from "react-kakao-maps-sdk";
+import { StringLocale } from "yup/lib/locale";
 
 export interface KaoKaoMap {
+  onErrorGetNearestPanoId: (target: kakao.maps.Roadview) => void;
+  onChangeKeyword: (event: any) => void;
+  onChangeSearchbar: (event: ChangeEvent<HTMLInputElement>) => void;
+  handleFocus: () => void;
+  markerClick: (info: any) => (address: any) => void;
+  onclickGeoLocation: () => void;
+  onClickTrrapic: () => void;
+  onClickRoadView: () => void;
+  onClickContent: () => void;
+  trrapicFlag: boolean;
   lat: any;
   lng: any;
   setMap: any;
@@ -8,12 +20,22 @@ export interface KaoKaoMap {
   setInfo: any;
   info: any;
   keyword: string;
-  onChangeKeyword: (event: any) => void;
-  onChangeSearchbar: (event: ChangeEvent<HTMLInputElement>) => void;
-  handleFocus: () => void;
   geoLat: number;
   geoLng: number;
-  markerClick: (info: any) => (address: any) => void;
+  btnRef: any;
+  isActive: boolean;
+  roadViewFlag: boolean;
+  address: {
+    position: { lat: string; lng: string };
+    content: string;
+    address_name: string;
+    group_code: kakao.maps.services.CategoryGroupCode;
+    group_name: string;
+    phone: string;
+    place_url: string;
+    road_name: string;
+  };
+  contentFlag: boolean;
 }
 
 export interface KaoKeyWord {
@@ -22,5 +44,19 @@ export interface KaoKeyWord {
 }
 
 export interface ContentProps {
-  markers: any;
+  marker: {
+    content: string;
+    address_name: string;
+    place_url: string;
+    phone: string;
+    road_name: string;
+    group_name: string;
+  };
+}
+
+export interface MarkerProps {
+  markers: [];
+  markerClick: (info: any) => (address: any) => void;
+  info: any;
+  contentFlag: boolean;
 }

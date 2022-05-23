@@ -5,31 +5,39 @@ import { ContentProps } from "../keyword/kakaomap.types";
 const Box = styled.div`
   background-color: white;
 `;
-
+const BoxInner = styled.div``;
+const BoxContent = styled.div``;
+const BoxFirst = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  bottom: 85px;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  border-bottom: 2px solid #ddd;
+  float: left;
+`;
+const BoxText = styled.div``;
+const BoxAddressName = styled.div``;
+const BoxPhone = styled.div``;
+const BoxPlaceUrl = styled.a``;
 export default function Contents(props: ContentProps) {
   return (
-    <Box className="overlay_info">
-      <a
-        href="https://place.map.kakao.com/17600274" // boardId 값 넘겨주면됨
-        target="_blank"
-        rel="noreferrer"
-      >
-        {props.markers.map((marker: any) => {
-          <strong // 타이틀
-          >
-            {`marker-${marker.content}-${marker.position.lat},${marker.position.lng}`}
-          </strong>;
-        })}
-      </a>
-      <div className="desc">
-        {/* <img
-          src="https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/place_thumb.png" // boardId Img
-          alt=""
-        /> */}
-        <span
-          className="address" // boardAddress
-        ></span>
-      </div>
+    <Box>
+      <BoxInner>
+        <>
+          <BoxFirst className="customoverlay">
+            <BoxContent>{props.marker.content}</BoxContent>
+            <BoxText>{props.marker.group_name}</BoxText>
+            <BoxAddressName>{props.marker.road_name}</BoxAddressName>
+            <BoxPhone>{props.marker.phone}</BoxPhone>
+            <BoxPlaceUrl className="title" href={`${props.marker.place_url}`}>
+              {props.marker.place_url}
+            </BoxPlaceUrl>
+          </BoxFirst>
+        </>
+      </BoxInner>
     </Box>
   );
 }
