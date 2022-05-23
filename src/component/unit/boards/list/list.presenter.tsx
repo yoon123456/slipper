@@ -4,111 +4,85 @@ import Category from "../../../../commons/category";
 import * as S from "./list.styles";
 import { useMovetoPage } from "../../../../commons/hooks/movePage";
 import KakaoMapPage from "../../../../commons/kakao/map.container";
-import KaKaoMapContainer from "../../../../commons/kakao/keyword/kakaomap.container";
+import KeyWord from "../../../../commons/kakao/keyword/kakaomap.container";
 import { IListPresenter } from "./list.types";
 import Searchbars01 from "../../../../commons/searchBar/Searchbars01.container";
+import SearchBarCategoryContainer from "../../../../commons/searchBarCaterory/searchBarCategory.container";
+import { useRecoilState } from "recoil";
+import { SearchBarIsActiveState } from "../../../../commons/store";
+import InfiniteScroll from "react-infinite-scroller";
+import { v4 as uuidv4 } from "uuid";
+
 export default function ListPresenter(props: IListPresenter) {
   const { onClickMoveToPage } = useMovetoPage();
+  const [isActive] = useRecoilState(SearchBarIsActiveState);
+
   return (
-    <S.WrapperOut>
+    <S.WrapperOut isActive={isActive}>
       <S.WrapperTop>
         {/* chan 검색 기능 추가 22.05.19 */}
-        <Searchbars01 onChangeKeyword={props.onChangeKeyword} />
+        {/* 예원 검색,카테고리,검색버튼 컴포넌트추가 22.05.21 */}
+        {/* <Searchbars01 onChangeKeyword={props.onChangeKeyword} />
         <S.CategoryWrap>
           <Category />
         </S.CategoryWrap>
-        <S.SearchButton type="submit">검색</S.SearchButton>
+        <S.SearchButton type="submit">검색</S.SearchButton> */}
+        <SearchBarCategoryContainer />
       </S.WrapperTop>
-      <S.WrapperMiddle>
-        <S.WrapperWrite>
-          <S.Button onClick={onClickMoveToPage("/boards/new")}>글쓰기</S.Button>
-          <S.Pen src="/image/listpen.png" />
-        </S.WrapperWrite>
-        <S.WrapperArray>
-          <S.Array>최신순</S.Array>
-          <S.Array>찜한순</S.Array>
-        </S.WrapperArray>
-      </S.WrapperMiddle>
-      <S.WrapperBody>
-        <S.WrapperLeft>
-          <S.Wrapper>
-            <S.UserContents onClick={props.onClickDetail}>
-              <S.ImageWrap>
-                <S.Image src={"/image/listimage.png"} />
-                <S.Heart src="/image/pickheart.png" />
-              </S.ImageWrap>
-              <S.UserWrap>
-                <S.ListTitle>광교호수공원으로 놀러와</S.ListTitle>
-                <S.ListHometown>원천동</S.ListHometown>
-                <S.ListShopName>도미노피자</S.ListShopName>
-              </S.UserWrap>
-            </S.UserContents>
-            <S.UserContents>
-              <S.ImageWrap>
-                <S.Image src={"/image/listimage.png"} />
-                <S.Heart src="/image/pickheart.png" />
-              </S.ImageWrap>
-              <S.UserWrap>
-                <S.ListTitle>광교호수공원으로 놀러와</S.ListTitle>
-                <S.ListHometown>원천동</S.ListHometown>
-                <S.ListShopName>도미노피자</S.ListShopName>
-              </S.UserWrap>
-            </S.UserContents>
-            <S.UserContents>
-              <S.ImageWrap>
-                <S.Image src={"/image/listimage.png"} />
-                <S.Heart src="/image/pickheart.png" />
-              </S.ImageWrap>
-              <S.UserWrap>
-                <S.ListTitle>광교호수공원으로 놀러와</S.ListTitle>
-                <S.ListHometown>원천동</S.ListHometown>
-                <S.ListShopName>도미노피자</S.ListShopName>
-              </S.UserWrap>
-            </S.UserContents>
-            <S.UserContents>
-              <S.ImageWrap>
-                <S.Image src={"/image/listimage.png"} />
-                <S.Heart src="/image/pickheart.png" />
-              </S.ImageWrap>
-              <S.UserWrap>
-                <S.ListTitle>광교호수공원으로 놀러와</S.ListTitle>
-                <S.ListHometown>원천동</S.ListHometown>
-                <S.ListShopName>도미노피자</S.ListShopName>
-              </S.UserWrap>
-            </S.UserContents>
-            <S.UserContents>
-              <S.ImageWrap>
-                <S.Image src={"/image/listimage.png"} />
-                <S.Heart src="/image/pickheart.png" />
-              </S.ImageWrap>
-              <S.UserWrap>
-                <S.ListTitle>광교호수공원으로 놀러와</S.ListTitle>
-                <S.ListHometown>원천동</S.ListHometown>
-                <S.ListShopName>도미노피자</S.ListShopName>
-              </S.UserWrap>
-            </S.UserContents>
-            <S.UserContents>
-              <S.ImageWrap>
-                <S.Image src={"/image/listimage.png"} />
-                <S.Heart src="/image/pickheart.png" />
-              </S.ImageWrap>
-              <S.UserWrap>
-                <S.ListTitle>광교호수공원으로 놀러와</S.ListTitle>
-                <S.ListHometown>원천동</S.ListHometown>
-                <S.ListShopName>도미노피자</S.ListShopName>
-              </S.UserWrap>
-            </S.UserContents>
-          </S.Wrapper>
-          <S.WrapperBottom></S.WrapperBottom>
-        </S.WrapperLeft>
-        <S.WrapperRight>
-          {/* chan 지도 기능 추가 22.05.19 */}
-          <KaKaoMapContainer
-            onChangeKeyword={props.onChangeKeyword}
-            keyword={props.keyword}
-          />
-        </S.WrapperRight>
-      </S.WrapperBody>
+      <S.WrapperContents isActive={isActive}>
+        <S.WrapperMiddle>
+          <S.WrapperArray>
+            <S.Array>최신순</S.Array>
+            <S.Array>찜한순</S.Array>
+          </S.WrapperArray>
+          <S.WrapperWrite>
+            <S.Button onClick={onClickMoveToPage("/boards/new")}>
+              글쓰기
+            </S.Button>
+            <S.Pen src="/image/listpen.png" />
+          </S.WrapperWrite>
+        </S.WrapperMiddle>
+        <S.WrapperBody>
+          <S.WrapperLeft>
+            {/* 에원 무한스클롤 기능 추가 5.22 */}
+            <div style={{ height: "100%", overflow: "auto" }}>
+              <InfiniteScroll
+                pageStart={0}
+                loadMore={props.onLoadMore}
+                hasMore={true}
+                useWindow={false}
+              >
+                {/* {props.data.fetchBoardsPage?.map((el: any) => ( */}
+                <S.Wrapper key={uuidv4()}>
+                  <S.UserContents
+                    // id={el.id}
+                    onClick={props.onClickDetail}
+                  >
+                    <S.ImageWrap>
+                      <S.Image src={"/image/listimage.png"} />
+                      <S.Heart src="/image/pickheart.png" />
+                    </S.ImageWrap>
+                    <S.UserWrap>
+                      <S.ListTitle>광교호수공원으로 놀러와</S.ListTitle>
+                      <S.ListHometown>원천동</S.ListHometown>
+                      <S.ListShopName>도미노피자</S.ListShopName>
+                    </S.UserWrap>
+                  </S.UserContents>
+                </S.Wrapper>
+                {/* ))} */}
+              </InfiniteScroll>
+            </div>
+            {/* <S.WrapperBottom></S.WrapperBottom> */}
+          </S.WrapperLeft>
+          <S.WrapperRight>
+            {/* chan 지도 기능 추가 22.05.19 */}
+            <KeyWord
+              onChangeKeyword={props.onChangeKeyword}
+              keyword={props.keyword}
+            />
+          </S.WrapperRight>
+        </S.WrapperBody>
+      </S.WrapperContents>
     </S.WrapperOut>
   );
 }
