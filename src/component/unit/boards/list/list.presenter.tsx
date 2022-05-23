@@ -4,7 +4,7 @@ import Category from "../../../../commons/category";
 import * as S from "./list.styles";
 import { useMovetoPage } from "../../../../commons/hooks/movePage";
 import KakaoMapPage from "../../../../commons/kakao/map.container";
-import KeyWord from "../../../../commons/kakao/keyword/kakaomap.container";
+import KaKaoMapContainer from "../../../../commons/kakao/keyword/kakaomap.container";
 import { IListPresenter } from "./list.types";
 import Searchbars01 from "../../../../commons/searchBar/Searchbars01.container";
 export default function ListPresenter(props: IListPresenter) {
@@ -103,7 +103,7 @@ export default function ListPresenter(props: IListPresenter) {
         </S.WrapperLeft>
         <S.WrapperRight>
           {/* chan 지도 기능 추가 22.05.19 */}
-          <KeyWord
+          <KaKaoMapContainer
             onChangeKeyword={props.onChangeKeyword}
             keyword={props.keyword}
           />
