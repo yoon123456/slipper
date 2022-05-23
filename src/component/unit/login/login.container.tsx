@@ -38,6 +38,11 @@ export default function LoginContainer() {
 
   const [login] = useMutation(LOGIN);
 
+  // 회원가입이동 기능
+  const onClickGoJoin = () => {
+    router.push("/join");
+  };
+
   const onclickLogin = async (data: IFormValues) => {
     if (data.email && data.pw) {
       try {
@@ -47,7 +52,7 @@ export default function LoginContainer() {
             pw: data.pw,
           },
         });
-        // const accessToken = result.data?.login.accessToken;
+        const accessToken = result.data?.login;
 
         // const resultUserInfo = await client.query({
         //   query: FETCH_USER,
@@ -60,7 +65,7 @@ export default function LoginContainer() {
 
         Modal.success({ content: "슬리퍼 장착 성공" });
         router.push("/boards");
-        console.log("login", result.data.login);
+        console.log("토큰", result.data?.login);
       } catch (error) {
         Modal.error({ content: "슬리퍼 장착 실패" });
       }
@@ -73,6 +78,7 @@ export default function LoginContainer() {
       handleSubmit={handleSubmit}
       formState={formState}
       onclickLogin={onclickLogin}
+      onClickGoJoin={onClickGoJoin}
     />
   );
 }

@@ -39,8 +39,8 @@ export interface KaoKaoMap {
 }
 
 export interface KaoKeyWord {
-  onChangeKeyword: (event: any) => void;
-  keyword: string;
+  onChangeKeyword?: (event: any) => void;
+  keyword?: string;
 }
 
 export interface ContentProps {

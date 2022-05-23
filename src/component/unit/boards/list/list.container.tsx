@@ -4,11 +4,7 @@ import { useRouter } from "next/router";
 import { ChangeEvent, MouseEvent, useEffect, useRef, useState } from "react";
 import { useRecoilState } from "recoil";
 import { useMovetoPage } from "../../../../commons/hooks/movePage";
-import {
-  CategoryState,
-  isClickedNumState,
-  SearchState,
-} from "../../../../commons/store";
+import { isClickedNumState } from "../../../../commons/store";
 import ListPresenter from "./list.presenter";
 import { kakaoAddress } from "../../../../commons/store/kakaounit";
 import { useQuery } from "@apollo/client";
@@ -21,15 +17,13 @@ export default function ListContainer() {
   const [isClickedNum, setIsClickedNum] = useRecoilState(isClickedNumState);
   const [keyword, setKeyword] = useState(""); // Chan 검색기능 추가
   const [kakaoaaa] = useRecoilState(kakaoAddress);
-  const [search] = useRecoilState(SearchState);
-  const [category] = useState(CategoryState);
 
   // fetchBoardsPage query
   const { data, refetch, fetchMore } = useQuery(FETCH_BOARDS_PAGE, {
     variables: {
       page: 1,
-      category: category,
-      search: search,
+      category: "",
+      search: "",
     },
   });
   console.log(data, "ㅇㄹㅇ");
@@ -38,14 +32,14 @@ export default function ListContainer() {
   const onLoadMore = () => {
     if (!data) return;
     fetchMore({
-      variables: { page: Math.ceil(data.fetchBoardsPage.length / 10) + 1 },
+      variables: { page: Math.ceil(data.testFetchBoardsPage.length / 10) + 1 },
       updateQuery: (prev, { fetchMoreResult }) => {
-        if (!fetchMoreResult?.fetchBoardsPage)
-          return { fetchBoardsPage: [...prev.fetchBoardsPage] };
+        if (!fetchMoreResult?.testFetchBoardsPage)
+          return { testFetchBoardsPage: [...prev.testFetchBoardsPage] };
         return {
-          fetchBoardsPage: [
-            ...prev.fetchBoardsPage,
-            ...fetchMoreResult?.fetchBoardsPage,
+          testFetchBoardsPage: [
+            ...prev.testFetchBoardsPage,
+            ...fetchMoreResult?.testFetchBoardsPage,
           ],
         };
       },

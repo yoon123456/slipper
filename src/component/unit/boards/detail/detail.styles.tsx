@@ -182,6 +182,25 @@ export const CategoryWrap = styled.div`
   padding: 5% 0 4% 0;
 `;
 
+export const Category = styled.button`
+  width: 90%;
+  height: 35px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #ffffff;
+  font-size: 1.3rem;
+  border: none;
+  border-radius: 30px;
+  box-shadow: 0px 2px 4px 0px #e1e1e1;
+  cursor: pointer;
+  :focus {
+    color: #008af6;
+    border: 1px solid #008af6;
+  }
+  margin: 1%;
+`;
+
 export const Good = styled.img`
   width: 33.3%;
 `;

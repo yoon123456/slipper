@@ -4,26 +4,33 @@ export const FETCH_BOARD = gql`
   query fetchBoard($boardId: String!) {
     fetchBoard(boardId: $boardId) {
       id
+      createdAt
+      updatedAt
       user {
-        id
         email
         nickname
         phone
         imageUrl
         introduce
         createAt
+        role
       }
+      nickname
       category
       title
       contents
       score
-      period
+      startDate
+      endDate
       lat
       lng
       address
       place
       likeCount
-      images
+      images {
+        id
+        imageUrl
+      }
     }
   }
 `;

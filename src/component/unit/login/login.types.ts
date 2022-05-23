@@ -8,4 +8,5 @@ export interface IJoinPresenter {
   handleSubmit: any;
   formState: any;
   onclickLogin: (data: IFormValues) => void;
+  onClickGoJoin: () => void;
 }
