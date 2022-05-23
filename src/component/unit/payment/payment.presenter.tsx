@@ -1,6 +1,6 @@
 // 해리 수정 5/18
 import * as S from "./payment.styles";
-
+import Payment from "../../../commons/pay/payment";
 export default function PaymentPresenter() {
   return (
     <S.WrapperOut>
@@ -15,7 +15,8 @@ export default function PaymentPresenter() {
             </S.ExplainRow>
             <S.Price>₩2,000</S.Price>
             <S.Period>/ 7days</S.Period>
-            <S.Button>Get started</S.Button>
+            {/* <S.Button>Get started</S.Button> */}
+            <Payment />
           </S.Voucher>
           <S.Voucher>
             {/* <S.Explain>1달간 슬리퍼를 신어보세요!</S.Explain> */}

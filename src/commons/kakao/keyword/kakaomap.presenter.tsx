@@ -28,7 +28,7 @@ export default function KakaomapPresenter(props: KaoKaoMap) {
             <S.RoadButton type="button" onClick={props.onClickRoadView}>
               로드뷰
             </S.RoadButton>
-            <S.BtnWarrp>
+            {/* <S.BtnWarrp>
               <S.CaffeBtn
                 id="CE7"
                 onClick={props.onClickCategory}
@@ -64,7 +64,12 @@ export default function KakaomapPresenter(props: KaoKaoMap) {
                 onClick={props.onClickCategory}
                 src="/image/publicTown.png"
               />
-            </S.BtnWarrp>
+              <S.BankBtn
+                id="BK9"
+                onClick={props.onClickCategory}
+                src="/image/bank.png"
+              />
+            </S.BtnWarrp> */}
           </S.Category>
 
           <S.KaKaoMap // 로드뷰를 표시할 Container
@@ -84,8 +89,6 @@ export default function KakaomapPresenter(props: KaoKaoMap) {
               markerClick={props.markerClick}
               info={props.info}
               contentFlag={props.contentFlag}
-              categoryFlag={props.categoryFlag}
-              category={props.category}
             />
 
             <S.KakaoMapMarker

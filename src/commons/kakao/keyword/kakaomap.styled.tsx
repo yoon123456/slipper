@@ -106,6 +106,8 @@ export const WarrapOut = styled.div`
 `;
 export const Category = styled.div`
   width: 40.5%;
+  margin-top: 5px;
+  margin-left: 5px;
   position: absolute;
   z-index: 10;
 `;
@@ -152,5 +154,9 @@ export const MartBtn = styled.img`
   width: 13%;
 `;
 export const PublicBtn = styled.img`
+  width: 13%;
+`;
+
+export const BankBtn = styled.img`
   width: 13%;
 `;

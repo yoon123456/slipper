@@ -13,8 +13,6 @@ export interface KaoKaoMap {
   onClickRoadView: () => void;
   onClickContent: () => void;
   onClickCategory: (event: MouseEvent<HTMLImageElement>) => void;
-  category: string;
-  categoryFlag: boolean;
   trrapicFlag: boolean;
   lat: any;
   lng: any;
@@ -62,6 +60,4 @@ export interface MarkerProps {
   markerClick: (info: any) => (address: any) => void;
   info: any;
   contentFlag: boolean;
-  categoryFlag: boolean;
-  category: string;
 }
