@@ -17,6 +17,16 @@ export default function JoinPresenter(props: IJoinPresenterProps) {
           <S.WrapperJoin>
             <S.Join>Welcome to slipper!</S.Join>
             <form onSubmit={props.handleSubmit(props.onClickJoin)}>
+              <S.RoleBox>
+                <S.RoleBoxIn>
+                <S.Role type="radio" name="gender"/>
+              유저
+                </S.RoleBoxIn>
+                <S.RoleBoxIn>
+                <S.Role type="radio" name="gender"/>
+              관리자
+                </S.RoleBoxIn>
+              </S.RoleBox>
               <S.Profile>
                 <S.ProfileBox>
                   <S.InputProfile
@@ -49,7 +59,7 @@ export default function JoinPresenter(props: IJoinPresenterProps) {
                 {...props.register("pwCheck")}
               />
               <S.Error>{props.formState.errors.pwCheck?.message}</S.Error>
-            </form>
+   
             <S.Check>
               <S.TelBox>
                 <S.Tel
@@ -62,6 +72,7 @@ export default function JoinPresenter(props: IJoinPresenterProps) {
               <S.NumberAsk
                 onClick={props.onClickGetToken}
                 disabled={props.isActive}
+                type="button"
               >
                 인증번호 요청
               </S.NumberAsk>
@@ -75,13 +86,15 @@ export default function JoinPresenter(props: IJoinPresenterProps) {
                 placeholder="인증번호 6자리"
                 onChange={props.onChangeProofNum}
               />
-              <S.CheckEnd onClick={props.onClickCheckProof}>
+              <S.CheckEnd type="button" onClick={props.onClickCheckProof} >
                 인증완료
               </S.CheckEnd>
             </S.CheckNumber>
             <S.Introduce type="textarea" placeholder="간단한 소개글" />
             <S.JoinSlipper>슬리퍼 신기</S.JoinSlipper>
+            </form>
           </S.WrapperJoin>
+                  
         )}
 
         {/* 약관동의 */}

@@ -1,6 +1,23 @@
 import { keyframes } from "@emotion/react";
 import styled from "@emotion/styled";
 
+export const RoleBox = styled.div`
+  display: flex;
+  align-items: center;
+  margin-top: 10%;
+  font-size: 1.7rem;
+  font-weight: 600;
+  color: gray;
+`;
+export const RoleBoxIn = styled.div`
+  margin-right: 10px;
+  display: flex;
+  align-items: center;
+`;
+export const Role = styled.input`
+  margin-right: 5px;
+`;
+
 export const Wrapper = styled.div`
   display: flex;
   height: 100vh;
@@ -68,12 +85,12 @@ export const Join = styled.div`
   font-size: 3.3rem;
   font-weight: bold;
   color: #008af6;
-  margin-top: 10%;
+  margin-top: 5%;
 `;
 export const Profile = styled.div`
   display: flex;
   justify-content: space-between;
-  margin-top: 8%;
+  /* margin-top: 8%; */
 `;
 export const ProfileBox = styled.div`
   width: 70%;
@@ -89,7 +106,7 @@ export const InputProfile = styled.input`
 `;
 export const Check = styled.div`
   display: flex;
-  padding-top: 1%;
+  padding-top: 8%;
   align-items: center;
 `;
 export const CheckNumber = styled.div`
@@ -127,12 +144,13 @@ export const Input = styled.input`
   margin-right: 22px;
   border-radius: 5px;
 `;
-export const CheckEnd = styled.div`
+export const CheckEnd = styled.button`
   width: 100px;
   line-height: 3;
   text-align: center;
   background-color: #f2f2f2;
   border-radius: 10px;
+  border: none;
 `;
 export const PasswordCheck = styled.input`
   width: 63%;
@@ -141,7 +159,7 @@ export const PasswordCheck = styled.input`
   border-bottom: 2px solid gainsboro;
   /* padding-bottom: 10px; */
   margin-top: 3.5%;
-  margin-bottom: 6%;
+  /* margin-bottom: 6%; */
 `;
 export const PasswordCheck2 = styled.input`
   width: 63%;
@@ -149,7 +167,7 @@ export const PasswordCheck2 = styled.input`
   border: none;
   border-bottom: 2px solid gainsboro;
   margin-top: 7.3%;
-  margin-bottom: 6%;
+  /* margin-bottom: 6%; */
 `;
 export const Introduce = styled.input`
   width: 100%;
@@ -165,7 +183,7 @@ export const JoinSlipper = styled.button`
   line-height: 2.2;
   margin: 0 auto;
   padding: 5px;
-  margin-top: 8%;
+  margin-top: 5%;
   margin-left: 40%;
   text-align: center;
   font-size: 1.3rem;
