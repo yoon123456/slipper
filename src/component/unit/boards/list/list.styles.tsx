@@ -1,16 +1,18 @@
 import styled from "@emotion/styled";
+import { Iprops } from "./list.types";
 
 export const WrapperOut = styled.div`
   width: 100%;
-  margin: 0 0 0 0;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   font-family: "HallymGothic-Regular";
+  background-color: ${(props: Iprops) =>
+    props.isActive ? "#27272C14" : "none"};
 `;
 export const WrapperLeft = styled.div`
-  width: 50%;
+  width: 60%;
   margin: 0 auto;
   height: 100vh;
   overflow: scroll;
@@ -27,42 +29,48 @@ export const WrapperTop = styled.div`
   align-items: center;
   padding: 30px 0 0 0;
 `;
+export const WrapperContents = styled.div`
+  width: 80%;
+  margin: 0 auto;
+  opacity: ${(props: Iprops) => (props.isActive ? "0.3" : "1")};
+`;
 
 export const WrapperBody = styled.div`
   display: flex;
-  width: 90%;
-`;
-export const SearchButton = styled.button`
-  width: 15%;
-  height: 40px;
+  width: 100%;
   margin: 0 auto;
-  background-color: #ffffff;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border: 2px solid #008af6;
-  border-radius: 10px;
-  color: #008af6;
-  font-size: 1.8rem;
-  cursor: pointer;
-  :hover {
-    background-color: #008af6;
-    color: white;
-  }
 `;
+// export const SearchButton = styled.button`
+//   width: 15%;
+//   height: 40px;
+//   margin: 0 auto;
+//   background-color: #ffffff;
+//   display: flex;
+//   justify-content: center;
+//   align-items: center;
+//   border: 2px solid #008af6;
+//   border-radius: 10px;
+//   color: #008af6;
+//   font-size: 1.8rem;
+//   cursor: pointer;
+//   :hover {
+//     background-color: #008af6;
+//     color: white;
+//   }
+// `;
 
-export const Serach = styled.div`
-  font-size: 1.8rem;
-  font-weight: bold;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding-top: 2%;
-`;
-export const CategoryWrap = styled.div`
-  width: 80%;
-  margin: 0 auto;
-`;
+// export const Serach = styled.div`
+//   font-size: 1.8rem;
+//   font-weight: bold;
+//   display: flex;
+//   justify-content: center;
+//   align-items: center;
+//   padding-top: 2%;
+// `;
+// export const CategoryWrap = styled.div`
+//   width: 80%;
+//   margin: 0 auto;
+// `;
 export const WrapperMiddle = styled.div`
   width: 100%;
   display: flex;
@@ -78,9 +86,9 @@ export const WrapperWrite = styled.div`
 `;
 
 export const WrapperArray = styled.div`
-  width: 45%;
+  width: 40%;
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
 `;
 export const Array = styled.div`
   width: 10%;
@@ -114,25 +122,25 @@ export const Pen = styled.img`
   width: 20px;
 `;
 export const WrapperRight = styled.div`
-  width: 45%;
-  /* height: 100%; */
-  margin-left: 5%;
-  /* border: 2px solid red; */
+  width: 50%;
+  margin: 0 auto;
+  padding-right: 6%;
 `;
-export const Map = styled.img`
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-`;
+// export const Map = styled.img`
+//   width: 95%;
+//   margin: 0 auto;
+//   height: 100%;
+//   object-fit: cover;
+// `;
 
 export const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
 `;
 
-// 각각의 글 상세로 들어가는것 수정2
+// 각각의 글 상세로 들어가는것 수정
 export const UserContents = styled.div`
-  width: 95%;
+  width: 80%;
   display: flex;
   flex-direction: row;
   justify-content: space-around;
