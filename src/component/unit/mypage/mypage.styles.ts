@@ -2,10 +2,10 @@
 import styled from "@emotion/styled";
 import { IProps } from "./mypage.types";
 
-export const Wrapper = styled.div`
-  width: 100%;
-  background-color: #f5f7f9;
-`;
+// export const Wrapper = styled.div`
+//   width: 100%;
+//   /* background-color: #f5f7f9; */
+// `;
 export const WrapperOut = styled.div`
   width: 60%;
   margin: 0 auto;
@@ -16,7 +16,7 @@ export const WrapperOut = styled.div`
   font-family: "HallymGothic-Regular";
 `;
 export const WrapperLeft = styled.div`
-  width: 20%;
+  width: 25%;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
@@ -24,6 +24,8 @@ export const WrapperLeft = styled.div`
   background-color: white;
   margin-right: 2%;
   padding: 5% 0% 17% 0%;
+  border-radius: 41px 41px 41px 41px;
+  box-shadow: 10px 10px 20px 3px rgba(214, 214, 214, 1);
 `;
 export const ProfileImage = styled.img`
   width: 60%;
@@ -39,7 +41,7 @@ export const MenuWrapper = styled.div`
   width: 100%;
   /* color: gray; */
   text-align: center;
-  padding: 0% 10% 0% 22%;
+  /* padding: 0% 10% 0% 22%; */
   height: 60px;
   font-size: 2.5rem;
   cursor: pointer;
@@ -49,25 +51,32 @@ export const MenuWrapper = styled.div`
     font-size: 2.8rem;
     padding: 0% 10% 0% 22%;
   } */
+  background-color: ${(props: IProps) =>
+    props.mypageRight ? "#f4f7f9b3" : "none"};
+  border-left: ${(props: IProps) =>
+    props.mypageRight ? "4px solid #ffcfec" : "none"};
+  padding: ${(props: IProps) =>
+    props.mypageRight ? "0% 10% 0% 20.5%" : "0% 10% 0% 22%"};
 `;
 export const Icon = styled.img`
   height: 50%;
 `;
 export const MenuButton = styled.div`
   width: 80%;
-  color: ${(props: IProps) => (props.mypageRight ? "#008af6" : "black")};
 `;
 export const WrapperRight = styled.div`
-  width: 80%;
+  width: 75%;
   display: flex;
   flex-direction: column;
+  border-radius: 41px 41px 41px 41px;
+  box-shadow: 10px 10px 20px 3px rgba(214, 214, 214, 1);
 `;
 export const NicknameWrapper = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
   background-color: none;
-  padding: 3%;
+  padding: 5%;
 `;
 export const NicknameFront = styled.div`
   font-size: 2.3rem;
@@ -83,5 +92,5 @@ export const Right = styled.div`
   height: 650px;
   padding: 0% 5% 5% 5%;
   background-color: white;
-  border: 1px solid #f5f7f9;
+  border-radius: 41px 41px 41px 41px;
 `;

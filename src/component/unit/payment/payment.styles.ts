@@ -44,7 +44,10 @@ export const Voucher = styled.div`
   border-radius: 5px;
   background-color: white;
   padding: 27% 2% 27% 2%;
-  box-shadow: 0px 14px 44px 23px rgba(0, 0, 0, 0.14);
+  box-shadow: 0px 15px 12px -1px rgba(199, 199, 199, 1);
+  :hover {
+    border: 7px solid #ffcfec;
+  }
 `;
 export const ExplainRow = styled.div`
   width: 75%;

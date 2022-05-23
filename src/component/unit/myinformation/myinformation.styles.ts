@@ -107,7 +107,7 @@ export const ButtonWrapper = styled.div`
   padding-right: 200px;
 `;
 export const Button = styled.div`
-  width: 90px;
+  /* width: 90px;
   height: 40px;
   padding: 6px;
   text-align: center;
@@ -119,5 +119,30 @@ export const Button = styled.div`
   :hover {
     background-color: #008af6;
     color: white;
+  } */
+  width: 20%;
+  height: 3%;
+  /* margin: 10%; */
+  padding: 2%;
+  text-align: center;
+  color: gray;
+  font-size: 1.3rem;
+  text-decoration: none;
+  text-shadow: 0px 0px 0px #f0f0f0;
+  border: none;
+  border-radius: 10px;
+  background-color: white;
+  background: linear-gradient(to bottom, white 5%, #ffffff 100%);
+  display: inline-block;
+  box-shadow: 3px 3px 7px 0 rgba(0, 0, 0, 0.25),
+    -4px -4px 7px 0 rgba(255, 255, 255, 0.3);
+  cursor: pointer;
+  :hover {
+    background: linear-gradient(to bottom, #ffffff 5%, #f0f0f0 100%);
+    background-color: #ffffff;
+  }
+  :active {
+    position: relative;
+    top: 1px;
   }
 `;

@@ -6,14 +6,15 @@ import { useMutation } from "@apollo/client";
 import { useForm } from "react-hook-form";
 import { Modal } from "antd";
 import { useState } from "react";
+import { useRouter } from "next/router";
 
 const ReactQuill = dynamic(() => import("react-quill"), { ssr: false });
 
 export default function WriteContainer() {
+  const router = useRouter();
+
   const [startDate, SetStartDate] = useState("");
   const [endDate, SetEndDate] = useState("");
-  // const [secondActive, SetSecondActive] = useState(false);
-  // const [thirdActive, SetThirdActive] = useState(true);
   const [activeStep, SetActiveStep] = useState("first");
   const [fileUrls, setFileUrls] = useState(["", "", "", ""]);
 
@@ -21,20 +22,6 @@ export default function WriteContainer() {
 
   const { register, handleSubmit, setValue, trigger, getValues, reset } =
     useForm({ mode: "onChange" });
-
-  const onClickStartDate = () => {
-    SetStartDate(document.getElementById("startDate")?.value);
-  };
-  const onClickEndDate = () => {
-    SetEndDate(document.getElementById("endDate")?.value);
-  };
-  // console.log(startDate, endDate);
-
-  const onChangeContents = (value: string) => {
-    console.log(value);
-    setValue("contents", value === "<p><br></p>" ? "" : value);
-    trigger("contents");
-  };
 
   const onClickFirstNext = () => {
     SetActiveStep("second");
@@ -48,13 +35,21 @@ export default function WriteContainer() {
   const onClickThirdPrev = () => {
     SetActiveStep("second");
   };
-
+  const onChangeRange = (date, dateString) => {
+    SetStartDate(dateString[0]);
+    SetEndDate(dateString[1]);
+  };
+  console.log(startDate, endDate);
+  const onChangeContents = (value: string) => {
+    console.log(value);
+    setValue("contents", value === "<p><br></p>" ? "" : value);
+    trigger("contents");
+  };
   const onChangeFileUrls = (fileUrl: string, index: number) => {
     const newFileUrls = [...fileUrls];
     newFileUrls[index] = fileUrl;
     setFileUrls(newFileUrls);
   };
-
   const onClickWriteBoard = async (data) => {
     try {
       const result = await createBoard({
@@ -70,6 +65,8 @@ export default function WriteContainer() {
       });
       console.log(result);
       Modal.success({ content: "회원님의 글이 정상적으로 등록되었습니다." });
+      router.push(`/boards/${result.data.createBoard._id}`);
+      // router.push(`/products/${result.data.createUseditem._id}`);
     } catch (error) {
       Modal.error({ content: error.message });
     }
@@ -78,22 +75,19 @@ export default function WriteContainer() {
   return (
     <WritePresenter
       ReactQuill={ReactQuill}
-      register={register}
-      handleSubmit={handleSubmit}
-      onClickStartDate={onClickStartDate}
-      onClickEndDate={onClickEndDate}
-      onChangeContents={onChangeContents}
-      getValues={getValues}
-      reset={reset}
-      fileUrls={fileUrls}
-      onChangeFileUrls={onChangeFileUrls}
-      // secondActive={secondActive}
-      // thirdActive={thirdActive}
       activeStep={activeStep}
       onClickFirstNext={onClickFirstNext}
       onClickSecondPrev={onClickSecondPrev}
       onClickSecondNext={onClickSecondNext}
       onClickThirdPrev={onClickThirdPrev}
+      register={register}
+      handleSubmit={handleSubmit}
+      onChangeRange={onChangeRange}
+      onChangeContents={onChangeContents}
+      getValues={getValues}
+      reset={reset}
+      fileUrls={fileUrls}
+      onChangeFileUrls={onChangeFileUrls}
       onClickWriteBoard={onClickWriteBoard}
     />
   );
