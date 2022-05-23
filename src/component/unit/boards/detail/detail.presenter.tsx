@@ -107,9 +107,10 @@ import { FETCH_BOARD } from "./detail.query";
 export default function DetailPresenter(props: IDetailPresenter) {
   const settings = {
     dots: true,
+    // fade: true,
     autoplay: true,
     infinite: true,
-    speed: 3000,
+    speed: 4000,
     slidesToShow: 2,
     slidesToScroll: 1,
     pauseOnHover: true,

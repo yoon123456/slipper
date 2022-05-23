@@ -5,3 +5,12 @@ export const LOGIN = gql`
     login(email: $email, pw: $pw)
   }
 `;
+
+export const FETCH_USER = gql`
+  query fetchUser {
+    fetchUser {
+      email
+      nickname
+    }
+  }
+`;

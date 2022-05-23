@@ -35,3 +35,21 @@ export const addressName = atom({
     },
   ],
 });
+
+// 예원 추가 22.05.21
+export const SearchBarIsActiveState = atom({
+  key: "SearchBarIsActiveState",
+  default: false,
+});
+
+// 예원 추가 22.05.22
+export const SearchState = atom({
+  key: "SearchState",
+  default: "",
+});
+
+// 예원 추가 22.05.22
+export const CategoryState = atom({
+  key: "CategoryState",
+  default: "",
+});

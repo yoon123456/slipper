@@ -194,7 +194,7 @@ export const Bad = styled.img`
 
 export const WrapperBottom = styled.div`
   width: 50%;
-  margin: 10% auto;
+  margin: 5% auto;
   display: flex;
   justify-content: space-around;
   align-items: center;
