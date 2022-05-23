@@ -1,5 +1,5 @@
 import _ from "lodash";
-import { ChangeEvent, useEffect, useState, useRef } from "react";
+import { ChangeEvent, useEffect, useState, useRef, MouseEvent } from "react";
 import KakaomapPresenter from "./kakaomap.presenter";
 import { KaoKeyWord } from "./kakaomap.types";
 import { useRecoilState } from "recoil";
@@ -16,15 +16,17 @@ export default function KaKaoMapContainer(props: KaoKeyWord) {
   const [markers, setMarkers] = useState([]);
   const [map, setMap] = useState();
   const [keyword, setKeyword] = useState("");
+  const [category, setCagtgory] = useState("");
 
   const [isActive, setIsActive] = useState(false);
   const [roadViewFlag, setroadViewFlag] = useState(false);
   const [trrapicFlag, setTrrapicFlag] = useState(false);
   const [contentFlag, setContentFlag] = useState(false);
+
+  const [categoryFlag, setCategoryFlag] = useState(false);
   const btnRef = useRef<HTMLButtonElement>(null);
 
   const getDebounce = _.debounce((data: string) => {
-    props.onChangeKeyword(data);
     setIsActive((prev) => !prev);
   }, 1500);
 
@@ -43,6 +45,85 @@ export default function KaKaoMapContainer(props: KaoKeyWord) {
 
   const onClickRoadView = () => {
     setroadViewFlag((prev) => !prev);
+  };
+
+  const onClickCategory = (event: MouseEvent<HTMLImageElement>) => {
+    if ((event.target as HTMLImageElement).id === "FD6") {
+      setCategoryFlag((prev) => !prev);
+      setCagtgory((event.target as HTMLImageElement).id);
+    }
+    if ((event.target as HTMLImageElement).id === "CE7") {
+      setCagtgory((event.target as HTMLImageElement).id);
+      setCategoryFlag((prev) => !prev);
+    }
+    if ((event.target as HTMLImageElement).id === "SC4") {
+      setCategoryFlag((prev) => !prev);
+      setCagtgory((event.target as HTMLImageElement).id);
+    }
+    if ((event.target as HTMLImageElement).id === "HP8") {
+      setCategoryFlag((prev) => !prev);
+      setCagtgory((event.target as HTMLImageElement).id);
+    }
+    if ((event.target as HTMLImageElement).id === "MT1") {
+      setCategoryFlag((prev) => !prev);
+      setCagtgory((event.target as HTMLImageElement).id);
+    }
+    if ((event.target as HTMLImageElement).id === "OL7") {
+      setCategoryFlag((prev) => !prev);
+      setCagtgory((event.target as HTMLImageElement).id);
+    }
+    if ((event.target as HTMLImageElement).id === "CE7") {
+      setCategoryFlag((prev) => !prev);
+      setCagtgory((event.target as HTMLImageElement).id);
+    }
+    if ((event.target as HTMLImageElement).id === "BK9") {
+      setCategoryFlag((prev) => !prev);
+      setCagtgory((event.target as HTMLImageElement).id);
+    }
+    if ((event.target as HTMLImageElement).id === "SW8") {
+      setCategoryFlag((prev) => !prev);
+      setCagtgory((event.target as HTMLImageElement).id);
+    }
+    if ((event.target as HTMLImageElement).id === "PK6") {
+      setCategoryFlag((prev) => !prev);
+      setCagtgory((event.target as HTMLImageElement).id);
+    }
+    if ((event.target as HTMLImageElement).id === "CS2") {
+      setCategoryFlag((prev) => !prev);
+      setCagtgory((event.target as HTMLImageElement).id);
+    }
+    if ((event.target as HTMLImageElement).id === "PS3") {
+      setCategoryFlag((prev) => !prev);
+      setCagtgory((event.target as HTMLImageElement).id);
+    }
+    if ((event.target as HTMLImageElement).id === "AC5") {
+      setCategoryFlag((prev) => !prev);
+      setCagtgory((event.target as HTMLImageElement).id);
+    }
+    if ((event.target as HTMLImageElement).id === "CT1") {
+      setCategoryFlag((prev) => !prev);
+      setCagtgory((event.target as HTMLImageElement).id);
+    }
+    if ((event.target as HTMLImageElement).id === "AG2") {
+      setCategoryFlag((prev) => !prev);
+      setCagtgory((event.target as HTMLImageElement).id);
+    }
+    if ((event.target as HTMLImageElement).id === "PO3") {
+      setCategoryFlag((prev) => !prev);
+      setCagtgory((event.target as HTMLImageElement).id);
+    }
+    if ((event.target as HTMLImageElement).id === "AT4") {
+      setCategoryFlag((prev) => !prev);
+      setCagtgory((event.target as HTMLImageElement).id);
+    }
+    if ((event.target as HTMLImageElement).id === "AD5") {
+      setCategoryFlag((prev) => !prev);
+      setCagtgory((event.target as HTMLImageElement).id);
+    }
+    if ((event.target as HTMLImageElement).id === "PM9") {
+      setCategoryFlag((prev) => !prev);
+      setCagtgory((event.target as HTMLImageElement).id);
+    }
   };
 
   const markerClick = (marker: any) => () => {
@@ -69,6 +150,7 @@ export default function KaKaoMapContainer(props: KaoKeyWord) {
     if (!map) return;
     const ps = new kakao.maps.services.Places();
     ps.keywordSearch(keyword, (data, status, _pagination) => {
+      console.log(data);
       if (status === kakao.maps.services.Status.OK) {
         const bounds = new kakao.maps.LatLngBounds();
         let markers = [];
@@ -121,6 +203,9 @@ export default function KaKaoMapContainer(props: KaoKeyWord) {
       trrapicFlag={trrapicFlag}
       contentFlag={contentFlag}
       onClickContent={onClickContent}
+      onClickCategory={onClickCategory}
+      categoryFlag={categoryFlag}
+      category={category}
     />
   );
 }

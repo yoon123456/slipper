@@ -1,7 +1,6 @@
 import Script from "next/script";
 import { KaoKaoMap } from "../keyword/kakaomap.types";
 import * as S from "./kakaomap.styled";
-import Contents from "../contents/content";
 import KakaomapMarks from "./kakaomapmarkers";
 export default function KakaomapPresenter(props: KaoKaoMap) {
   return (
@@ -17,23 +16,54 @@ export default function KakaomapPresenter(props: KaoKaoMap) {
           <S.Category>
             <S.Search type="text" onChange={props.onChangeSearchbar} />
             <S.LocationButton
+              type="button"
               onClick={props.onclickGeoLocation}
               ref={props.btnRef}
             >
               현재위치
             </S.LocationButton>
-            <S.TrappickButton onClick={props.onClickTrrapic}>
+            <S.TrappickButton type="button" onClick={props.onClickTrrapic}>
               교통정보
             </S.TrappickButton>
-            <S.RoadButton onClick={props.onClickRoadView}>로드뷰</S.RoadButton>
+            <S.RoadButton type="button" onClick={props.onClickRoadView}>
+              로드뷰
+            </S.RoadButton>
             <S.BtnWarrp>
-              <S.CaffeBtn src="https://img.icons8.com/external-nawicon-outline-color-nawicon/64/000000/external-coffee-shop-location-nawicon-outline-color-nawicon.png" />
-              <S.HospitalBtn src="https://img.icons8.com/external-nawicon-outline-color-nawicon/64/000000/external-hospital-location-nawicon-outline-color-nawicon.png" />
-              <S.SchoolBtn src="https://img.icons8.com/external-nawicon-outline-color-nawicon/64/000000/external-school-location-nawicon-outline-color-nawicon.png" />
-              <S.StoreBtn src="https://img.icons8.com/external-nawicon-outline-color-nawicon/64/000000/external-shop-location-nawicon-outline-color-nawicon.png" />
-              <S.MartBtn src="https://img.icons8.com/external-nawicon-outline-color-nawicon/64/000000/external-supermarket-location-nawicon-outline-color-nawicon.png" />
-              <S.FoodBtn src="https://img.icons8.com/external-nawicon-outline-color-nawicon/64/000000/external-restaurant-location-nawicon-outline-color-nawicon.png" />
-              <S.PublicBtn src="https://img.icons8.com/external-nawicon-outline-color-nawicon/64/000000/external-park-location-nawicon-outline-color-nawicon.png" />
+              <S.CaffeBtn
+                id="CE7"
+                onClick={props.onClickCategory}
+                src="/image/caffe.png"
+              />
+              <S.HospitalBtn
+                id="HP8"
+                onClick={props.onClickCategory}
+                src="/image/hospital.png"
+              />
+              <S.SchoolBtn
+                id="SC4"
+                onClick={props.onClickCategory}
+                src="/image/school.png"
+              />
+              <S.StoreBtn
+                id="CS2"
+                onClick={props.onClickCategory}
+                src="/image/store.png"
+              />
+              <S.MartBtn
+                id="MT1"
+                onClick={props.onClickCategory}
+                src="/image/mart.png"
+              />
+              <S.FoodBtn
+                id="FD6"
+                onClick={props.onClickCategory}
+                src="/image/food.png"
+              />
+              <S.PublicBtn
+                id="PO3"
+                onClick={props.onClickCategory}
+                src="/image/publicTown.png"
+              />
             </S.BtnWarrp>
           </S.Category>
 
@@ -54,6 +84,8 @@ export default function KakaomapPresenter(props: KaoKaoMap) {
               markerClick={props.markerClick}
               info={props.info}
               contentFlag={props.contentFlag}
+              categoryFlag={props.categoryFlag}
+              category={props.category}
             />
 
             <S.KakaoMapMarker
