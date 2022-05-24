@@ -34,6 +34,7 @@ export const MarkerDiv2 = styled.div`
 `;
 export const LocationButton = styled.button`
   width: 8%;
+  height: 35px;
   color: gray;
   font-size: 1rem;
   text-decoration: none;
@@ -54,9 +55,11 @@ export const LocationButton = styled.button`
     position: relative;
     top: 1px;
   }
+  margin-right: 5px;
 `;
 export const TrappickButton = styled.button`
   width: 8%;
+  height: 35px;
   color: gray;
   font-size: 1rem;
   text-decoration: none;
@@ -77,9 +80,11 @@ export const TrappickButton = styled.button`
     position: relative;
     top: 1px;
   }
+  margin-right: 5px;
 `;
 export const RoadButton = styled.button`
   width: 8%;
+  height: 35px;
   color: gray;
   font-size: 1rem;
   text-decoration: none;
@@ -100,21 +105,24 @@ export const RoadButton = styled.button`
     position: relative;
     top: 1px;
   }
+  margin-right: 5px;
 `;
 export const WarrapOut = styled.div`
   z-index: 2;
 `;
 export const Category = styled.div`
   width: 40.5%;
-  margin-top: 5px;
-  margin-left: 5px;
   position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 2%;
   z-index: 10;
 `;
 export const Search = styled.input`
   z-index: 2;
-  width: 25%;
-  height: 30px;
+  width: 75%;
+  height: 40px;
   background-color: #ffffff;
   border: none;
   border-radius: 10px;
@@ -122,6 +130,11 @@ export const Search = styled.input`
   outline: none;
   font-size: 1.3rem;
 `;
+
+export const CategorySearch = styled.div`
+  padding-top: 2%;
+`;
+
 export const MarkerContent = styled.div`
   width: 100%;
 `;

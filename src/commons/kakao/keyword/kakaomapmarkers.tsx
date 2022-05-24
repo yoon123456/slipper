@@ -45,7 +45,7 @@ export default function KakaomapMarks(props: MarkerProps) {
               onClick={props.markerClick(marker)}
               image={{
                 src: "/image/hospital.png",
-                size: { width: 40, height: 50 },
+                size: { width: 45, height: 40 },
               }}
             >
               {props.info &&
@@ -74,7 +74,7 @@ export default function KakaomapMarks(props: MarkerProps) {
               position={marker.position}
               onClick={props.markerClick(marker)}
               image={{
-                src: "https://img.icons8.com/external-nawicon-outline-color-nawicon/64/000000/external-gas-station-location-nawicon-outline-color-nawicon.png",
+                src: "/image/oil.png",
                 size: { width: 40, height: 40 },
               }}
             >
@@ -119,7 +119,7 @@ export default function KakaomapMarks(props: MarkerProps) {
               position={marker.position}
               onClick={props.markerClick(marker)}
               image={{
-                src: "https://img.icons8.com/external-nawicon-outline-color-nawicon/64/000000/external-train-location-nawicon-outline-color-nawicon.png",
+                src: "/image/subway.png",
                 size: { width: 40, height: 40 },
               }}
             >
@@ -134,7 +134,7 @@ export default function KakaomapMarks(props: MarkerProps) {
               position={marker.position}
               onClick={props.markerClick(marker)}
               image={{
-                src: "https://img.icons8.com/external-soft-fill-juicy-fish/60/000000/external-parking-location-pins-soft-fill-soft-fill-juicy-fish.png",
+                src: "/image/parking.png",
                 size: { width: 40, height: 40 },
               }}
             >
@@ -149,7 +149,6 @@ export default function KakaomapMarks(props: MarkerProps) {
               position={marker.position}
               onClick={props.markerClick(marker)}
               image={{
-                // src: "https://img.icons8.com/external-nawicon-outline-color-nawicon/64/000000/external-shop-location-nawicon-outline-color-nawicon.png",
                 src: "/image/store.png",
                 size: { width: 40, height: 40 },
               }}
@@ -165,7 +164,7 @@ export default function KakaomapMarks(props: MarkerProps) {
               position={marker.position}
               onClick={props.markerClick(marker)}
               image={{
-                src: "https://img.icons8.com/external-nawicon-outline-color-nawicon/64/000000/external-school-location-nawicon-outline-color-nawicon.png",
+                src: "/image/child.png",
                 size: { width: 40, height: 40 },
               }}
             >
@@ -180,7 +179,7 @@ export default function KakaomapMarks(props: MarkerProps) {
               position={marker.position}
               onClick={props.markerClick(marker)}
               image={{
-                src: "https://img.icons8.com/external-nawicon-outline-color-nawicon/64/000000/external-education-location-nawicon-outline-color-nawicon.png",
+                src: "/image/academy.png",
                 size: { width: 40, height: 40 },
               }}
             >
@@ -195,7 +194,6 @@ export default function KakaomapMarks(props: MarkerProps) {
               position={marker.position}
               onClick={props.markerClick(marker)}
               image={{
-                // src: "https://img.icons8.com/external-nawicon-outline-color-nawicon/64/000000/external-camera-location-nawicon-outline-color-nawicon.png",
                 src: "/image/publicTown.png",
                 size: { width: 40, height: 40 },
               }}
@@ -211,8 +209,7 @@ export default function KakaomapMarks(props: MarkerProps) {
               position={marker.position}
               onClick={props.markerClick(marker)}
               image={{
-                src: "https://img.icons8.com/external-nawicon-outline-color-nawicon/64/000000/external-home-location-nawicon-outline-color-nawicon.png",
-
+                src: "/image/real.png",
                 size: { width: 40, height: 40 },
               }}
             >
@@ -227,7 +224,6 @@ export default function KakaomapMarks(props: MarkerProps) {
               position={marker.position}
               onClick={props.markerClick(marker)}
               image={{
-                // src: "https://img.icons8.com/external-nawicon-outline-color-nawicon/64/000000/external-park-location-nawicon-outline-color-nawicon.png",
                 src: "/image/publicTown.png",
                 size: { width: 40, height: 50 },
               }}
@@ -243,8 +239,7 @@ export default function KakaomapMarks(props: MarkerProps) {
               position={marker.position}
               onClick={props.markerClick(marker)}
               image={{
-                src: "https://img.icons8.com/external-nawicon-outline-color-nawicon/64/000000/external-camera-location-nawicon-outline-color-nawicon.png",
-                // src: "/image/publicTown.png",
+                src: "/image/culture.png",
                 size: { width: 40, height: 40 },
               }}
             >
@@ -259,7 +254,7 @@ export default function KakaomapMarks(props: MarkerProps) {
               position={marker.position}
               onClick={props.markerClick(marker)}
               image={{
-                src: "https://img.icons8.com/external-nawicon-outline-color-nawicon/64/000000/external-love-location-nawicon-outline-color-nawicon.png",
+                src: "/image/g.png",
                 size: { width: 40, height: 40 },
               }}
             >
@@ -274,8 +269,7 @@ export default function KakaomapMarks(props: MarkerProps) {
               position={marker.position}
               onClick={props.markerClick(marker)}
               image={{
-                src: "https://img.icons8.com/external-nawicon-outline-color-nawicon/64/000000/external-hospital-location-nawicon-outline-color-nawicon.png",
-
+                src: "/p.png",
                 size: { width: 40, height: 40 },
               }}
             >
@@ -290,7 +284,7 @@ export default function KakaomapMarks(props: MarkerProps) {
               position={marker.position}
               onClick={props.markerClick(marker)}
               image={{
-                src: "https://img.icons8.com/external-nawicon-outline-color-nawicon/64/000000/external-building-location-nawicon-outline-color-nawicon.png",
+                src: "/image/g.png",
                 size: { width: 40, height: 40 },
               }}
             >
@@ -304,7 +298,7 @@ export default function KakaomapMarks(props: MarkerProps) {
               position={marker.position}
               onClick={props.markerClick(marker)}
               image={{
-                src: "https://img.icons8.com/external-nawicon-outline-color-nawicon/64/000000/external-bank-location-nawicon-outline-color-nawicon.png",
+                src: "/image/culutre.png",
                 size: { width: 40, height: 40 },
               }}
             >

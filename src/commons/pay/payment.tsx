@@ -1,5 +1,5 @@
 import { Modal } from "antd";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 import Button from "@mui/material/Button";
 import InputLabel from "@mui/material/InputLabel";
@@ -19,32 +19,45 @@ import {
   IMutationCreatePointTransactionOfLoadingArgs,
 } from "../types/generated/types";
 import Script from "next/script";
+import { IpropsPayment } from "./payment.type";
 
 declare const window: typeof globalThis & {
   IMP: any;
 };
-const IButton = styled(Button)`
-  background-color: #fe9a2e;
-  height: 38px;
-  color: black;
+
+export const IButton = styled.div`
+  padding: 3% 10% 3% 10%;
+  font-size: 1.2rem;
+  color: white;
+  border: #c4cacf;
+  background-color: #c4cacf;
+  border-radius: 5%;
+  cursor: pointer;
+  :hover {
+    padding: 2.2% 9% 2.2% 9%;
+    background-color: white;
+    color: #c4cacf;
+    border: 2px solid #c4cacf;
+  }
 `;
 
-export default function PaymentPage(props: any) {
+export default function PaymentPage(props: IpropsPayment) {
   // const [createPointTransactionOfLoading] = useMutation<
   //   Pick<IMutation, "createPointTransactionOfLoading">,
   //   IMutationCreatePointTransactionOfLoadingArgs
   // >(CREATE_POINT_TRANSACTION_OF_LOADING);
 
-  // eslint-disable-next-line no-unused-vars
-  // const { data } = useQuery(FETCH_USER_LOGGED_IN);
+  const [amount, setAmount] = useState(0);
 
-  // 디테일에서 매수자의 정보를 가져옴 // 상품판매 디테일에서 매도자의 정보를 가져옴
+  useEffect(() => {
+    aaa;
+  });
 
-  const [amount, setAmount] = useState(100);
-  // const router = useRouter();
-  const onChangeMount = (event: any) => {
-    setAmount(event.target.value);
-  };
+  function aaa() {
+    setAmount(props.value);
+  }
+
+  console.log(amount);
 
   const requestPay = () => {
     const IMP = window.IMP; // 생략 가능
@@ -65,26 +78,25 @@ export default function PaymentPage(props: any) {
       // callback
       async (rsp: any) => {
         if (rsp.success) {
-          alert("결재완료");
-          //   try {
-          //     await createPointTransactionOfLoading({
-          //       variables: {
-          //         impUid: rsp.imp_uid,
-          //       },
-          //       update(cache, { data }) {
-          //         cache.modify({
-          //           fields: {
-          //             fetchUserLoggedIn: (prev) => {
-          //               return [data?.createPointTransactionOfLoading + prev];
-          //             },
+          // try {
+          //   await createPointTransactionOfLoading({
+          //     variables: {
+          //       impUid: rsp.imp_uid,
+          //     },
+          //     update(cache, { data }) {
+          //       cache.modify({
+          //         fields: {
+          //           fetchUserLoggedIn: (prev) => {
+          //             return [data?.createPointTransactionOfLoading + prev];
           //           },
-          //         });
-          //       },
-          //     });
-          //     Modal.success({ content: "충전완료" });
-          //   } catch (error: any) {
-          //     Modal.error({ content: error.message });
-          //   }
+          //         },
+          //       });
+          //     },
+          //   });
+          //   Modal.success({ content: "충전완료" });
+          // } catch (error: any) {
+          //   Modal.error({ content: error.message });
+          // }
         } else {
           console.log(rsp.error_msg);
         }
@@ -102,25 +114,8 @@ export default function PaymentPage(props: any) {
         type="text/javascript"
         src="https://cdn.iamport.kr/js/iamport.payment-1.2.0.js"
       ></Script>
-      <FormControl sx={{ m: 0, minWidth: 120 }} size="small">
-        <InputLabel id="demo-select-small">Money</InputLabel>
-        <Select
-          labelId="demo-select-small"
-          id="demo-select-small"
-          label="Money"
-          onChange={onChangeMount}
-        >
-          <MenuItem value="">
-            <em>Point</em>
-          </MenuItem>
-          <MenuItem value={100}>100</MenuItem>
-          <MenuItem value={200}>200</MenuItem>
-          <MenuItem value={300}>300</MenuItem>
-          <MenuItem value={400}>400</MenuItem>
-          <MenuItem value={500}>500</MenuItem>
-        </Select>
-      </FormControl>
-      <IButton onClick={requestPay}>결제하기</IButton>
+      <FormControl sx={{ m: 0, minWidth: 120 }} size="small"></FormControl>
+      <IButton onClick={requestPay}>Get started</IButton>
     </>
   );
 }
