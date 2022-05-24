@@ -8,6 +8,8 @@ import { CREATE_USER, GET_TOKEN, PROOF_TOKEN } from "./join.queries";
 import { ChangeEvent, useState } from "react";
 import { IFromValues } from "./join.types";
 import { Modal } from "antd";
+import QuestionListPresenter from "../question/list/questionlist.presenter";
+import QuestionListUIItem from "../question/list/questiontlist.presenteritem";
 
 const schema = yup.object({
   email: yup
@@ -50,6 +52,7 @@ export default function JoinContainer() {
 
   const [isActive, setIsActive] = useState(true);
   const [isActived, setIsActived] = useState(true);
+  const [role, setRole] = useState("");
 
   const [createUser] = useMutation(CREATE_USER);
   const [getToken] = useMutation(GET_TOKEN);
@@ -108,6 +111,7 @@ export default function JoinContainer() {
   const onClickJoin = async (data: IFromValues) => {
     if (data.email && data.pw && data.nickname) {
       // data 이름 바꾸기
+      console.log(data);
       try {
         const result = await createUser({
           variables: {
@@ -135,7 +139,13 @@ export default function JoinContainer() {
   const onClickRadio = () => {
     setIsActived(false);
   };
-
+  const onClickRole = (event: ChangeEvent<HTMLInputElement>) => {
+    setRole(event.target.value);
+  };
+  const onClickCancle = () => {
+    router.push("/");
+  };
+  console.log(role);
   return (
     <>
       <JoinPresenter
@@ -156,6 +166,8 @@ export default function JoinContainer() {
         onClickAgreeJoin={onClickAgreeJoin}
         isEdit={isEdit}
         onClickRadio={onClickRadio}
+        onClickRole={onClickRole}
+        onClickCancle={onClickCancle}
       />
     </>
   );

@@ -158,8 +158,7 @@ export const PasswordCheck = styled.input`
   border: none;
   border-bottom: 2px solid gainsboro;
   /* padding-bottom: 10px; */
-  margin-top: 3.5%;
-  /* margin-bottom: 6%; */
+  margin-top: 6.7%;
 `;
 export const PasswordCheck2 = styled.input`
   width: 63%;

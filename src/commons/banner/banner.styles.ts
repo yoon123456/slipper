@@ -68,6 +68,26 @@ export const Pbox3 = styled.div`
   background-color: #ff9f40;
   font-weight: 700;
 `;
+export const ArrowBox = styled.div`
+  width: 40%;
+  height: 40px;
+  margin-top: 50px;
+  font-size: 2.3rem;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  border: 2px solid white;
+  border-radius: 10px;
+  cursor: pointer;
+
+  :hover {
+    background-color: white;
+    color: #008af6;
+    text-align: center;
+  }
+`;
+export const Arrow = styled.img``;
+export const ArrowSpan = styled.div``;
 
 export const TBox = styled.div``;
 export const show = keyframes`

@@ -14,8 +14,18 @@ export const show = keyframes`
   100% {margin-top:-270px;}
 
 `;
+export const fadein = keyframes`
+  from {
+        opacity:0;
+    }
+    to {
+        opacity:1;
+    }
+`;
 
-export const WrapperOut = styled2.div``;
+export const WrapperOut = styled2.div`
+animation: ${fadein} 2s;
+`;
 
 // landing top
 export const WrapperTop = styled2.div`

@@ -1,3 +1,4 @@
+import Banner from "../../../commons/banner/banner.presenter";
 import ImageProfile from "../../../commons/imageProfile";
 import Number from "../../../commons/timer";
 import * as S from "./join.styles";
@@ -19,12 +20,12 @@ export default function JoinPresenter(props: IJoinPresenterProps) {
             <form onSubmit={props.handleSubmit(props.onClickJoin)}>
               <S.RoleBox>
                 <S.RoleBoxIn>
-                <S.Role type="radio" name="gender"/>
+                <S.Role type="radio" name="gender" value="USER" onChange={props.onClickRole}/>
               유저
                 </S.RoleBoxIn>
                 <S.RoleBoxIn>
-                <S.Role type="radio" name="gender"/>
-              관리자
+                <S.Role type="radio" name="gender" value="BUSINESS" onChange={props.onClickRole}/>
+              사업자
                 </S.RoleBoxIn>
               </S.RoleBox>
               <S.Profile>
@@ -86,12 +87,12 @@ export default function JoinPresenter(props: IJoinPresenterProps) {
                 placeholder="인증번호 6자리"
                 onChange={props.onChangeProofNum}
               />
-              <S.CheckEnd type="button" onClick={props.onClickCheckProof} >
+              <S.CheckEnd type="button" onClick={props.onClickCheckProof}>
                 인증완료
               </S.CheckEnd>
             </S.CheckNumber>
-            <S.Introduce type="textarea" placeholder="간단한 소개글" />
-            <S.JoinSlipper>슬리퍼 신기</S.JoinSlipper>
+            <S.Introduce type="textarea" placeholder="간단한 소개글"  {...props.register("introduce")} />
+            <S.JoinSlipper >슬리퍼 신기</S.JoinSlipper>
             </form>
           </S.WrapperJoin>
                   
@@ -540,7 +541,7 @@ export default function JoinPresenter(props: IJoinPresenterProps) {
                 <S.TitleText type="radio" onClick={props.onClickRadio} />
               </S.Flex>
               <S.AgreeButton>
-                <S.AgreeCancle>CANCLE</S.AgreeCancle>
+                <S.AgreeCancle onClick={props.onClickCancle}>CANCLE</S.AgreeCancle>
                 <S.AgreeJoin
                   onClick={props.onClickAgreeJoin}
                   disabled={props.isActived}
