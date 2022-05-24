@@ -28,4 +28,6 @@ export interface IJoinPresenterProps {
 
   onClickAgreeJoin: () => void;
   onClickRadio: () => void;
+  onClickRole: (event: ChangeEvent<HTMLInputElement>) => void;
+  onClickCancle: () => void;
 }

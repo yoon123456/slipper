@@ -14,8 +14,8 @@ const HamMenu = styled.div`
 `;
 
 const HamIcon = styled.img`
-  width: 90px;
-  height: 65px;
+  width: 80px;
+  height: 55px;
   margin: 20px;
   padding-left: 20px;
 `;

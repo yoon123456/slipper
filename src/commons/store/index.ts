@@ -53,3 +53,9 @@ export const CategoryState = atom({
   key: "CategoryState",
   default: "",
 });
+
+// 승현 추가 22.05.24
+export const BannerState = atom({
+  key: "BannerState",
+  default: "",
+});
