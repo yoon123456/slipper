@@ -1,0 +1,70 @@
+// 예원 작업 5.24
+
+import { useRecoilState } from "recoil";
+import { accessTokenState, isLoadedState } from "../store/index";
+import {
+  ApolloClient,
+  ApolloLink,
+  ApolloProvider,
+  InMemoryCache,
+} from "@apollo/client";
+import { createUploadLink } from "apollo-upload-client";
+import { ReactNode, useEffect } from "react";
+import { onError } from "@apollo/client/link/error";
+import { getAccessToken } from "../getAccessToken";
+
+interface IProps {
+  children: ReactNode;
+}
+
+export default function ApolloSetting(props: IProps) {
+  const [accessToken, setAccessToken] = useRecoilState(accessTokenState);
+  const [isLoaded, setIsLoaded] = useRecoilState(isLoadedState);
+
+  useEffect(() => {
+    setIsLoaded(true);
+    getAccessToken().then((newAccessToken) => {
+      setAccessToken(newAccessToken);
+      setIsLoaded(false);
+    });
+  }, []);
+
+  // error링크 만들기
+  const errorLink = onError(({ graphQLErrors, operation, forward }) => {
+    // 1-1. 에러를 캐치
+    if (graphQLErrors) {
+      for (const err of graphQLErrors) {
+        // 1-2. 해당에러가 토큰만료 에러인지 체크한다(UNAUTHENTICATED)
+        if (err.extensions.code === "UNAUTHENTICATED") {
+          getAccessToken().then((newAccessToken) => {
+            setAccessToken(newAccessToken);
+            // 3-1. 재발급 받은 accessToken으로 방금 실패한 쿼리 재요청하기
+            operation.setContext({
+              herders: {
+                // 헤더의 모든것은 스프레드 연산자로 그대로 불러오고 Authorization의 값만 새로운 토큰으로 바꿔준다
+                ...operation.getContext().headers,
+                Authorization: `Bearer ${newAccessToken}`,
+              },
+            });
+            // 3-2. 변경된 operation 재요청하기
+            return forward(operation);
+          });
+        }
+      }
+    }
+  });
+
+  const uploadLink = createUploadLink({
+    uri: "https://backend.slipperofficial.shop/graphql",
+    headers: { Authorization: `Bearer ${accessToken}` },
+    // 쿠키에 포함시킬건지 여부를 정할 수 있음
+    credentials: "include",
+  });
+  // graphql 셋팅
+  const client = new ApolloClient({
+    link: ApolloLink.from([errorLink, uploadLink]),
+    cache: new InMemoryCache(),
+  });
+
+  return <ApolloProvider client={client}>{props.children}</ApolloProvider>;
+}

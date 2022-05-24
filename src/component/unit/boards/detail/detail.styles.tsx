@@ -5,7 +5,7 @@ export const WrapperOut = styled.div`
   width: 70%;
   height: 100vh;
   margin: 0 auto;
-
+  padding-top: 3%;
   display: flex;
   flex-direction: column;
   position: relative;
@@ -23,21 +23,21 @@ export const TopLeft = styled.div`
   padding: 5%;
 `;
 export const EditDeleteWrap = styled.div`
-  width: 10%;
+  width: 13%;
   position: absolute;
-  top: 5%;
-  right: 2%;
+  top: 12%;
+  right: 3%;
   display: flex;
   justify-content: space-between;
 `;
 export const UserWriteDate = styled.div`
-  font-size: 1rem;
+  font-size: 1.4rem;
   color: gray;
   padding-top: 2%;
 `;
 
 export const Icon = styled.img`
-  width: 10%;
+  width: 13%;
   cursor: pointer;
 `;
 // slider
@@ -85,7 +85,7 @@ export const TopRight = styled.div`
 `;
 export const UserTitle = styled.div`
   width: 100%;
-  font-size: 3rem;
+  font-size: 2.9rem;
   padding-left: 2%;
 `;
 
@@ -136,32 +136,33 @@ export const UserLivingPeriod = styled.div`
 export const UserMiddle = styled.div`
   width: 100%;
   display: flex;
-  justify-content: space-between;
+  /* justify-content: space-between; */
   align-items: center;
   padding: 3% 2% 5% 2%;
 `;
 export const ShopName = styled.div`
-  width: 50%;
-  font-size: 2.5rem;
+  /* width: 30%; */
+  font-size: 2rem;
+  margin-right: 5%;
 `;
 export const ShopRatingWrap = styled.div`
-  width: 50%;
+  /* width: 50%; */
   display: flex;
   justify-content: flex-end;
   align-items: center;
 `;
 export const ShopRating = styled.div`
-  width: 20%;
+  /* width: 20%; */
   font-size: 1.6rem;
 `;
 export const RatingWrap = styled.div`
-  width: 30%;
+  /* width: 30%; */
 `;
 
 export const UserContents = styled.div`
   text-align: justify;
   width: 100%;
-  max-height: 350px;
+  height: 350px;
   font-size: 1.5rem;
   padding: 4%;
   margin: 5% 0;
@@ -173,13 +174,15 @@ export const UserContents = styled.div`
   }
 `;
 
-export const Map = styled.img`
+export const Map = styled.div`
   width: 100%;
   height: 360px;
+  background-color: aliceblue;
 `;
 export const CategoryWrap = styled.div`
-  width: 100%;
-  padding: 5% 0 4% 0;
+  width: 20%;
+  padding: 3% 0 4% 0;
+  margin-right: 2%;
 `;
 
 export const Category = styled.button`
@@ -193,22 +196,24 @@ export const Category = styled.button`
   border: none;
   border-radius: 30px;
   box-shadow: 0px 2px 4px 0px #e1e1e1;
+  color: #008af6;
+
   cursor: pointer;
-  :focus {
+  /* :focus {
     color: #008af6;
     border: 1px solid #008af6;
-  }
+  } */
   margin: 1%;
 `;
 
 export const Good = styled.img`
-  width: 33.3%;
+  width: 25%;
 `;
 export const Soso = styled.img`
-  width: 33.3%;
+  width: 25%;
 `;
 export const Bad = styled.img`
-  width: 30%;
+  width: 22%;
 `;
 
 export const WrapperBottom = styled.div`
@@ -234,4 +239,8 @@ export const Button = styled.div`
     background-color: #008af6;
     color: white;
   }
+`;
+export const WraperQuestion = styled.div`
+  width: 100%;
+  margin: 0 auto;
 `;

@@ -16,6 +16,12 @@ export const accessTokenState = atom({
   default: "",
 });
 
+// 예원 추가 5.24
+export const isLoadedState = atom({
+  key: "isLoadedState",
+  default: true,
+});
+
 export const addressName = atom({
   key: "addressName",
   default: [
