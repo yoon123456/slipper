@@ -17,15 +17,15 @@ const UploadImage = styled.img`
 `;
 const UploadButton = styled.div`
   width: 40%;
-  height: 50%;
+  height: 100%;
   /* margin-right: 24px; */
   outline: none;
   border: none;
   cursor: pointer;
 `;
 const UploadIcon = styled.img`
-  width: 100%;
-  height: 100%;
+  /* width: 100%; */
+  /* height: 100%; */
 `;
 const UploadFileHidden = styled.input`
   display: none;

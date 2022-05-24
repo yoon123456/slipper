@@ -2,12 +2,11 @@
 import styled from "@emotion/styled";
 import { DatePicker, Space } from "antd";
 const { RangePicker } = DatePicker;
-import KeyWord from "../../../../commons/kakao/keyword/kakaomap.container";
 
 export const WrapperOut = styled.div`
   font-family: "HallymGothic-Regular";
   width: 50%;
-  margin: 3% auto;
+  margin: 6% auto;
   display: flex;
   flex-direction: column;
 `;
@@ -115,11 +114,28 @@ export const Input = styled.input`
   }
 `;
 export const RatingWrapper = styled.div`
+  width: 13%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
   margin-bottom: 5%;
 `;
-export const Rating = styled.img`
-  width: 25px;
-  height: 25px;
+export const RatingColumn = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* justify-content: space-around; */
+`;
+export const Checkbox = styled.input``;
+// export const Rating = styled.img`
+// width: 25px;
+// height: 25px;
+// `;
+export const Rating = styled.div`
+  /* width: 100px; */
+  /* height: 25px; */
+  font-size: 1.9rem;
 `;
 export const StepBottom = styled.div`
   width: 100%;
@@ -156,13 +172,13 @@ export const StepButton = styled.button`
     top: 1px;
   }
 `;
-export const Map = styled.img`
+export const Map = styled.div`
   width: 100%;
-  height: 35%;
+  height: 250px;
   margin-bottom: 6%;
-`;
-export const StyledKeyWord = styled(KeyWord)`
-  height: 100px;
+  /* width: 50%;
+  margin: 0 auto;
+  padding-right: 6%; */
 `;
 // export const ImageWrapper = styled.div`
 //   width: 100%;

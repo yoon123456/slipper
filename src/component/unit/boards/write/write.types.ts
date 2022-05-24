@@ -1,3 +1,5 @@
+import { ChangeEvent } from "react";
+
 export interface IFormValues {
   title: string;
   contents: string;
@@ -9,16 +11,21 @@ export interface IWritePresenter {
   onClickSecondPrev: () => void;
   onClickSecondNext: () => void;
   onClickThirdPrev: () => void;
-  register: any;
-  handleSubmit: any;
   // onChangeRange: (date: String, dateString: String) => void;
   onChangeRange: (
     values: RangeValue<Moment>,
     formatString: [string, string]
   ) => void;
-  onChangeContents: (value: string) => void;
-  getValues: any;
-  reset: any;
+  onClickFirst: () => void;
+  onClickSecond: () => void;
+  onClickThird: () => void;
+  chkFirst: boolean;
+  chkSecond: boolean;
+  chkThird: boolean;
+  onChangeTitle: (event: ChangeEvent<HTMLTextAreaElement>) => void;
+  onChangeContents: (event: ChangeEvent<HTMLTextAreaElement>) => void;
+  map: boolean;
+  setMap: any;
   fileUrls: string[];
   onChangeFileUrls: (fileUrl: string, index: number) => void;
   onClickWriteBoard: (data: IFormValues) => void;

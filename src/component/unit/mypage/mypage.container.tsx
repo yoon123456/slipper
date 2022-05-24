@@ -1,8 +1,12 @@
 // 해리 작업 5/13
 import MyPagePresenter from "./mypage.presenter";
 import { useState } from "react";
+import { useQuery } from "@apollo/client";
+import { FETCH_USER } from "./mypage.queries";
 
 export default function MyPageContainer() {
+  const { data } = useQuery(FETCH_USER);
+
   const [mypageRight, setMypageRight] = useState("myinformation");
 
   const onClickMyinfo = () => {
@@ -26,6 +30,7 @@ export default function MyPageContainer() {
         onClickMyboards={onClickMyboards}
         onClickMypicks={onClickMypicks}
         onClickMypaids={onClickMypaids}
+        data={data}
       />
     </>
   );

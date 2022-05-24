@@ -3,9 +3,8 @@ import WritePresenter from "./write.presenter";
 import { CREATE_BOARD, UPDATE_BOARD } from "./write.query";
 import dynamic from "next/dynamic";
 import { useMutation } from "@apollo/client";
-import { useForm } from "react-hook-form";
 import { Modal } from "antd";
-import { useState } from "react";
+import { ChangeEvent, useState } from "react";
 import { useRouter } from "next/router";
 import { IFormValues } from "./write.types";
 import { IUpdateBoardInput } from "../../../../commons/types/generated/types";
@@ -18,20 +17,17 @@ export default function WriteContainer(props) {
   const [activeStep, SetActiveStep] = useState("first");
   const [startDate, SetStartDate] = useState("");
   const [endDate, SetEndDate] = useState("");
+  const [title, setTitle] = useState("");
+  const [contents, setContents] = useState("");
+  const [chkFirst, setChkFirst] = useState(false);
+  const [chkSecond, setChkSecond] = useState(false);
+  const [chkThird, setChkThird] = useState(false);
+  const [score, setScore] = useState(0);
+  const [map, setMap] = useState(false);
   const [fileUrls, setFileUrls] = useState(["", "", "", ""]);
 
   const [createBoard] = useMutation(CREATE_BOARD);
   const [updateBoard] = useMutation(UPDATE_BOARD);
-
-  const {
-    register,
-    handleSubmit,
-    formState,
-    setValue,
-    trigger,
-    getValues,
-    reset,
-  } = useForm({ mode: "onChange" });
 
   const onClickFirstNext = () => {
     SetActiveStep("second");
@@ -45,16 +41,39 @@ export default function WriteContainer(props) {
   const onClickThirdPrev = () => {
     SetActiveStep("second");
   };
+
   const onChangeRange = (date: String, dateString: String) => {
     SetStartDate(dateString[0]);
     SetEndDate(dateString[1]);
   };
-  // console.log(startDate, endDate);
-  const onChangeContents = (value: string) => {
-    console.log(value);
-    setValue("contents", value === "<p><br></p>" ? "" : value);
-    trigger("contents");
+
+  const onClickFirst = () => {
+    setChkFirst(true);
+    setChkSecond(false);
+    setChkThird(false);
+    setScore(1);
   };
+  const onClickSecond = () => {
+    setChkFirst(false);
+    setChkSecond(true);
+    setChkThird(false);
+    setScore(2);
+  };
+  const onClickThird = () => {
+    setChkFirst(false);
+    setChkSecond(false);
+    setChkThird(true);
+    setScore(3);
+  };
+
+  const onChangeTitle = (event: ChangeEvent<HTMLTextAreaElement>) => {
+    setTitle(event.target.value);
+  };
+
+  const onChangeContents = (value: any) => {
+    setContents(value === "<p><br></p>" ? "" : value);
+  };
+
   const onChangeFileUrls = (fileUrl: string, index: number) => {
     const newFileUrls = [...fileUrls];
     newFileUrls[index] = fileUrl;
@@ -68,9 +87,9 @@ export default function WriteContainer(props) {
           createBoardInput: {
             startDate,
             endDate,
-            score: 1,
-            title: String(data?.title),
-            contents: String(data?.contents),
+            score,
+            title,
+            contents,
             category: "카테고리 테스트",
             lat: "111111",
             lng: "333333",
@@ -81,8 +100,6 @@ export default function WriteContainer(props) {
           email: "yw01124@naver.com",
         },
       });
-      console.log(data.title);
-      console.log(data.contents);
       console.log(result);
       Modal.success({ content: "회원님의 글이 정상적으로 등록되었습니다." });
       // router.push(`/boards/${result.data.createBoard.id}`);
@@ -113,6 +130,7 @@ export default function WriteContainer(props) {
       if (error instanceof Error) Modal.error({ content: error.message });
     }
   };
+
   return (
     <WritePresenter
       ReactQuill={ReactQuill}
@@ -121,12 +139,17 @@ export default function WriteContainer(props) {
       onClickSecondPrev={onClickSecondPrev}
       onClickSecondNext={onClickSecondNext}
       onClickThirdPrev={onClickThirdPrev}
-      register={register}
-      handleSubmit={handleSubmit}
       onChangeRange={onChangeRange}
+      onClickFirst={onClickFirst}
+      onClickSecond={onClickSecond}
+      onClickThird={onClickThird}
+      chkFirst={chkFirst}
+      chkSecond={chkSecond}
+      chkThird={chkThird}
+      onChangeTitle={onChangeTitle}
       onChangeContents={onChangeContents}
-      getValues={getValues}
-      reset={reset}
+      map={map}
+      setMap={setMap}
       fileUrls={fileUrls}
       onChangeFileUrls={onChangeFileUrls}
       onClickWriteBoard={onClickWriteBoard}

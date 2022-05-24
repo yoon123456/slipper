@@ -8,7 +8,7 @@ import { IProps } from "./mypage.types";
 // `;
 export const WrapperOut = styled.div`
   width: 60%;
-  margin: 0 auto;
+  margin: 5% auto;
   padding: 1%;
   display: flex;
   flex-direction: row;
@@ -28,9 +28,10 @@ export const WrapperLeft = styled.div`
   box-shadow: 10px 10px 20px 3px rgba(214, 214, 214, 1);
 `;
 export const ProfileImage = styled.img`
-  width: 60%;
-  height: 120px;
+  width: 80%;
+  height: 160px;
   margin: 40px;
+  text-align: center;
   background-color: white;
 `;
 export const MenuWrapper = styled.div`
@@ -51,10 +52,11 @@ export const MenuWrapper = styled.div`
     font-size: 2.8rem;
     padding: 0% 10% 0% 22%;
   } */
+  color: ${(props: IProps) => (props.mypageRight ? "#008AF6" : "black")};
   background-color: ${(props: IProps) =>
     props.mypageRight ? "#f4f7f9b3" : "none"};
   border-left: ${(props: IProps) =>
-    props.mypageRight ? "4px solid #ffcfec" : "none"};
+    props.mypageRight ? "4px solid #008AF6" : "none"};
   padding: ${(props: IProps) =>
     props.mypageRight ? "0% 10% 0% 20.5%" : "0% 10% 0% 22%"};
 `;
