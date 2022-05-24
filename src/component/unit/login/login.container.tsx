@@ -3,12 +3,12 @@ import LoginPresenter from "./login.presenter";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
-import { useMutation } from "@apollo/client";
+import { useApolloClient, useMutation } from "@apollo/client";
 import { FETCH_USER, LOGIN } from "./login.queries";
 import { IFormValues } from "./login.types";
 import { Modal } from "antd";
 import { useRecoilState } from "recoil";
-import { accessTokenState } from "../../../commons/store";
+import { accessTokenState, userInfoState } from "../../../commons/store";
 
 const schema = yup.object({
   email: yup
@@ -30,13 +30,15 @@ const schema = yup.object({
 
 export default function LoginContainer() {
   const router = useRouter();
-  const [accessToken, setAccessToken] = useRecoilState(accessTokenState);
+  const [, setAccessToken] = useRecoilState(accessTokenState);
+
   const { register, handleSubmit, formState } = useForm({
     resolver: yupResolver(schema),
     mode: "onChange",
   });
 
   const [login] = useMutation(LOGIN);
+  const client = useApolloClient();
 
   // 회원가입이동 기능
   const onClickGoJoin = () => {
@@ -53,25 +55,27 @@ export default function LoginContainer() {
           },
         });
         const accessToken = result.data?.login;
+        const resultUserInfo = await client.query({
+          query: FETCH_USER,
+          context: {
+            headers: {
+              Authorization: `Bearer ${accessToken}`,
+              credential: "include",
+            },
+          },
+        });
 
-        // const resultUserInfo = await client.query({
-        //   query: FETCH_USER,
-        //   context: {
-        //     headers: {
-        //       Authorization: `Bearer ${accessToken}`,
-        //     },
-        //   },
-        // });
+        // const userInfo = resultUserInfo.data?.fetchUser;
+
+        setAccessToken(accessToken || "");
 
         Modal.success({ content: "슬리퍼 장착 성공" });
         router.push("/boards");
-        console.log("토큰", result.data?.login);
       } catch (error) {
         Modal.error({ content: "슬리퍼 장착 실패" });
       }
     }
   };
-
   return (
     <LoginPresenter
       register={register}

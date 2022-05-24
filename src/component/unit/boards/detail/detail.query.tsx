@@ -6,15 +6,6 @@ export const FETCH_BOARD = gql`
       id
       createdAt
       updatedAt
-      user {
-        email
-        nickname
-        phone
-        imageUrl
-        introduce
-        createAt
-        role
-      }
       nickname
       category
       title

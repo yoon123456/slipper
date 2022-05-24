@@ -101,9 +101,12 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { IDetailPresenter } from "./detail.types";
 import { getDate } from "../../../../commons/libraries/date";
-import { FETCH_BOARD } from "./detail.query";
+import KakaoMapFetch from "../../../../commons/kakaoMapFetch";
+import QuestionWriteContainer from "../../question/write/questionwrite.container";
+import Dompurify from "dompurify";
 
 export default function DetailPresenter(props: IDetailPresenter) {
+  console.log(props.data?.fetchBoard.images, "image");
   const settings = {
     dots: true,
     autoplay: true,
@@ -113,67 +116,85 @@ export default function DetailPresenter(props: IDetailPresenter) {
     slidesToScroll: 1,
     pauseOnHover: true,
   };
+
   return (
-    <S.WrapperOut>
-      <S.WrapperTop>
-        <S.TopLeft>
-          <S.Map src={"/image/mapEx.png"} />
-          <S.SliderWrap>
-            <S.ImageWrap>
-              <S.SliderStyle {...settings}>
-                {props.data?.fetchBoard.images.imageUrl
-                  ?.filter((el: string) => el)
-                  .map((el: string) => (
-                    <S.ImgWrapper key={el}>
-                      <S.Img src={el} />
-                    </S.ImgWrapper>
-                  ))}
-              </S.SliderStyle>
-            </S.ImageWrap>
-          </S.SliderWrap>
-        </S.TopLeft>
-        <S.EditDeleteWrap>
-          <S.UserWriteDate>{props.data?.fetchBoard.createdAt}</S.UserWriteDate>
-          <S.Icon src={"/image/listpen.png"} />
-          <S.Icon
-            src={"/image/delete.png"}
-            onClick={props.onClickDeleteBoard}
-          />
-        </S.EditDeleteWrap>
-        <S.TopRight>
-          <S.UserTitle>{props.data?.fetchBoard.title}</S.UserTitle>
-          <S.CategoryWrap>
-            <S.Category>{props.data?.fetchBoard.category}</S.Category>
-          </S.CategoryWrap>
-          <S.UserMiddle>
-            <S.ShopName>{props.data?.fetchBoard.place}</S.ShopName>
-            <S.ShopRatingWrap>
-              <S.RatingWrap>
-                <S.Good src={"/image/ratingGood.png"} />
-                <S.Soso src={"/image/ratingSoso.png"} />
-                <S.Bad src={"/image/ratingBad.png"} />
-              </S.RatingWrap>
-            </S.ShopRatingWrap>
-          </S.UserMiddle>
-          <S.UserInfoWrap>
-            <S.User>
-              <S.UserImg src={props.data?.fetchBoard.user.imageUrl} />
-              <S.UserName>{props.data?.fetchBoard.user.ninkname}</S.UserName>
-            </S.User>
-            <S.UserLivingWrap>
-              <S.UserLiving>거주기간:</S.UserLiving>
-              <S.UserLivingPeriod>
-                {props.data?.fetchBoard.startDate}~
-                {props.data?.fetchBoard.endDate}
-              </S.UserLivingPeriod>
-            </S.UserLivingWrap>
-          </S.UserInfoWrap>
-          <S.UserContents>{props.data?.fetchBoard.contents}</S.UserContents>
-          <S.WrapperBottom>
-            <S.Button onClick={props.onClickMoveToList}>목록</S.Button>
-          </S.WrapperBottom>
-        </S.TopRight>
-      </S.WrapperTop>
-    </S.WrapperOut>
+    <>
+      <S.WrapperOut>
+        <S.WrapperTop>
+          <S.TopLeft>
+            <S.Map>
+              <KakaoMapFetch data={props.data} />
+            </S.Map>
+            <S.SliderWrap>
+              <S.ImageWrap>
+                <S.SliderStyle {...settings}>
+                  {props.data?.fetchBoard.images
+                    // ?.filter((el: string) => el)
+                    .map((el: any, idx: number) => (
+                      <S.ImgWrapper key={idx}>
+                        <S.Img src={el.imageUrl} />
+                      </S.ImgWrapper>
+                    ))}
+                </S.SliderStyle>
+              </S.ImageWrap>
+            </S.SliderWrap>
+          </S.TopLeft>
+          <S.EditDeleteWrap>
+            <S.UserWriteDate>
+              {getDate(props.data?.fetchBoard.createdAt)}
+            </S.UserWriteDate>
+            <S.Icon
+              src={"/image/listpen.png"}
+              onClick={props.onClickMoveToBoardEdit}
+            />
+            <S.Icon
+              src={"/image/delete.png"}
+              onClick={props.onClickDeleteBoard}
+            />
+          </S.EditDeleteWrap>
+          <S.TopRight>
+            <S.UserTitle>{props.data?.fetchBoard.title}</S.UserTitle>
+            <S.UserMiddle>
+              <S.ShopName>{props.data?.fetchBoard.place}</S.ShopName>
+              <S.CategoryWrap>
+                <S.Category>{props.data?.fetchBoard.category}</S.Category>
+              </S.CategoryWrap>
+
+              <S.ShopRatingWrap>
+                <S.RatingWrap>
+                  <S.Good src={"/image/ratingGood.png"} />
+                  <S.Soso src={"/image/ratingSoso.png"} />
+                  <S.Bad src={"/image/ratingBad.png"} />
+                </S.RatingWrap>
+              </S.ShopRatingWrap>
+            </S.UserMiddle>
+            <S.UserInfoWrap>
+              <S.User>
+                {/* <S.UserImg src={props.data?.fetchBoard.user.imageUrl} /> */}
+                <S.UserName>{props.data?.fetchBoard.ninkname}</S.UserName>
+              </S.User>
+              <S.UserLivingWrap>
+                <S.UserLiving>거주기간:</S.UserLiving>
+                <S.UserLivingPeriod>
+                  {props.data?.fetchBoard.startDate}~
+                  {props.data?.fetchBoard.endDate}
+                </S.UserLivingPeriod>
+              </S.UserLivingWrap>
+            </S.UserInfoWrap>
+            <S.UserContents
+              dangerouslySetInnerHTML={{
+                __html: Dompurify.sanitize(props.data?.fetchBoard.contents),
+              }}
+            ></S.UserContents>
+            <S.WrapperBottom>
+              <S.Button onClick={props.onClickMoveToList}>목록</S.Button>
+            </S.WrapperBottom>
+          </S.TopRight>
+        </S.WrapperTop>
+      </S.WrapperOut>
+      <S.WraperQuestion>
+        <QuestionWriteContainer />
+      </S.WraperQuestion>
+    </>
   );
 }

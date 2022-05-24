@@ -18,7 +18,6 @@ export default function DetailContainer() {
   const { data } = useQuery(FETCH_BOARD, {
     variables: { boardId: String(router.query.boardId) },
   });
-  console.log(data, "ddd");
 
   // 게시글 삭제 Mutation
   const [deleteBoard] = useMutation<
@@ -33,7 +32,10 @@ export default function DetailContainer() {
     });
     alert("게시글 삭제에 성공하였습니다");
   };
-
+  // 수정하기로 이동
+  const onClickMoveToBoardEdit = () => {
+    router.push(`/boards/${router.query.boardId}/edit`);
+  };
   // 페이지 이동 함수
   const onClickMoveToList = () => {
     router.push("/boards");
@@ -44,6 +46,7 @@ export default function DetailContainer() {
       onClickDeleteBoard={onClickDeleteBoard}
       data={data}
       onClickMoveToList={onClickMoveToList}
+      onClickMoveToBoardEdit={onClickMoveToBoardEdit}
     />
   );
 }

@@ -3,6 +3,7 @@ import { Iprops } from "./list.types";
 
 export const WrapperOut = styled.div`
   width: 100%;
+  padding-top: 1%;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -43,58 +44,29 @@ export const WrapperBody = styled.div`
   width: 100%;
   margin: 0 auto;
 `;
-// export const SearchButton = styled.button`
-//   width: 15%;
-//   height: 40px;
-//   margin: 0 auto;
-//   background-color: #ffffff;
-//   display: flex;
-//   justify-content: center;
-//   align-items: center;
-//   border: 2px solid #008af6;
-//   border-radius: 10px;
-//   color: #008af6;
-//   font-size: 1.8rem;
-//   cursor: pointer;
-//   :hover {
-//     background-color: #008af6;
-//     color: white;
-//   }
-// `;
 
-// export const Serach = styled.div`
-//   font-size: 1.8rem;
-//   font-weight: bold;
-//   display: flex;
-//   justify-content: center;
-//   align-items: center;
-//   padding-top: 2%;
-// `;
-// export const CategoryWrap = styled.div`
-//   width: 80%;
-//   margin: 0 auto;
-// `;
 export const WrapperMiddle = styled.div`
   width: 100%;
   display: flex;
-  justify-content: flex-start;
+  justify-content: center;
   align-items: center;
-  padding: 2% 7%;
-  margin: 0;
+  padding: 5% 0% 4% 0%;
+  margin: 0 auto;
 `;
 export const WrapperWrite = styled.div`
-  width: 20%;
+  width: 10%;
   display: flex;
+  justify-content: flex-end;
   align-items: center;
 `;
 
 export const WrapperArray = styled.div`
-  width: 40%;
+  width: 77%;
   display: flex;
   justify-content: flex-start;
 `;
 export const Array = styled.div`
-  width: 10%;
+  width: 4%;
   text-align: end;
   font-size: 1.2rem;
   cursor: pointer;
@@ -111,9 +83,11 @@ export const WrapperBottom = styled.div`
 `;
 
 export const Button = styled.div`
-  width: 20%;
+  width: 95%;
   height: 35px;
   display: flex;
+  padding-right: 5%;
+  justify-content: flex-end;
   align-items: center;
   font-size: 1.5rem;
   cursor: pointer;
@@ -129,12 +103,6 @@ export const WrapperRight = styled.div`
   margin: 0 auto;
   padding-right: 6%;
 `;
-// export const Map = styled.img`
-//   width: 95%;
-//   margin: 0 auto;
-//   height: 100%;
-//   object-fit: cover;
-// `;
 
 export const Wrapper = styled.div`
   display: flex;

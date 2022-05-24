@@ -7,16 +7,18 @@ import { useMovetoPage } from "../../../../commons/hooks/movePage";
 import { isClickedNumState } from "../../../../commons/store";
 import ListPresenter from "./list.presenter";
 import { kakaoAddress } from "../../../../commons/store/kakaounit";
-import { useQuery } from "@apollo/client";
+import { gql, useQuery } from "@apollo/client";
 import { FETCH_BOARDS_PAGE } from "./list.query";
+import { FETCH_USER } from "../../login/login.queries";
 
 export default function ListContainer() {
   const router = useRouter();
   const { onClickMoveToPage } = useMovetoPage();
-  const [isMapActive, setIsMapActive] = useState(false);
   const [isClickedNum, setIsClickedNum] = useRecoilState(isClickedNumState);
   const [keyword, setKeyword] = useState(""); // Chan 검색기능 추가
-  const [kakaoaaa] = useRecoilState(kakaoAddress);
+
+  const { data: userData } = useQuery(FETCH_USER);
+  console.log("로그인유저", userData?.fetchUser.email);
 
   // fetchBoardsPage query
   const { data, refetch, fetchMore } = useQuery(FETCH_BOARDS_PAGE, {
@@ -26,20 +28,19 @@ export default function ListContainer() {
       search: "",
     },
   });
-  console.log(data, "ㅇㄹㅇ");
 
   // 무한스크롤 기능
   const onLoadMore = () => {
     if (!data) return;
     fetchMore({
-      variables: { page: Math.ceil(data.testFetchBoardsPage.length / 10) + 1 },
+      variables: { page: Math.ceil(data.fetchBoardsPage.length / 10) + 1 },
       updateQuery: (prev, { fetchMoreResult }) => {
-        if (!fetchMoreResult?.testFetchBoardsPage)
-          return { testFetchBoardsPage: [...prev.testFetchBoardsPage] };
+        if (!fetchMoreResult?.fetchBoardsPage)
+          return { fetchBoardsPage: [...prev.fetchBoardsPage] };
         return {
-          testFetchBoardsPage: [
-            ...prev.testFetchBoardsPage,
-            ...fetchMoreResult?.testFetchBoardsPage,
+          fetchBoardsPage: [
+            ...prev.fetchBoardsPage,
+            ...fetchMoreResult?.fetchBoardsPage,
           ],
         };
       },
@@ -63,12 +64,6 @@ export default function ListContainer() {
   //chan 검색 기능 추가 22.05.19
   function onChangeKeyword(value: string) {
     setKeyword(value);
-    // console.log(kakaoaaa.address_name);
-    // console.log(kakaoaaa.phone);
-    // console.log(kakaoaaa.group_code);
-    // console.log(kakaoaaa.group_name);
-    // console.log(kakaoaaa.place_url);
-    // console.log(kakaoaaa.road_name);
   }
   return (
     <ListPresenter
