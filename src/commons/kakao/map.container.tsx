@@ -11,8 +11,6 @@ export default function KakaoMapPage() {
   const [isRoadview, setIsRoadview] = useState(false);
   const [lat, setLat] = useState(0);
   const [lng, setLng] = useState(0);
-  const [viewPanoId, setPanoId] = useState();
-  const [viewPanoId2, setPanoId2] = useState(0);
 
   const onClickTrrapic = () => {
     setIsActive(true);

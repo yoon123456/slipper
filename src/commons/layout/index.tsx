@@ -1,7 +1,7 @@
 import styled from "@emotion/styled";
 import { ReactNode } from "react";
 import { useRouter } from "next/router";
-import HeaderContainor from "../layout/header/header.containor";
+import HeaderContainer from "./header/header.container";
 import Footer from "./footer/index";
 
 const Body = styled.div`
@@ -25,7 +25,7 @@ export default function Layout(props: ILayoutProps) {
   return (
     <>
       {/* {!isHiddenHeader && <LayoutHeader />} */}
-      {!isHiddenHeader && <HeaderContainor />}
+      {!isHiddenHeader && <HeaderContainer />}
       <Body>{props.children}</Body>
       {!isHiddenFooter && <Footer />}
     </>

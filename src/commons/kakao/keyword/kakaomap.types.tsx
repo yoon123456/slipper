@@ -1,4 +1,4 @@
-import { ChangeEvent, MouseEvent } from "react";
+import { ChangeEvent, MouseEvent, VoidFunctionComponent } from "react";
 import { Roadview } from "react-kakao-maps-sdk";
 import { StringLocale } from "yup/lib/locale";
 
@@ -13,8 +13,8 @@ export interface KaoKaoMap {
   onClickRoadView: () => void;
   onClickContent: () => void;
   onClickCategory: (event: MouseEvent<HTMLImageElement>) => void;
-  category: string;
-  categoryFlag: boolean;
+  onCancel: () => void;
+  isOpen: boolean;
   trrapicFlag: boolean;
   lat: any;
   lng: any;
@@ -62,6 +62,4 @@ export interface MarkerProps {
   markerClick: (info: any) => (address: any) => void;
   info: any;
   contentFlag: boolean;
-  categoryFlag: boolean;
-  category: string;
 }

@@ -4,6 +4,7 @@ import KakaomapPresenter from "./kakaomap.presenter";
 import { KaoKeyWord } from "./kakaomap.types";
 import { useRecoilState } from "recoil";
 import { kakaoAddress } from "../../store/kakaounit";
+import { SearchState } from "../../store/index";
 
 export default function KaKaoMapContainer(props: KaoKeyWord) {
   const [info, setInfo] = useState();
@@ -13,18 +14,25 @@ export default function KaKaoMapContainer(props: KaoKeyWord) {
   const [geoLng, setgeoLng] = useState(0);
 
   const [address, setAddress] = useRecoilState(kakaoAddress);
+  const [search] = useRecoilState(SearchState);
   const [markers, setMarkers] = useState([]);
   const [map, setMap] = useState();
   const [keyword, setKeyword] = useState("");
-  const [category, setCagtgory] = useState("");
 
   const [isActive, setIsActive] = useState(false);
   const [roadViewFlag, setroadViewFlag] = useState(false);
   const [trrapicFlag, setTrrapicFlag] = useState(false);
   const [contentFlag, setContentFlag] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
 
-  const [categoryFlag, setCategoryFlag] = useState(false);
+  const onCancel = () => {
+    setIsOpen(false);
+  };
+
   const btnRef = useRef<HTMLButtonElement>(null);
+  useEffect(() => {
+    btnRef.current?.click();
+  }, []);
 
   const getDebounce = _.debounce((data: string) => {
     setIsActive((prev) => !prev);
@@ -45,85 +53,7 @@ export default function KaKaoMapContainer(props: KaoKeyWord) {
 
   const onClickRoadView = () => {
     setroadViewFlag((prev) => !prev);
-  };
-
-  const onClickCategory = (event: MouseEvent<HTMLImageElement>) => {
-    if ((event.target as HTMLImageElement).id === "FD6") {
-      setCategoryFlag((prev) => !prev);
-      setCagtgory((event.target as HTMLImageElement).id);
-    }
-    if ((event.target as HTMLImageElement).id === "CE7") {
-      setCagtgory((event.target as HTMLImageElement).id);
-      setCategoryFlag((prev) => !prev);
-    }
-    if ((event.target as HTMLImageElement).id === "SC4") {
-      setCategoryFlag((prev) => !prev);
-      setCagtgory((event.target as HTMLImageElement).id);
-    }
-    if ((event.target as HTMLImageElement).id === "HP8") {
-      setCategoryFlag((prev) => !prev);
-      setCagtgory((event.target as HTMLImageElement).id);
-    }
-    if ((event.target as HTMLImageElement).id === "MT1") {
-      setCategoryFlag((prev) => !prev);
-      setCagtgory((event.target as HTMLImageElement).id);
-    }
-    if ((event.target as HTMLImageElement).id === "OL7") {
-      setCategoryFlag((prev) => !prev);
-      setCagtgory((event.target as HTMLImageElement).id);
-    }
-    if ((event.target as HTMLImageElement).id === "CE7") {
-      setCategoryFlag((prev) => !prev);
-      setCagtgory((event.target as HTMLImageElement).id);
-    }
-    if ((event.target as HTMLImageElement).id === "BK9") {
-      setCategoryFlag((prev) => !prev);
-      setCagtgory((event.target as HTMLImageElement).id);
-    }
-    if ((event.target as HTMLImageElement).id === "SW8") {
-      setCategoryFlag((prev) => !prev);
-      setCagtgory((event.target as HTMLImageElement).id);
-    }
-    if ((event.target as HTMLImageElement).id === "PK6") {
-      setCategoryFlag((prev) => !prev);
-      setCagtgory((event.target as HTMLImageElement).id);
-    }
-    if ((event.target as HTMLImageElement).id === "CS2") {
-      setCategoryFlag((prev) => !prev);
-      setCagtgory((event.target as HTMLImageElement).id);
-    }
-    if ((event.target as HTMLImageElement).id === "PS3") {
-      setCategoryFlag((prev) => !prev);
-      setCagtgory((event.target as HTMLImageElement).id);
-    }
-    if ((event.target as HTMLImageElement).id === "AC5") {
-      setCategoryFlag((prev) => !prev);
-      setCagtgory((event.target as HTMLImageElement).id);
-    }
-    if ((event.target as HTMLImageElement).id === "CT1") {
-      setCategoryFlag((prev) => !prev);
-      setCagtgory((event.target as HTMLImageElement).id);
-    }
-    if ((event.target as HTMLImageElement).id === "AG2") {
-      setCategoryFlag((prev) => !prev);
-      setCagtgory((event.target as HTMLImageElement).id);
-    }
-    if ((event.target as HTMLImageElement).id === "PO3") {
-      setCategoryFlag((prev) => !prev);
-      setCagtgory((event.target as HTMLImageElement).id);
-    }
-    if ((event.target as HTMLImageElement).id === "AT4") {
-      setCategoryFlag((prev) => !prev);
-      setCagtgory((event.target as HTMLImageElement).id);
-    }
-    if ((event.target as HTMLImageElement).id === "AD5") {
-      setCategoryFlag((prev) => !prev);
-      setCagtgory((event.target as HTMLImageElement).id);
-    }
-    if ((event.target as HTMLImageElement).id === "PM9") {
-      setCategoryFlag((prev) => !prev);
-      setCagtgory((event.target as HTMLImageElement).id);
-    }
+    setIsOpen(true);
   };
 
   const markerClick = (marker: any) => () => {
@@ -141,10 +71,6 @@ export default function KaKaoMapContainer(props: KaoKeyWord) {
     const { geolocation } = navigator;
     geolocation.getCurrentPosition(handleSuccess);
   };
-
-  useEffect(() => {
-    btnRef.current?.click();
-  }, []);
 
   useEffect(() => {
     if (!map) return;
@@ -180,6 +106,7 @@ export default function KaKaoMapContainer(props: KaoKeyWord) {
       }
     });
   }, [map, isActive]);
+
   return (
     <KakaomapPresenter
       lat={lat}
@@ -192,7 +119,6 @@ export default function KaKaoMapContainer(props: KaoKeyWord) {
       info={info}
       markerClick={markerClick}
       setInfo={setInfo}
-      keyword={props.keyword}
       onclickGeoLocation={onclickGeoLocation}
       btnRef={btnRef}
       isActive={isActive}
@@ -203,9 +129,8 @@ export default function KaKaoMapContainer(props: KaoKeyWord) {
       trrapicFlag={trrapicFlag}
       contentFlag={contentFlag}
       onClickContent={onClickContent}
-      onClickCategory={onClickCategory}
-      categoryFlag={categoryFlag}
-      category={category}
+      onCancel={onCancel}
+      isOpen={isOpen}
     />
   );
 }

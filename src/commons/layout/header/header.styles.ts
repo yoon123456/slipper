@@ -9,8 +9,11 @@ export const WrapperOut = styled.div`
 
 // 로고 박스
 export const WrapperInLogo = styled.div`
-  /* width: 300px;
-  height: 80px; */
+  margin-left: 20px;
+  cursor: pointer;
+  :hover {
+    font-size: 1.4rem;
+  }
 `;
 
 // 데이터 및 햄버거 박스
@@ -27,14 +30,16 @@ export const WrapperInUser = styled.div`
   margin: auto;
   text-align: center;
   color: #008af6;
-  font-size: 2rem;
+  font-size: 1.7rem;
+  font-family: "HallymGothic-Regular";
 `;
 
 export const WrapperInMy = styled.div`
   margin: auto;
   text-align: center;
   color: #008af6;
-  font-size: 2rem;
+  font-size: 1.7rem;
+  font-family: "HallymGothic-Regular";
 `;
 // 햄버거
 export const WrapperInHam = styled.div`

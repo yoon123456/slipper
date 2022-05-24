@@ -2,9 +2,47 @@ import Script from "next/script";
 import { KaoKaoMap } from "../keyword/kakaomap.types";
 import * as S from "./kakaomap.styled";
 import KakaomapMarks from "./kakaomapmarkers";
+import Modal from "antd/lib/modal/Modal";
 export default function KakaomapPresenter(props: KaoKaoMap) {
+  console.log(props.isOpen);
+  console.log(props.roadViewFlag);
   return (
     <>
+      {props.isOpen && (
+        <Modal visible={true} onCancel={props.onCancel}>
+          {/* {props.roadViewFlag ? ( */}
+          <div>
+            <S.KakaoMapRoadview // 로드뷰를 표시할 Container
+              position={{
+                // 지도의 중심좌표
+                lat: Number(props.address.position.lat),
+                lng: Number(props.address.position.lng),
+                radius: 50,
+              }}
+              style={{
+                width: "100%",
+                height: "50%",
+              }}
+              onErrorGetNearestPanoId={props.onErrorGetNearestPanoId}
+            >
+              <S.KakaoCustomOverlayRoadview
+                position={{
+                  lat: props.lat,
+                  lng: props.lng,
+                }}
+                isFocus={true}
+                xAnchor={0.5}
+                yAnchor={0.5}
+              >
+                {/* <Contents /> */}
+              </S.KakaoCustomOverlayRoadview>
+            </S.KakaoMapRoadview>
+          </div>
+          {/* ) : (
+            <div></div>
+          )} */}
+        </Modal>
+      )}
       <S.WarrapOut>
         <Script
           type="text/javascript"
@@ -15,20 +53,58 @@ export default function KakaomapPresenter(props: KaoKaoMap) {
         <S.KaKaoWarp>
           <S.Category>
             <S.Search type="text" onChange={props.onChangeSearchbar} />
-            <S.LocationButton
-              type="button"
-              onClick={props.onclickGeoLocation}
-              ref={props.btnRef}
-            >
-              현재위치
-            </S.LocationButton>
-            <S.TrappickButton type="button" onClick={props.onClickTrrapic}>
-              교통정보
-            </S.TrappickButton>
-            <S.RoadButton type="button" onClick={props.onClickRoadView}>
-              로드뷰
-            </S.RoadButton>
-            <S.BtnWarrp>
+            <S.CategorySearch>
+              <S.LocationButton
+                type="button"
+                onClick={props.onclickGeoLocation}
+                ref={props.btnRef}
+              >
+                현재위치
+              </S.LocationButton>
+              <S.TrappickButton type="button" onClick={props.onClickTrrapic}>
+                교통정보
+              </S.TrappickButton>
+              <S.RoadButton type="button" onClick={props.onClickRoadView}>
+                로드뷰
+              </S.RoadButton>
+            </S.CategorySearch>
+          </S.Category>
+
+          <S.KaKaoMap // 로드뷰를 표시할 Container
+            center={{
+              lat: props.geoLat,
+              lng: props.geoLng,
+            }}
+            style={{
+              width: "100%",
+              height: "100%",
+            }}
+            level={3}
+            onCreate={props.setMap}
+          >
+            <KakaomapMarks
+              markers={props.markers}
+              markerClick={props.markerClick}
+              info={props.info}
+              contentFlag={props.contentFlag}
+            />
+
+            <S.KakaoMapMarker
+              position={{ lat: props.geoLat, lng: props.geoLng }}
+            ></S.KakaoMapMarker>
+            {props.trrapicFlag ? (
+              <S.KaoKaoMapTypeId type={kakao.maps.MapTypeId.TRAFFIC} />
+            ) : (
+              <div></div>
+            )}
+          </S.KaKaoMap>
+        </S.KaKaoWarp>
+      </S.WarrapOut>
+    </>
+  );
+}
+{
+  /* <S.BtnWarrp>
               <S.CaffeBtn
                 id="CE7"
                 onClick={props.onClickCategory}
@@ -64,70 +140,10 @@ export default function KakaomapPresenter(props: KaoKaoMap) {
                 onClick={props.onClickCategory}
                 src="/image/publicTown.png"
               />
-            </S.BtnWarrp>
-          </S.Category>
-
-          <S.KaKaoMap // 로드뷰를 표시할 Container
-            center={{
-              lat: props.geoLat,
-              lng: props.geoLng,
-            }}
-            style={{
-              width: "100%",
-              height: "100%",
-            }}
-            level={3}
-            onCreate={props.setMap}
-          >
-            <KakaomapMarks
-              markers={props.markers}
-              markerClick={props.markerClick}
-              info={props.info}
-              contentFlag={props.contentFlag}
-              categoryFlag={props.categoryFlag}
-              category={props.category}
-            />
-
-            <S.KakaoMapMarker
-              position={{ lat: props.geoLat, lng: props.geoLng }}
-            ></S.KakaoMapMarker>
-            {props.trrapicFlag ? (
-              <S.KaoKaoMapTypeId type={kakao.maps.MapTypeId.TRAFFIC} />
-            ) : (
-              <div></div>
-            )}
-            {props.roadViewFlag ? (
-              <S.KakaoMapRoadview // 로드뷰를 표시할 Container
-                position={{
-                  // 지도의 중심좌표
-                  lat: Number(props.address.position.lat),
-                  lng: Number(props.address.position.lng),
-                  radius: 50,
-                }}
-                style={{
-                  width: "100%",
-                  height: "50%",
-                }}
-                onErrorGetNearestPanoId={props.onErrorGetNearestPanoId}
-              >
-                <S.KakaoCustomOverlayRoadview
-                  position={{
-                    lat: props.lat,
-                    lng: props.lng,
-                  }}
-                  isFocus={true}
-                  xAnchor={0.5}
-                  yAnchor={0.5}
-                >
-                  {/* <Contents /> */}
-                </S.KakaoCustomOverlayRoadview>
-              </S.KakaoMapRoadview>
-            ) : (
-              <div></div>
-            )}
-          </S.KaKaoMap>
-        </S.KaKaoWarp>
-      </S.WarrapOut>
-    </>
-  );
+              <S.BankBtn
+                id="BK9"
+                onClick={props.onClickCategory}
+                src="/image/bank.png"
+              />
+            </S.BtnWarrp> */
 }
