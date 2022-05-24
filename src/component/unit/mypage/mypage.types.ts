@@ -4,6 +4,7 @@ export interface IMyPagePresenter {
   onClickMyboards: () => void;
   onClickMypicks: () => void;
   onClickMypaids: () => void;
+  data: any;
 }
 export interface IProps {
   mypageRight: boolean;

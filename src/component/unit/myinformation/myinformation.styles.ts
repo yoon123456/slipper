@@ -1,6 +1,8 @@
 // 해리 작업 5/15
 import styled from "@emotion/styled";
 
+export const StyledForm = styled.form``;
+
 export const WrapperRight = styled.div`
   width: 100%;
   /* height: 100%; */
@@ -17,12 +19,13 @@ export const Body = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-  margin-top: 7%;
-  padding-right: 3%;
+  margin-top: 15%;
+  padding-right: 7%;
 `;
 export const BodyRow = styled.div`
   width: 100%;
-  /* height: 10px; */
+  /* height: 90px; */
+  /* height: 100%; */
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -30,12 +33,12 @@ export const BodyRow = styled.div`
   margin-bottom: 30px;
 `;
 export const Header = styled.div`
-  width: 15%;
+  width: 20%;
+  /* height: 100px; */
   font-size: 1.6rem;
   font-weight: bold;
-  /* color: #ffcfec; */
-  color: #008af6;
   text-align: center;
+  vertical-align: top;
 `;
 export const ProfileImgEdit = styled.img`
   width: 20%;
@@ -80,7 +83,7 @@ export const Introduction = styled.div`
   background-color: #f5f7f9;
 `;
 export const IntroductionEdit = styled.input`
-  width: 85%;
+  width: 80%;
   height: 150px;
   overflow: scroll;
   ::-webkit-scrollbar {
@@ -106,7 +109,7 @@ export const ButtonWrapper = styled.div`
   padding-left: 200px;
   padding-right: 200px;
 `;
-export const Button = styled.div`
+export const Button = styled.button`
   /* width: 90px;
   height: 40px;
   padding: 6px;

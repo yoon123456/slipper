@@ -5,6 +5,10 @@ import MypicksPresenter from "../mypicks/mypicks.presenter";
 import MypaidsPresenter from "../mypaids/mypaids.presenter";
 import * as S from "./mypage.styles";
 import { IMyPagePresenter } from "./mypage.types";
+import MyinformationContainer from "../myinformation/myinformation.container";
+import MypicksContainer from "../mypicks/mypicks.container";
+import MyBoardsContainer from "../myboards/myboards.container";
+import MypaidsContainer from "../mypaids/mypaids.container";
 
 export default function MyPagePresenter(props: IMyPagePresenter) {
   // console.log(props.hamMypageRight);
@@ -13,10 +17,11 @@ export default function MyPagePresenter(props: IMyPagePresenter) {
     <S.WrapperOut>
       <S.WrapperLeft>
         <S.NicknameWrapper>
-          <S.NicknameFront>부천토박이 </S.NicknameFront>
+          <S.NicknameFront>{props.data?.fetchUser.nickname}</S.NicknameFront>
           <S.Nickname>님의 신발장</S.Nickname>
         </S.NicknameWrapper>
-        <S.ProfileImage></S.ProfileImage>
+        {/* <S.ProfileImage src={props.data?.fetchUser.imageUrl} /> */}
+        <S.ProfileImage src={`${props.data?.fetchUser.imageUrl}`} />
         <S.MenuWrapper
           id="myinfoBtn"
           onClick={props.onClickMyinfo}
@@ -53,10 +58,10 @@ export default function MyPagePresenter(props: IMyPagePresenter) {
           <S.Nickname>님의 신발장</S.Nickname>
         </S.NicknameWrapper> */}
         <S.Right>
-          {props.mypageRight === "myinformation" && <MyinformationPresenter />}
-          {props.mypageRight === "mypicks" && <MypicksPresenter />}
-          {props.mypageRight === "myboards" && <MyBoardsPresenter />}
-          {props.mypageRight === "mypaids" && <MypaidsPresenter />}
+          {props.mypageRight === "myinformation" && <MyinformationContainer />}
+          {props.mypageRight === "mypicks" && <MypicksContainer />}
+          {props.mypageRight === "myboards" && <MyBoardsContainer />}
+          {props.mypageRight === "mypaids" && <MypaidsContainer />}
         </S.Right>
       </S.WrapperRight>
     </S.WrapperOut>
