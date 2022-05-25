@@ -12,139 +12,114 @@ export type Scalars = {
   Float: number;
   /** A date-time string at UTC, such as 2019-12-03T09:54:33Z, compliant with the date-time format. */
   DateTime: any;
+  /** The `JSONObject` scalar type represents JSON objects as specified by [ECMA-404](http://www.ecma-international.org/publications/files/ECMA-ST/ECMA-404.pdf). */
+  JSONObject: any;
   /** The `Upload` scalar type represents a file upload. */
   Upload: any;
 };
 
 export type IBoard = {
   __typename?: 'Board';
-  _id: Scalars['ID'];
-  boardAddress?: Maybe<IBoardAddress>;
+  address: Scalars['String'];
+  category: Scalars['String'];
+  comment?: Maybe<Array<IComment>>;
   contents: Scalars['String'];
-  createdAt: Scalars['DateTime'];
-  deletedAt?: Maybe<Scalars['DateTime']>;
-  dislikeCount: Scalars['Int'];
-  images?: Maybe<Array<Scalars['String']>>;
+  createdAt?: Maybe<Scalars['DateTime']>;
+  endDate?: Maybe<Scalars['String']>;
+  id: Scalars['String'];
+  images?: Maybe<Array<IBoardImage>>;
+  lat: Scalars['String'];
   likeCount: Scalars['Int'];
+  lng: Scalars['String'];
+  nickname: Scalars['String'];
+  place: Scalars['String'];
+  score: Scalars['Int'];
+  startDate?: Maybe<Scalars['String']>;
+  thumbnail?: Maybe<Scalars['String']>;
   title: Scalars['String'];
-  updatedAt: Scalars['DateTime'];
-  user?: Maybe<IUser>;
-  writer?: Maybe<Scalars['String']>;
-  youtubeUrl?: Maybe<Scalars['String']>;
+  updatedAt?: Maybe<Scalars['DateTime']>;
+  user: IJoin;
 };
 
-export type IBoardAddress = {
-  __typename?: 'BoardAddress';
-  _id: Scalars['ID'];
-  address?: Maybe<Scalars['String']>;
-  addressDetail?: Maybe<Scalars['String']>;
-  createdAt: Scalars['DateTime'];
-  deletedAt?: Maybe<Scalars['DateTime']>;
-  updatedAt: Scalars['DateTime'];
-  zipcode?: Maybe<Scalars['String']>;
+export type IBoardImage = {
+  __typename?: 'BoardImage';
+  id: Scalars['String'];
+  imageUrl: Scalars['String'];
 };
 
-export type IBoardAddressInput = {
-  address?: InputMaybe<Scalars['String']>;
-  addressDetail?: InputMaybe<Scalars['String']>;
-  zipcode?: InputMaybe<Scalars['String']>;
-};
-
-export type IBoardComment = {
-  __typename?: 'BoardComment';
-  _id: Scalars['ID'];
+export type IComment = {
+  __typename?: 'Comment';
+  board: IBoard;
   contents: Scalars['String'];
   createdAt: Scalars['DateTime'];
-  deletedAt?: Maybe<Scalars['DateTime']>;
-  rating: Scalars['Float'];
-  updatedAt: Scalars['DateTime'];
-  user?: Maybe<IUser>;
-  writer?: Maybe<Scalars['String']>;
-};
-
-export type ICreateBoardCommentInput = {
-  contents: Scalars['String'];
-  password?: InputMaybe<Scalars['String']>;
-  rating: Scalars['Float'];
-  writer?: InputMaybe<Scalars['String']>;
+  id: Scalars['String'];
+  imageUrl?: Maybe<Scalars['String']>;
+  nickname: Scalars['String'];
 };
 
 export type ICreateBoardInput = {
-  boardAddress?: InputMaybe<IBoardAddressInput>;
+  address: Scalars['String'];
+  category: Scalars['String'];
   contents: Scalars['String'];
+  endDate?: InputMaybe<Scalars['String']>;
   images?: InputMaybe<Array<Scalars['String']>>;
-  password?: InputMaybe<Scalars['String']>;
+  lat: Scalars['String'];
+  lng: Scalars['String'];
+  place: Scalars['String'];
+  score: Scalars['Int'];
+  startDate?: InputMaybe<Scalars['String']>;
+  thumbnail?: InputMaybe<Scalars['String']>;
   title: Scalars['String'];
-  writer?: InputMaybe<Scalars['String']>;
-  youtubeUrl?: InputMaybe<Scalars['String']>;
-};
-
-export type ICreateUseditemInput = {
-  contents: Scalars['String'];
-  images?: InputMaybe<Array<Scalars['String']>>;
-  name: Scalars['String'];
-  price: Scalars['Int'];
-  remarks: Scalars['String'];
-  tags?: InputMaybe<Array<Scalars['String']>>;
-  useditemAddress?: InputMaybe<IUseditemAddressInput>;
-};
-
-export type ICreateUseditemQuestionAnswerInput = {
-  contents: Scalars['String'];
-};
-
-export type ICreateUseditemQuestionInput = {
-  contents: Scalars['String'];
 };
 
 export type ICreateUserInput = {
+  businessImageUrl?: InputMaybe<Scalars['String']>;
   email: Scalars['String'];
-  name: Scalars['String'];
-  password: Scalars['String'];
+  imageUrl?: InputMaybe<Scalars['String']>;
+  introduce?: InputMaybe<Scalars['String']>;
+  nickname: Scalars['String'];
+  phone: Scalars['String'];
+  pw: Scalars['String'];
 };
 
-export type IFileManager = {
-  __typename?: 'FileManager';
-  _id: Scalars['ID'];
-  createdAt: Scalars['DateTime'];
-  deletedAt?: Maybe<Scalars['DateTime']>;
-  isUsed: Scalars['Boolean'];
-  size?: Maybe<Scalars['Float']>;
-  updatedAt: Scalars['DateTime'];
-  url: Scalars['String'];
+export type IJoin = {
+  __typename?: 'Join';
+  businessImageUrl?: Maybe<Scalars['String']>;
+  createAt: Scalars['DateTime'];
+  email: Scalars['String'];
+  imageUrl?: Maybe<Scalars['String']>;
+  introduce?: Maybe<Scalars['String']>;
+  nickname: Scalars['String'];
+  payment?: Maybe<Array<IPayment>>;
+  phone: Scalars['String'];
+  role: IRole;
+  subEnd?: Maybe<Scalars['String']>;
+  subStart?: Maybe<Scalars['String']>;
+  subType?: Maybe<Scalars['String']>;
 };
 
 export type IMutation = {
   __typename?: 'Mutation';
   createBoard: IBoard;
-  createBoardComment: IBoardComment;
-  createPointTransactionOfBuyingAndSelling: IUseditem;
-  createPointTransactionOfLoading: IPointTransaction;
-  createUseditem: IUseditem;
-  createUseditemQuestion: IUseditemQuestion;
-  createUseditemQuestionAnswer: IUseditemQuestionAnswer;
-  createUser: IUser;
-  deleteBoard: Scalars['ID'];
-  deleteBoardComment: Scalars['ID'];
-  deleteBoards: Array<Scalars['ID']>;
-  deleteUseditem: Scalars['ID'];
-  deleteUseditemQuestion: Scalars['ID'];
-  deleteUseditemQuestionAnswer: Scalars['String'];
-  dislikeBoard: Scalars['Int'];
-  likeBoard: Scalars['Int'];
-  loginUser: IToken;
-  loginUserExample: IToken;
-  logoutUser: Scalars['Boolean'];
-  resetUserPassword: Scalars['Boolean'];
-  restoreAccessToken: IToken;
-  toggleUseditemPick: Scalars['Int'];
+  createComment: IComment;
+  createPayment: IPayment;
+  createUser: IJoin;
+  deleteBoard: Scalars['String'];
+  deleteComment: IComment;
+  deletePayment: IPayment;
+  getToken: Scalars['String'];
+  login: Scalars['String'];
+  logout: Scalars['String'];
+  proofToken: Scalars['String'];
+  restoreAccessToken: Scalars['String'];
+  testCreateBoard: IBoard;
   updateBoard: IBoard;
-  updateBoardComment: IBoardComment;
-  updateUseditem: IUseditem;
-  updateUseditemQuestion: IUseditemQuestion;
-  updateUseditemQuestionAnswer: IUseditemQuestionAnswer;
-  updateUser: IUser;
-  uploadFile: IFileManager;
+  updateComment: IComment;
+  updateUser: IJoin;
+  uploadBoardImage: Array<Scalars['String']>;
+  uploadBusinessImage: Array<Scalars['String']>;
+  uploadProfileImage: Array<Scalars['String']>;
+  userGetToken: Scalars['String'];
 };
 
 
@@ -153,36 +128,15 @@ export type IMutationCreateBoardArgs = {
 };
 
 
-export type IMutationCreateBoardCommentArgs = {
-  boardId: Scalars['ID'];
-  createBoardCommentInput: ICreateBoardCommentInput;
+export type IMutationCreateCommentArgs = {
+  boardId: Scalars['String'];
+  content: Scalars['String'];
 };
 
 
-export type IMutationCreatePointTransactionOfBuyingAndSellingArgs = {
-  useritemId: Scalars['ID'];
-};
-
-
-export type IMutationCreatePointTransactionOfLoadingArgs = {
-  impUid: Scalars['ID'];
-};
-
-
-export type IMutationCreateUseditemArgs = {
-  createUseditemInput: ICreateUseditemInput;
-};
-
-
-export type IMutationCreateUseditemQuestionArgs = {
-  createUseditemQuestionInput: ICreateUseditemQuestionInput;
-  useditemId: Scalars['ID'];
-};
-
-
-export type IMutationCreateUseditemQuestionAnswerArgs = {
-  createUseditemQuestionAnswerInput: ICreateUseditemQuestionAnswerInput;
-  useditemQuestionId: Scalars['ID'];
+export type IMutationCreatePaymentArgs = {
+  amount: Scalars['Float'];
+  impUid: Scalars['String'];
 };
 
 
@@ -192,367 +146,157 @@ export type IMutationCreateUserArgs = {
 
 
 export type IMutationDeleteBoardArgs = {
-  boardId: Scalars['ID'];
+  boardId: Scalars['String'];
 };
 
 
-export type IMutationDeleteBoardCommentArgs = {
-  boardCommentId: Scalars['ID'];
-  password?: InputMaybe<Scalars['String']>;
+export type IMutationDeleteCommentArgs = {
+  boardId: Scalars['String'];
 };
 
 
-export type IMutationDeleteBoardsArgs = {
-  boardIds: Array<Scalars['ID']>;
+export type IMutationDeletePaymentArgs = {
+  userId: Scalars['String'];
 };
 
 
-export type IMutationDeleteUseditemArgs = {
-  useditemId: Scalars['ID'];
+export type IMutationGetTokenArgs = {
+  phone: Scalars['String'];
 };
 
 
-export type IMutationDeleteUseditemQuestionArgs = {
-  useditemQuestionId: Scalars['ID'];
-};
-
-
-export type IMutationDeleteUseditemQuestionAnswerArgs = {
-  useditemQuestionAnswerId: Scalars['ID'];
-};
-
-
-export type IMutationDislikeBoardArgs = {
-  boardId: Scalars['ID'];
-};
-
-
-export type IMutationLikeBoardArgs = {
-  boardId: Scalars['ID'];
-};
-
-
-export type IMutationLoginUserArgs = {
+export type IMutationLoginArgs = {
   email: Scalars['String'];
-  password: Scalars['String'];
+  pw: Scalars['String'];
 };
 
 
-export type IMutationLoginUserExampleArgs = {
+export type IMutationProofTokenArgs = {
+  mytoken: Scalars['String'];
+  phone: Scalars['String'];
+};
+
+
+export type IMutationTestCreateBoardArgs = {
+  createBoardInput: ICreateBoardInput;
   email: Scalars['String'];
-  password: Scalars['String'];
-};
-
-
-export type IMutationResetUserPasswordArgs = {
-  password: Scalars['String'];
-};
-
-
-export type IMutationToggleUseditemPickArgs = {
-  useditemId: Scalars['ID'];
 };
 
 
 export type IMutationUpdateBoardArgs = {
-  boardId: Scalars['ID'];
-  password?: InputMaybe<Scalars['String']>;
+  boardId: Scalars['String'];
   updateBoardInput: IUpdateBoardInput;
 };
 
 
-export type IMutationUpdateBoardCommentArgs = {
-  boardCommentId: Scalars['ID'];
-  password?: InputMaybe<Scalars['String']>;
-  updateBoardCommentInput: IUpdateBoardCommentInput;
-};
-
-
-export type IMutationUpdateUseditemArgs = {
-  updateUseditemInput: IUpdateUseditemInput;
-  useditemId: Scalars['ID'];
-};
-
-
-export type IMutationUpdateUseditemQuestionArgs = {
-  updateUseditemQuestionInput: IUpdateUseditemQuestionInput;
-  useditemQuestionId: Scalars['ID'];
-};
-
-
-export type IMutationUpdateUseditemQuestionAnswerArgs = {
-  updateUseditemQuestionAnswerInput: IUpdateUseditemQuestionAnswerInput;
-  useditemQuestionAnswerId: Scalars['ID'];
+export type IMutationUpdateCommentArgs = {
+  boardId: Scalars['String'];
 };
 
 
 export type IMutationUpdateUserArgs = {
-  updateUserInput: IUpdateUserInput;
+  updateUserInput: IUpdateUserSaveInput;
 };
 
 
-export type IMutationUploadFileArgs = {
-  file: Scalars['Upload'];
+export type IMutationUploadBoardImageArgs = {
+  files: Array<Scalars['Upload']>;
 };
 
-export type IPointTransaction = {
-  __typename?: 'PointTransaction';
-  _id: Scalars['ID'];
-  amount: Scalars['Int'];
-  balance: Scalars['Int'];
-  createdAt: Scalars['DateTime'];
-  deletedAt?: Maybe<Scalars['DateTime']>;
-  impUid?: Maybe<Scalars['ID']>;
-  status: Scalars['String'];
-  statusDetail: Scalars['String'];
-  updatedAt: Scalars['DateTime'];
-  useditem?: Maybe<IUseditem>;
-  user?: Maybe<IUser>;
+
+export type IMutationUploadBusinessImageArgs = {
+  files: Array<Scalars['Upload']>;
+};
+
+
+export type IMutationUploadProfileImageArgs = {
+  files: Array<Scalars['Upload']>;
+};
+
+
+export type IMutationUserGetTokenArgs = {
+  phone: Scalars['String'];
+};
+
+export type IPayment = {
+  __typename?: 'Payment';
+  impUid: Scalars['String'];
 };
 
 export type IQuery = {
   __typename?: 'Query';
+  deleteUser: Scalars['Boolean'];
+  fetchAllUser: Array<IJoin>;
   fetchBoard: IBoard;
-  fetchBoardComments: Array<IBoardComment>;
-  fetchBoards: Array<IBoard>;
-  fetchBoardsCount: Scalars['Int'];
-  fetchBoardsCountOfMine: Scalars['Int'];
-  fetchBoardsOfMine: Array<IBoard>;
-  fetchBoardsOfTheBest: Array<IBoard>;
-  fetchPointTransactions: Array<IPointTransaction>;
-  fetchPointTransactionsCountOfBuying: Scalars['Int'];
-  fetchPointTransactionsCountOfLoading: Scalars['Int'];
-  fetchPointTransactionsCountOfSelling: Scalars['Int'];
-  fetchPointTransactionsOfBuying: Array<IPointTransaction>;
-  fetchPointTransactionsOfLoading: Array<IPointTransaction>;
-  fetchPointTransactionsOfSelling: Array<IPointTransaction>;
-  fetchUseditem: IUseditem;
-  fetchUseditemQuestionAnswers: Array<IUseditemQuestionAnswer>;
-  fetchUseditemQuestions: Array<IUseditemQuestion>;
-  fetchUseditems: Array<IUseditem>;
-  fetchUseditemsCountIBought: Scalars['Int'];
-  fetchUseditemsCountIPicked: Scalars['Int'];
-  fetchUseditemsCountISold: Scalars['Int'];
-  fetchUseditemsIBought: Array<IUseditem>;
-  fetchUseditemsIPicked: Array<IUseditem>;
-  fetchUseditemsISold: Array<IUseditem>;
-  fetchUseditemsOfTheBest: Array<IUseditem>;
-  fetchUserLoggedIn: IUser;
+  fetchBoardsPage: Array<Scalars['JSONObject']>;
+  fetchUser: IJoin;
+  fetchUserEmail: IJoin;
+  fetchUsers: Array<IJoin>;
+  testAPI: Scalars['String'];
+  testFetchBoards: Array<IBoard>;
+  testFetchBoardsPage: Array<Scalars['JSONObject']>;
+  testFetchUser: IJoin;
+  updateUserPw: IJoin;
 };
 
 
 export type IQueryFetchBoardArgs = {
-  boardId: Scalars['ID'];
+  boardId: Scalars['String'];
 };
 
 
-export type IQueryFetchBoardCommentsArgs = {
-  boardId: Scalars['ID'];
-  page?: InputMaybe<Scalars['Int']>;
-};
-
-
-export type IQueryFetchBoardsArgs = {
-  endDate?: InputMaybe<Scalars['DateTime']>;
-  page?: InputMaybe<Scalars['Int']>;
-  search?: InputMaybe<Scalars['String']>;
-  startDate?: InputMaybe<Scalars['DateTime']>;
-};
-
-
-export type IQueryFetchBoardsCountArgs = {
-  endDate?: InputMaybe<Scalars['DateTime']>;
-  search?: InputMaybe<Scalars['String']>;
-  startDate?: InputMaybe<Scalars['DateTime']>;
-};
-
-
-export type IQueryFetchPointTransactionsArgs = {
-  page?: InputMaybe<Scalars['Int']>;
+export type IQueryFetchBoardsPageArgs = {
+  category?: InputMaybe<Scalars['String']>;
+  page?: InputMaybe<Scalars['Float']>;
   search?: InputMaybe<Scalars['String']>;
 };
 
 
-export type IQueryFetchPointTransactionsOfBuyingArgs = {
-  page?: InputMaybe<Scalars['Int']>;
+export type IQueryFetchUserEmailArgs = {
+  phone: Scalars['String'];
+};
+
+
+export type IQueryTestFetchBoardsPageArgs = {
+  category?: InputMaybe<Scalars['String']>;
+  page?: InputMaybe<Scalars['Float']>;
   search?: InputMaybe<Scalars['String']>;
 };
 
 
-export type IQueryFetchPointTransactionsOfLoadingArgs = {
-  page?: InputMaybe<Scalars['Int']>;
-  search?: InputMaybe<Scalars['String']>;
+export type IQueryTestFetchUserArgs = {
+  email: Scalars['String'];
 };
 
 
-export type IQueryFetchPointTransactionsOfSellingArgs = {
-  page?: InputMaybe<Scalars['Int']>;
-  search?: InputMaybe<Scalars['String']>;
+export type IQueryUpdateUserPwArgs = {
+  email: Scalars['String'];
+  pw: Scalars['String'];
 };
 
-
-export type IQueryFetchUseditemArgs = {
-  useditemId: Scalars['ID'];
-};
-
-
-export type IQueryFetchUseditemQuestionAnswersArgs = {
-  page?: InputMaybe<Scalars['Int']>;
-  useditemQuestionId: Scalars['ID'];
-};
-
-
-export type IQueryFetchUseditemQuestionsArgs = {
-  page?: InputMaybe<Scalars['Int']>;
-  useditemId: Scalars['ID'];
-};
-
-
-export type IQueryFetchUseditemsArgs = {
-  isSoldout?: InputMaybe<Scalars['Boolean']>;
-  page?: InputMaybe<Scalars['Int']>;
-  search?: InputMaybe<Scalars['String']>;
-};
-
-
-export type IQueryFetchUseditemsIBoughtArgs = {
-  page?: InputMaybe<Scalars['Int']>;
-  search?: InputMaybe<Scalars['String']>;
-};
-
-
-export type IQueryFetchUseditemsIPickedArgs = {
-  page?: InputMaybe<Scalars['Int']>;
-  search?: InputMaybe<Scalars['String']>;
-};
-
-
-export type IQueryFetchUseditemsISoldArgs = {
-  page?: InputMaybe<Scalars['Int']>;
-  search?: InputMaybe<Scalars['String']>;
-};
-
-export type IToken = {
-  __typename?: 'Token';
-  accessToken: Scalars['String'];
-};
-
-export type IUpdateBoardCommentInput = {
-  contents?: InputMaybe<Scalars['String']>;
-  rating?: InputMaybe<Scalars['Float']>;
-};
+export enum IRole {
+  Admin = 'ADMIN',
+  Business = 'BUSINESS',
+  User = 'USER'
+}
 
 export type IUpdateBoardInput = {
-  boardAddress?: InputMaybe<IBoardAddressInput>;
-  contents?: InputMaybe<Scalars['String']>;
-  images?: InputMaybe<Array<Scalars['String']>>;
-  title?: InputMaybe<Scalars['String']>;
-  youtubeUrl?: InputMaybe<Scalars['String']>;
-};
-
-export type IUpdateUseditemInput = {
-  contents?: InputMaybe<Scalars['String']>;
-  images?: InputMaybe<Array<Scalars['String']>>;
-  name?: InputMaybe<Scalars['String']>;
-  price?: InputMaybe<Scalars['Int']>;
-  remarks?: InputMaybe<Scalars['String']>;
-  tags?: InputMaybe<Array<Scalars['String']>>;
-  useditemAddress?: InputMaybe<IUseditemAddressInput>;
-};
-
-export type IUpdateUseditemQuestionAnswerInput = {
-  contents: Scalars['String'];
-};
-
-export type IUpdateUseditemQuestionInput = {
-  contents: Scalars['String'];
-};
-
-export type IUpdateUserInput = {
-  name?: InputMaybe<Scalars['String']>;
-  picture?: InputMaybe<Scalars['String']>;
-};
-
-export type IUseditem = {
-  __typename?: 'Useditem';
-  _id: Scalars['ID'];
-  buyer?: Maybe<IUser>;
-  contents: Scalars['String'];
-  createdAt: Scalars['DateTime'];
-  deletedAt?: Maybe<Scalars['DateTime']>;
-  images?: Maybe<Array<Scalars['String']>>;
-  name: Scalars['String'];
-  pickedCount?: Maybe<Scalars['Int']>;
-  price?: Maybe<Scalars['Int']>;
-  remarks: Scalars['String'];
-  seller?: Maybe<IUser>;
-  soldAt?: Maybe<Scalars['DateTime']>;
-  tags?: Maybe<Array<Scalars['String']>>;
-  updatedAt: Scalars['DateTime'];
-  useditemAddress?: Maybe<IUseditemAddress>;
-};
-
-export type IUseditemAddress = {
-  __typename?: 'UseditemAddress';
-  _id: Scalars['ID'];
-  address?: Maybe<Scalars['String']>;
-  addressDetail?: Maybe<Scalars['String']>;
-  createdAt: Scalars['DateTime'];
-  deletedAt?: Maybe<Scalars['DateTime']>;
-  lat?: Maybe<Scalars['Float']>;
-  lng?: Maybe<Scalars['Float']>;
-  updatedAt: Scalars['DateTime'];
-  zipcode?: Maybe<Scalars['String']>;
-};
-
-export type IUseditemAddressInput = {
   address?: InputMaybe<Scalars['String']>;
-  addressDetail?: InputMaybe<Scalars['String']>;
-  lat?: InputMaybe<Scalars['Float']>;
-  lng?: InputMaybe<Scalars['Float']>;
-  zipcode?: InputMaybe<Scalars['String']>;
+  category?: InputMaybe<Scalars['String']>;
+  contents?: InputMaybe<Scalars['String']>;
+  endDate?: InputMaybe<Scalars['String']>;
+  images?: InputMaybe<Array<Scalars['String']>>;
+  lat?: InputMaybe<Scalars['String']>;
+  lng?: InputMaybe<Scalars['String']>;
+  place?: InputMaybe<Scalars['String']>;
+  score?: InputMaybe<Scalars['Int']>;
+  startDate?: InputMaybe<Scalars['String']>;
+  thumbnail?: InputMaybe<Scalars['String']>;
+  title?: InputMaybe<Scalars['String']>;
 };
 
-export type IUseditemQuestion = {
-  __typename?: 'UseditemQuestion';
-  _id: Scalars['ID'];
-  contents: Scalars['String'];
-  createdAt: Scalars['DateTime'];
-  deletedAt?: Maybe<Scalars['DateTime']>;
-  updatedAt: Scalars['DateTime'];
-  useditem: IUseditem;
-  user: IUser;
-};
-
-export type IUseditemQuestionAnswer = {
-  __typename?: 'UseditemQuestionAnswer';
-  _id: Scalars['ID'];
-  contents: Scalars['String'];
-  createdAt: Scalars['DateTime'];
-  deletedAt?: Maybe<Scalars['DateTime']>;
-  updatedAt: Scalars['DateTime'];
-  useditemQuestion: IUseditemQuestion;
-  user: IUser;
-};
-
-export type IUser = {
-  __typename?: 'User';
-  _id: Scalars['ID'];
-  createdAt: Scalars['DateTime'];
-  deletedAt?: Maybe<Scalars['DateTime']>;
-  email: Scalars['String'];
-  name: Scalars['String'];
-  picture?: Maybe<Scalars['String']>;
-  updatedAt: Scalars['DateTime'];
-  userPoint?: Maybe<IUserPoint>;
-};
-
-export type IUserPoint = {
-  __typename?: 'UserPoint';
-  _id: Scalars['ID'];
-  amount: Scalars['Int'];
-  createdAt: Scalars['DateTime'];
-  deletedAt?: Maybe<Scalars['DateTime']>;
-  updatedAt: Scalars['DateTime'];
-  user: IUser;
+export type IUpdateUserSaveInput = {
+  imageUrl?: InputMaybe<Scalars['String']>;
+  introduce?: InputMaybe<Scalars['String']>;
+  nickname?: InputMaybe<Scalars['String']>;
 };

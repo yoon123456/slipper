@@ -148,23 +148,26 @@ export default function WritePresenter(props: IWritePresenter) {
         <S.StepWrapper>
           <S.StepBody>
             <S.Head>위치</S.Head>
-            <S.Map>
-              <KeyWord map={props.map} setMap={props.setMap} />
-            </S.Map>
+
+            <KeyWord mapStatus={props.mapStatus} />
+
             <S.Head>카테고리</S.Head>
             <S.Input
               placeholder="카테고리를 입력해주세요."
               defaultValue={props.data?.fetchBoard.category || ""}
+              value={props.address.group_name}
             />
             <S.Head>상호명</S.Head>
             <S.Input
               placeholder="가게 이름을 입력해주세요."
               defaultValue={props.data?.fetchBoard.place || ""}
+              value={props.address.content}
             />
             <S.Head>주소</S.Head>
             <S.Input
               placeholder="가게 주소를 입력해주세요."
               defaultValue={props.data?.fetchBoard.address || ""}
+              value={props.address.address_name}
             />
           </S.StepBody>
           <S.StepBottom>

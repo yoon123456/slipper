@@ -12,10 +12,9 @@ export default function KaKaoMapContainer(props: KaoKeyWord) {
   const [lng, setLng] = useState("");
   const [geoLat, setgeoLat] = useState(0);
   const [geoLng, setgeoLng] = useState(0);
-
   const [address, setAddress] = useRecoilState(kakaoAddress);
 
-  const [search] = useRecoilState(SearchState);
+  const [search, setSearch] = useRecoilState(SearchState);
   const [isActive1, setIsActive1] = useRecoilState(SearchBarIsActiveState);
   const [markers, setMarkers] = useState([]);
   const [map, setMap] = useState();
@@ -26,6 +25,15 @@ export default function KaKaoMapContainer(props: KaoKeyWord) {
   const [contentFlag, setContentFlag] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
   const btnRef = useRef<HTMLButtonElement>(null);
+
+  const getDebounce = _.debounce((data: string) => {
+    setIsActive((prev) => !prev);
+  }, 1500);
+
+  function onChangeSearchbar(event: ChangeEvent<HTMLInputElement>) {
+    getDebounce(event.target.value);
+    setSearch(event.target.value);
+  }
 
   const onCancel = () => {
     setIsOpen(true);
@@ -106,7 +114,7 @@ export default function KaKaoMapContainer(props: KaoKeyWord) {
       geoLng={geoLng}
       setMap={setMap}
       markers={markers}
-      // onChangeSearchbar={onChangeSearchbar}
+      onChangeSearchbar={onChangeSearchbar}
       info={info}
       markerClick={markerClick}
       setInfo={setInfo}
@@ -124,15 +132,7 @@ export default function KaKaoMapContainer(props: KaoKeyWord) {
       isOpen={isOpen}
       onClickButton={onClickButton}
       search={search}
+      mapStatus={props.mapStatus}
     />
   );
 }
-
-//  const getDebounce = _.debounce((data: string) => {
-//     setIsActive((prev) => !prev);
-//   }, 1500);
-
-//   function onChangeSearchbar(event: ChangeEvent<HTMLInputElement>) {
-//     getDebounce(event.target.value);
-//     setKeyword(event.target.value);
-//   }

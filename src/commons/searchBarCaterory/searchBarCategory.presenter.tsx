@@ -56,6 +56,7 @@ export default function SearchBarCategoryPresenter(
           // onChange={props.onChangeSearchbar}
           onMouseDown={props.onMouseDown}
           onChange={props.onChangeSearch}
+          value={props.search}
         />
         <S.SearchButton type="submit" onClick={props.onClickButton}>
           검색

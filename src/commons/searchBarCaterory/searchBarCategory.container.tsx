@@ -21,7 +21,7 @@ export default function SearchBarCategoryContainer() {
   // 카테고리를 선택하는 기능
   const onClickCategory = (event: any) => {
     setCategory(event.currentTarget.value);
-    // setIsClicked((isClicked) => !isClicked);
+    setSearch((prev) => prev + event.currentTarget.value);
   };
 
   // 검색 버튼 기능
@@ -40,6 +40,7 @@ export default function SearchBarCategoryContainer() {
       onChangeSearch={onChangeSearch}
       onClickCategory={onClickCategory}
       onClickButton={onClickButton}
+      search={search}
     />
   );
 }

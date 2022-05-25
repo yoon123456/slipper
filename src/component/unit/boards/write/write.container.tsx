@@ -8,12 +8,14 @@ import { ChangeEvent, useState } from "react";
 import { useRouter } from "next/router";
 import { IFormValues } from "./write.types";
 import { IUpdateBoardInput } from "../../../../commons/types/generated/types";
+import { useRecoilState } from "recoil";
+import { kakaoAddress } from "../../../../commons/store/kakaounit";
 
 const ReactQuill = dynamic(() => import("react-quill"), { ssr: false });
 
 export default function WriteContainer(props) {
   const router = useRouter();
-
+  const [address, setAddress] = useRecoilState(kakaoAddress);
   const [activeStep, SetActiveStep] = useState("first");
   const [startDate, SetStartDate] = useState("");
   const [endDate, SetEndDate] = useState("");
@@ -23,14 +25,16 @@ export default function WriteContainer(props) {
   const [chkSecond, setChkSecond] = useState(false);
   const [chkThird, setChkThird] = useState(false);
   const [score, setScore] = useState(0);
-  const [map, setMap] = useState(false);
-  const [fileUrls, setFileUrls] = useState(["", "", "", ""]);
+  const [mapStatus, setMapStatus] = useState(false);
+  const [fileUrls, setFileUrls] = useState([""]);
 
   const [createBoard] = useMutation(CREATE_BOARD);
   const [updateBoard] = useMutation(UPDATE_BOARD);
 
+  console.log(address);
   const onClickFirstNext = () => {
     SetActiveStep("second");
+    setMapStatus(true);
   };
   const onClickSecondPrev = () => {
     SetActiveStep("first");
@@ -90,11 +94,11 @@ export default function WriteContainer(props) {
             score,
             title,
             contents,
-            category: "카테고리 테스트",
-            lat: "111111",
-            lng: "333333",
-            address: "주소 테스트",
-            place: "가게명 테스트",
+            category: address.group_name,
+            lat: address.position.lat,
+            lng: address.position.lng,
+            address: address.address_name,
+            place: address.content,
             images: String(fileUrls),
           },
         },
@@ -147,14 +151,14 @@ export default function WriteContainer(props) {
       chkThird={chkThird}
       onChangeTitle={onChangeTitle}
       onChangeContents={onChangeContents}
-      map={map}
-      setMap={setMap}
+      mapStatus={mapStatus}
       fileUrls={fileUrls}
       onChangeFileUrls={onChangeFileUrls}
       onClickWriteBoard={onClickWriteBoard}
       isEdit={props.isEdit}
       data={props.data}
       onClickEditBoard={onClickEditBoard}
+      address={address}
     />
   );
 }
