@@ -25,7 +25,6 @@ export default function KaKaoMapContainer(props: KaoKeyWord) {
   const [contentFlag, setContentFlag] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
   const btnRef = useRef<HTMLButtonElement>(null);
-
   const getDebounce = _.debounce((data: string) => {
     setIsActive((prev) => !prev);
   }, 1500);
@@ -104,6 +103,7 @@ export default function KaKaoMapContainer(props: KaoKeyWord) {
         map.setBounds(bounds);
       }
     });
+    setSearch("");
   }, [map, isActive, isActive1]);
 
   return (

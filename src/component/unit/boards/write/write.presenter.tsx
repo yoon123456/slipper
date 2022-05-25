@@ -8,6 +8,7 @@ import { DatePicker, Space } from "antd";
 import KeyWord from "../../../../commons/kakao/keyword/kakaomap.container";
 import { IWritePresenter } from "./write.types";
 import { formats, modules } from "../../../../commons/quill";
+import Script from "next/script";
 const { RangePicker } = DatePicker;
 
 export default function WritePresenter(props: IWritePresenter) {
@@ -17,6 +18,11 @@ export default function WritePresenter(props: IWritePresenter) {
 
   return (
     <S.WrapperOut>
+      <Script
+        type="text/javascript"
+        src="//dapi.kakao.com/v2/maps/sdk.js?appkey=10933d05118bfc99d732e83a2814b76a&libraries=services&autoload=false"
+        strategy="beforeInteractive"
+      />
       <S.TopWrapper>
         {props.activeStep === "first" && (
           <S.TopColumnOn>
