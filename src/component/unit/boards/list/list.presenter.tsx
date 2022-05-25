@@ -13,11 +13,11 @@ import { SearchBarIsActiveState } from "../../../../commons/store";
 import InfiniteScroll from "react-infinite-scroller";
 import { v4 as uuidv4 } from "uuid";
 import Banner from "../../../../commons/banner/banner.presenter";
+import { timeForToday } from "../../../../commons/timefortoday/timeForToday";
 
 export default function ListPresenter(props: IListPresenter) {
   const { onClickMoveToPage } = useMovetoPage();
   const [isActive] = useRecoilState(SearchBarIsActiveState);
-
   return (
     <>
       <Banner />
@@ -61,15 +61,26 @@ export default function ListPresenter(props: IListPresenter) {
                         id={el._source.id}
                         onClick={props.onClickDetail}
                       >
-                        <S.ImageWrap>
-                          <S.Image src={el._source.thumbnail} />
-                          <S.Heart src="/image/pickheart.png" />
-                        </S.ImageWrap>
+                        {el._source.thumbnail !== null && (
+                          <S.ImageWrap>
+                            <S.Image src={el._source.thumbnail} />
+                            <S.Heart src="/image/pickheart.png" />
+                          </S.ImageWrap>
+                        )}
+                        {el._source.thumbnail === null && (
+                          <S.ImageWrap>
+                            <S.ImageLogo src={"/image/logo.png"} />
+                            <S.Heart src="/image/pickheart.png" />
+                          </S.ImageWrap>
+                        )}
                         <S.UserWrap>
                           <S.ListTitle>{el._source.title}</S.ListTitle>
                           <S.ListHometown>{el._source.address}</S.ListHometown>
                           <S.ListShopName>{el._source.place}</S.ListShopName>
                         </S.UserWrap>
+                        <S.UserDate>
+                          {timeForToday(el._source.createdat)}
+                        </S.UserDate>
                       </S.UserContents>
                     </S.Wrapper>
                   ))}

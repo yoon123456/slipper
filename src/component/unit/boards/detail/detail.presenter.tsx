@@ -104,9 +104,11 @@ import { getDate } from "../../../../commons/libraries/date";
 import KakaoMapFetch from "../../../../commons/kakaoMapFetch";
 import QuestionWriteContainer from "../../question/write/questionwrite.container";
 import Dompurify from "dompurify";
+import { useQuery } from "@apollo/client";
+import { FETCH_USER } from "../../login/login.queries";
 
 export default function DetailPresenter(props: IDetailPresenter) {
-  console.log(props.data?.fetchBoard.images, "image");
+  console.log(props.data?.fetchBoard?.user?.nickname, "dddd");
   const settings = {
     dots: true,
     autoplay: true,
@@ -170,8 +172,8 @@ export default function DetailPresenter(props: IDetailPresenter) {
             </S.UserMiddle>
             <S.UserInfoWrap>
               <S.User>
-                {/* <S.UserImg src={props.data?.fetchBoard.user.imageUrl} /> */}
-                <S.UserName>{props.data?.fetchBoard.ninkname}</S.UserName>
+                <S.UserImg src={props.data?.fetchBoard.user.imageUrl} />
+                <S.UserName>{props.data?.fetchBoard.user.nickname}</S.UserName>
               </S.User>
               <S.UserLivingWrap>
                 <S.UserLiving>거주기간:</S.UserLiving>
@@ -181,11 +183,13 @@ export default function DetailPresenter(props: IDetailPresenter) {
                 </S.UserLivingPeriod>
               </S.UserLivingWrap>
             </S.UserInfoWrap>
-            <S.UserContents
-              dangerouslySetInnerHTML={{
-                __html: Dompurify.sanitize(props.data?.fetchBoard.contents),
-              }}
-            ></S.UserContents>
+            {typeof window !== "undefined" && (
+              <S.UserContents
+                dangerouslySetInnerHTML={{
+                  __html: Dompurify.sanitize(props.data?.fetchBoard.contents),
+                }}
+              ></S.UserContents>
+            )}
             <S.WrapperBottom>
               <S.Button onClick={props.onClickMoveToList}>목록</S.Button>
             </S.WrapperBottom>

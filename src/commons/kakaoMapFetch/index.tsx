@@ -35,7 +35,6 @@ export default function KakaoMapFetch(props: IKakaoMapFetch) {
           height: "100%",
         }}
         level={3}
-        // onCreate={props.setMap}
       >
         <MapMarker
           position={{

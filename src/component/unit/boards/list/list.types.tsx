@@ -7,6 +7,7 @@ export interface IListPresenter {
   data: any; //예원
   refetch: any; //예원
   onLoadMore: () => void; //예원
+  btnRef: any;
 }
 
 export interface Iprops {
