@@ -129,6 +129,7 @@ export const Search = styled.input`
   box-shadow: 0px 2px 4px 0px #e1e1e1;
   outline: none;
   font-size: 1.3rem;
+  display: none;
 `;
 
 export const CategorySearch = styled.div`
@@ -172,4 +173,8 @@ export const PublicBtn = styled.img`
 
 export const BankBtn = styled.img`
   width: 13%;
+`;
+
+export const SearchBtn = styled.button`
+  display: none;
 `;

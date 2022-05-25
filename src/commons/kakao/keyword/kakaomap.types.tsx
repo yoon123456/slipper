@@ -14,6 +14,7 @@ export interface KaoKaoMap {
   onClickContent: () => void;
   onClickCategory: (event: MouseEvent<HTMLImageElement>) => void;
   onCancel: () => void;
+  onClickButton: () => void;
   isOpen: boolean;
   trrapicFlag: boolean;
   lat: any;
