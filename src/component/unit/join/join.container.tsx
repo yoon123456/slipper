@@ -8,8 +8,6 @@ import { CREATE_USER, GET_TOKEN, PROOF_TOKEN } from "./join.queries";
 import { ChangeEvent, useState } from "react";
 import { IFromValues } from "./join.types";
 import { Modal } from "antd";
-import QuestionListPresenter from "../question/list/questionlist.presenter";
-import QuestionListUIItem from "../question/list/questiontlist.presenteritem";
 
 const schema = yup.object({
   email: yup
@@ -47,18 +45,20 @@ export default function JoinContainer() {
   });
   const [phoneNum, setPhoneNum] = useState("");
   const [proofNum, setProofNum] = useState("");
-  const [flag, setFlag] = useState(false);
   const [fileUrl, setFileUrl] = useState([""]);
 
+  const [flag, setFlag] = useState(false);
   const [isActive, setIsActive] = useState(true);
   const [isActived, setIsActived] = useState(true);
+  const [isButton, setIsButton] = useState(true);
+
   const [role, setRole] = useState("");
+  const [isEdit, setIsEdit] = useState(false);
+  const [isShow, setIsShow] = useState(true);
 
   const [createUser] = useMutation(CREATE_USER);
   const [getToken] = useMutation(GET_TOKEN);
   const [proofToken] = useMutation(PROOF_TOKEN);
-
-  const [isEdit, setIsEdit] = useState(false);
 
   const onChangePhoneNum = (event: ChangeEvent<HTMLInputElement>) => {
     setPhoneNum(event.target.value);
@@ -72,6 +72,10 @@ export default function JoinContainer() {
   };
 
   const onChangeFileUrl = (fileUrl: string) => {
+    const newFileUrl = [fileUrl];
+    setFileUrl(newFileUrl);
+  };
+  const onChangeBusinessFileUrl = (fileUrl: string) => {
     const newFileUrl = [fileUrl];
     setFileUrl(newFileUrl);
   };
@@ -141,6 +145,8 @@ export default function JoinContainer() {
   };
   const onClickRole = (event: ChangeEvent<HTMLInputElement>) => {
     setRole(event.target.value);
+    setIsShow(false);
+    setIsButton(false);
   };
   const onClickCancle = () => {
     router.push("/");
@@ -161,7 +167,9 @@ export default function JoinContainer() {
         flag={flag}
         isActive={isActive}
         isActived={isActived}
+        isShow={isShow}
         onChangeFileUrl={onChangeFileUrl}
+        onChangeBusinessFileUrl={onChangeBusinessFileUrl}
         fileUrl={fileUrl}
         onClickAgreeJoin={onClickAgreeJoin}
         isEdit={isEdit}

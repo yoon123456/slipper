@@ -61,6 +61,11 @@ export const fadeInRight = keyframes`
     transform: none;
   }
 `;
+export const BossText = styled.div`
+  margin-left: 30%;
+  font-size: 1.5rem;
+  animation: ${fadeInDown} 5s both;
+`;
 export const WrapperOut = styled.div`
   width: 40%;
   border: 1px solid gainsboro;
@@ -73,7 +78,7 @@ export const WrapperOut = styled.div`
   box-shadow: 10px 10px 20px 3px rgba(214, 214, 214, 1);
   background-color: white;
 
-  animation: ${fadeInDown} 1s both;
+  animation: ${fadeInDown} 2s both;
 `;
 export const WrapperJoin = styled.div`
   width: 62%;
@@ -102,7 +107,7 @@ export const InputProfile = styled.input`
   width: 70%;
   border: none;
   border-bottom: 2px solid gainsboro;
-  margin-top: 10%;
+  margin-top: 12%;
 `;
 export const Check = styled.div`
   display: flex;

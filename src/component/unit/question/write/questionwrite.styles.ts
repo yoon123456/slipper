@@ -21,7 +21,8 @@ export const QuestionInput = styled.input`
   width: 100%;
   height: 50%;
   border: none;
-  border-bottom: 1px solid gainsboro;
+  border: 1px solid lightgray;
+  border-radius: 20px;
   /* outline-color: #008af6; */
 `;
 export const Box = styled.div`
@@ -35,17 +36,18 @@ export const ButtonBox = styled.div`
 export const Cancel = styled.div`
   width: 7%;
   height: 30px;
-  line-height: 2.5;
+  line-height: 2.2;
   font-size: 1.3rem;
   text-align: center;
 `;
 export const Write = styled.div`
   width: 7%;
   height: 30px;
-  line-height: 2.5;
+  line-height: 2.2;
   font-size: 1.3rem;
   text-align: center;
   background-color: ${(props: IWriteButtonProps) =>
     props.isActive ? "#008af6" : "none"};
   color: ${(props: IWriteButtonProps) => (props.isActive ? "white" : "black")};
+  border-radius: 15px;
 `;

@@ -19,11 +19,13 @@ export interface IJoinPresenterProps {
   onClickGetToken: () => void;
   onClickCheckProof: () => void;
   onChangeFileUrl: (fileUrl: string) => void;
+  onChangeBusinessFileUrl: (fileUrl: string) => void;
   phoneNum: any;
   flag: boolean;
   isActive: boolean;
   isActived: boolean;
   isEdit: boolean;
+  isShow: boolean;
   fileUrl?: string[];
 
   onClickAgreeJoin: () => void;
