@@ -20,6 +20,11 @@ export default function ListContainer() {
   const { data: userData } = useQuery(FETCH_USER);
   console.log("로그인유저", userData?.fetchUser.email);
 
+  const btnRef = useRef<HTMLButtonElement>(null);
+  useEffect(() => {
+    btnRef.current?.click();
+  }, []);
+
   // fetchBoardsPage query
   const { data, refetch, fetchMore } = useQuery(FETCH_BOARDS_PAGE, {
     variables: {
@@ -73,6 +78,7 @@ export default function ListContainer() {
       data={data} //예원
       refetch={refetch} //예원
       onLoadMore={onLoadMore} //예원
+      btnRef={btnRef}
     />
   );
 }

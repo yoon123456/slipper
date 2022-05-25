@@ -131,12 +131,28 @@ export const ImageWrap = styled.div`
   width: 40%;
   height: 160px;
 `;
+
+export const ImageLogo = styled.img`
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  border-radius: 10px 0 0 10px;
+  position: relative;
+`;
 export const UserWrap = styled.div`
   width: 60%;
   display: flex;
   flex-direction: column;
   justify-content: center;
   padding-left: 5%;
+`;
+export const UserDate = styled.div`
+  width: 10%;
+  padding: 2%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-end;
 `;
 export const Image = styled.img`
   width: 100%;
@@ -148,7 +164,7 @@ export const Image = styled.img`
 export const Heart = styled.img`
   position: absolute;
   top: 6%;
-  left: 34%;
+  left: 31%;
   color: red;
   width: 20px;
   height: 20px;
