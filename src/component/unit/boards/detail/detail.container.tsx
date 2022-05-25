@@ -19,6 +19,7 @@ export default function DetailContainer() {
     variables: { boardId: String(router.query.boardId) },
   });
 
+  console.log(data);
   // 게시글 삭제 Mutation
   const [deleteBoard] = useMutation<
     Pick<IMutation, "deleteBoard">,

@@ -15,6 +15,7 @@ export interface KaoKaoMap {
   onClickCategory: (event: MouseEvent<HTMLImageElement>) => void;
   onCancel: () => void;
   onClickButton: () => void;
+  mapStatus: boolean;
   isOpen: boolean;
   trrapicFlag: boolean;
   lat: any;
@@ -45,6 +46,7 @@ export interface KaoKaoMap {
 export interface KaoKeyWord {
   onChangeKeyword?: (event: any) => void;
   keyword?: string;
+  mapStatus: boolean;
 }
 
 export interface ContentProps {
@@ -63,4 +65,8 @@ export interface MarkerProps {
   markerClick: (info: any) => (address: any) => void;
   info: any;
   contentFlag: boolean;
+}
+
+export interface KaKaoMapStylesProps {
+  mapStatus: boolean;
 }

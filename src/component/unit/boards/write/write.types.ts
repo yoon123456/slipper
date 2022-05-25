@@ -24,8 +24,7 @@ export interface IWritePresenter {
   chkThird: boolean;
   onChangeTitle: (event: ChangeEvent<HTMLTextAreaElement>) => void;
   onChangeContents: (event: ChangeEvent<HTMLTextAreaElement>) => void;
-  map: boolean;
-  setMap: any;
+  mapStatus: boolean;
   fileUrls: string[];
   onChangeFileUrls: (fileUrl: string, index: number) => void;
   onClickWriteBoard: (data: IFormValues) => void;

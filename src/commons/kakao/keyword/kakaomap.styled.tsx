@@ -8,6 +8,7 @@ import {
   CustomOverlayMap,
 } from "react-kakao-maps-sdk";
 import styled from "@emotion/styled";
+import { KaKaoMapStylesProps } from "./kakaomap.types";
 
 export const KaKaoMap = styled(Map)``;
 export const KakaoMapMarker = styled(MapMarker)`
@@ -19,7 +20,9 @@ export const KakaoMapRoadview = styled(Roadview)``;
 export const KakaoCustomOverlayRoadview = styled(CustomOverlayRoadview)``;
 export const KaKaoWarp = styled.div`
   width: 100%;
-  height: 100vh;
+  height: ${(props: KaKaoMapStylesProps) =>
+    props.mapStatus ? "270px" : "100vh"};
+  /* height: 100vh; */
 `;
 export const KaKaoOverLay = styled(CustomOverlayMap)``;
 
@@ -116,7 +119,8 @@ export const Category = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: 2%;
+  /* padding-top: 0.5%;*/
+  padding-left: 1%;
   z-index: 10;
 `;
 export const Search = styled.input`
@@ -129,7 +133,7 @@ export const Search = styled.input`
   box-shadow: 0px 2px 4px 0px #e1e1e1;
   outline: none;
   font-size: 1.3rem;
-  display: none;
+  margin-top: 1%;
 `;
 
 export const CategorySearch = styled.div`

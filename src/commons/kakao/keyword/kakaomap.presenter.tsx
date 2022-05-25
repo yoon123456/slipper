@@ -44,9 +44,12 @@ export default function KakaomapPresenter(props: KaoKaoMap) {
         </Modal>
       )}
       <S.WarrapOut>
-        <S.KaKaoWarp>
+        <S.KaKaoWarp mapStatus={props.mapStatus}>
           <S.Category>
-            <S.Search type="text" />
+            {props.mapStatus && (
+              <S.Search type="text" onChange={props.onChangeSearchbar} />
+            )}
+
             <S.SearchBtn
               type="submit"
               onClick={props.onClickButton}
@@ -62,12 +65,19 @@ export default function KakaomapPresenter(props: KaoKaoMap) {
               >
                 현재위치
               </S.LocationButton>
-              <S.TrappickButton type="button" onClick={props.onClickTrrapic}>
-                교통정보
-              </S.TrappickButton>
-              <S.RoadButton type="button" onClick={props.onClickRoadView}>
-                로드뷰
-              </S.RoadButton>
+              {!props.mapStatus && (
+                <>
+                  <S.TrappickButton
+                    type="button"
+                    onClick={props.onClickTrrapic}
+                  >
+                    교통정보
+                  </S.TrappickButton>
+                  <S.RoadButton type="button" onClick={props.onClickRoadView}>
+                    로드뷰
+                  </S.RoadButton>
+                </>
+              )}
             </S.CategorySearch>
           </S.Category>
           <S.KaKaoMap // 로드뷰를 표시할 Container
