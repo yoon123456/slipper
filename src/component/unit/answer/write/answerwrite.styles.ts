@@ -1,52 +1,5 @@
 import styled from "@emotion/styled";
-import { IWriteButtonProps } from "./questionlist.types";
-
-export const WrapperOut = styled.div`
-  width: 50%;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-`;
-export const RowBox = styled.div`
-  display: flex;
-  width: 100%;
-`;
-export const Profile = styled.div`
-  width: 10%;
-`;
-export const ProfileImage = styled.img`
-  padding: 10%;
-  width: 80%;
-`;
-export const RightBox = styled.div`
-  width: 90%;
-`;
-export const Top = styled.div`
-  /* background-color: red; */
-  display: flex;
-  align-items: baseline;
-`;
-export const Name = styled.h4`
-  font-size: 1.5rem;
-`;
-export const Time = styled.span`
-  font-size: 1.2rem;
-  color: gray;
-  margin-left: 0.3%;
-`;
-export const Question = styled.input`
-  font-size: 1.2rem;
-  /* display: block; */
-`;
-export const QuestionAnswer = styled.div`
-  margin-top: 0.3%;
-  font-size: 1.1rem;
-  color: gray;
-  padding-top: 0.5%;
-  cursor: pointer;
-`;
-
-// 답글
+import { IWriteButtonProps } from "./answerwrite.types";
 
 export const QuestionBox = styled.div`
   width: 90%;

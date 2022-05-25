@@ -40,8 +40,8 @@ export default function Banner() {
                 <S.Txt>사장님을 위한 슬리퍼 트렌드 </S.Txt>
                 <S.Img3>전국의 모든 사장님들 슬리퍼를 신어보세요. </S.Img3>
                 <S.ArrowBox>
+                  <S.ArrowSpan>사장님이 자랑하는 글 보러가기</S.ArrowSpan>
                   <S.Arrow src="/image/arrow2.png"></S.Arrow>
-                  <S.ArrowSpan>내게 딱_맞는 동네 찾으러 가기</S.ArrowSpan>
                 </S.ArrowBox>
               </S.TBox>
               <S.ImgBox>

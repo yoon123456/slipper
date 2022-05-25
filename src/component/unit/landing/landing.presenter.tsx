@@ -75,8 +75,8 @@ export default function LandingPresenter() {
               </S.TextIn>
               대신 다녀올게!
               <S.ArrowBox onClick={onClickMoveToPage("/boards")}>
+                <S.ArrowSpan>나에게 맞는 동네 찾으러 가기</S.ArrowSpan>
                 <S.Arrow src="/image/arrow2.png"></S.Arrow>
-                <S.ArrowSpan>내게 딱_맞는 동네 찾으러 가기</S.ArrowSpan>
               </S.ArrowBox>
             </S.TextBox>
           </S.MainBlue>
