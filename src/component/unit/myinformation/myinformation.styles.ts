@@ -1,8 +1,6 @@
 // 해리 작업 5/15
 import styled from "@emotion/styled";
 
-export const StyledForm = styled.form``;
-
 export const WrapperRight = styled.div`
   width: 100%;
   /* height: 100%; */
@@ -22,6 +20,21 @@ export const Body = styled.div`
   margin-top: 15%;
   padding-right: 7%;
 `;
+export const ImgEditWrapper = styled.div`
+  width: 100%;
+  display: flex;
+  /* justify-content: space-between; */
+  align-items: center;
+  margin-bottom: 30px;
+  padding-right: 50%;
+`;
+export const ImgEditHeader = styled.div`
+  width: 30%;
+  /* height: 100px; */
+  font-size: 1.6rem;
+  font-weight: bold;
+  text-align: center;
+`;
 export const BodyRow = styled.div`
   width: 100%;
   /* height: 90px; */
@@ -38,16 +51,20 @@ export const Header = styled.div`
   font-size: 1.6rem;
   font-weight: bold;
   text-align: center;
-  vertical-align: top;
+  /* vertical-align: top; */
+  /* display: flex;
+  flex-direction: row;
+  justify-content: initial; */
+  /* position: static; */
 `;
-export const ProfileImgEdit = styled.img`
-  width: 20%;
-  height: 150px;
-  margin-right: 65%;
-  background-color: #f5f7f9;
-  border: none;
-  border-radius: 10px;
-`;
+// export const ProfileImgEdit = styled.img`
+//   width: 20%;
+//   height: 150px;
+//   margin-right: 65%;
+//   background-color: #f5f7f9;
+//   border: none;
+//   border-radius: 10px;
+// `;
 export const Contents = styled.div`
   width: 85%;
   height: 40px;
@@ -55,7 +72,7 @@ export const Contents = styled.div`
   border-radius: 10px;
   padding: 1.3%;
   /* padding-left: 2%; */
-  background-color: #f5f7f9;
+  /* background-color: #f5f7f9; */
 `;
 export const ContentsEdit = styled.input`
   width: 85%;
@@ -80,7 +97,7 @@ export const Introduction = styled.div`
   /* box-shadow: 0px 0px 5px gray; */
   border-radius: 10px;
   padding: 1.5%;
-  background-color: #f5f7f9;
+  /* background-color: #f5f7f9; */
 `;
 export const IntroductionEdit = styled.input`
   width: 80%;
@@ -110,20 +127,7 @@ export const ButtonWrapper = styled.div`
   padding-right: 200px;
 `;
 export const Button = styled.button`
-  /* width: 90px;
-  height: 40px;
-  padding: 6px;
-  text-align: center;
-  font-size: 1.5rem;
-  color: #008af6;
-  border: 2px solid #008af6;
-  border-radius: 17px;
-  cursor: pointer;
-  :hover {
-    background-color: #008af6;
-    color: white;
-  } */
-  width: 20%;
+  width: 30%;
   height: 3%;
   /* margin: 10%; */
   padding: 2%;

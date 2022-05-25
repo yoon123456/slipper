@@ -188,11 +188,29 @@ export const Map = styled.div`
 //   justify-content: space-around;
 //   align-items: center;
 // `;
+
+export const ImageStepWrapper = styled.div`
+  width: 100%;
+  height: 900px;
+  padding: 5% 5% 5% 5%;
+  border-radius: 0px 0px 41px 41px;
+  box-shadow: 0px 10px 20px rgba(214, 214, 214, 1);
+`;
 export const ImageRow = styled.div`
   width: 100%;
   /* padding: 0 10% 0 10%; */
+  padding-top: 7%;
   display: flex;
   flex-direction: row;
   justify-content: space-around;
   flex-wrap: wrap;
+`;
+export const ImageBottom = styled.div`
+  width: 100%;
+  height: 10%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 11% 0 11%;
 `;

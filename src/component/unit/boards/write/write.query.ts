@@ -21,7 +21,7 @@ export const CREATE_BOARD = gql`
       user {
         email
         nickname
-        role
+        # role
       }
     }
   }

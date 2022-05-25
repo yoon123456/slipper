@@ -19,13 +19,14 @@ export const BodyHeadWrapper = styled.div`
   flex-direction: row;
   align-items: center;
   justify-content: space-around;
-  padding: 5% 5% 1% 5%;
+  padding: 10% 5% 1% 5%;
 `;
 export const BodyHead = styled.div`
   font-size: 1.6rem;
   width: 30%;
   text-align: center;
   padding-right: 4%;
+  margin-bottom: 2%;
 `;
 export const Body = styled.div`
   /* padding: 1%; */

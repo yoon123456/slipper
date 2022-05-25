@@ -10,22 +10,29 @@ const UPLOAD_BOARD_IMAGE = gql`
 `;
 
 const UploadImage = styled.img`
-  width: 40%;
-  height: 50%;
-  margin-right: 24px;
+  width: 45%;
+  height: 250px;
+  outline: none;
   cursor: pointer;
+  padding: 2%;
+  margin: 2%;
+  background-image: url("data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%25' height='100%25' fill='none' rx='25' ry='25' stroke='gainsboro' stroke-width='4' stroke-dasharray='18' stroke-dashoffset='0' stroke-linecap='square'/%3e%3c/svg%3e");
+  border-radius: 10px;
 `;
 const UploadButton = styled.div`
-  width: 40%;
-  height: 100%;
-  /* margin-right: 24px; */
+  width: 45%;
+  height: 250px;
   outline: none;
-  border: none;
   cursor: pointer;
+  padding: 9%;
+  padding-left: 16%;
+  margin: 2%;
+  background-image: url("data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%25' height='100%25' fill='none' rx='25' ry='25' stroke='gainsboro' stroke-width='4' stroke-dasharray='18' stroke-dashoffset='0' stroke-linecap='square'/%3e%3c/svg%3e");
+  border-radius: 10px;
 `;
 const UploadIcon = styled.img`
-  /* width: 100%; */
-  /* height: 100%; */
+  /* width: 50%; */
+  /* height: 50%; */
 `;
 const UploadFileHidden = styled.input`
   display: none;
@@ -62,16 +69,16 @@ export default function ImageBoardUpload(props: IImageUploadPageProps) {
   };
 
   return (
+    // prettier-ignore
     <>
-      {props.fileUrl !== "" ? (
-        <UploadImage onClick={onClickImgUpload} src={`${props.fileUrl}`} />
-      ) : (
-        <UploadButton type="button" onClick={onClickImgUpload}>
+      {props.fileUrl !== "" 
+      ? (<UploadImage onClick={onClickImgUpload} src={`${props.fileUrl}`}/>) 
+      : (<UploadButton type="button" onClick={onClickImgUpload}>
           {/* <>+</> */}
           {/* <>Upload</> */}
-          <UploadIcon src="/image/uploadIcon.png" />
-        </UploadButton>
-      )}
+          <UploadIcon src="/image/boardimage.png" />
+        </UploadButton>)
+      }
       <UploadFileHidden
         // style={{ display: "none" }}
         type="file"
