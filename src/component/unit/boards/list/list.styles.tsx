@@ -178,10 +178,12 @@ export const ListTitleWrap = styled.div`
 export const ListTitle = styled.div`
   font-size: 2rem;
   font-weight: 500;
+  padding-bottom: 2%;
 `;
 export const ListHometown = styled.div`
   color: #7b7e7e;
   font-size: 1rem;
+  padding-bottom: 2%;
 `;
 export const ListShopName = styled.div`
   color: #2a2f2f;

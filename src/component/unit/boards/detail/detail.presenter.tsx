@@ -19,7 +19,7 @@ export default function DetailPresenter(props: IDetailPresenter) {
     slidesToScroll: 1,
     pauseOnHover: true,
   };
-
+  console.log(props.data);
   return (
     <>
       <S.WrapperOut>
