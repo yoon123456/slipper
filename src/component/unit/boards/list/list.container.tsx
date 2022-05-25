@@ -10,6 +10,10 @@ import { kakaoAddress } from "../../../../commons/store/kakaounit";
 import { gql, useQuery } from "@apollo/client";
 import { FETCH_BOARDS_PAGE } from "./list.query";
 import { FETCH_USER } from "../../login/login.queries";
+import {
+  IQuery,
+  IQueryFetchBoardsPageArgs,
+} from "../../../../commons/types/generated/types";
 
 export default function ListContainer() {
   const router = useRouter();
@@ -26,13 +30,10 @@ export default function ListContainer() {
   }, []);
 
   // fetchBoardsPage query
-  const { data, refetch, fetchMore } = useQuery(FETCH_BOARDS_PAGE, {
-    variables: {
-      page: 1,
-      category: "",
-      search: "",
-    },
-  });
+  const { data, refetch, fetchMore } = useQuery<
+    Pick<IQuery, "fetchBoardsPage">,
+    IQueryFetchBoardsPageArgs
+  >(FETCH_BOARDS_PAGE);
 
   // 무한스크롤 기능
   const onLoadMore = () => {
