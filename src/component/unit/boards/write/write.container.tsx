@@ -97,13 +97,12 @@ export default function WriteContainer(props) {
             place: "가게명 테스트",
             images: String(fileUrls),
           },
-          email: "yw01124@naver.com",
         },
       });
       console.log(result);
       Modal.success({ content: "회원님의 글이 정상적으로 등록되었습니다." });
       // router.push(`/boards/${result.data.createBoard.id}`);
-      router.push(`/boards/${result.data.testCreateBoard.id}`);
+      router.push(`/boards/${result.data.createBoard.id}`);
     } catch (error) {
       if (error instanceof Error) Modal.error({ content: error.message });
     }

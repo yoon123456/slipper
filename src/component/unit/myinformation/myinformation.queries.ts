@@ -5,7 +5,6 @@ export const FETCH_USER = gql`
     fetchUser {
       email
       nickname
-      #   imageUrl
       introduce
     }
   }

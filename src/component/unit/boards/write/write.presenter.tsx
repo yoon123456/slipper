@@ -7,7 +7,7 @@ import { v4 as uuidv4 } from "uuid";
 import { DatePicker, Space } from "antd";
 import KeyWord from "../../../../commons/kakao/keyword/kakaomap.container";
 import { IWritePresenter } from "./write.types";
-
+import { formats, modules } from "../../../../commons/quill";
 const { RangePicker } = DatePicker;
 
 export default function WritePresenter(props: IWritePresenter) {
@@ -131,6 +131,8 @@ export default function WritePresenter(props: IWritePresenter) {
             <props.ReactQuill
               style={{ height: 270 }}
               onChange={props.onChangeContents}
+              formats={formats}
+              modules={modules}
             />
           </S.StepBody>
           <S.StepBottom>
@@ -177,7 +179,7 @@ export default function WritePresenter(props: IWritePresenter) {
       )}
       {/* 📌STEP 3 */}
       {props.activeStep === "third" && (
-        <S.StepWrapper>
+        <S.ImageStepWrapper>
           <S.StepBody>
             <S.ImageRow>
               {props.fileUrls.map((el, index) => (
@@ -191,7 +193,7 @@ export default function WritePresenter(props: IWritePresenter) {
               ))}
             </S.ImageRow>
           </S.StepBody>
-          <S.StepBottom>
+          <S.ImageBottom>
             <S.StepButton type="button" onClick={props.onClickThirdPrev}>
               &lt;
             </S.StepButton>
@@ -204,8 +206,8 @@ export default function WritePresenter(props: IWritePresenter) {
             >
               {props.isEdit ? "수정" : "완료"}
             </S.StepButton>
-          </S.StepBottom>
-        </S.StepWrapper>
+          </S.ImageBottom>
+        </S.ImageStepWrapper>
       )}
     </S.WrapperOut>
   );
