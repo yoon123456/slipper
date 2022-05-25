@@ -26,7 +26,7 @@ export const ImgEditWrapper = styled.div`
   /* justify-content: space-between; */
   align-items: center;
   margin-bottom: 30px;
-  padding-right: 50%;
+  padding-right: 35%;
 `;
 export const ImgEditHeader = styled.div`
   width: 30%;
@@ -57,22 +57,12 @@ export const Header = styled.div`
   justify-content: initial; */
   /* position: static; */
 `;
-// export const ProfileImgEdit = styled.img`
-//   width: 20%;
-//   height: 150px;
-//   margin-right: 65%;
-//   background-color: #f5f7f9;
-//   border: none;
-//   border-radius: 10px;
-// `;
 export const Contents = styled.div`
   width: 85%;
   height: 40px;
   font-size: 1.4rem;
   border-radius: 10px;
   padding: 1.3%;
-  /* padding-left: 2%; */
-  /* background-color: #f5f7f9; */
 `;
 export const ContentsEdit = styled.input`
   width: 85%;
@@ -94,21 +84,18 @@ export const Introduction = styled.div`
   }
   font-size: 1.4rem;
   color: black;
-  /* box-shadow: 0px 0px 5px gray; */
   border-radius: 10px;
   padding: 1.5%;
-  /* background-color: #f5f7f9; */
 `;
 export const IntroductionEdit = styled.input`
   width: 80%;
-  height: 150px;
+  height: 200px;
   overflow: scroll;
   ::-webkit-scrollbar {
     display: none;
   }
   font-size: 1.4rem;
   color: black;
-  /* box-shadow: 0px 0px 5px gray; */
   border-radius: 10px;
   padding: 1.5%;
   background-color: #f5f7f9;
