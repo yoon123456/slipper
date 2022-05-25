@@ -1,4 +1,4 @@
-import Banner from "../../../commons/banner/banner.presenter";
+import ImageBoss from "../../../commons/imageBoss";
 import ImageProfile from "../../../commons/imageProfile";
 import Number from "../../../commons/timer";
 import * as S from "./join.styles";
@@ -9,7 +9,10 @@ export default function JoinPresenter(props: IJoinPresenterProps) {
     <S.Wrapper>
       <S.WrapperLeft>
         <S.ImageBox>
-          <S.Image src="/image/check.png" />
+          <ImageBoss  isShow={props.isShow}                  
+          onChangeBusinessFileUrl={props.onChangeBusinessFileUrl}
+          fileUrl={props.fileUrl}/>
+        {!props.isShow &&<S.BossText>사장님은 사업자등록증을 업로드해주세요!</S.BossText>} 
         </S.ImageBox>
       </S.WrapperLeft>
       <S.WrapperOut>
@@ -20,7 +23,7 @@ export default function JoinPresenter(props: IJoinPresenterProps) {
             <form onSubmit={props.handleSubmit(props.onClickJoin)}>
               <S.RoleBox>
                 <S.RoleBoxIn>
-                <S.Role type="radio" name="gender" value="USER" onChange={props.onClickRole}/>
+                <S.Role type="radio" name="gender" />
               유저
                 </S.RoleBoxIn>
                 <S.RoleBoxIn>
@@ -60,7 +63,7 @@ export default function JoinPresenter(props: IJoinPresenterProps) {
                 {...props.register("pwCheck")}
               />
               <S.Error>{props.formState.errors.pwCheck?.message}</S.Error>
-   
+
             <S.Check>
               <S.TelBox>
                 <S.Tel
