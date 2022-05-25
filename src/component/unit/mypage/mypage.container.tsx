@@ -21,6 +21,7 @@ export default function MyPageContainer() {
   const onClickMypaids = () => {
     setMypageRight("mypaids");
   };
+  console.log(data);
 
   return (
     <>

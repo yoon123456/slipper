@@ -21,7 +21,7 @@ export default function MyPagePresenter(props: IMyPagePresenter) {
           <S.Nickname>님의 신발장</S.Nickname>
         </S.NicknameWrapper>
         {/* <S.ProfileImage src={props.data?.fetchUser.imageUrl} /> */}
-        <S.ProfileImage src={`${props.data?.fetchUser.imageUrl}`} />
+        <S.ProfileImage src={props.data?.fetchUser.imageUrl} />
         <S.MenuWrapper
           id="myinfoBtn"
           onClick={props.onClickMyinfo}
