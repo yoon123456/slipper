@@ -104,6 +104,7 @@ import { getDate } from "../../../../commons/libraries/date";
 import { FETCH_BOARD } from "./detail.query";
 
 export default function DetailPresenter(props: IDetailPresenter) {
+  console.log(props.data?.fetchBoard.id, "id");
   const settings = {
     dots: true,
     autoplay: true,
@@ -134,8 +135,9 @@ export default function DetailPresenter(props: IDetailPresenter) {
         </S.TopLeft>
         <S.EditDeleteWrap>
           <S.UserWriteDate>{props.data?.fetchBoard.createdAt}</S.UserWriteDate>
-          <S.Icon src={"/image/listpen.png"} />
+          <S.Icon src={"/image/listpen.png"} id={props.data?.fetchBoard.id} />
           <S.Icon
+            id={props.data?.fetchBoard.id}
             src={"/image/delete.png"}
             onClick={props.onClickDeleteBoard}
           />

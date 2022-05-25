@@ -26,7 +26,6 @@ export default function ListContainer() {
       search: "",
     },
   });
-  console.log(data, "ㅇㄹㅇ");
 
   // 무한스크롤 기능
   const onLoadMore = () => {

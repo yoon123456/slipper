@@ -3,11 +3,11 @@
 import { useMutation, useQuery } from "@apollo/client";
 import { useRouter } from "next/router";
 import { MouseEvent, useState } from "react";
-import { useMovetoPage } from "../../../../commons/hooks/movePage";
 import {
   IMutation,
   IMutationDeleteBoardArgs,
 } from "../../../../commons/types/generated/types";
+import { FETCH_BOARDS_PAGE } from "../list/list.query";
 import DetailPresenter from "./detail.presenter";
 import { DELETE_BOARD, FETCH_BOARD } from "./detail.query";
 
@@ -29,6 +29,7 @@ export default function DetailContainer() {
   const onClickDeleteBoard = (event: MouseEvent<HTMLImageElement>) => {
     deleteBoard({
       variables: { boardId: String((event.target as HTMLImageElement).id) },
+      refetchQueries: [{ query: FETCH_BOARDS_PAGE }],
     });
     alert("게시글 삭제에 성공하였습니다");
   };

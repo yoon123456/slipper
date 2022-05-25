@@ -43,11 +43,11 @@ export const Icon = styled.img`
 // slider
 export const SliderWrap = styled.div`
   width: 90%;
-  margin: 10% auto 0 auto;
+  margin: 15% auto 0 auto;
 `;
 export const ImageWrap = styled.div`
   width: 100%;
-  height: 200px;
+  height: 300px;
 `;
 
 export const SliderStyle = styled(Slider)`
@@ -62,11 +62,11 @@ export const ImgWrapper = styled(Slider)`
   align-items: center;
   margin: 0 auto;
   width: 100%;
-  height: 50%;
+  height: 100%;
 `;
 export const Img = styled.img`
-  width: 40%;
-  height: 200px;
+  width: 70%;
+  height: 280px;
   object-fit: cover;
   margin-right: 10px;
   border-radius: 5%;
@@ -176,7 +176,7 @@ export const UserContents = styled.div`
 
 export const Map = styled.div`
   width: 100%;
-  height: 360px;
+  height: 500px;
   background-color: aliceblue;
 `;
 export const CategoryWrap = styled.div`
