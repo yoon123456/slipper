@@ -19,7 +19,7 @@ export default function PaymentPresenter(props: PaymentIprops) {
             <Payment
               MonthFlag={props.MonthFlag}
               data={props.data}
-              value={2000}
+              value={100}
             />
           </S.Voucher>
           <S.Voucher>

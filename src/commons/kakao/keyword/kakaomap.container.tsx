@@ -4,7 +4,7 @@ import KakaomapPresenter from "./kakaomap.presenter";
 import { KaoKeyWord } from "./kakaomap.types";
 import { useRecoilState } from "recoil";
 import { kakaoAddress } from "../../store/kakaounit";
-import { SearchState } from "../../store/index";
+import { SearchState, SearchBarIsActiveState } from "../../store/index";
 
 export default function KaKaoMapContainer(props: KaoKeyWord) {
   const [info, setInfo] = useState();
@@ -14,35 +14,26 @@ export default function KaKaoMapContainer(props: KaoKeyWord) {
   const [geoLng, setgeoLng] = useState(0);
 
   const [address, setAddress] = useRecoilState(kakaoAddress);
+
   const [search] = useRecoilState(SearchState);
+  const [isActive1, setIsActive1] = useRecoilState(SearchBarIsActiveState);
   const [markers, setMarkers] = useState([]);
   const [map, setMap] = useState();
-  const [keyword, setKeyword] = useState("");
 
   const [isActive, setIsActive] = useState(false);
   const [roadViewFlag, setroadViewFlag] = useState(false);
   const [trrapicFlag, setTrrapicFlag] = useState(false);
   const [contentFlag, setContentFlag] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
+  const btnRef = useRef<HTMLButtonElement>(null);
 
   const onCancel = () => {
-    setIsOpen(false);
+    setIsOpen(true);
   };
 
-  const btnRef = useRef<HTMLButtonElement>(null);
-  useEffect(() => {
-    btnRef.current?.click();
-  }, []);
-
-  const getDebounce = _.debounce((data: string) => {
-    setIsActive((prev) => !prev);
-  }, 1500);
-
-  function onChangeSearchbar(event: ChangeEvent<HTMLInputElement>) {
-    getDebounce(event.target.value);
-    setKeyword(event.target.value);
-  }
-
+  const onClickButton = () => {
+    setIsActive1((prev) => !prev);
+  };
   const onClickTrrapic = () => {
     setTrrapicFlag((prev) => !prev);
   };
@@ -73,10 +64,10 @@ export default function KaKaoMapContainer(props: KaoKeyWord) {
   };
 
   useEffect(() => {
+    btnRef.current?.click();
     if (!map) return;
     const ps = new kakao.maps.services.Places();
-    ps.keywordSearch(keyword, (data, status, _pagination) => {
-      console.log(data);
+    ps.keywordSearch(search, (data, status, _pagination) => {
       if (status === kakao.maps.services.Status.OK) {
         const bounds = new kakao.maps.LatLngBounds();
         let markers = [];
@@ -105,7 +96,7 @@ export default function KaKaoMapContainer(props: KaoKeyWord) {
         map.setBounds(bounds);
       }
     });
-  }, [map, isActive]);
+  }, [map, isActive, isActive1]);
 
   return (
     <KakaomapPresenter
@@ -115,7 +106,7 @@ export default function KaKaoMapContainer(props: KaoKeyWord) {
       geoLng={geoLng}
       setMap={setMap}
       markers={markers}
-      onChangeSearchbar={onChangeSearchbar}
+      // onChangeSearchbar={onChangeSearchbar}
       info={info}
       markerClick={markerClick}
       setInfo={setInfo}
@@ -131,6 +122,17 @@ export default function KaKaoMapContainer(props: KaoKeyWord) {
       onClickContent={onClickContent}
       onCancel={onCancel}
       isOpen={isOpen}
+      onClickButton={onClickButton}
+      search={search}
     />
   );
 }
+
+//  const getDebounce = _.debounce((data: string) => {
+//     setIsActive((prev) => !prev);
+//   }, 1500);
+
+//   function onChangeSearchbar(event: ChangeEvent<HTMLInputElement>) {
+//     getDebounce(event.target.value);
+//     setKeyword(event.target.value);
+//   }
