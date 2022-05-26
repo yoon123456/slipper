@@ -6,7 +6,6 @@ export default function LandingContainer() {
   return (
     <>
       <LandingPresenter />
-      <QuestionWriteContainer />
     </>
   );
 }

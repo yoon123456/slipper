@@ -2,7 +2,7 @@ import styled from "@emotion/styled";
 import { ReactNode } from "react";
 import { useRouter } from "next/router";
 import HeaderContainer from "./header/header.container";
-import Footer from "./footer/index";
+import Footer from "./footer/footer.presenter";
 
 const Body = styled.div`
   /* display: flex;

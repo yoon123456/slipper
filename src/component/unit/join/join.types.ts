@@ -27,6 +27,7 @@ export interface IJoinPresenterProps {
   isEdit: boolean;
   isShow: boolean;
   fileUrl?: string[];
+  businessfileUrl?: string[];
 
   onClickAgreeJoin: () => void;
   onClickRadio: () => void;
