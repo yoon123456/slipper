@@ -42,7 +42,7 @@ export default function ListPresenter(props: IListPresenter) {
               <S.Button onClick={onClickMoveToPage("/boards/new")}>
                 글쓰기
               </S.Button>
-              <S.Pen src="/image/listpen.png" />
+              <S.Pen src="/image/plus.png" />
             </S.WrapperWrite>
           </S.WrapperMiddle>
           <S.WrapperBody>
@@ -83,7 +83,7 @@ export default function ListPresenter(props: IListPresenter) {
                         </S.UserDate>
                       </S.UserContents>
                     </S.Wrapper>
-                  ))}
+                  )) || <div></div>}
                 </InfiniteScroll>
               </S.Infinite>
             </S.WrapperLeft>

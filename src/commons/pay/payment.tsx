@@ -12,9 +12,9 @@ declare const window: typeof globalThis & {
 };
 
 export const IButton = styled.div`
-  padding: 3% 10% 3% 10%;
+  /* padding: 3% 10% 3% 10%;
   font-size: 1.2rem;
-  color: white;
+  color: black;
   border: #c4cacf;
   background-color: #c4cacf;
   border-radius: 5%;
@@ -22,8 +22,31 @@ export const IButton = styled.div`
   :hover {
     padding: 2.2% 9% 2.2% 9%;
     background-color: white;
-    color: #c4cacf;
+    color: #008af6;
     border: 2px solid #c4cacf;
+  }
+  line-height: 3;
+  text-align: center;
+  background-color: #f2f2f2;
+  border-radius: 10px;
+  border: none; */
+
+  width: 50%;
+  padding: 4%;
+  color: gray;
+  font-size: 1.3rem;
+  text-align: center;
+  border: none;
+  border-radius: 10px;
+  background-color: white;
+  background: linear-gradient(to bottom, white 5%, #ffffff 100%);
+  /* display: inline-block; */
+  box-shadow: 3px 3px 7px 0 rgba(0, 0, 0, 0.25),
+    -4px -4px 7px 0 rgba(255, 255, 255, 0.3);
+  cursor: pointer;
+  :hover {
+    top: 2px;
+    color: #008af6;
   }
 `;
 
@@ -58,27 +81,22 @@ export default function PaymentPage(props: IpropsPayment) {
       // callback
       async (rsp: any) => {
         if (rsp.success) {
-          try {
-            await createPayment({
-              variables: {
-                impUid: String(rsp.imp_uid),
-                amount: Number(rsp.paid_amount),
-              },
-              // update(cache, { data }) {
-              //   cache.modify({
-              //     fields: {
-              //       fetchUserLoggedIn: (prev) => {
-              //         return [data?.createPointTransactionOfLoading + prev];
-              //       },
-              //     },
-              //   });
-              // },
-            });
-            Modal.success({ content: "결제완료" });
-          } catch (error: any) {
-            Modal.error({ content: error.message });
-            console.log(rsp.imp_uid, rsp.paid_amount);
-          }
+          await createPayment({
+            variables: {
+              impUid: String(rsp.imp_uid),
+              amount: Number(rsp.paid_amount),
+            },
+            // update(cache, { data }) {
+            //   cache.modify({
+            //     fields: {
+            //       fetchUserLoggedIn: (prev) => {
+            //         return [data?.createPointTransactionOfLoading + prev];
+            //       },
+            //     },
+            //   });
+            // },
+          });
+          Modal.success({ content: "결제완료" });
         } else {
           console.log(rsp.error_msg);
         }

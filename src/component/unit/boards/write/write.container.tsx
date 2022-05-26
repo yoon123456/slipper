@@ -31,7 +31,6 @@ export default function WriteContainer(props) {
   const [createBoard] = useMutation(CREATE_BOARD);
   const [updateBoard] = useMutation(UPDATE_BOARD);
 
-  console.log(address);
   const onClickFirstNext = () => {
     SetActiveStep("second");
     setMapStatus(true);
