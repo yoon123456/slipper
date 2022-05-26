@@ -19,7 +19,6 @@ export default function DetailContainer() {
     variables: { boardId: String(router.query.boardId) },
   });
 
-  console.log(data);
   // 게시글 삭제 Mutation
   const [deleteBoard] = useMutation<
     Pick<IMutation, "deleteBoard">,
@@ -34,10 +33,12 @@ export default function DetailContainer() {
     });
     alert("게시글 삭제에 성공하였습니다");
   };
+
   // 수정하기로 이동
   const onClickMoveToBoardEdit = () => {
     router.push(`/boards/${router.query.boardId}/edit`);
   };
+
   // 페이지 이동 함수
   const onClickMoveToList = () => {
     router.push("/boards");

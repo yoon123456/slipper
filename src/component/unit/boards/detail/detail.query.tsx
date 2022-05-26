@@ -35,13 +35,3 @@ export const DELETE_BOARD = gql`
     deleteBoard(boardId: $boardId)
   }
 `;
-
-// export const FETCH_USER = gql`
-//   query fetchUser($fetchUser: Join!) {
-//     fetchUser(fetchuser: $fetchUser) {
-//       email
-//       nickname
-//       imageUrl
-//     }
-//   }
-// `;

@@ -66,12 +66,12 @@ export const WrapperArray = styled.div`
   justify-content: flex-start;
 `;
 export const Array = styled.div`
-  width: 4%;
+  width: 5%;
   text-align: end;
-  font-size: 1.2rem;
+  font-size: 1.5rem;
   cursor: pointer;
   :hover {
-    font-size: 1.4rem;
+    text-decoration: underline;
   }
 `;
 
@@ -89,14 +89,15 @@ export const Button = styled.div`
   padding-right: 5%;
   justify-content: flex-end;
   align-items: center;
-  font-size: 1.5rem;
+  font-size: 1.7rem;
   cursor: pointer;
   :hover {
     font-weight: bold;
   }
 `;
 export const Pen = styled.img`
-  width: 20px;
+  width: 25px;
+  cursor: pointer;
 `;
 export const WrapperRight = styled.div`
   width: 50%;

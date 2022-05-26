@@ -8,7 +8,8 @@ import { FETCH_USER, LOGIN } from "./login.queries";
 import { IFormValues } from "./login.types";
 import { Modal } from "antd";
 import { useRecoilState } from "recoil";
-import { accessTokenState, userInfoState } from "../../../commons/store";
+import { accessTokenState, userNicknameState } from "../../../commons/store";
+import { useState } from "react";
 
 const schema = yup.object({
   email: yup
@@ -31,6 +32,8 @@ const schema = yup.object({
 export default function LoginContainer() {
   const router = useRouter();
   const [, setAccessToken] = useRecoilState(accessTokenState);
+  const [userNickname, setUserNickname] = useRecoilState(userNicknameState);
+  const [isActive, setIsActive] = useState(false);
 
   const { register, handleSubmit, formState } = useForm({
     resolver: yupResolver(schema),
@@ -40,6 +43,11 @@ export default function LoginContainer() {
   const [login] = useMutation(LOGIN);
   const client = useApolloClient();
 
+  register("pw", {
+    onChange: () => {
+      setIsActive(true);
+    },
+  });
   // 회원가입이동 기능
   const onClickGoJoin = () => {
     router.push("/join");
@@ -65,10 +73,9 @@ export default function LoginContainer() {
           },
         });
 
-        // const userInfo = resultUserInfo.data?.fetchUser;
-
+        const userInfo = resultUserInfo.data?.fetchUser.nickname;
         setAccessToken(accessToken || "");
-
+        setUserNickname(userInfo);
         Modal.success({ content: "슬리퍼 장착 성공" });
         router.push("/boards");
       } catch (error) {
@@ -76,6 +83,7 @@ export default function LoginContainer() {
       }
     }
   };
+
   return (
     <LoginPresenter
       register={register}
@@ -83,6 +91,7 @@ export default function LoginContainer() {
       formState={formState}
       onclickLogin={onclickLogin}
       onClickGoJoin={onClickGoJoin}
+      isActive={isActive}
     />
   );
 }

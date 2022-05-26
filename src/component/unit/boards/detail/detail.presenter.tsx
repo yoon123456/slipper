@@ -19,7 +19,7 @@ export default function DetailPresenter(props: IDetailPresenter) {
     slidesToScroll: 1,
     pauseOnHover: true,
   };
-  console.log(props.data);
+
   return (
     <>
       <S.WrapperOut>
@@ -31,13 +31,11 @@ export default function DetailPresenter(props: IDetailPresenter) {
             <S.SliderWrap>
               <S.ImageWrap>
                 <S.SliderStyle {...settings}>
-                  {props.data?.fetchBoard.images
-                    // ?.filter((el: string) => el)
-                    .map((el: any, idx: number) => (
-                      <S.ImgWrapper key={idx}>
-                        <S.Img src={el.imageUrl} />
-                      </S.ImgWrapper>
-                    ))}
+                  {props.data?.fetchBoard.images.map((el: any, idx: number) => (
+                    <S.ImgWrapper key={idx}>
+                      <S.Img src={el.imageUrl} />
+                    </S.ImgWrapper>
+                  ))}
                 </S.SliderStyle>
               </S.ImageWrap>
             </S.SliderWrap>
@@ -59,23 +57,47 @@ export default function DetailPresenter(props: IDetailPresenter) {
           </S.EditDeleteWrap>
           <S.TopRight>
             <S.UserTitle>{props.data?.fetchBoard.title}</S.UserTitle>
+            <S.Wrap>가게정보</S.Wrap>
             <S.UserMiddle>
               <S.ShopName>{props.data?.fetchBoard.place}</S.ShopName>
               <S.CategoryWrap>
-                <S.Category>{props.data?.fetchBoard.category}</S.Category>
+                {props.data?.fetchBoard.category === "" ? (
+                  <S.Category>기타</S.Category>
+                ) : (
+                  <S.Category>{props.data?.fetchBoard.category}</S.Category>
+                )}
               </S.CategoryWrap>
-
               <S.ShopRatingWrap>
-                <S.RatingWrap>
-                  <S.Good src={"/image/ratingGood.png"} />
-                  <S.Soso src={"/image/ratingSoso.png"} />
-                  <S.Bad src={"/image/ratingBad.png"} />
-                </S.RatingWrap>
+                {props.data?.fetchBoard.score === 1 && (
+                  <S.RatingWrap>
+                    <S.Good src={"/image/happypick.png"} />
+                    <S.Soso src={"/image/uhm.png"} />
+                    <S.Bad src={"/image/sad.png"} />
+                  </S.RatingWrap>
+                )}
+                {props.data?.fetchBoard.score === 2 && (
+                  <S.RatingWrap>
+                    <S.Good src={"/image/happy.png"} />
+                    <S.Soso src={"/image/uhmpick.png"} />
+                    <S.Bad src={"/image/sad.png"} />
+                  </S.RatingWrap>
+                )}
+                {props.data?.fetchBoard.score === 3 && (
+                  <S.RatingWrap>
+                    <S.Good src={"/image/happy.png"} />
+                    <S.Soso src={"/image/uhm.png"} />
+                    <S.Bad src={"/image/sadpick.png"} />
+                  </S.RatingWrap>
+                )}
               </S.ShopRatingWrap>
             </S.UserMiddle>
             <S.UserInfoWrap>
               <S.User>
-                <S.UserImg src={props.data?.fetchBoard.user.imageUrl} />
+                {props.data?.fetchBoard.user.imageUrl === "" ? (
+                  <S.UserImg src={"/image/usericon.png"} />
+                ) : (
+                  <S.UserImg src={props.data?.fetchBoard.user.imageUrl} />
+                )}
                 <S.UserName>{props.data?.fetchBoard.user.nickname}</S.UserName>
               </S.User>
               <S.UserLivingWrap>
