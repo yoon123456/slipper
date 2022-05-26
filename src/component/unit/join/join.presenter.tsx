@@ -11,7 +11,7 @@ export default function JoinPresenter(props: IJoinPresenterProps) {
         <S.ImageBox>
           <ImageBoss  isShow={props.isShow}                  
           onChangeBusinessFileUrl={props.onChangeBusinessFileUrl}
-          fileUrl={props.fileUrl}/>
+          businessfileUrl={props.businessfileUrl}/>
         {!props.isShow &&<S.BossText>사장님은 사업자등록증을 업로드해주세요!</S.BossText>} 
         </S.ImageBox>
       </S.WrapperLeft>
@@ -541,7 +541,7 @@ export default function JoinPresenter(props: IJoinPresenterProps) {
               </S.AgreeContent>
               <S.Flex>
                 <S.FlexText>회원가입 약관에 모두 동의합니다</S.FlexText>
-                <S.TitleText type="radio" onClick={props.onClickRadio} />
+                <S.TitleText type="checkbox" onClick={props.onClickRadio} />
               </S.Flex>
               <S.AgreeButton>
                 <S.AgreeCancle onClick={props.onClickCancle}>CANCLE</S.AgreeCancle>

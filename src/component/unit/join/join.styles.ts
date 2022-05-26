@@ -83,6 +83,7 @@ export const WrapperOut = styled.div`
 export const WrapperJoin = styled.div`
   width: 62%;
   margin: 0 auto;
+  margin-top: 12px;
   animation: ${fadeInRight} 1s both;
 `;
 export const Join = styled.div`
@@ -133,10 +134,9 @@ export const NumberAsk = styled.button`
   width: 100px;
   line-height: 3;
   text-align: center;
-  background-color: #008af6;
-  color: white;
-  border: none;
+  background-color: #f2f2f2;
   border-radius: 10px;
+  border: none;
 `;
 export const NumberBox = styled.div`
   margin-left: 3%;
@@ -182,8 +182,8 @@ export const Introduce = styled.input`
   border: 1.5px solid gainsboro;
 `;
 export const JoinSlipper = styled.button`
-  /* width: 20%; */
-  height: 50px;
+  /* width: 20%;
+  height: 30px;
   line-height: 2.2;
   margin: 0 auto;
   padding: 5px;
@@ -195,12 +195,23 @@ export const JoinSlipper = styled.button`
   background-color: white;
   color: #008af6;
   border: 2px solid #008af6;
-  border-radius: 25px;
+  border-radius: 10px;
   cursor: pointer;
   :hover {
     background-color: #008af6;
     color: white;
-  }
+  } */
+  width: 100px;
+  font-size: 1.3rem;
+  padding: 5px;
+  margin-top: 5%;
+  margin-left: 40%;
+  line-height: 2;
+  text-align: center;
+  background-color: #008af6;
+  color: white;
+  border: none;
+  border-radius: 12px;
 `;
 export const Error = styled.span`
   color: red;

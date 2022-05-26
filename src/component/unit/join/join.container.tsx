@@ -46,11 +46,12 @@ export default function JoinContainer() {
   const [phoneNum, setPhoneNum] = useState("");
   const [proofNum, setProofNum] = useState("");
   const [fileUrl, setFileUrl] = useState([""]);
+  const [businessfileUrl, setBusinessFileUrl] = useState([""]);
 
   const [flag, setFlag] = useState(false);
   const [isActive, setIsActive] = useState(true);
   const [isActived, setIsActived] = useState(true);
-  const [isButton, setIsButton] = useState(true);
+  // const [isButton, setIsButton] = useState(true);
 
   const [role, setRole] = useState("");
   const [isEdit, setIsEdit] = useState(false);
@@ -76,8 +77,8 @@ export default function JoinContainer() {
     setFileUrl(newFileUrl);
   };
   const onChangeBusinessFileUrl = (fileUrl: string) => {
-    const newFileUrl = [fileUrl];
-    setFileUrl(newFileUrl);
+    const newBusinessFileUrl = [fileUrl];
+    setBusinessFileUrl(newBusinessFileUrl);
   };
 
   const onClickGetToken = async () => {
@@ -125,6 +126,7 @@ export default function JoinContainer() {
               nickname: data.nickname,
               phone: String(phoneNum),
               imageUrl: String(fileUrl),
+              businessImageUrl: String(businessfileUrl),
               introduce: data.introduce,
             },
           },
@@ -141,12 +143,12 @@ export default function JoinContainer() {
     setIsEdit(true);
   };
   const onClickRadio = () => {
-    setIsActived(false);
+    setIsActived((isActived) => !isActived);
   };
   const onClickRole = (event: ChangeEvent<HTMLInputElement>) => {
     setRole(event.target.value);
     setIsShow(false);
-    setIsButton(false);
+    // setIsButton(false);
   };
   const onClickCancle = () => {
     router.push("/");
@@ -171,6 +173,7 @@ export default function JoinContainer() {
         onChangeFileUrl={onChangeFileUrl}
         onChangeBusinessFileUrl={onChangeBusinessFileUrl}
         fileUrl={fileUrl}
+        businessfileUrl={businessfileUrl}
         onClickAgreeJoin={onClickAgreeJoin}
         isEdit={isEdit}
         onClickRadio={onClickRadio}
