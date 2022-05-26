@@ -6,7 +6,16 @@ export const FETCH_USER = gql`
       # email
       nickname
       imageUrl
-      # introduce
+      introduce
+    }
+  }
+`;
+export const UPDATE_USER = gql`
+  mutation updateUser($updateUserInput: UpdateUserSaveInput!) {
+    updateUser(updateUserInput: $updateUserInput) {
+      nickname
+      imageUrl
+      introduce
     }
   }
 `;

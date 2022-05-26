@@ -135,7 +135,7 @@ export default function WritePresenter(props: IWritePresenter) {
             </S.RatingWrapper>
             <S.HeadContents>내용</S.HeadContents>
             <props.ReactQuill
-              style={{ height: 270 }}
+              style={{ height: 250, fontsize: 30 }}
               onChange={props.onChangeContents}
               formats={formats}
               modules={modules}
@@ -161,7 +161,11 @@ export default function WritePresenter(props: IWritePresenter) {
             <S.Input
               placeholder="카테고리를 입력해주세요."
               defaultValue={props.data?.fetchBoard.category || ""}
-              value={props.address.group_name}
+              value={
+                props.address.group_name === ""
+                  ? "기타"
+                  : props.address.group_name
+              }
             />
             <S.Head>상호명</S.Head>
             <S.Input

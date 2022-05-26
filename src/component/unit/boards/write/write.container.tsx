@@ -26,7 +26,7 @@ export default function WriteContainer(props) {
   const [chkThird, setChkThird] = useState(false);
   const [score, setScore] = useState(0);
   const [mapStatus, setMapStatus] = useState(false);
-  const [fileUrls, setFileUrls] = useState([""]);
+  const [fileUrls, setFileUrls] = useState(["", "", "", ""]);
 
   const [createBoard] = useMutation(CREATE_BOARD);
   const [updateBoard] = useMutation(UPDATE_BOARD);
@@ -78,11 +78,12 @@ export default function WriteContainer(props) {
     setContents(value === "<p><br></p>" ? "" : value);
   };
 
-  const onChangeFileUrls = (fileUrl: string, index: number) => {
+  const onChangeFileUrls = (fileUrl: any, index: number) => {
     const newFileUrls = [...fileUrls];
-    newFileUrls[index] = fileUrl;
+    newFileUrls[index] = fileUrl[0];
     setFileUrls(newFileUrls);
   };
+  // console.log(fileUrls);
 
   const onClickWriteBoard = async (data: IFormValues) => {
     try {
@@ -95,11 +96,14 @@ export default function WriteContainer(props) {
             title,
             contents,
             category: address.group_name,
+            // category:                 {address.group_name === ""
+            // ? "기타"
+            // : address.group_name}
             lat: address.position.lat,
             lng: address.position.lng,
             address: address.address_name,
             place: address.content,
-            images: String(fileUrls),
+            images: fileUrls,
           },
         },
       });

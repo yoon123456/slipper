@@ -5,7 +5,7 @@ export const WrapperOut = styled.div`
   /* padding: 5%; */
 `;
 export const Head = styled.div`
-  font-size: 2rem;
+  font-size: 1.8rem;
   border-bottom: 1px solid gainsboro;
   padding: 5% 1% 2% 2%;
 `;
@@ -19,7 +19,7 @@ export const BodyHeadWrapper = styled.div`
   flex-direction: row;
   align-items: center;
   justify-content: space-around;
-  padding: 10% 5% 1% 5%;
+  padding: 5% 5% 0% 5%;
 `;
 export const BodyHead = styled.div`
   font-size: 1.6rem;
