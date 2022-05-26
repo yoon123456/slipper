@@ -46,7 +46,9 @@ export const Voucher = styled.div`
   padding: 27% 2% 27% 2%;
   box-shadow: 0px 15px 12px -1px rgba(199, 199, 199, 1);
   :hover {
-    border: 7px solid #ffcfec;
+    transform: scale(1.1);
+    /* animation-duration: 10s; */
+    animation-delay: 10s;
   }
 `;
 export const ExplainRow = styled.div`

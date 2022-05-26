@@ -26,12 +26,11 @@ export default function WriteContainer(props) {
   const [chkThird, setChkThird] = useState(false);
   const [score, setScore] = useState(0);
   const [mapStatus, setMapStatus] = useState(false);
-  const [fileUrls, setFileUrls] = useState([""]);
+  const [fileUrls, setFileUrls] = useState(["", "", "", ""]);
 
   const [createBoard] = useMutation(CREATE_BOARD);
   const [updateBoard] = useMutation(UPDATE_BOARD);
 
-  console.log(address);
   const onClickFirstNext = () => {
     SetActiveStep("second");
     setMapStatus(true);
@@ -78,9 +77,9 @@ export default function WriteContainer(props) {
     setContents(value === "<p><br></p>" ? "" : value);
   };
 
-  const onChangeFileUrls = (fileUrl: string, index: number) => {
+  const onChangeFileUrls = (fileUrl: any, index: number) => {
     const newFileUrls = [...fileUrls];
-    newFileUrls[index] = fileUrl;
+    newFileUrls[index] = fileUrl[0];
     setFileUrls(newFileUrls);
   };
 
@@ -99,7 +98,7 @@ export default function WriteContainer(props) {
             lng: address.position.lng,
             address: address.address_name,
             place: address.content,
-            images: String(fileUrls),
+            images: fileUrls,
           },
         },
       });

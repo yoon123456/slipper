@@ -33,7 +33,13 @@ export default function ListContainer() {
   const { data, refetch, fetchMore } = useQuery<
     Pick<IQuery, "fetchBoardsPage">,
     IQueryFetchBoardsPageArgs
-  >(FETCH_BOARDS_PAGE);
+  >(FETCH_BOARDS_PAGE, {
+    variables: {
+      page: 1,
+      search: "",
+      category: "",
+    },
+  });
 
   // 무한스크롤 기능
   const onLoadMore = () => {

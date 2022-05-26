@@ -293,7 +293,7 @@ export default function KakaomapMarks(props: MarkerProps) {
                 props.contentFlag && <Contents marker={marker} />}
             </S.KakaoMapMarker>
           )}
-          {marker.category_name.includes("문화유적") && (
+          {/* {marker.category_name.includes("문화유적") && (
             <S.KakaoMapMarker
               position={marker.position}
               onClick={props.markerClick(marker)}
@@ -306,7 +306,7 @@ export default function KakaomapMarks(props: MarkerProps) {
                 props.info.content === marker.content &&
                 props.contentFlag && <Contents marker={marker} />}
             </S.KakaoMapMarker>
-          )}
+          )} */}
         </>
       ))}
     </>

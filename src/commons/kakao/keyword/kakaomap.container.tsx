@@ -77,7 +77,7 @@ export default function KaKaoMapContainer(props: KaoKeyWord) {
     ps.keywordSearch(search, (data, status, _pagination) => {
       if (status === kakao.maps.services.Status.OK) {
         const bounds = new kakao.maps.LatLngBounds();
-        let markers = [];
+        let markers = [] as any;
         for (var i = 0; i < data.length; i++) {
           // @ts-ignore
           markers.push({

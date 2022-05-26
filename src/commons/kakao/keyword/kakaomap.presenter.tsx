@@ -102,12 +102,12 @@ export default function KakaomapPresenter(props: KaoKaoMap) {
             <S.KakaoMapMarker
               position={{ lat: props.geoLat, lng: props.geoLng }}
             ></S.KakaoMapMarker>
-            {/* {props.trrapicFlag ? (
+            {props.trrapicFlag ? (
               <S.KaoKaoMapTypeId type={kakao.maps.MapTypeId.TRAFFIC} />
             ) : (
               <div></div>
             )}
-
+            {/*
             {props.roadViewFlag ? (
               <S.KakaoMapRoadview // 로드뷰를 표시할 Container
                 position={{
