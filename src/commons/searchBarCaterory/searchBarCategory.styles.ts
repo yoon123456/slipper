@@ -44,13 +44,10 @@ export const SearchButton = styled.button`
   box-shadow: 3px 3px 7px 0 rgba(0, 0, 0, 0.25),
     -4px -4px 7px 0 rgba(255, 255, 255, 0.3);
   cursor: pointer;
-  :hover {
-    background: linear-gradient(to bottom, #ffffff 5%, #f0f0f0 100%);
-    background-color: #ffffff;
-  }
   :active {
     position: relative;
-    top: 1px;
+    top: 2px;
+    color: #008af6;
   }
 `;
 // export const SearchButton = styled.button`

@@ -1,4 +1,5 @@
 import { useQuery } from "@apollo/client";
+import { useEffect } from "react";
 import { useMovetoPage } from "../../hooks/movePage";
 import HeaderPresenter from "./header.presenter";
 import { FETCH_USER } from "./header.queries";

@@ -87,6 +87,11 @@ export const UserTitle = styled.div`
   width: 100%;
   font-size: 2.9rem;
   padding-left: 2%;
+  border-bottom: 0.5px solid rgba(0, 0, 0, 0.16);
+`;
+export const Wrap = styled.div`
+  font-size: 1.5rem;
+  padding: 4% 0 0 2%;
 `;
 
 export const UserInfoWrap = styled.div`
@@ -94,7 +99,7 @@ export const UserInfoWrap = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 2%;
+  padding: 5% 2% 0 2%;
 `;
 export const User = styled.div`
   width: 30%;
@@ -106,7 +111,7 @@ export const UserImg = styled.img`
 
 export const UserName = styled.div`
   width: 70%;
-  font-size: 1.7rem;
+  font-size: 2rem;
   margin-left: 10%;
   display: flex;
   align-items: center;
@@ -138,15 +143,16 @@ export const UserMiddle = styled.div`
   display: flex;
   /* justify-content: space-between; */
   align-items: center;
-  padding: 3% 2% 5% 2%;
+  padding: 0 2% 3% 2%;
+  border-bottom: 0.5px solid rgba(0, 0, 0, 0.16);
 `;
 export const ShopName = styled.div`
-  /* width: 30%; */
-  font-size: 2rem;
+  width: 50%;
+  font-size: 2.3rem;
   margin-right: 5%;
 `;
 export const ShopRatingWrap = styled.div`
-  /* width: 50%; */
+  width: 50%;
   display: flex;
   justify-content: flex-end;
   align-items: center;
@@ -162,8 +168,8 @@ export const RatingWrap = styled.div`
 export const UserContents = styled.div`
   text-align: justify;
   width: 100%;
-  height: 350px;
-  font-size: 1.5rem;
+  height: 300px;
+  font-size: 2rem;
   padding: 4%;
   margin: 5% 0;
   box-shadow: rgba(0, 0, 0, 0.16) 0px 0.5px 2px;
@@ -197,23 +203,20 @@ export const Category = styled.button`
   border-radius: 30px;
   box-shadow: 0px 2px 4px 0px #e1e1e1;
   color: #008af6;
-
-  cursor: pointer;
-  /* :focus {
-    color: #008af6;
-    border: 1px solid #008af6;
-  } */
   margin: 1%;
 `;
 
 export const Good = styled.img`
-  width: 25%;
+  width: 20%;
+  padding: 3%;
 `;
 export const Soso = styled.img`
-  width: 25%;
+  width: 20%;
+  padding: 3%;
 `;
 export const Bad = styled.img`
-  width: 22%;
+  width: 20%;
+  padding: 3%;
 `;
 
 export const WrapperBottom = styled.div`
@@ -224,22 +227,29 @@ export const WrapperBottom = styled.div`
   align-items: center;
   padding: 3%;
 `;
-export const Button = styled.div`
+export const Button = styled.button`
   width: 50%;
-  height: 40px;
-  padding: 5px;
-  text-align: center;
-  font-size: 16px;
-  font-weight: bold;
-  color: #008af6;
-  border: 2px solid #008af6;
-  border-radius: 17px;
+  height: 35px;
+  padding: 1%;
+  color: gray;
+  font-size: 1.3rem;
+  text-decoration: none;
+  text-shadow: 0px 0px 0px #f0f0f0;
+  border: none;
+  border-radius: 10px;
+  background-color: white;
+  background: linear-gradient(to bottom, white 5%, #ffffff 100%);
+  display: inline-block;
+  box-shadow: 3px 3px 7px 0 rgba(0, 0, 0, 0.25),
+    -4px -4px 7px 0 rgba(255, 255, 255, 0.3);
   cursor: pointer;
   :hover {
-    background-color: #008af6;
-    color: white;
+    position: relative;
+    top: 2px;
+    color: #008af6;
   }
 `;
+
 export const WraperQuestion = styled.div`
   width: 100%;
   margin: 0 auto;

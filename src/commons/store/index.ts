@@ -65,3 +65,9 @@ export const BannerState = atom({
   key: "BannerState",
   default: "",
 });
+
+// 예원 추가 22.5.25
+export const userNicknameState = atom({
+  key: "userNicknameState",
+  default: "",
+});

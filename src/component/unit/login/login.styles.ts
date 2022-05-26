@@ -1,4 +1,5 @@
 import styled from "@emotion/styled";
+import { IProps } from "./login.types";
 
 export const Wrapper = styled.div`
   display: flex;
@@ -22,12 +23,12 @@ export const WrapperOut = styled.div`
   padding: 2%;
 `;
 export const WrapperIn = styled.div`
-  width: 80%;
+  width: 78%;
   margin: 0 auto;
 `;
 export const Join = styled.div`
   text-align: center;
-  font-size: 5rem;
+  font-size: 4.3rem;
   font-weight: bold;
   color: #008af6;
   /* @media (min-width: 1024px > min-width:) {
@@ -37,6 +38,7 @@ export const Profile = styled.div`
   /* padding-top: 10%; */
   margin: 0 auto;
   font-size: 2.5rem;
+  font-family: "HallymGothic-Regular";
 `;
 export const ProfileBox = styled.div`
   width: 100%;
@@ -47,30 +49,32 @@ export const ProfileBox = styled.div`
   padding-top: 10%;
 `;
 export const InputProfile = styled.input`
-  width: 90%;
+  width: 100%;
+  padding: 2%;
   border: none;
   border-bottom: 2px solid gainsboro;
-  padding: 10px;
-  margin: 10px;
+  outline: none;
 `;
 
 export const PasswordCheck = styled.input`
-  width: 90%;
+  width: 100%;
+  padding: 2%;
+  margin-top: 27px;
   border: none;
   border-bottom: 2px solid gainsboro;
-  padding: 10px;
-  margin: 10px;
+  outline: none;
 `;
 export const Error = styled.div`
   color: red;
-  font-size: 1rem;
+  padding-top: 2%;
+  font-size: 1.2rem;
 `;
 export const Menu = styled.div`
   width: 100%;
   font-size: 3rem;
+  font-family: "HallymGothic-Regular";
   color: gray;
   margin: 0 auto;
-  margin-top: 5%;
 `;
 
 export const MenuBox = styled.div`
@@ -79,7 +83,7 @@ export const MenuBox = styled.div`
   justify-content: space-evenly;
   align-items: center;
   margin: 0 auto;
-  padding-top: 10%;
+  margin-top: 18%;
 `;
 export const IdFind = styled.div`
   cursor: pointer;
@@ -92,12 +96,13 @@ export const PasswordFind = styled.div`
 export const Sign = styled.div`
   cursor: pointer;
   text-decoration: underline;
-  margin-left: 10%;
+  color: black;
 `;
 
 export const Sns = styled.div`
   width: 100%;
   margin: 0 auto;
+  font-family: "HallymGothic-Regular";
 `;
 export const Orbox = styled.div`
   width: 100%;
@@ -105,7 +110,7 @@ export const Orbox = styled.div`
   justify-content: center;
   align-items: center;
   margin: 0 auto;
-  padding-top: 10%;
+  padding-top: 5%;
 `;
 export const Or = styled.div`
   margin-top: 4%;
@@ -126,14 +131,20 @@ export const OrRight = styled.div`
 export const SnsBox = styled.div`
   width: 100%;
   margin-top: 4%;
-  margin-bottom: 4%;
+  margin-bottom: 7%;
   display: flex;
   justify-content: space-around;
   align-items: center;
 `;
+export const AWrap = styled.a`
+  width: 33.3%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
 
 export const KaKao = styled.img`
-  width: 15%;
+  width: 31%;
   cursor: pointer;
   :hover {
     transform: scale(1.2);
@@ -141,7 +152,7 @@ export const KaKao = styled.img`
   }
 `;
 export const Google = styled.img`
-  width: 18%;
+  width: 33%;
   cursor: pointer;
   :hover {
     transform: scale(1.2);
@@ -149,7 +160,7 @@ export const Google = styled.img`
   }
 `;
 export const Naver = styled.img`
-  width: 15%;
+  width: 30%;
   cursor: pointer;
   :hover {
     transform: scale(1.2);
@@ -161,24 +172,18 @@ export const JoinWrap = styled.div`
   width: 100%;
   display: flex;
   justify-content: center;
+  font-family: "HallymGothic-Regular";
 `;
 
 export const JoinSlipper = styled.button`
-  width: 40%;
-  line-height: 2.2;
-  margin: 0 auto;
-  padding: 1%;
-  margin-top: 12%;
+  width: 100%;
+  height: 42px;
   font-size: 1.5rem;
+  margin-top: 9%;
   text-align: center;
-  font-weight: bold;
-  color: #008af6;
-  background-color: white;
-  border: 2px solid #008af6;
-  border-radius: 25px;
-  cursor: pointer;
-  :hover {
-    background-color: #008af6;
-    color: white;
-  }
+  background-color: ${(props: IProps) =>
+    props.isActive ? "#008af6" : "#f2f2f2"};
+  color: ${(props: IProps) => (props.isActive ? "white" : "black")};
+  border-radius: 10px;
+  border: none;
 `;
