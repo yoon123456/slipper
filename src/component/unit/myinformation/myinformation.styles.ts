@@ -26,7 +26,7 @@ export const ImgEditWrapper = styled.div`
   /* justify-content: space-between; */
   align-items: center;
   margin-bottom: 30px;
-  padding-right: 35%;
+  padding-right: 20%;
 `;
 export const ImgEditHeader = styled.div`
   width: 30%;
@@ -37,32 +37,26 @@ export const ImgEditHeader = styled.div`
 `;
 export const BodyRow = styled.div`
   width: 100%;
-  /* height: 90px; */
-  /* height: 100%; */
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  align-items: center;
+  align-items: flex-start;
   margin-bottom: 30px;
+  /* background-color: red; */
 `;
 export const Header = styled.div`
   width: 20%;
-  /* height: 100px; */
   font-size: 1.6rem;
   font-weight: bold;
-  text-align: center;
-  /* vertical-align: top; */
-  /* display: flex;
-  flex-direction: row;
-  justify-content: initial; */
-  /* position: static; */
+  /* text-align: center; */
+  padding-top: 1%;
 `;
 export const Contents = styled.div`
   width: 85%;
   height: 40px;
   font-size: 1.4rem;
   border-radius: 10px;
-  padding: 1.3%;
+  padding: 1.2%;
 `;
 export const ContentsEdit = styled.input`
   width: 85%;
@@ -85,7 +79,7 @@ export const Introduction = styled.div`
   font-size: 1.4rem;
   color: black;
   border-radius: 10px;
-  padding: 1.5%;
+  /* padding: 0.3%; */
 `;
 export const IntroductionEdit = styled.input`
   width: 80%;
@@ -104,6 +98,7 @@ export const IntroductionEdit = styled.input`
 `;
 export const ButtonWrapper = styled.div`
   width: 100%;
+  /* height: 30%; */
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -114,11 +109,9 @@ export const ButtonWrapper = styled.div`
   padding-right: 200px;
 `;
 export const Button = styled.button`
-  width: 30%;
-  height: 3%;
-  /* margin: 10%; */
-  padding: 2%;
-  text-align: center;
+  width: 35%;
+  height: 30px;
+  padding: 1%;
   color: gray;
   font-size: 1.3rem;
   text-decoration: none;
@@ -131,12 +124,9 @@ export const Button = styled.button`
   box-shadow: 3px 3px 7px 0 rgba(0, 0, 0, 0.25),
     -4px -4px 7px 0 rgba(255, 255, 255, 0.3);
   cursor: pointer;
-  :hover {
-    background: linear-gradient(to bottom, #ffffff 5%, #f0f0f0 100%);
-    background-color: #ffffff;
-  }
   :active {
     position: relative;
-    top: 1px;
+    top: 2px;
+    color: #008af6;
   }
 `;

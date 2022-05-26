@@ -1,11 +1,7 @@
 // 해리 작업 5/13
-import MyinformationPresenter from "../myinformation/myinformation.presenter";
-import MyBoardsPresenter from "../myboards/myboards.presenter";
-import MypicksPresenter from "../mypicks/mypicks.presenter";
-import MypaidsPresenter from "../mypaids/mypaids.presenter";
 import * as S from "./mypage.styles";
 import { IMyPagePresenter } from "./mypage.types";
-import MyinformationContainer from "../myinformation/myinformation.container";
+// import MyinformationContainer from "../myinformation/myinformation.container";
 import MypicksContainer from "../mypicks/mypicks.container";
 import MyBoardsContainer from "../myboards/myboards.container";
 import MypaidsContainer from "../mypaids/mypaids.container";
@@ -17,19 +13,29 @@ export default function MyPagePresenter(props: IMyPagePresenter) {
     <S.WrapperOut>
       <S.WrapperLeft>
         <S.NicknameWrapper>
-          <S.NicknameFront>{props.data?.fetchUser.nickname}</S.NicknameFront>
-          <S.Nickname>님의 신발장</S.Nickname>
+          {props.openNicknameEdit ? (
+            <S.NicknameInput
+              type="text"
+              defaultValue={props.data?.fetchUser.nickname}
+              onChange={props.onChangeNickname}
+            />
+          ) : (
+            <S.Nickname>{props.data?.fetchUser.nickname}</S.Nickname>
+          )}
+          <S.NicknameFixed>님</S.NicknameFixed>
+          {props.openNicknameEdit ? (
+            <S.FinishNicknameEdit onClick={props.updateNickname}>
+              수정완료
+            </S.FinishNicknameEdit>
+          ) : (
+            <S.OpenNicknameEdit
+              src="/image/mypageEdit.png"
+              onClick={props.onClickOpenNicknameEdit}
+            />
+          )}
         </S.NicknameWrapper>
-        {/* <S.ProfileImage src={props.data?.fetchUser.imageUrl} /> */}
         <S.ProfileImage src={props.data?.fetchUser.imageUrl} />
-        <S.MenuWrapper
-          id="myinfoBtn"
-          onClick={props.onClickMyinfo}
-          mypageRight={props.mypageRight === "myinformation"}
-        >
-          <S.Icon src="/image/myinfoColored.png"></S.Icon>
-          <S.MenuButton>개인 정보</S.MenuButton>
-        </S.MenuWrapper>
+        <S.Introduce>{props.data?.fetchUser.introduce}</S.Introduce>
         <S.MenuWrapper
           onClick={props.onClickMypicks}
           mypageRight={props.mypageRight === "mypicks"}
@@ -53,12 +59,8 @@ export default function MyPagePresenter(props: IMyPagePresenter) {
         </S.MenuWrapper>
       </S.WrapperLeft>
       <S.WrapperRight>
-        {/* <S.NicknameWrapper>
-          <S.NicknameFront>부천토박이 </S.NicknameFront>
-          <S.Nickname>님의 신발장</S.Nickname>
-        </S.NicknameWrapper> */}
         <S.Right>
-          {props.mypageRight === "myinformation" && <MyinformationContainer />}
+          {/* {props.mypageRight === "myinformation" && <MyinformationContainer />} */}
           {props.mypageRight === "mypicks" && <MypicksContainer />}
           {props.mypageRight === "myboards" && <MyBoardsContainer />}
           {props.mypageRight === "mypaids" && <MypaidsContainer />}

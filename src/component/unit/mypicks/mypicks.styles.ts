@@ -11,7 +11,7 @@ export const WrapperOut = styled.div`
 `;
 export const Head = styled.div`
   width: 100%;
-  font-size: 2rem;
+  font-size: 1.8rem;
   border-bottom: 1px solid gainsboro;
   padding: 0% 1% 2% 2%;
   margin-bottom: 4%;

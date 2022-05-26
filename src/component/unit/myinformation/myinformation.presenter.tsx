@@ -1,9 +1,6 @@
 // 해리 작업 5/15
-// import { useState } from "react";
-import { useState } from "react";
-import { useForm } from "react-hook-form";
-import ImageProfile from "../../../commons/imageProfile";
 import * as S from "./myinformation.styles";
+import ImageProfile from "../../../commons/imageProfile";
 import { IMyinformationPresenter } from "./myinformation.types";
 
 export default function MyinformationPresenter(props: IMyinformationPresenter) {
@@ -13,14 +10,14 @@ export default function MyinformationPresenter(props: IMyinformationPresenter) {
         <form onSubmit={props.handleSubmit(props.onClickUpdateUser)}>
           <S.WrapperRight>
             <S.Body>
-              <S.ImgEditWrapper>
-                <S.ImgEditHeader>프로필 이미지</S.ImgEditHeader>
+              {/* <S.ImgEditWrapper>
+                <S.Header>프로필 이미지</S.Header>
                 <ImageProfile
                   onChangeFileUrl={props.onChangeFileUrl}
                   fileUrl={props.fileUrl}
                   // defaultValue={props.data?.fetchUser.imageUrl}
                 />
-              </S.ImgEditWrapper>
+              </S.ImgEditWrapper> */}
               <S.BodyRow>
                 <S.Header>닉네임</S.Header>
                 <S.ContentsEdit

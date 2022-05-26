@@ -58,7 +58,6 @@ export default function ImageBoardUpload(props: IImageUploadPageProps) {
         variables: { files: file },
       });
       props.onChangeFileUrls(result.data.uploadBoardImage, props.index);
-      // console.log(data);
     } catch (error) {
       Modal.error({ content: error.message });
     }
