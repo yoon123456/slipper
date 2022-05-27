@@ -1,9 +1,12 @@
+// 예원 작업 5.24 상세페이지에서 보여지는 지도
+
 import { Map, MapMarker } from "react-kakao-maps-sdk";
 import Script from "next/script";
 import { useEffect, useState } from "react";
+import { IQuery } from "../types/generated/types";
 
 interface IKakaoMapFetch {
-  data: any;
+  data: Pick<IQuery, "fetchBoard"> | undefined;
 }
 export default function KakaoMapFetch(props: IKakaoMapFetch) {
   const [lat, setLat] = useState(0);

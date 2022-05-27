@@ -1,3 +1,5 @@
+// 예원 작업 아이디찾기 5.26,5.27
+
 import FindIdPresenter from "./findId.presenter";
 import { useRouter } from "next/router";
 import { useMutation } from "@apollo/client";
@@ -10,9 +12,8 @@ import {
 import {
   IMutation,
   IMutationProofTokenArgs,
+  IMutationSearchUserEmailArgs,
   IMutationUserGetTokenArgs,
-  IQuery,
-  IQueryFetchUserEmailArgs,
 } from "../../../../commons/types/generated/types";
 import { Modal } from "antd";
 
@@ -26,8 +27,8 @@ export default function FindIdContainer() {
 
   // graphql 부분
   const [searchUserEmail] = useMutation<
-    Pick<IQuery, "fetchUserEmail">,
-    IQueryFetchUserEmailArgs
+    Pick<IMutation, "searchUserEmail">,
+    IMutationSearchUserEmailArgs
   >(SEARCH_USER_EMAIL);
 
   const [userGetToken] = useMutation<
@@ -40,7 +41,7 @@ export default function FindIdContainer() {
     IMutationProofTokenArgs
   >(PROOF_TOKEN);
 
-  // 핸드폰번호입력 함수
+  // 예원 핸드폰번호입력 함수
   const onChangePhoneNum = (event: ChangeEvent<HTMLInputElement>) => {
     setPhoneNum(event.target.value);
     if (event.target.value.length === 11) {
@@ -48,12 +49,12 @@ export default function FindIdContainer() {
     }
   };
 
-  // 인증번호입력 함수
+  // 예원 인증번호입력 함수
   const onChangeProofNum = (event: ChangeEvent<HTMLInputElement>) => {
     setProofNum(event.target.value);
   };
 
-  // 인증번호 요청 기능
+  // 예원 인증번호 요청 기능
   const onClickGetToken = async () => {
     try {
       await userGetToken({
@@ -61,13 +62,14 @@ export default function FindIdContainer() {
           phone: phoneNum,
         },
       });
-      alert("인증번호가 전송되었습니다");
+      Modal.success({ content: "인증번호를 전송하였습니다" });
     } catch (error) {
-      alert(error);
+      Modal.error({ content: "인증번호 전송에 실패하였습니다" });
     }
     setFlag(true);
   };
-  // 인증완료 요청 기능
+
+  // 예원 인증완료 요청 기능
   const onClickCheckProof = async () => {
     if (proofNum === "") {
       Modal.error({ content: "인증번호를 입력해주세요" });
@@ -87,7 +89,7 @@ export default function FindIdContainer() {
     }
   };
 
-  // 아이디 찾기 버튼
+  // 예원 아이디 찾기 버튼
   const onClickFindId = async () => {
     if (phoneNum && proofNum) {
       try {
@@ -96,7 +98,11 @@ export default function FindIdContainer() {
             phone: phoneNum,
           },
         });
-        setEamil(result.data?.searchUserEmail.email);
+        setEamil(
+          result.data?.searchUserEmail.email
+            ? result.data?.searchUserEmail.email
+            : "이메일이 존재하지 않습니다"
+        );
         Modal.success({ content: "이메일을 보여주겠다" });
       } catch (error) {
         Modal.error({ content: "이메일 찾기에 실패하였습니다" });

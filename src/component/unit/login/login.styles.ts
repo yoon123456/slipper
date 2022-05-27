@@ -182,8 +182,8 @@ export const JoinSlipper = styled.button`
   margin-top: 9%;
   text-align: center;
   background-color: ${(props: IProps) =>
-    props.isActive ? "#008af6" : "#f2f2f2"};
-  color: ${(props: IProps) => (props.isActive ? "white" : "black")};
+    props.isActive ? "#008af6" : "#f4f7f9b3"};
+  color: ${(props: IProps) => (props.isActive ? "white" : "#008af6")};
   border-radius: 10px;
   border: none;
 `;

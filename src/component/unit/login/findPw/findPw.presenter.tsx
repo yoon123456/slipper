@@ -1,11 +1,8 @@
-import { useMovetoPage } from "../../../../commons/hooks/movePage";
 import Number from "../../../../commons/timer";
 import * as S from "./findPw.styles";
 import { IFindPwPresenter } from "./findPw.types";
 
 export default function FindPwPresenter(props: IFindPwPresenter) {
-  const { onClickMoveToPage } = useMovetoPage();
-
   return (
     <S.Wrapper>
       <S.WrapperOut>

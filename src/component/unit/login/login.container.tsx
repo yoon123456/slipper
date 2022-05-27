@@ -10,6 +10,11 @@ import { Modal } from "antd";
 import { useRecoilState } from "recoil";
 import { accessTokenState, userNicknameState } from "../../../commons/store";
 import { useState } from "react";
+import {
+  IMutation,
+  IMutationLoginArgs,
+} from "../../../commons/types/generated/types";
+import { IFromValues } from "../join/join.types";
 
 const schema = yup.object({
   email: yup
@@ -32,15 +37,17 @@ const schema = yup.object({
 export default function LoginContainer() {
   const router = useRouter();
   const [, setAccessToken] = useRecoilState(accessTokenState);
-  const [userNickname, setUserNickname] = useRecoilState(userNicknameState);
+  const [, setUserNickname] = useRecoilState(userNicknameState);
   const [isActive, setIsActive] = useState(false);
 
-  const { register, handleSubmit, formState } = useForm({
+  const { register, handleSubmit, formState } = useForm<IFromValues>({
     resolver: yupResolver(schema),
     mode: "onChange",
   });
 
-  const [login] = useMutation(LOGIN);
+  const [login] = useMutation<Pick<IMutation, "login">, IMutationLoginArgs>(
+    LOGIN
+  );
   const client = useApolloClient();
 
   register("pw", {
