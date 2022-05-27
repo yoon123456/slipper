@@ -182,3 +182,11 @@ export const BankBtn = styled.img`
 export const SearchBtn = styled.button`
   display: none;
 `;
+
+export const SerchLength = styled.div`
+  width: 100%;
+  text-align: right;
+  font-size: 15px;
+  margin-bottom: 10px;
+  font-style: italic;
+`;

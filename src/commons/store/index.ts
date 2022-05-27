@@ -57,7 +57,7 @@ export const SearchState = atom({
 // 예원 추가 22.05.22
 export const CategoryState = atom({
   key: "CategoryState",
-  default: "",
+  default: "1",
 });
 
 // 승현 추가 22.05.24

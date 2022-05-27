@@ -1,10 +1,11 @@
 import _ from "lodash";
-import { ChangeEvent, useEffect, useState, useRef, MouseEvent } from "react";
+import { ChangeEvent, useEffect, useState, useRef } from "react";
 import KakaomapPresenter from "./kakaomap.presenter";
 import { KaoKeyWord } from "./kakaomap.types";
 import { useRecoilState } from "recoil";
 import { kakaoAddress } from "../../store/kakaounit";
 import { SearchState, SearchBarIsActiveState } from "../../store/index";
+import { MarkerClusterer } from "react-kakao-maps-sdk";
 
 export default function KaKaoMapContainer(props: KaoKeyWord) {
   const [info, setInfo] = useState();
@@ -17,13 +18,14 @@ export default function KaKaoMapContainer(props: KaoKeyWord) {
   const [isActive1, setIsActive1] = useRecoilState(SearchBarIsActiveState);
   const [markers, setMarkers] = useState([]);
   const [map, setMap] = useState();
-
   const [isActive, setIsActive] = useState(false);
   const [roadViewFlag, setroadViewFlag] = useState(false);
   const [trrapicFlag, setTrrapicFlag] = useState(false);
   const [contentFlag, setContentFlag] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
+  const [level, setLevel] = useState(0);
   const btnRef = useRef<HTMLButtonElement>(null);
+
   const getDebounce = _.debounce((data: string) => {
     setIsActive((prev) => !prev);
   }, 1500);
@@ -102,9 +104,9 @@ export default function KaKaoMapContainer(props: KaoKeyWord) {
         map.setBounds(bounds);
       }
     });
-    setSearch("");
   }, [map, isActive, isActive1]);
 
+  console.log(isActive1);
   return (
     <KakaomapPresenter
       lat={lat}
@@ -133,6 +135,10 @@ export default function KaKaoMapContainer(props: KaoKeyWord) {
       search={search}
       mapStatus={props.mapStatus}
       data={props.data}
+      markersLenght={markers.length}
+      isActive1={isActive1}
+      setLevel={setLevel}
+      level={level}
     />
   );
 }

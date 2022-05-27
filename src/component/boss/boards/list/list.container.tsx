@@ -12,11 +12,8 @@ import { FETCH_BOARDS_PAGE } from "./list.query";
 
 export default function ListContainer() {
   const router = useRouter();
-  const { onClickMoveToPage } = useMovetoPage();
-  const [isMapActive, setIsMapActive] = useState(false);
   const [isClickedNum, setIsClickedNum] = useRecoilState(isClickedNumState);
   const [keyword, setKeyword] = useState(""); // Chan 검색기능 추가
-  const [kakaoaaa] = useRecoilState(kakaoAddress);
 
   // fetchBoardsPage query
   const { data, refetch, fetchMore } = useQuery(FETCH_BOARDS_PAGE, {

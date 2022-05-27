@@ -4,6 +4,7 @@ import { KaoKaoMap } from "../keyword/kakaomap.types";
 import * as S from "./kakaomap.styled";
 import KakaomapMarks from "./kakaomapmarkers";
 import { v4 as uuidv4 } from "uuid";
+import { ZoomControl } from "react-kakao-maps-sdk";
 export default function KakaomapPresenter(props: KaoKaoMap) {
   return (
     <>
@@ -19,6 +20,7 @@ export default function KakaomapPresenter(props: KaoKaoMap) {
             src="//dapi.kakao.com/v2/maps/sdk.js?appkey=10933d05118bfc99d732e83a2814b76a&libraries=services&autoload=false"
             strategy="beforeInteractive"
           />
+
           <S.KakaoMapRoadview // 로드뷰를 표시할 Container
             position={{
               // 지도의 중심좌표
@@ -33,8 +35,8 @@ export default function KakaomapPresenter(props: KaoKaoMap) {
           >
             <S.KakaoCustomOverlayRoadview
               position={{
-                lat: props.lat,
-                lng: props.lng,
+                lat: Number(props.lat),
+                lng: Number(props.lng),
               }}
               isFocus={true}
               xAnchor={0.5}
@@ -45,6 +47,11 @@ export default function KakaomapPresenter(props: KaoKaoMap) {
       )}
       <S.WarrapOut>
         <S.KaKaoWarp mapStatus={props.mapStatus}>
+          {!props.isActive1 && (
+            <S.SerchLength>
+              {props.search}으로 검색된 결과 총 {props.markersLenght} 건입니다{" "}
+            </S.SerchLength>
+          )}
           <S.Category>
             {props.mapStatus && (
               <S.Search type="text" onChange={props.onChangeSearchbar} />
@@ -80,7 +87,7 @@ export default function KakaomapPresenter(props: KaoKaoMap) {
               )}
             </S.CategorySearch>
           </S.Category>
-          <S.KaKaoMap // 로드뷰를 표시할 Container
+          <S.KaKaoMap
             center={{
               lat: props.geoLat,
               lng: props.geoLng,
@@ -90,8 +97,10 @@ export default function KakaomapPresenter(props: KaoKaoMap) {
               height: "100%",
             }}
             level={3}
+            onZoomChanged={(map) => props.setLevel(map.getLevel())}
             onCreate={props.setMap}
           >
+            <ZoomControl />
             <KakaomapMarks
               key={uuidv4()}
               markers={props.markers}
