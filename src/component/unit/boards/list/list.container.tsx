@@ -35,7 +35,7 @@ export default function ListContainer() {
     if (!throttle) {
       setThrottle(true);
       setTimeout(async () => {
-        if (page >= 20) setPage(page);
+        if (page >= 50) setPage(page);
         else setPage((page) => page + 5);
         setThrottle(false);
       }, 300);
@@ -48,7 +48,7 @@ export default function ListContainer() {
     IQueryFetchBoardsPageArgs
   >(FETCH_BOARDS_PAGE, {
     variables: {
-      // page: 1,
+      page: 1,
       search: "",
       category: "",
     },
