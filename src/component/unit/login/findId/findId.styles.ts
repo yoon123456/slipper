@@ -68,7 +68,7 @@ export const NumberAsk = styled.button`
   width: 100px;
   line-height: 3;
   text-align: center;
-  background-color: #f2f2f2;
+  background-color: #f4f7f9b3;
   border-radius: 10px;
   border: none;
   cursor: pointer;
@@ -83,7 +83,7 @@ export const CheckEnd = styled.button`
   width: 100px;
   line-height: 3;
   text-align: center;
-  background-color: #f2f2f2;
+  background-color: #f4f7f9b3;
   border-radius: 10px;
   border: none;
   cursor: pointer;
@@ -124,8 +124,8 @@ export const JoinSlipper = styled.button`
   margin-top: 5%;
   text-align: center;
   background-color: ${(props: IProps) =>
-    props.isActive ? "#f2f2f2" : "#008af6"};
-  color: ${(props: IProps) => (props.isActive ? "black" : "white")};
+    props.isActive ? "#f4f7f9b3" : "#008af6"};
+  color: ${(props: IProps) => (props.isActive ? "#008af6" : "white")};
   border-radius: 10px;
   border: none;
   cursor: pointer;

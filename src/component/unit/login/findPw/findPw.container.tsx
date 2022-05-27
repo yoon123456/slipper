@@ -1,3 +1,5 @@
+// 예원 작업 비밀번호 변경 5.26
+
 import { useMutation } from "@apollo/client";
 import { Modal } from "antd";
 import { useRouter } from "next/router";
@@ -5,6 +7,7 @@ import { ChangeEvent, useState } from "react";
 import {
   IMutation,
   IMutationProofTokenArgs,
+  IMutationUpdateUserPwArgs,
   IMutationUserGetTokenArgs,
 } from "../../../../commons/types/generated/types";
 import FindPwPresenter from "./findPw.presenter";
@@ -21,7 +24,10 @@ export default function FindPwContainer() {
   const [isEdit, setIsEdit] = useState(false);
 
   // graphql 부분
-  const [updateUserPw] = useMutation(UPDATE_USER_PW);
+  const [updateUserPw] = useMutation<
+    Pick<IMutation, "updateUserPw">,
+    IMutationUpdateUserPwArgs
+  >(UPDATE_USER_PW);
 
   const [userGetToken] = useMutation<
     Pick<IMutation, "userGetToken">,
@@ -33,20 +39,21 @@ export default function FindPwContainer() {
     IMutationProofTokenArgs
   >(PROOF_TOKEN);
 
-  // 이메일입력 함수
+  // 예원 이메일입력 함수
   const onChangeEmail = (event: ChangeEvent<HTMLInputElement>) => {
     setEmail(event.target.value);
   };
-  // 비밀번호입력 함수
+  // 예원 비밀번호입력 함수
   const onChangePw = (event: ChangeEvent<HTMLInputElement>) => {
     setPw(event.target.value);
   };
+  // 예원 비밀번호 확인 함수
   const onChangePwCheck = (event: ChangeEvent<HTMLInputElement>) => {
     setPw(event.target.value);
     setIsActive(false);
   };
 
-  // 핸드폰번호입력 함수
+  // 예원 핸드폰번호입력 함수
   const onChangePhoneNum = (event: ChangeEvent<HTMLInputElement>) => {
     setPhoneNum(event.target.value);
     if (event.target.value.length === 11) {
@@ -54,12 +61,12 @@ export default function FindPwContainer() {
     }
   };
 
-  // 인증번호입력 함수
+  // 예원 인증번호입력 함수
   const onChangeProofNum = (event: ChangeEvent<HTMLInputElement>) => {
     setProofNum(event.target.value);
   };
 
-  // 인증번호 요청 기능
+  // 예원 인증번호 요청 기능
   const onClickGetToken = async () => {
     try {
       await userGetToken({
@@ -67,13 +74,14 @@ export default function FindPwContainer() {
           phone: phoneNum,
         },
       });
-      alert("인증번호가 전송되었습니다");
+      Modal.success({ content: "인증번호를 전송하였습니다" });
     } catch (error) {
-      alert(error);
+      Modal.error({ content: "인증번호 전송에 실패하였습니다" });
     }
     setFlag(true);
   };
-  // 인증완료 요청 기능
+
+  // 예원 인증완료 요청 기능
   const onClickCheckProof = async () => {
     if (proofNum === "") {
       Modal.error({ content: "인증번호를 입력해주세요" });

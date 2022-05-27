@@ -9,10 +9,11 @@ import KakaoMapFetch from "../../../../commons/kakaoMapFetch";
 import QuestionWriteContainer from "../../question/write/questionwrite.container";
 import Dompurify from "dompurify";
 import QuestionListUIItem from "../../question/list/questiontlist.presenteritem";
+import { IBoardImage } from "../../../../commons/types/generated/types";
 
 export default function DetailPresenter(props: IDetailPresenter) {
   const settings = {
-    dots: true,
+    dots: false,
     autoplay: true,
     infinite: true,
     speed: 4000,
@@ -26,20 +27,22 @@ export default function DetailPresenter(props: IDetailPresenter) {
       <S.WrapperOut>
         <S.WrapperTop>
           <S.TopLeft>
-            <S.Map>
-              <KakaoMapFetch data={props.data} />
-            </S.Map>
             <S.SliderWrap>
               <S.ImageWrap>
                 <S.SliderStyle {...settings}>
-                  {props.data?.fetchBoard.images.map((el: any, idx: number) => (
-                    <S.ImgWrapper key={idx}>
-                      <S.Img src={el.imageUrl} />
-                    </S.ImgWrapper>
-                  ))}
+                  {props.data?.fetchBoard.images?.map(
+                    (el: IBoardImage, idx: number) => (
+                      <S.ImgWrapper key={idx}>
+                        <S.Img src={el.imageUrl} />
+                      </S.ImgWrapper>
+                    )
+                  )}
                 </S.SliderStyle>
               </S.ImageWrap>
             </S.SliderWrap>
+            <S.Map>
+              <KakaoMapFetch data={props.data} />
+            </S.Map>
           </S.TopLeft>
           <S.EditDeleteWrap>
             <S.UserWriteDate>
@@ -47,18 +50,33 @@ export default function DetailPresenter(props: IDetailPresenter) {
             </S.UserWriteDate>
             <S.Icon
               id={props.data?.fetchBoard.id}
-              src={"/image/listpen.png"}
+              src={"/image/edit.png"}
               onClick={props.onClickMoveToBoardEdit}
             />
             <S.Icon
               id={props.data?.fetchBoard.id}
-              src={"/image/delete.png"}
+              src={"/image/delete3.png"}
               onClick={props.onClickDeleteBoard}
             />
           </S.EditDeleteWrap>
           <S.TopRight>
-            <S.UserTitle>{props.data?.fetchBoard.title}</S.UserTitle>
-            <S.Wrap>가게정보가 궁금하신가요?</S.Wrap>
+            <S.UserWrap>
+              <S.UserTitle>{props.data?.fetchBoard.title}</S.UserTitle>
+              {props.isActive ? (
+                <S.BookMark
+                  id={props.data?.fetchBoard.id}
+                  src="/image/bookmarkpick.png"
+                  onClick={props.onClickLike}
+                />
+              ) : (
+                <S.BookMark
+                  id={props.data?.fetchBoard.id}
+                  src="/image/bookmark.png"
+                  onClick={props.onClickLike}
+                />
+              )}
+            </S.UserWrap>
+            <S.Wrap>가게정보를 알려드릴게요</S.Wrap>
             <S.UserMiddle>
               <S.ShopName>{props.data?.fetchBoard.place}</S.ShopName>
               <S.CategoryWrap>
@@ -97,7 +115,13 @@ export default function DetailPresenter(props: IDetailPresenter) {
                 {props.data?.fetchBoard.user.imageUrl === "" ? (
                   <S.UserImg src={"/image/usericon.png"} />
                 ) : (
-                  <S.UserImg src={props.data?.fetchBoard.user.imageUrl} />
+                  <S.UserImg
+                    src={
+                      props.data?.fetchBoard.user.imageUrl
+                        ? props.data?.fetchBoard.user.imageUrl
+                        : "/image/profileDefault.png"
+                    }
+                  />
                 )}
                 <S.UserName>{props.data?.fetchBoard.user.nickname}</S.UserName>
               </S.User>
@@ -112,7 +136,11 @@ export default function DetailPresenter(props: IDetailPresenter) {
             {typeof window !== "undefined" && (
               <S.UserContents
                 dangerouslySetInnerHTML={{
-                  __html: Dompurify.sanitize(props.data?.fetchBoard.contents),
+                  __html: Dompurify.sanitize(
+                    props.data?.fetchBoard.contents
+                      ? props.data?.fetchBoard.contents
+                      : ""
+                  ),
                 }}
               ></S.UserContents>
             )}

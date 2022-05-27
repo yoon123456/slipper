@@ -2,7 +2,7 @@ import styled from "@emotion/styled";
 import Slider from "react-slick";
 
 export const WrapperOut = styled.div`
-  width: 70%;
+  width: 60%;
   height: 100vh;
   margin: 0 auto;
   padding-top: 3%;
@@ -24,12 +24,12 @@ export const TopLeft = styled.div`
   padding: 5% 5% 5% 0%;
 `;
 export const EditDeleteWrap = styled.div`
-  width: 13%;
+  width: 18%;
   position: absolute;
   top: 12%;
-  right: 3%;
+  right: 6%;
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
 `;
 export const UserWriteDate = styled.div`
   font-size: 1.4rem;
@@ -38,17 +38,17 @@ export const UserWriteDate = styled.div`
 `;
 
 export const Icon = styled.img`
-  width: 13%;
+  width: 25px;
   cursor: pointer;
 `;
 // slider
 export const SliderWrap = styled.div`
   width: 90%;
-  margin: 15% auto 0 auto;
+  margin: 0% auto 7% auto;
 `;
 export const ImageWrap = styled.div`
   width: 100%;
-  height: 300px;
+  height: 350px;
 `;
 
 export const SliderStyle = styled(Slider)`
@@ -66,30 +66,39 @@ export const ImgWrapper = styled(Slider)`
   height: 100%;
 `;
 export const Img = styled.img`
-  width: 70%;
-  height: 280px;
+  width: 80%;
+  height: 350px;
   object-fit: cover;
   margin-right: 10px;
-  border-radius: 5%;
+  border-radius: 10px;
 `;
 //
 export const TopRight = styled.div`
   width: 50%;
   margin: 2% auto;
   padding: 6%;
-  /* border-radius: 41px 41px 41px 41px;
+  padding-top: 10%;
+  border-radius: 41px 41px 41px 41px;
   -moz-border-radius: 41px 41px 41px 41px;
   -webkit-border-radius: 41px 41px 41px 41px;
   -webkit-box-shadow: 10px 10px 20px 3px rgba(214, 214, 214, 1);
   -moz-box-shadow: 10px 10px 20px 3px rgba(214, 214, 214, 1);
-  box-shadow: 10px 10px 20px 3px rgba(214, 214, 214, 1); */
+  box-shadow: 1px 1px 20px 0px rgb(233 233 233);
+`;
+export const UserWrap = styled.div`
+  display: flex;
 `;
 export const UserTitle = styled.div`
   width: 100%;
   font-size: 2.7rem;
   padding-left: 2%;
-  border-bottom: 0.5px solid rgba(0, 0, 0, 0.16);
 `;
+export const BookMark = styled.img`
+  width: 9%;
+  height: 40px;
+  cursor: pointer;
+`;
+
 export const Wrap = styled.div`
   font-size: 1.4rem;
   padding: 4% 0 0 2%;
@@ -175,18 +184,18 @@ export const UserContents = styled.div`
   padding: 4%;
   margin: 5% 0;
   box-shadow: rgba(0, 0, 0, 0.16) 0px 0.5px 2px;
-  border-radius: 5%;
+  border-radius: 10px;
   overflow: scroll;
-  border: 1px solid red;
   ::-webkit-scrollbar {
     display: none;
   }
 `;
 
 export const Map = styled.div`
-  width: 100%;
-  height: 500px;
+  width: 88%;
+  height: 350px;
   background-color: aliceblue;
+  margin: 0 auto;
 `;
 export const CategoryWrap = styled.div`
   width: 20%;
@@ -223,7 +232,7 @@ export const Bad = styled.img`
 `;
 
 export const WrapperBottom = styled.div`
-  width: 50%;
+  width: 70%;
   margin: 5% auto;
   display: flex;
   justify-content: space-around;
@@ -231,25 +240,21 @@ export const WrapperBottom = styled.div`
   padding: 3%;
 `;
 export const Button = styled.button`
-  width: 50%;
+  width: 30%;
   height: 35px;
   padding: 1%;
-  color: gray;
+  margin: 3%;
+  color: #008af6;
   font-size: 1.3rem;
-  text-decoration: none;
-  text-shadow: 0px 0px 0px #f0f0f0;
   border: none;
   border-radius: 10px;
   background-color: white;
-  background: linear-gradient(to bottom, white 5%, #ffffff 100%);
   display: inline-block;
-  box-shadow: 3px 3px 7px 0 rgba(0, 0, 0, 0.25),
-    -4px -4px 7px 0 rgba(255, 255, 255, 0.3);
+  background-color: #f4f7f9b3;
   cursor: pointer;
   :hover {
     position: relative;
     top: 2px;
-    color: #008af6;
   }
 `;
 

@@ -10,7 +10,6 @@ export default function JoinPresenter(props: IJoinPresenter) {
       <S.Wrapper>
         <S.WrapperOut>
           <S.WrapperIn>
-            {/* <S.Join>{"Hi, I'm slipper"}</S.Join> */}
             <S.Join>{"Hi"}</S.Join>
             <S.Join>{"I'm Slipper"}</S.Join>
             <S.Profile>
