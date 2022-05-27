@@ -48,7 +48,7 @@ export default function ListContainer() {
     IQueryFetchBoardsPageArgs
   >(FETCH_BOARDS_PAGE, {
     variables: {
-      page: 1,
+      // page: 1,
       search: "",
       category: "",
     },

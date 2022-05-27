@@ -48,10 +48,6 @@ export default function LoginContainer() {
       setIsActive(true);
     },
   });
-  // 회원가입이동 기능
-  const onClickGoJoin = () => {
-    router.push("/join");
-  };
 
   const onclickLogin = async (data: IFormValues) => {
     if (data.email && data.pw) {
@@ -90,7 +86,6 @@ export default function LoginContainer() {
       handleSubmit={handleSubmit}
       formState={formState}
       onclickLogin={onclickLogin}
-      onClickGoJoin={onClickGoJoin}
       isActive={isActive}
     />
   );

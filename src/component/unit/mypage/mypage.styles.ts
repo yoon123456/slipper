@@ -2,12 +2,9 @@
 import styled from "@emotion/styled";
 import { IProps } from "./mypage.types";
 
-// export const Wrapper = styled.div`
-//   width: 100%;
-//   /* background-color: #f5f7f9; */
-// `;
 export const WrapperOut = styled.div`
   width: 55%;
+  height: 800px;
   margin: 5% auto;
   /* padding: 1%; */
   display: flex;
@@ -21,7 +18,7 @@ export const WrapperLeft = styled.div`
   width: 25%;
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
+  /* justify-content: space-around; */
   align-items: center;
   background-color: white;
   /* margin-right: 2%; */
@@ -38,60 +35,68 @@ export const NicknameWrapper = styled.div`
   background-color: none;
   padding: 2%;
 `;
-export const NicknameInput = styled.input`
-  width: 65%;
-  text-align: center;
-  padding: 1%;
-  font-size: 1.5rem;
-  /* color: #008af6; */
-  border: none;
-  border-bottom: 1px solid lightgray;
-  outline: none;
-`;
 export const Nickname = styled.div`
   font-size: 2.1rem;
   color: #008af6;
+  cursor: pointer;
 `;
 export const NicknameFixed = styled.div`
   font-size: 1.5rem;
   line-height: 2;
   color: #008af6;
 `;
-export const FinishNicknameEdit = styled.div`
-  width: 20%;
-  border: 1px solid lightgray;
+export const NicknameEditInput = styled.input`
+  width: 100%;
+  height: 40px;
+  text-align: start;
   padding: 1%;
-  border-radius: 5px;
-  text-align: center;
-  font-size: 1rem;
-  margin-left: 5%;
-  cursor: pointer;
-`;
-export const OpenNicknameEdit = styled.img`
-  width: 6%;
-  height: 16px;
-  cursor: pointer;
+  font-size: 1.6rem;
+  font-family: "HallymGothic-Regular";
+  border: 1px solid lightgray;
+  outline: none;
 `;
 export const ProfileImage = styled.img`
+  object-fit: contain;
   width: 80%;
-  height: 160px;
-  margin: 20px;
-  text-align: center;
-  background-color: white;
+  height: 110px;
+  margin: 20px 10px 20px 10px;
+  cursor: pointer;
+  /* text-align: center; */
+  /* background-color: red; */
 `;
 export const Introduce = styled.div`
+  width: 80%;
+  height: 130px;
+  /* background-color: lightgray; */
+  /* border: 0.1rem dashed lightgray; */
+  font-size: 1.1rem;
+  color: gray;
+  text-align: center;
+  padding: 4%;
+  margin-bottom: 25%;
+  overflow: scroll;
+  ::-webkit-scrollbar {
+    display: none;
+  }
+  cursor: pointer;
+`;
+export const IntroduceEditInput = styled.input`
   width: 100%;
-  height: 100%;
+  height: 200px;
+  text-align: start;
+  padding: 2%;
+  font-size: 1.6rem;
+  font-family: "HallymGothic-Regular";
   border: 1px solid lightgray;
-  background-color: red;
+  outline: none;
 `;
 export const MenuWrapper = styled.div`
+  width: 100%;
+  height: 70px;
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  width: 100%;
-  height: 60px;
   font-size: 2.5rem;
   cursor: pointer;
   color: ${(props: IProps) => (props.mypageRight ? "#008AF6" : "black")};
@@ -103,7 +108,7 @@ export const MenuWrapper = styled.div`
     props.mypageRight ? "0% 10% 0% 27.5%" : "0% 10% 0% 29%"};
 `;
 export const Icon = styled.img`
-  width: 11%;
+  width: 14%;
   /* height: 40%; */
 `;
 export const MenuButton = styled.div`

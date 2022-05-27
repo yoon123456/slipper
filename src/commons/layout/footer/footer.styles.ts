@@ -2,7 +2,7 @@ import styled from "@emotion/styled";
 
 export const WarpperOut = styled.div`
   width: 100%;
-  border-top: 1px solid gainsboro;
+  box-shadow: 2px -9px 11px 0px #f2f2f2;
   bottom: 0%;
 `;
 

@@ -3,7 +3,7 @@ import styled from "@emotion/styled";
 
 const Divbox = styled.div``;
 const Boxin = styled.div`
-  padding-top: 10%;
+  margin-top: 20%;
 `;
 const Num = styled.h2`
   font-size: 1.5rem;
