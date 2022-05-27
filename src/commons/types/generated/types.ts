@@ -47,6 +47,14 @@ export type IBoardImage = {
   imageUrl: Scalars['String'];
 };
 
+export type IBoardLike = {
+  __typename?: 'BoardLike';
+  board: IBoard;
+  createAt: Scalars['DateTime'];
+  isLike: Scalars['Boolean'];
+  join: IJoin;
+};
+
 export type IBusinessBoard = {
   __typename?: 'BusinessBoard';
   address: Scalars['String'];
@@ -145,6 +153,7 @@ export type IJoin = {
 
 export type IMutation = {
   __typename?: 'Mutation';
+  clickLike: IBoard;
   createBoard: IBoard;
   createBusinessBoard: IBusinessBoard;
   createComment: Scalars['JSONObject'];
@@ -168,11 +177,16 @@ export type IMutation = {
   updatePayment: Scalars['String'];
   updateSubComment: Scalars['JSONObject'];
   updateUser: IJoin;
-  updateUserPw: IJoin;
+  updateUserPw: Scalars['String'];
   uploadBoardImage: Array<Scalars['String']>;
   uploadBusinessImage: Array<Scalars['String']>;
   uploadProfileImage: Array<Scalars['String']>;
   userGetToken: Scalars['String'];
+};
+
+
+export type IMutationClickLikeArgs = {
+  boardId: Scalars['String'];
 };
 
 
@@ -323,6 +337,7 @@ export type IQuery = {
   fetchBoardsPage: Array<Scalars['JSONObject']>;
   fetchBusinessBoard: IBusinessBoard;
   fetchBusinessBoards: Array<IBusinessBoard>;
+  fetchLikeBoards: Array<IBoardLike>;
   fetchUser: IJoin;
   fetchUserBoards: Array<IBoard>;
   fetchUsers: Array<IJoin>;
@@ -340,7 +355,7 @@ export type IQueryFetchBoardArgs = {
 
 export type IQueryFetchBoardsPageArgs = {
   category?: InputMaybe<Scalars['String']>;
-  page?: InputMaybe<Scalars['Float']>;
+  page?: InputMaybe<Scalars['Int']>;
   search?: InputMaybe<Scalars['String']>;
 };
 
