@@ -12,25 +12,6 @@ declare const window: typeof globalThis & {
 };
 
 export const IButton = styled.div`
-  /* padding: 3% 10% 3% 10%;
-  font-size: 1.2rem;
-  color: black;
-  border: #c4cacf;
-  background-color: #c4cacf;
-  border-radius: 5%;
-  cursor: pointer;
-  :hover {
-    padding: 2.2% 9% 2.2% 9%;
-    background-color: white;
-    color: #008af6;
-    border: 2px solid #c4cacf;
-  }
-  line-height: 3;
-  text-align: center;
-  background-color: #f2f2f2;
-  border-radius: 10px;
-  border: none; */
-
   width: 50%;
   padding: 4%;
   color: gray;

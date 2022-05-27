@@ -21,7 +21,6 @@ export default function HeaderPresenter(props: HeaderPrpos) {
     try {
       await logout();
       alert("성공");
-      location.reload();
       router.push("/boards");
     } catch (error) {
       alert("메롱");
@@ -45,7 +44,6 @@ export default function HeaderPresenter(props: HeaderPrpos) {
           ) : (
             <div></div>
           )}
-
           {/* <S.WrapperInHam>햄버거</S.WrapperInHam> */}
           <Ham />
         </S.WrapperIn>

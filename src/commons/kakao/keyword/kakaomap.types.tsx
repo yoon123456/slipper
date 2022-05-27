@@ -48,13 +48,14 @@ export interface KaoKaoMap {
   };
   contentFlag: boolean;
   search: string;
+  data?: Pick<IQuery, "fetchBoardsPage">;
 }
 
 export interface KaoKeyWord {
   onChangeKeyword?: (event: any) => void;
   keyword?: string;
   mapStatus?: boolean;
-  // data?: Pick<IQuery, "fetchBoardsPage">;
+  data?: Pick<IQuery, "fetchBoardsPage">;
 }
 
 export interface ContentProps {
@@ -73,6 +74,7 @@ export interface MarkerProps {
   markerClick: (info: any) => (address: any) => void;
   info: any;
   contentFlag: boolean;
+  data?: Pick<IQuery, "fetchBoardsPage">;
 }
 
 export interface KaKaoMapStylesProps {

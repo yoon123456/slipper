@@ -13,7 +13,6 @@ export default function KaKaoMapContainer(props: KaoKeyWord) {
   const [geoLat, setgeoLat] = useState(0);
   const [geoLng, setgeoLng] = useState(0);
   const [address, setAddress] = useRecoilState(kakaoAddress);
-
   const [search, setSearch] = useRecoilState(SearchState);
   const [isActive1, setIsActive1] = useRecoilState(SearchBarIsActiveState);
   const [markers, setMarkers] = useState([]);
@@ -133,6 +132,7 @@ export default function KaKaoMapContainer(props: KaoKeyWord) {
       onClickButton={onClickButton}
       search={search}
       mapStatus={props.mapStatus}
+      data={props.data}
     />
   );
 }

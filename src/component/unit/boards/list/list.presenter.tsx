@@ -1,12 +1,9 @@
 // 예원작업 5/16
 
-import Category from "../../../../commons/category";
 import * as S from "./list.styles";
 import { useMovetoPage } from "../../../../commons/hooks/movePage";
-import KakaoMapPage from "../../../../commons/kakao/map.container";
 import KeyWord from "../../../../commons/kakao/keyword/kakaomap.container";
 import { IListPresenter } from "./list.types";
-import Searchbars01 from "../../../../commons/searchBar/Searchbars01.container";
 import SearchBarCategoryContainer from "../../../../commons/searchBarCaterory/searchBarCategory.container";
 import { useRecoilState } from "recoil";
 import { SearchBarIsActiveState } from "../../../../commons/store";
@@ -30,7 +27,10 @@ export default function ListPresenter(props: IListPresenter) {
           <Category />
         </S.CategoryWrap>
         <S.SearchButton type="submit">검색</S.SearchButton> */}
-          <SearchBarCategoryContainer />
+          <SearchBarCategoryContainer
+            refetch={props.refetch}
+            onChangeKeyword={props.onChangeKeyword}
+          />
         </S.WrapperTop>
         <S.WrapperContents isActive={isActive}>
           <S.WrapperMiddle>
@@ -54,6 +54,7 @@ export default function ListPresenter(props: IListPresenter) {
                   loadMore={props.onLoadMore}
                   hasMore={true}
                   useWindow={false}
+                  onScroll={props.handleScroll}
                 >
                   {props.data?.fetchBoardsPage?.map((el: any) => (
                     <S.Wrapper key={uuidv4()}>
@@ -89,7 +90,7 @@ export default function ListPresenter(props: IListPresenter) {
             </S.WrapperLeft>
             <S.WrapperRight>
               {/* chan 지도 기능 추가 22.05.19 */}
-              <KeyWord />
+              <KeyWord data={props.data} />
             </S.WrapperRight>
           </S.WrapperBody>
         </S.WrapperContents>

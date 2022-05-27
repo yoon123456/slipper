@@ -20,14 +20,27 @@ export default function ListContainer() {
   const { onClickMoveToPage } = useMovetoPage();
   const [isClickedNum, setIsClickedNum] = useRecoilState(isClickedNumState);
   const [keyword, setKeyword] = useState(""); // Chan 검색기능 추가
-
   const { data: userData } = useQuery(FETCH_USER);
-  console.log("로그인유저", userData?.fetchUser.email);
-
   const btnRef = useRef<HTMLButtonElement>(null);
+
+  const [page, setPage] = useState(0);
+  const [throttle, setThrottle] = useState(false);
+
   useEffect(() => {
     btnRef.current?.click();
   }, []);
+
+  const handleScroll = () => {
+    if (throttle) return;
+    if (!throttle) {
+      setThrottle(true);
+      setTimeout(async () => {
+        if (page >= 20) setPage(page);
+        else setPage((page) => page + 5);
+        setThrottle(false);
+      }, 300);
+    }
+  };
 
   // fetchBoardsPage query
   const { data, refetch, fetchMore } = useQuery<
@@ -45,7 +58,9 @@ export default function ListContainer() {
   const onLoadMore = () => {
     if (!data) return;
     fetchMore({
-      variables: { page: Math.ceil(data.fetchBoardsPage.length / 10) + 1 },
+      variables: {
+        page: Number(Math.ceil(data.fetchBoardsPage.length / 10) + 1),
+      },
       updateQuery: (prev, { fetchMoreResult }) => {
         if (!fetchMoreResult?.fetchBoardsPage)
           return { fetchBoardsPage: [...prev.fetchBoardsPage] };
@@ -86,6 +101,7 @@ export default function ListContainer() {
       refetch={refetch} //예원
       onLoadMore={onLoadMore} //예원
       btnRef={btnRef}
+      handleScroll={handleScroll}
     />
   );
 }

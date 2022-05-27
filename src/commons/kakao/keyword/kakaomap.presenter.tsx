@@ -3,6 +3,7 @@ import Script from "next/script";
 import { KaoKaoMap } from "../keyword/kakaomap.types";
 import * as S from "./kakaomap.styled";
 import KakaomapMarks from "./kakaomapmarkers";
+import { v4 as uuidv4 } from "uuid";
 export default function KakaomapPresenter(props: KaoKaoMap) {
   return (
     <>
@@ -29,7 +30,6 @@ export default function KakaomapPresenter(props: KaoKaoMap) {
               width: "100%",
               height: "50%",
             }}
-            onErrorGetNearestPanoId={props.onErrorGetNearestPanoId}
           >
             <S.KakaoCustomOverlayRoadview
               position={{
@@ -93,10 +93,12 @@ export default function KakaomapPresenter(props: KaoKaoMap) {
             onCreate={props.setMap}
           >
             <KakaomapMarks
+              key={uuidv4()}
               markers={props.markers}
               markerClick={props.markerClick}
               info={props.info}
               contentFlag={props.contentFlag}
+              data={props.data}
             />
 
             <S.KakaoMapMarker
