@@ -1,7 +1,10 @@
+import { useMovetoPage } from "../../../commons/hooks/movePage";
 import * as S from "./login.styles";
 import { IJoinPresenter } from "./login.types";
 
 export default function JoinPresenter(props: IJoinPresenter) {
+  const { onClickMoveToPage } = useMovetoPage();
+
   return (
     <form onSubmit={props.handleSubmit(props.onclickLogin)}>
       <S.Wrapper>
@@ -31,11 +34,15 @@ export default function JoinPresenter(props: IJoinPresenter) {
             </S.JoinWrap>
             <S.Menu>
               <S.MenuBox>
-                <S.IdFind>아이디 찾기</S.IdFind>
+                <S.IdFind onClick={onClickMoveToPage("login/findId")}>
+                  아이디 찾기
+                </S.IdFind>
                 <div>|</div>
-                <S.PasswordFind>비밀번호 찾기</S.PasswordFind>
+                <S.PasswordFind onClick={onClickMoveToPage("login/findPw")}>
+                  비밀번호 찾기
+                </S.PasswordFind>
                 <div>|</div>
-                <S.Sign onClick={props.onClickGoJoin}>회원가입</S.Sign>
+                <S.Sign onClick={onClickMoveToPage("join")}>회원가입</S.Sign>
               </S.MenuBox>
             </S.Menu>
 
