@@ -4,6 +4,7 @@ import PaymentPresenter from "./payment.presenter";
 import { FETCH_USER } from "./payment.queries";
 import { userLoginInfo } from "../../../commons/store";
 import { useRecoilState } from "recoil";
+import { IQuery } from "../../../commons/types/generated/types";
 
 export default function PaymentContainor() {
   const { data } = useQuery(FETCH_USER);
@@ -14,7 +15,6 @@ export default function PaymentContainor() {
     onClickMonth;
   });
 
-  console.log(loginInfo);
   const onClickMonth = () => {
     setMonthFlag(0);
   };

@@ -59,6 +59,7 @@ export default function SearchBarCategoryPresenter(
           onChange={props.onChangeSearch}
           value={props.search}
         />
+
         <S.SearchButton
           key={uuidv4()}
           type="submit"

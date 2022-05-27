@@ -1,14 +1,11 @@
 import { ApolloQueryResult } from "@apollo/client";
 import { ChangeEvent, MouseEvent } from "react";
 import { RecoilState } from "recoil";
-import {
-  IQuery,
-  IQueryTestFetchBoardsPageArgs,
-} from "../types/generated/types";
+import { IQuery, IQueryFetchBoardsPageArgs } from "../types/generated/types";
 
 export interface ISearchBarCategoryPresenter {
   isActive: boolean;
-  category: RecoilState<string>;
+  category: string;
   search: string;
   onMouseDown: () => void;
   onChangeSearch: (event: ChangeEvent<HTMLInputElement>) => void;
@@ -18,8 +15,10 @@ export interface ISearchBarCategoryPresenter {
 
 export interface ISearchKeyWord {
   refetch: (
-    variables: Partial<IQueryTestFetchBoardsPageArgs>
-  ) => Promise<ApolloQueryResult<Pick<IQuery, "fetchBoardsPage">>>;
+    variables:
+      | Partial<{ page: number; category: string; search: string }>
+      | undefined
+  ) => Promise<ApolloQueryResult<any>>;
 
   onChangeKeyword: (value: string) => void;
 }

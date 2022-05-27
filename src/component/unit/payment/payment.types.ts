@@ -1,4 +1,6 @@
+import { IQuery } from "../../../commons/types/generated/types";
+
 export interface PaymentIprops {
-  data: any;
+  data?: any;
   MonthFlag: number;
 }

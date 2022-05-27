@@ -1,13 +1,14 @@
 import { values } from "lodash";
-import { ChangeEvent, MouseEvent, useState } from "react";
-import { useRecoilState } from "recoil";
+import { ChangeEvent, MouseEvent, MouseEventHandler, useState } from "react";
+import { RecoilState, useRecoilState } from "recoil";
 import { CategoryState, SearchBarIsActiveState, SearchState } from "../store";
 import SearchBarCategoryPresenter from "./searchBarCategory.presenter";
 import { ISearchKeyWord } from "./searchBarCategory.types";
 export default function SearchBarCategoryContainer(props: ISearchKeyWord) {
   const [isActive, setIsActive] = useRecoilState(SearchBarIsActiveState);
   const [search, setSearch] = useRecoilState(SearchState);
-  const [category, setCategory] = useState(CategoryState);
+  const [category, setCategory] = useRecoilState(CategoryState);
+  const [aaa, setAaa] = useState<string[]>(["1"]);
 
   // 검색창을 누르면 숨겨진 카테고리가 나오는 기능
   const onMouseDown = () => {
@@ -21,15 +22,21 @@ export default function SearchBarCategoryContainer(props: ISearchKeyWord) {
 
   // 카테고리를 선택하는 기능
   const onClickCategory = (event: any) => {
-    setCategory(event.currentTarget.value);
-    setSearch((prev) => prev + event.currentTarget.value);
+    const bbb = event.currentTarget.value;
+    if (category === bbb) {
+      setSearch("");
+    } else {
+      setSearch((prev) => prev + " " + event.currentTarget.value);
+      setAaa((prev: any) => [...prev, bbb]);
+      setCategory(event.currentTarget.value);
+    }
+    setSearch(search + bbb);
   };
 
   // 검색 버튼 기능
   const onClickButton = () => {
     search;
     category;
-    console.log(search, category);
     setIsActive(false);
     props.refetch({ search, page: 1 });
     console.log(search);

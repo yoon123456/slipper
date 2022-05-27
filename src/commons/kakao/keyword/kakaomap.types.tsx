@@ -1,33 +1,28 @@
-import { ChangeEvent, MouseEvent, VoidFunctionComponent } from "react";
-import { Roadview } from "react-kakao-maps-sdk";
-import { StringLocale } from "yup/lib/locale";
+import { ChangeEvent, LegacyRef, ReactNode } from "react";
+import { MapMarkerProps } from "react-kakao-maps-sdk";
 import { IQuery } from "../../types/generated/types";
 
 export interface KaoKaoMap {
-  // onErrorGetNearestPanoId: (target: kakao.maps.Roadview) => void;
-  // onChangeKeyword: (event: any) => void;
   onChangeSearchbar: (event: ChangeEvent<HTMLInputElement>) => void;
-  // handleFocus: () => void;
   markerClick: (info: any) => (address: any) => void;
   onclickGeoLocation: () => void;
   onClickTrrapic: () => void;
   onClickRoadView: () => void;
   onClickContent: () => void;
-  // onClickCategory: (event: MouseEvent<HTMLImageElement>) => void;
   onCancel: () => void;
   onClickButton: () => void;
   mapStatus?: boolean;
   isOpen: boolean;
   trrapicFlag: boolean;
-  lat: any;
-  lng: any;
+  lat: string;
+  lng: string;
   setMap: any;
   markers: never[];
   setInfo: any;
   info: any;
   geoLat: number;
   geoLng: number;
-  btnRef: any;
+  btnRef: LegacyRef<HTMLButtonElement>;
   isActive: boolean;
   roadViewFlag: boolean;
   address: {
@@ -49,6 +44,10 @@ export interface KaoKaoMap {
   contentFlag: boolean;
   search: string;
   data?: Pick<IQuery, "fetchBoardsPage">;
+  markersLenght: number;
+  isActive1: boolean;
+  setLevel: (level: number) => void;
+  level: number;
 }
 
 export interface KaoKeyWord {
@@ -72,7 +71,7 @@ export interface ContentProps {
 export interface MarkerProps {
   markers: never[];
   markerClick: (info: any) => (address: any) => void;
-  info: any;
+  info: MapMarkerProps;
   contentFlag: boolean;
   data?: Pick<IQuery, "fetchBoardsPage">;
 }
