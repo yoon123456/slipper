@@ -1,20 +1,14 @@
-// 해리 작업 5/12
+// haeri 작업시작 22.05.12
 import * as S from "./write.styles";
 import { IWritePresenter } from "./write.types";
-import { DatePicker, Space } from "antd";
+import { Space } from "antd";
 import { formats, modules } from "../../../../commons/quill";
 import KeyWord from "../../../../commons/kakao/keyword/kakaomap.container";
 import Script from "next/script";
 import ImageBoardUpload from "../../../../commons/imageBoard";
 import { v4 as uuidv4 } from "uuid";
 
-const { RangePicker } = DatePicker;
-
 export default function WritePresenter(props: IWritePresenter) {
-  // useEffect(() => {
-  //   props.reset({ contents: props.data?.fetchUseditem.contents });
-  // }, [props.data]);
-
   return (
     <S.WrapperOut>
       <Script
@@ -34,10 +28,10 @@ export default function WritePresenter(props: IWritePresenter) {
         )}
         {props.activeStep !== "first" && (
           <S.TopColumnOff>
-            <S.TopRow>
-              <S.TopImg src="/image/writeSlipper.png" />
-              <S.Top>STEP 1</S.Top>
-            </S.TopRow>
+            {/* <S.TopRow> */}
+            {/* <S.TopImg src="/image/writeSlipper.png" /> */}
+            <S.Top>STEP 1</S.Top>
+            {/* </S.TopRow> */}
             <S.TopDetail> 거주 기간, 만족도, 내용을 작성해주세요</S.TopDetail>
           </S.TopColumnOff>
         )}
@@ -52,10 +46,10 @@ export default function WritePresenter(props: IWritePresenter) {
         )}
         {props.activeStep !== "second" && (
           <S.TopColumnOff>
-            <S.TopRow>
-              <S.TopImg src="/image/writeSlipper.png" />
-              <S.Top>STEP 2</S.Top>
-            </S.TopRow>
+            {/* <S.TopRow> */}
+            {/* <S.TopImg src="/image/writeSlipper.png" /> */}
+            <S.Top>STEP 2</S.Top>
+            {/* </S.TopRow> */}
             <S.TopDetail>가게가 어디에 있나요?</S.TopDetail>
           </S.TopColumnOff>
         )}
@@ -70,24 +64,21 @@ export default function WritePresenter(props: IWritePresenter) {
         )}
         {props.activeStep !== "third" && (
           <S.TopColumnOff>
-            <S.TopRow>
-              <S.TopImg src="/image/writeSlipper.png" />
-              <S.Top>STEP 3</S.Top>
-            </S.TopRow>
+            {/* <S.TopRow> */}
+            {/* <S.TopImg src="/image/writeSlipper.png" /> */}
+            <S.Top>STEP 3</S.Top>
+            {/* </S.TopRow> */}
             <S.TopDetail>사진을 공유해주세요</S.TopDetail>
           </S.TopColumnOff>
         )}
       </S.TopWrapper>
-      {/* 📌STEP 1 */}
+      {/* STEP 1 */}
       {props.activeStep === "first" && (
         <S.StepWrapper>
           <S.StepBody>
             <S.Head>이 동네 거주 기간</S.Head>
             <Space direction="vertical" size={12}>
-              <S.StyledRangePicker
-                onChange={props.onChangeRange}
-                // bordered={false}
-              />
+              <S.StyledRangePicker onChange={props.onChangeRange} />
             </Space>
             <S.Head>글 제목</S.Head>
             <S.Input
@@ -134,14 +125,14 @@ export default function WritePresenter(props: IWritePresenter) {
             />
           </S.StepBody>
           <S.StepBottom>
-            <S.StepButton type="button">뒤로</S.StepButton>
+            <S.StepButton type="button">취소</S.StepButton>
             <S.StepButton type="button" onClick={props.onClickFirstNext}>
               &gt;
             </S.StepButton>
           </S.StepBottom>
         </S.StepWrapper>
       )}
-      {/* 📌STEP 2 */}
+      {/* STEP 2 */}
       {props.activeStep === "second" && (
         <S.StepWrapper>
           <S.StepBody>
@@ -159,13 +150,11 @@ export default function WritePresenter(props: IWritePresenter) {
             )}
             <S.Head>상호명</S.Head>
             <S.Input
-              // placeholder="가게 이름을 입력해주세요."
               defaultValue={props.data?.fetchBoard.place || ""}
               value={props.address.content}
             />
             <S.Head>주소</S.Head>
             <S.Input
-              // placeholder="가게 주소를 입력해주세요."
               defaultValue={props.data?.fetchBoard.address || ""}
               value={props.address.address_name}
             />
@@ -180,7 +169,7 @@ export default function WritePresenter(props: IWritePresenter) {
           </S.StepBottom>
         </S.StepWrapper>
       )}
-      {/* 📌STEP 3 */}
+      {/* STEP 3 */}
       {props.activeStep === "third" && (
         <S.ImageStepWrapper>
           <S.StepBody>
@@ -191,7 +180,7 @@ export default function WritePresenter(props: IWritePresenter) {
                   index={index}
                   fileUrl={el}
                   onChangeFileUrls={props.onChangeFileUrls}
-                  defaultValue={props.data?.fetchBoard.images.imageUrl || ""}
+                  // defaultValue={props.data?.fetchBoard.images?.imageUrl || ""}
                 />
               ))}
             </S.ImageMap>
@@ -202,7 +191,6 @@ export default function WritePresenter(props: IWritePresenter) {
             </S.StepButton>
             <S.StepButton
               type="button"
-              // onClick={props.onClickWriteBoard}
               onClick={
                 props.isEdit ? props.onClickEditBoard : props.onClickWriteBoard
               }

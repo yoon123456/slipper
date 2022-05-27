@@ -53,9 +53,14 @@
 // }
 
 // 해리 작업 5/11(ANTD햄버거)
+import { gql, useMutation } from "@apollo/client";
 import styled from "@emotion/styled";
 import { Menu, Dropdown, Button } from "antd";
+import { useRouter } from "next/router";
+import { useRecoilState } from "recoil";
 import { useMovetoPage } from "../hooks/movePage";
+import { accessTokenState } from "../store";
+import { IMutation } from "../types/generated/types";
 
 const HamMenu = styled.div`
   font-family: "HallymGothic-Regular";
@@ -74,8 +79,27 @@ const HamIcon = styled.img`
   padding-left: 40px;
 `;
 
+const LOGOUT = gql`
+  mutation logout {
+    logout
+  }
+`;
+
 export default function Ham() {
   const { onClickMoveToPage } = useMovetoPage();
+
+  const [accessToken] = useRecoilState(accessTokenState);
+  const [logout] = useMutation<Pick<IMutation, "logout">>(LOGOUT);
+  const router = useRouter();
+  const onClickLogout = async () => {
+    try {
+      await logout();
+      alert("성공");
+      router.push("/boards");
+    } catch (error) {
+      alert("메롱");
+    }
+  };
 
   const menu = (
     <Menu
@@ -98,7 +122,9 @@ export default function Ham() {
           ),
         },
         {
-          label: (
+          label: accessToken ? (
+            <HamMenu onClick={onClickLogout}>로그아웃</HamMenu>
+          ) : (
             <HamMenu onClick={onClickMoveToPage("/login")}>로그인</HamMenu>
           ),
         },

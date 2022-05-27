@@ -1,33 +1,46 @@
-// 해리 작업 5/12
+// haeri 작업시작 22.05.12
 import WritePresenter from "./write.presenter";
 import { CREATE_BOARD, UPDATE_BOARD } from "./write.query";
 import { useMutation } from "@apollo/client";
 import { Modal } from "antd";
-import { ChangeEvent, useState } from "react";
+import { ChangeEvent, useState, MouseEvent } from "react";
 import { useRouter } from "next/router";
-import { IFormValues } from "./write.types";
-import { IUpdateBoardInput } from "../../../../commons/types/generated/types";
 import { useRecoilState } from "recoil";
 import { kakaoAddress } from "../../../../commons/store/kakaounit";
+import { IWriteContainer } from "./write.types";
+import {
+  IMutation,
+  IMutationCreateBoardArgs,
+  IMutationUpdateBoardArgs,
+  IUpdateBoardInput,
+} from "../../../../commons/types/generated/types";
 
-export default function WriteContainer(props) {
+export default function WriteContainer(props: IWriteContainer) {
   const router = useRouter();
-  const [address, setAddress] = useRecoilState(kakaoAddress);
   const [activeStep, SetActiveStep] = useState("first");
   const [startDate, SetStartDate] = useState("");
   const [endDate, SetEndDate] = useState("");
-  const [title, setTitle] = useState("");
-  const [contents, setContents] = useState("");
   const [happy, setHappy] = useState(false);
   const [uhm, setUhm] = useState(false);
   const [sad, setSad] = useState(false);
   const [score, setScore] = useState(0);
+  const [title, setTitle] = useState("");
+  const [contents, setContents] = useState("");
   const [mapStatus, setMapStatus] = useState(false);
+  const [address, setAddress] = useRecoilState(kakaoAddress);
   const [fileUrls, setFileUrls] = useState(["", "", "", ""]);
 
-  const [createBoard] = useMutation(CREATE_BOARD);
-  const [updateBoard] = useMutation(UPDATE_BOARD);
+  const [createBoard] = useMutation<
+    Pick<IMutation, "createBoard">,
+    IMutationCreateBoardArgs
+  >(CREATE_BOARD);
 
+  const [updateBoard] = useMutation<
+    Pick<IMutation, "updateBoard">,
+    IMutationUpdateBoardArgs
+  >(UPDATE_BOARD);
+
+  // haeri 단계 이동
   const onClickFirstNext = () => {
     SetActiveStep("second");
     setMapStatus(true);
@@ -42,11 +55,14 @@ export default function WriteContainer(props) {
     SetActiveStep("second");
   };
 
-  const onChangeRange = (date: String, dateString: String) => {
+  // haeri 기간 선택
+  const onChangeRange = (date: any, dateString: any) => {
     SetStartDate(dateString[0]);
     SetEndDate(dateString[1]);
   };
+  console.log(startDate, endDate);
 
+  // haeri 만족도 선택
   const onClickHappy = () => {
     setHappy((prev) => !prev);
     setUhm(false);
@@ -66,22 +82,25 @@ export default function WriteContainer(props) {
     setScore(3);
   };
 
-  const onChangeTitle = (event: ChangeEvent<HTMLTextAreaElement>) => {
+  // haeri 제목 입력
+  const onChangeTitle = (event: ChangeEvent<HTMLInputElement>) => {
     setTitle(event.target.value);
   };
 
-  const onChangeContents = (value: any) => {
+  // haeri 내용 입력
+  const onChangeContents = (value: string) => {
     setContents(value === "<p><br></p>" ? "" : value);
   };
 
-  const onChangeFileUrls = (fileUrl: any, index: number) => {
+  // haeri 이미지 등록
+  const onChangeFileUrls = (fileUrl: string, index: number) => {
     const newFileUrls = [...fileUrls];
     newFileUrls[index] = fileUrl[0];
     setFileUrls(newFileUrls);
   };
-  // console.log(fileUrls);
 
-  const onClickWriteBoard = async (data: IFormValues) => {
+  // haeri 글 등록
+  const onClickWriteBoard = async () => {
     try {
       const result = await createBoard({
         variables: {
@@ -102,24 +121,25 @@ export default function WriteContainer(props) {
       });
       console.log(result);
       Modal.success({ content: "회원님의 글이 정상적으로 등록되었습니다." });
-      router.push(`/boards/${result.data.createBoard.id}`);
+      router.push(`/boards/${result.data?.createBoard.id}`);
     } catch (error) {
       if (error instanceof Error) Modal.error({ content: error.message });
     }
   };
 
-  const onClickEditBoard = async (data: IFormValues) => {
-    if (!data.title && !data.contents) {
+  // haeri 글 수정
+  const onClickEditBoard = async () => {
+    if (!title && !contents) {
       Modal.error({ content: "수정한 내용이 없습니다." });
       return;
     }
     const updateBoardInput: IUpdateBoardInput = {};
-    if (data?.title) updateBoardInput.title = data?.title;
-    if (data?.contents) updateBoardInput.contents = data?.contents;
+    if (title) updateBoardInput.title = title;
+    if (contents) updateBoardInput.contents = contents;
     try {
       await updateBoard({
         variables: {
-          boardId: router.query.boardId,
+          boardId: String(router.query.boardId),
           updateBoardInput,
         },
       });
@@ -132,6 +152,8 @@ export default function WriteContainer(props) {
 
   return (
     <WritePresenter
+      isEdit={props.isEdit}
+      data={props.data}
       activeStep={activeStep}
       onClickFirstNext={onClickFirstNext}
       onClickSecondPrev={onClickSecondPrev}
@@ -146,14 +168,12 @@ export default function WriteContainer(props) {
       onClickSad={onClickSad}
       onChangeTitle={onChangeTitle}
       onChangeContents={onChangeContents}
-      mapStatus={mapStatus}
-      fileUrls={fileUrls}
       onChangeFileUrls={onChangeFileUrls}
-      onClickWriteBoard={onClickWriteBoard}
-      isEdit={props.isEdit}
-      data={props.data}
-      onClickEditBoard={onClickEditBoard}
+      fileUrls={fileUrls}
+      mapStatus={mapStatus}
       address={address}
+      onClickWriteBoard={onClickWriteBoard}
+      onClickEditBoard={onClickEditBoard}
     />
   );
 }

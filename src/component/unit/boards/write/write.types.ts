@@ -1,42 +1,35 @@
-import { ChangeEvent } from "react";
+import { ChangeEvent, MouseEvent } from "react";
+import { IQuery } from "../../../../commons/types/generated/types";
 
-export interface IFormValues {
-  title: string;
-  contents: string;
+export interface IWriteContainer {
+  isEdit: boolean;
+  data?: Pick<IQuery, "fetchBoard">;
+}
+
+export interface IUpdateBoardInput {
+  title?: string;
+  contents?: string;
 }
 export interface IWritePresenter {
-  ReactQuill: any;
+  isEdit: boolean;
+  data?: Pick<IQuery, "fetchBoard">;
   activeStep: string;
   onClickFirstNext: () => void;
   onClickSecondPrev: () => void;
   onClickSecondNext: () => void;
   onClickThirdPrev: () => void;
-  // onChangeRange: (date: String, dateString: String) => void;
-  onChangeRange: (
-    values: RangeValue<Moment>,
-    formatString: [string, string]
-  ) => void;
-  // onClickFirst: () => void;
-  // onClickSecond: () => void;
-  // onClickThird: () => void;
-  // chkFirst: boolean;
-  // chkSecond: boolean;
-  // chkThird: boolean;
+  onChangeRange: (date: any, dateString: any) => void;
   happy: boolean;
   uhm: boolean;
   sad: boolean;
   onClickHappy: () => void;
   onClickUhm: () => void;
   onClickSad: () => void;
-  onChangeTitle: (event: ChangeEvent<HTMLTextAreaElement>) => void;
-  onChangeContents: (event: ChangeEvent<HTMLTextAreaElement>) => void;
-  mapStatus?: boolean;
-  fileUrls: string[];
+  onChangeTitle: (event: ChangeEvent<HTMLInputElement>) => void;
+  onChangeContents: (value: string) => void;
   onChangeFileUrls: (fileUrl: string, index: number) => void;
-  onClickWriteBoard: (data: IFormValues) => void;
-  isEdit: boolean;
-  data: any;
-  onClickEditBoard: (data: IFormValues) => void;
+  fileUrls: string[];
+  mapStatus?: boolean;
   address: {
     content: "";
     address_name: "";
@@ -53,4 +46,6 @@ export interface IWritePresenter {
       lng: "";
     };
   };
+  onClickWriteBoard: () => void;
+  onClickEditBoard: () => void;
 }
