@@ -16,12 +16,18 @@ export interface IWritePresenter {
     values: RangeValue<Moment>,
     formatString: [string, string]
   ) => void;
-  onClickFirst: () => void;
-  onClickSecond: () => void;
-  onClickThird: () => void;
-  chkFirst: boolean;
-  chkSecond: boolean;
-  chkThird: boolean;
+  // onClickFirst: () => void;
+  // onClickSecond: () => void;
+  // onClickThird: () => void;
+  // chkFirst: boolean;
+  // chkSecond: boolean;
+  // chkThird: boolean;
+  happy: boolean;
+  uhm: boolean;
+  sad: boolean;
+  onClickHappy: () => void;
+  onClickUhm: () => void;
+  onClickSad: () => void;
   onChangeTitle: (event: ChangeEvent<HTMLTextAreaElement>) => void;
   onChangeContents: (event: ChangeEvent<HTMLTextAreaElement>) => void;
   mapStatus?: boolean;
@@ -31,4 +37,20 @@ export interface IWritePresenter {
   isEdit: boolean;
   data: any;
   onClickEditBoard: (data: IFormValues) => void;
+  address: {
+    content: "";
+    address_name: "";
+    group_name: "";
+    group_code: "";
+    category_name: "";
+    distance: "";
+    id: "";
+    phone: "";
+    place_url: "";
+    road_name: "";
+    position: {
+      lat: "";
+      lng: "";
+    };
+  };
 }

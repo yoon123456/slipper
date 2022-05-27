@@ -1,14 +1,13 @@
 // 해리 작업 5/12
 import * as S from "./write.styles";
-import "react-quill/dist/quill.snow.css";
+import { IWritePresenter } from "./write.types";
+import { DatePicker, Space } from "antd";
+import { formats, modules } from "../../../../commons/quill";
+import KeyWord from "../../../../commons/kakao/keyword/kakaomap.container";
+import Script from "next/script";
 import ImageBoardUpload from "../../../../commons/imageBoard";
 import { v4 as uuidv4 } from "uuid";
-// import { useEffect } from "react";
-import { DatePicker, Space } from "antd";
-import KeyWord from "../../../../commons/kakao/keyword/kakaomap.container";
-import { IWritePresenter } from "./write.types";
-import { formats, modules } from "../../../../commons/quill";
-import Script from "next/script";
+
 const { RangePicker } = DatePicker;
 
 export default function WritePresenter(props: IWritePresenter) {
@@ -99,43 +98,36 @@ export default function WritePresenter(props: IWritePresenter) {
             />
             <S.Head>인프라 사용 만족도</S.Head>
             <S.RatingWrapper>
-              <S.RatingColumn>
-                <S.Rating>😄</S.Rating>
-                <S.Checkbox
-                  checked={props.chkFirst}
-                  type="checkbox"
-                  // name="satisfaction"
-                  // value="1"
-                  // id="good"
-                  onClick={props.onClickFirst}
+              {props.happy ? (
+                <S.RatingImg
+                  src="/image/happypick.png"
+                  onClick={props.onClickHappy}
                 />
-              </S.RatingColumn>
-              <S.RatingColumn>
-                <S.Rating>😐</S.Rating>
-                <S.Checkbox
-                  checked={props.chkSecond}
-                  type="checkbox"
-                  // name="satisfaction"
-                  // value="2"
-                  // id="soso"
-                  onClick={props.onClickSecond}
+              ) : (
+                <S.RatingImg
+                  src="/image/happy.png"
+                  onClick={props.onClickHappy}
                 />
-              </S.RatingColumn>
-              <S.RatingColumn>
-                <S.Rating>😩</S.Rating>
-                <S.Checkbox
-                  checked={props.chkThird}
-                  type="checkbox"
-                  // name="satisfaction"
-                  // value="3"
-                  // id="bad"
-                  onClick={props.onClickThird}
+              )}
+              {props.uhm ? (
+                <S.RatingImg
+                  src="/image/uhmpick.png"
+                  onClick={props.onClickUhm}
                 />
-              </S.RatingColumn>
+              ) : (
+                <S.RatingImg src="/image/uhm.png" onClick={props.onClickUhm} />
+              )}
+              {props.sad ? (
+                <S.RatingImg
+                  src="/image/sadpick.png"
+                  onClick={props.onClickSad}
+                />
+              ) : (
+                <S.RatingImg src="/image/sad.png" onClick={props.onClickSad} />
+              )}
             </S.RatingWrapper>
             <S.HeadContents>내용</S.HeadContents>
-            <props.ReactQuill
-              style={{ height: 250, fontsize: 30 }}
+            <S.StyledQuill
               onChange={props.onChangeContents}
               formats={formats}
               modules={modules}
@@ -154,28 +146,26 @@ export default function WritePresenter(props: IWritePresenter) {
         <S.StepWrapper>
           <S.StepBody>
             <S.Head>위치</S.Head>
-
             <KeyWord mapStatus={props.mapStatus} />
-
-            <S.Head>카테고리</S.Head>
-            <S.Input
-              placeholder="카테고리를 입력해주세요."
-              defaultValue={props.data?.fetchBoard.category || ""}
-              value={
-                props.address.group_name === ""
-                  ? "기타"
-                  : props.address.group_name
-              }
-            />
+            {props.address.group_name !== "" && (
+              <>
+                <S.Head>카테고리</S.Head>
+                <S.Input
+                  placeholder="카테고리를 입력해주세요."
+                  defaultValue={props.data?.fetchBoard.category || ""}
+                  value={props.address.group_name}
+                />
+              </>
+            )}
             <S.Head>상호명</S.Head>
             <S.Input
-              placeholder="가게 이름을 입력해주세요."
+              // placeholder="가게 이름을 입력해주세요."
               defaultValue={props.data?.fetchBoard.place || ""}
               value={props.address.content}
             />
             <S.Head>주소</S.Head>
             <S.Input
-              placeholder="가게 주소를 입력해주세요."
+              // placeholder="가게 주소를 입력해주세요."
               defaultValue={props.data?.fetchBoard.address || ""}
               value={props.address.address_name}
             />
@@ -194,7 +184,7 @@ export default function WritePresenter(props: IWritePresenter) {
       {props.activeStep === "third" && (
         <S.ImageStepWrapper>
           <S.StepBody>
-            <S.ImageRow>
+            <S.ImageMap>
               {props.fileUrls.map((el, index) => (
                 <ImageBoardUpload
                   key={uuidv4()}
@@ -204,7 +194,7 @@ export default function WritePresenter(props: IWritePresenter) {
                   defaultValue={props.data?.fetchBoard.images.imageUrl || ""}
                 />
               ))}
-            </S.ImageRow>
+            </S.ImageMap>
           </S.StepBody>
           <S.ImageBottom>
             <S.StepButton type="button" onClick={props.onClickThirdPrev}>
