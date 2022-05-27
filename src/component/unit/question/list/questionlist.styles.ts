@@ -2,7 +2,7 @@ import styled from "@emotion/styled";
 import { IWriteButtonProps } from "./questionlist.types";
 
 export const WrapperOut = styled.div`
-  width: 50%;
+  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: flex-end;
@@ -12,11 +12,11 @@ export const RowBox = styled.div`
   width: 100%;
 `;
 export const Profile = styled.div`
-  width: 10%;
+  width: 7%;
 `;
 export const ProfileImage = styled.img`
   padding: 10%;
-  width: 80%;
+  /* width: 80%; */
 `;
 export const RightBox = styled.div`
   width: 90%;
@@ -34,62 +34,31 @@ export const Time = styled.span`
   color: gray;
   margin-left: 0.3%;
 `;
-export const Question = styled.input`
-  font-size: 1.2rem;
-  /* display: block; */
+export const Question = styled.div`
+  font-size: 1.3rem;
+  height: 35%;
+  outline: none;
+  border: 1px solid lightgray;
+  border-radius: 12px;
+  padding: 1%;
+  box-shadow: 8px 13px 3px #f4f4f4;
 `;
 export const QuestionAnswer = styled.div`
-  margin-top: 0.3%;
-  font-size: 1.1rem;
-  color: gray;
-  padding-top: 0.5%;
-  cursor: pointer;
-`;
-
-// 답글
-
-export const QuestionBox = styled.div`
-  width: 90%;
-  /* border: 1px solid gainsboro; */
-  display: flex;
-  justify-content: space-between;
-`;
-export const PersonBox = styled.div`
-  width: 10%;
-`;
-export const Person = styled.img`
-  padding: 10%;
-  width: 80%;
-`;
-export const CommentBox = styled.div`
-  width: 95%;
-`;
-export const QuestionInput = styled.input`
-  width: 100%;
-  height: 50%;
-  border: none;
-  border-bottom: 1px solid gainsboro;
-`;
-export const Box = styled.div``;
-export const ButtonBox = styled.div`
   display: flex;
   justify-content: flex-end;
+  height: 30px;
   margin: 1% 2%;
-`;
-export const Cancel = styled.div`
-  width: 7%;
-  height: 30px;
-  line-height: 2.5;
+  line-height: 2.2;
   font-size: 1.3rem;
   text-align: center;
+  cursor: pointer;
 `;
-export const Write = styled.div`
-  width: 7%;
-  height: 30px;
-  line-height: 2.5;
-  font-size: 1.3rem;
-  text-align: center;
-  background-color: ${(props: IWriteButtonProps) =>
-    props.isActive ? "#008af6" : "none"};
-  color: ${(props: IWriteButtonProps) => (props.isActive ? "white" : "black")};
+// dropdown menu
+export const DropDown = styled.div``;
+export const Circle = styled.img`
+  width: 30px;
+  margin-top: 38px;
 `;
+export const Submenu = styled.div``;
+export const Edit = styled.div``;
+export const Delete = styled.div``;

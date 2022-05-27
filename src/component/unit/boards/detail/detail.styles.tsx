@@ -9,6 +9,7 @@ export const WrapperOut = styled.div`
   display: flex;
   flex-direction: column;
   position: relative;
+  /* border: 1px solid red; */
 `;
 export const WrapperTop = styled.div`
   width: 100%;
@@ -20,7 +21,7 @@ export const TopLeft = styled.div`
   width: 50%;
   display: flex;
   flex-direction: column;
-  padding: 5%;
+  padding: 5% 5% 5% 0%;
 `;
 export const EditDeleteWrap = styled.div`
   width: 13%;
@@ -76,22 +77,23 @@ export const TopRight = styled.div`
   width: 50%;
   margin: 2% auto;
   padding: 6%;
-  border-radius: 41px 41px 41px 41px;
+  /* border-radius: 41px 41px 41px 41px;
   -moz-border-radius: 41px 41px 41px 41px;
   -webkit-border-radius: 41px 41px 41px 41px;
   -webkit-box-shadow: 10px 10px 20px 3px rgba(214, 214, 214, 1);
   -moz-box-shadow: 10px 10px 20px 3px rgba(214, 214, 214, 1);
-  box-shadow: 10px 10px 20px 3px rgba(214, 214, 214, 1);
+  box-shadow: 10px 10px 20px 3px rgba(214, 214, 214, 1); */
 `;
 export const UserTitle = styled.div`
   width: 100%;
-  font-size: 2.9rem;
+  font-size: 2.7rem;
   padding-left: 2%;
   border-bottom: 0.5px solid rgba(0, 0, 0, 0.16);
 `;
 export const Wrap = styled.div`
-  font-size: 1.5rem;
+  font-size: 1.4rem;
   padding: 4% 0 0 2%;
+  color: #a7a7a7;
 `;
 
 export const UserInfoWrap = styled.div`
@@ -111,7 +113,7 @@ export const UserImg = styled.img`
 
 export const UserName = styled.div`
   width: 70%;
-  font-size: 2rem;
+  font-size: 1.8rem;
   margin-left: 10%;
   display: flex;
   align-items: center;
@@ -148,8 +150,8 @@ export const UserMiddle = styled.div`
 `;
 export const ShopName = styled.div`
   width: 50%;
-  font-size: 2.3rem;
-  margin-right: 5%;
+  font-size: 2.1rem;
+  /* margin-right: 3%; */
 `;
 export const ShopRatingWrap = styled.div`
   width: 50%;
@@ -175,6 +177,7 @@ export const UserContents = styled.div`
   box-shadow: rgba(0, 0, 0, 0.16) 0px 0.5px 2px;
   border-radius: 5%;
   overflow: scroll;
+  border: 1px solid red;
   ::-webkit-scrollbar {
     display: none;
   }
@@ -207,15 +210,15 @@ export const Category = styled.button`
 `;
 
 export const Good = styled.img`
-  width: 20%;
+  width: 18%;
   padding: 3%;
 `;
 export const Soso = styled.img`
-  width: 20%;
+  width: 18%;
   padding: 3%;
 `;
 export const Bad = styled.img`
-  width: 20%;
+  width: 18%;
   padding: 3%;
 `;
 
@@ -251,6 +254,13 @@ export const Button = styled.button`
 `;
 
 export const WraperQuestion = styled.div`
-  width: 100%;
+  width: 70%;
   margin: 0 auto;
+  margin-bottom: 10%;
+`;
+export const Question = styled.div`
+  font-size: 1.7rem;
+  margin-top: 10%;
+  margin-bottom: 5%;
+  border-bottom: 1px solid gainsboro;
 `;

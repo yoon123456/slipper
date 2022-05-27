@@ -21,7 +21,7 @@ export default function HeaderPresenter(props: HeaderPrpos) {
     try {
       await logout();
       alert("성공");
-      location.reload();
+      // location.reload();
       router.push("/boards");
     } catch (error) {
       alert("메롱");

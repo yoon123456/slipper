@@ -3,21 +3,17 @@ import * as S from "./answerwrite.styles";
 import { IAnswerWritePresenter } from "./answerwrite.types";
 
 export default function AnswerWritePresenter(props: IAnswerWritePresenter) {
-  const [isActive, setIsActive] = useState(false);
   const [isActiveButton, setIsActiveButton] = useState(false);
 
   const [, setQuestion] = useState("");
-
-  // const onCLickQuestionAnswer = (event: any) => {
-  //   setQuestion(event.target.value);
-  //   setIsActive(true);
-  // };
 
   const onChangeQuestionInput = (event: ChangeEvent<HTMLInputElement>) => {
     setQuestion(event.target.value);
     setIsActiveButton(true);
   };
-
+  const onClickClose = () => {
+    props.setIsActive(false);
+  };
   return (
     <>
       <S.QuestionBox>
@@ -25,6 +21,10 @@ export default function AnswerWritePresenter(props: IAnswerWritePresenter) {
           <S.Person src="/image/person.png"></S.Person>
         </S.PersonBox>
         <S.CommentBox>
+          <S.Top>
+            <S.Name>attosisss_</S.Name>
+            <S.Time>17시간전</S.Time>
+          </S.Top>
           <S.QuestionInput
             type="text"
             onChange={onChangeQuestionInput}
@@ -32,7 +32,7 @@ export default function AnswerWritePresenter(props: IAnswerWritePresenter) {
           />
           <S.Box>
             <S.ButtonBox>
-              <S.Cancel>취소</S.Cancel>
+              <S.Cancel onClick={onClickClose}>취소</S.Cancel>
               <S.Write isActive={isActiveButton}>답글</S.Write>
             </S.ButtonBox>
           </S.Box>

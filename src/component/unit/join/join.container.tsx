@@ -108,6 +108,7 @@ export default function JoinContainer() {
         },
       });
       Modal.success({ content: "인증이 완료되었습니다" });
+      setFlag(false);
     } catch (error) {
       Modal.error({ content: "인증에 실패하였습니다" });
     }
