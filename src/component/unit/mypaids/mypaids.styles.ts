@@ -42,7 +42,8 @@ export const RowWrapper = styled.div`
   flex-direction: row;
   align-items: center;
   justify-content: space-around;
-  background-color: #f5f7f9;
+  /* background-color: #f5f7f9; */
+  background-color: #f4f7f9b3;
   border-radius: 5px;
   padding: 1% 4% 1% 4%;
   margin: 1%;

@@ -1,10 +1,15 @@
-import { FieldValues, UseFormRegister } from "react-hook-form";
+import {
+  FieldValues,
+  FormState,
+  UseFormHandleSubmit,
+  UseFormRegister,
+} from "react-hook-form";
 
 export interface IMyinformationPresenter {
   data: any;
   register: UseFormRegister<FieldValues>;
-  handleSubmit: any;
-  formState: any;
+  handleSubmit: UseFormHandleSubmit<FieldValues>;
+  formState: FormState<FieldValues>;
   onChangeFileUrl: (fileUrl: string) => void;
   fileUrl: string[];
   onClickMoveToUpdate: () => void;

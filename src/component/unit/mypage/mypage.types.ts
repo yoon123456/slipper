@@ -1,28 +1,20 @@
+import { ChangeEvent } from "react";
+import { IQuery } from "../../../commons/types/generated/types";
+
 export interface IMyPagePresenter {
   mypageRight: string;
   onClickMypicks: () => void;
   onClickMyboards: () => void;
   onClickMypaids: () => void;
-  data: any;
-  // 닉네임
-  showNicknameModal: () => void;
-  nicknameModalVisible: boolean;
-  nicknameModalCancel: () => void;
-  onChangeNickname: (event: any) => void;
-  nicknameModalOk: () => void;
-  // 프로필이미지
-  showProfileImgModal: () => void;
-  profileImgModalVisible: boolean;
-  profileImgModalCancel: () => void;
-  onChangeFileUrl: () => {};
+  data?: Pick<IQuery, "fetchUser">;
   fileUrl: string[];
-  profileImgModalOk: () => void;
-  // 자기소개
-  showIntroduceModal: () => void;
-  introduceModalVisible: boolean;
-  introduceModalCancel: () => void;
-  onChangeIntroduce: (event: any) => void;
-  introduceModalOk: () => void;
+  showModal: () => void;
+  modalVisible: boolean;
+  modalCancel: () => void;
+  onChangeNickname: (event: ChangeEvent<HTMLInputElement>) => void;
+  onChangeFileUrl: (fileUrl: string) => void;
+  onChangeIntroduce: (event: ChangeEvent<HTMLInputElement>) => void;
+  modalOk: () => void;
 }
 
 export interface IProps {

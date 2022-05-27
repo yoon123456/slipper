@@ -1,11 +1,10 @@
-// 해리 작업 5/12
+// haeri 작업시작 22.05.12
 import styled from "@emotion/styled";
-
-import { DatePicker, Space } from "antd";
-const { RangePicker } = DatePicker;
-
+import { DatePicker } from "antd";
 import "react-quill/dist/quill.snow.css";
 import dynamic from "next/dynamic";
+
+const { RangePicker } = DatePicker;
 const ReactQuill = dynamic(() => import("react-quill"), { ssr: false });
 
 export const WrapperOut = styled.div`
@@ -21,12 +20,11 @@ export const TopWrapper = styled.div`
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  /* background-color: red; */
 `;
 export const TopColumnOn = styled.div`
-  width: 33.3%;
-  height: 70px;
-  padding: 1% 3% 1% 3%;
+  width: 33.5%;
+  height: 90px;
+  padding: 2%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -34,25 +32,30 @@ export const TopColumnOn = styled.div`
   background-color: white;
   border-top-left-radius: 20px;
   border-top-right-radius: 20px;
-  box-shadow: 5px -5px 8px rgba(214, 214, 214, 1);
-  /* box-shadow: inset 0 7px 9px -7px rgba(0, 0, 0, 0.4); */
+  /* box-shadow: 5px -5px 8px rgba(214, 214, 214, 1); */
+  box-shadow: 5px -5px 8px rgb(221 220 220);
+  /* border: 1px solid lightgray; */
+  /* border-bottom: none; */
+  margin-top: 20px;
+  z-index: 9999;
 `;
 export const TopColumnOff = styled.div`
-  width: 33.3%;
-  height: 70px;
-  padding: 1% 3% 1% 3%;
+  width: 33.5%;
+  height: 90px;
+  padding: 2%;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
-  background-color: #f6f6f6;
+  color: gray;
+  /* background-color: #f6f6f6; */
   border-top-left-radius: 20px;
   border-top-right-radius: 20px;
-  /* box-shadow: -5px -5px 5px rgba(214, 214, 214, 1); */
-  /* box-shadow: inset 0 7px 9px -7px rgba(0, 0, 0, 0.4); */
-  box-shadow: inset 0 7px 9px -7px #c5c5c5;
+  box-shadow: 5px -5px 8px rgb(238 238 238);
+  /* border: 1px solid lightgray; */
+  /* border-bottom: none; */
+  margin-top: 20px;
 `;
-
 export const TopRow = styled.div`
   width: 40%;
   display: flex;
@@ -63,7 +66,6 @@ export const TopRow = styled.div`
 export const TopImg = styled.img`
   width: 25%;
   height: 80%;
-  /* margin-right: 1%; */
 `;
 export const Top = styled.div`
   font-size: 2rem;
@@ -78,23 +80,26 @@ export const StepWrapper = styled.div`
   height: 900px;
   padding: 3% 15% 8.5% 15%;
   border-radius: 0px 0px 41px 41px;
-  box-shadow: 0px 10px 20px rgba(214, 214, 214, 1);
+  /* box-shadow: 0px 10px 20px rgba(214, 214, 214, 1); */
+  /* box-shadow: 0px 7px 20px #008af6; */
+  box-shadow: 4px 2px 14px 0px #e8e8e8;
+  /* border: 1px solid lightgray; */
+  /* border-top: none; */
+  z-index: 0;
 `;
 export const StepBody = styled.div`
   width: 100%;
   height: 90%;
 `;
 export const Head = styled.div`
-  margin-top: 5%;
-  margin-bottom: 1%;
+  /* margin-top: 5%; */
+  margin-bottom: 3%;
   font-size: 1.6rem;
   color: #008af6;
-  /* color: white; */
 `;
 export const StyledRangePicker = styled(RangePicker)`
   width: 130%;
-  margin-bottom: 5%;
-  /* padding: 3% 3% 3% 0; */
+  margin-bottom: 15%;
 `;
 export const HeadCategory = styled.div`
   margin-bottom: 0;
@@ -102,15 +107,16 @@ export const HeadCategory = styled.div`
   color: #008af6;
 `;
 export const HeadContents = styled.div`
-  margin-top: 1%;
-  margin-bottom: 2%;
+  /* margin-top: 1%; */
+  margin-bottom: 3%;
   font-size: 1.6rem;
   color: #008af6;
 `;
 export const Input = styled.input`
   width: 100%;
   padding: 1%;
-  margin-bottom: 2%;
+  /* margin-bottom: 2%; */
+  margin-bottom: 7%;
   border: none;
   border-bottom: 1px solid gainsboro;
   outline: none;
@@ -125,7 +131,8 @@ export const RatingWrapper = styled.div`
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  margin-bottom: 5%;
+  margin-bottom: 7%;
+  /* padding-top: 1%; */
 `;
 export const RatingImg = styled.img`
   cursor: pointer;
@@ -134,6 +141,7 @@ export const RatingImg = styled.img`
 `;
 export const StyledQuill = styled(ReactQuill)`
   height: 250px;
+  margin-bottom: 15px;
   .ql-editor {
     padding: 1%;
     min-height: 320px;
@@ -178,7 +186,6 @@ export const StepButton = styled.button`
 export const ImageStepWrapper = styled.div`
   width: 100%;
   height: 900px;
-  /* padding: 8% 15% 8% 15%; */
   padding: 7% 15% 5% 15%;
   border-radius: 0px 0px 41px 41px;
   box-shadow: 0px 10px 20px rgba(214, 214, 214, 1);
@@ -200,5 +207,4 @@ export const ImageBottom = styled.div`
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  /* padding: 0 11% 0 11%; */
 `;
