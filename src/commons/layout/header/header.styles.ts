@@ -4,7 +4,7 @@ export const WrapperOut = styled.div`
   width: 100%;
   display: flex;
   justify-content: space-between;
-  border-bottom: 1px solid gainsboro;
+  box-shadow: 2px 9px 11px 0px #f2f2f2; ;
 `;
 
 // 로고 박스

@@ -8,6 +8,7 @@ import { getDate } from "../../../../commons/libraries/date";
 import KakaoMapFetch from "../../../../commons/kakaoMapFetch";
 import QuestionWriteContainer from "../../question/write/questionwrite.container";
 import Dompurify from "dompurify";
+import QuestionListUIItem from "../../question/list/questiontlist.presenteritem";
 
 export default function DetailPresenter(props: IDetailPresenter) {
   const settings = {
@@ -57,7 +58,7 @@ export default function DetailPresenter(props: IDetailPresenter) {
           </S.EditDeleteWrap>
           <S.TopRight>
             <S.UserTitle>{props.data?.fetchBoard.title}</S.UserTitle>
-            <S.Wrap>가게정보</S.Wrap>
+            <S.Wrap>가게정보가 궁금하신가요?</S.Wrap>
             <S.UserMiddle>
               <S.ShopName>{props.data?.fetchBoard.place}</S.ShopName>
               <S.CategoryWrap>
@@ -122,7 +123,9 @@ export default function DetailPresenter(props: IDetailPresenter) {
         </S.WrapperTop>
       </S.WrapperOut>
       <S.WraperQuestion>
+        <S.Question>댓글</S.Question>
         <QuestionWriteContainer />
+        <QuestionListUIItem />
       </S.WraperQuestion>
     </>
   );
