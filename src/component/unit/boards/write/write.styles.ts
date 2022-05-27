@@ -1,7 +1,12 @@
 // 해리 작업 5/12
 import styled from "@emotion/styled";
+
 import { DatePicker, Space } from "antd";
 const { RangePicker } = DatePicker;
+
+import "react-quill/dist/quill.snow.css";
+import dynamic from "next/dynamic";
+const ReactQuill = dynamic(() => import("react-quill"), { ssr: false });
 
 export const WrapperOut = styled.div`
   font-family: "HallymGothic-Regular";
@@ -71,7 +76,7 @@ export const TopDetail = styled.div`
 export const StepWrapper = styled.div`
   width: 100%;
   height: 900px;
-  padding: 7% 15% 5% 15%;
+  padding: 3% 15% 8.5% 15%;
   border-radius: 0px 0px 41px 41px;
   box-shadow: 0px 10px 20px rgba(214, 214, 214, 1);
 `;
@@ -80,14 +85,15 @@ export const StepBody = styled.div`
   height: 90%;
 `;
 export const Head = styled.div`
-  margin-bottom: 2%;
+  margin-top: 5%;
+  margin-bottom: 1%;
   font-size: 1.6rem;
   color: #008af6;
   /* color: white; */
 `;
 export const StyledRangePicker = styled(RangePicker)`
   width: 130%;
-  margin-bottom: 12%;
+  margin-bottom: 5%;
   /* padding: 3% 3% 3% 0; */
 `;
 export const HeadCategory = styled.div`
@@ -104,7 +110,7 @@ export const HeadContents = styled.div`
 export const Input = styled.input`
   width: 100%;
   padding: 1%;
-  margin-bottom: 6%;
+  margin-bottom: 2%;
   border: none;
   border-bottom: 1px solid gainsboro;
   outline: none;
@@ -114,28 +120,30 @@ export const Input = styled.input`
   }
 `;
 export const RatingWrapper = styled.div`
-  width: 13%;
+  width: 17%;
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
   margin-bottom: 5%;
 `;
-export const RatingColumn = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  /* justify-content: space-around; */
+export const RatingImg = styled.img`
+  cursor: pointer;
+  width: 25%;
+  height: 50%;
 `;
-export const Checkbox = styled.input``;
-// export const Rating = styled.img`
-// width: 25px;
-// height: 25px;
-// `;
-export const Rating = styled.div`
-  /* width: 100px; */
-  /* height: 25px; */
-  font-size: 1.9rem;
+export const StyledQuill = styled(ReactQuill)`
+  height: 250px;
+  .ql-editor {
+    padding: 1%;
+    min-height: 320px;
+    font-size: 25px;
+    line-height: 1.5;
+  }
+  /* 첫번째 자식요소에 스타일링 css */
+  /* .ql-editor .ql-blank::before {
+    left: 0;
+  } */
 `;
 export const StepBottom = styled.div`
   width: 100%;
@@ -148,7 +156,6 @@ export const StepBottom = styled.div`
 export const StepButton = styled.button`
   width: 13%;
   height: 40%;
-  /* margin: 10%; */
   padding: 1%;
   color: gray;
   font-size: 1.3rem;
@@ -162,48 +169,29 @@ export const StepButton = styled.button`
   box-shadow: 3px 3px 7px 0 rgba(0, 0, 0, 0.25),
     -4px -4px 7px 0 rgba(255, 255, 255, 0.3);
   cursor: pointer;
-  :hover {
-    background: linear-gradient(to bottom, #ffffff 5%, #f0f0f0 100%);
-    background-color: #ffffff;
-    color: #008af6;
-  }
   :active {
     position: relative;
-    top: 1px;
+    top: 2px;
+    color: #008af6;
   }
 `;
-export const Map = styled.div`
-  width: 100%;
-  height: 250px;
-  margin-bottom: 6%;
-  /* width: 50%;
-  margin: 0 auto;
-  padding-right: 6%; */
-`;
-// export const ImageWrapper = styled.div`
-//   width: 100%;
-//   height: 70%;
-//   display: flex;
-//   flex-direction: column;
-//   justify-content: space-around;
-//   align-items: center;
-// `;
-
 export const ImageStepWrapper = styled.div`
   width: 100%;
   height: 900px;
-  padding: 5% 5% 5% 5%;
+  /* padding: 8% 15% 8% 15%; */
+  padding: 7% 15% 5% 15%;
   border-radius: 0px 0px 41px 41px;
   box-shadow: 0px 10px 20px rgba(214, 214, 214, 1);
 `;
-export const ImageRow = styled.div`
+export const ImageMap = styled.div`
   width: 100%;
-  /* padding: 0 10% 0 10%; */
-  padding-top: 7%;
+  height: 90%;
   display: flex;
   flex-direction: row;
   justify-content: space-around;
   flex-wrap: wrap;
+  padding-top: 10%;
+  padding-bottom: 10%;
 `;
 export const ImageBottom = styled.div`
   width: 100%;
@@ -212,5 +200,5 @@ export const ImageBottom = styled.div`
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  padding: 0 11% 0 11%;
+  /* padding: 0 11% 0 11%; */
 `;

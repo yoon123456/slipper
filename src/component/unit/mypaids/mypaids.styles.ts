@@ -30,7 +30,7 @@ export const BodyHead = styled.div`
 `;
 export const Body = styled.div`
   /* padding: 1%; */
-  height: 400px;
+  height: 500px;
   overflow: scroll;
   ::-webkit-scrollbar {
     display: none;
@@ -47,7 +47,9 @@ export const RowWrapper = styled.div`
   padding: 1% 4% 1% 4%;
   margin: 1%;
   :hover {
-    box-shadow: 5px 7px 42px 1px rgba(0, 0, 0, 0.12);
+    /* position: relative; */
+    /* bottom: 2px; */
+    color: #008af6;
   }
 `;
 export const Row = styled.div`

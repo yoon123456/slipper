@@ -1,7 +1,6 @@
 // 해리 작업 5/12
 import WritePresenter from "./write.presenter";
 import { CREATE_BOARD, UPDATE_BOARD } from "./write.query";
-import dynamic from "next/dynamic";
 import { useMutation } from "@apollo/client";
 import { Modal } from "antd";
 import { ChangeEvent, useState } from "react";
@@ -11,8 +10,6 @@ import { IUpdateBoardInput } from "../../../../commons/types/generated/types";
 import { useRecoilState } from "recoil";
 import { kakaoAddress } from "../../../../commons/store/kakaounit";
 
-const ReactQuill = dynamic(() => import("react-quill"), { ssr: false });
-
 export default function WriteContainer(props) {
   const router = useRouter();
   const [address, setAddress] = useRecoilState(kakaoAddress);
@@ -21,9 +18,9 @@ export default function WriteContainer(props) {
   const [endDate, SetEndDate] = useState("");
   const [title, setTitle] = useState("");
   const [contents, setContents] = useState("");
-  const [chkFirst, setChkFirst] = useState(false);
-  const [chkSecond, setChkSecond] = useState(false);
-  const [chkThird, setChkThird] = useState(false);
+  const [happy, setHappy] = useState(false);
+  const [uhm, setUhm] = useState(false);
+  const [sad, setSad] = useState(false);
   const [score, setScore] = useState(0);
   const [mapStatus, setMapStatus] = useState(false);
   const [fileUrls, setFileUrls] = useState(["", "", "", ""]);
@@ -50,22 +47,22 @@ export default function WriteContainer(props) {
     SetEndDate(dateString[1]);
   };
 
-  const onClickFirst = () => {
-    setChkFirst(true);
-    setChkSecond(false);
-    setChkThird(false);
+  const onClickHappy = () => {
+    setHappy((prev) => !prev);
+    setUhm(false);
+    setSad(false);
     setScore(1);
   };
-  const onClickSecond = () => {
-    setChkFirst(false);
-    setChkSecond(true);
-    setChkThird(false);
+  const onClickUhm = () => {
+    setHappy(false);
+    setUhm((prev) => !prev);
+    setSad(false);
     setScore(2);
   };
-  const onClickThird = () => {
-    setChkFirst(false);
-    setChkSecond(false);
-    setChkThird(true);
+  const onClickSad = () => {
+    setHappy(false);
+    setUhm(false);
+    setSad((prev) => !prev);
     setScore(3);
   };
 
@@ -95,9 +92,6 @@ export default function WriteContainer(props) {
             title,
             contents,
             category: address.group_name,
-            // category:                 {address.group_name === ""
-            // ? "기타"
-            // : address.group_name}
             lat: address.position.lat,
             lng: address.position.lng,
             address: address.address_name,
@@ -108,7 +102,6 @@ export default function WriteContainer(props) {
       });
       console.log(result);
       Modal.success({ content: "회원님의 글이 정상적으로 등록되었습니다." });
-      // router.push(`/boards/${result.data.createBoard.id}`);
       router.push(`/boards/${result.data.createBoard.id}`);
     } catch (error) {
       if (error instanceof Error) Modal.error({ content: error.message });
@@ -139,19 +132,18 @@ export default function WriteContainer(props) {
 
   return (
     <WritePresenter
-      ReactQuill={ReactQuill}
       activeStep={activeStep}
       onClickFirstNext={onClickFirstNext}
       onClickSecondPrev={onClickSecondPrev}
       onClickSecondNext={onClickSecondNext}
       onClickThirdPrev={onClickThirdPrev}
       onChangeRange={onChangeRange}
-      onClickFirst={onClickFirst}
-      onClickSecond={onClickSecond}
-      onClickThird={onClickThird}
-      chkFirst={chkFirst}
-      chkSecond={chkSecond}
-      chkThird={chkThird}
+      happy={happy}
+      uhm={uhm}
+      sad={sad}
+      onClickHappy={onClickHappy}
+      onClickUhm={onClickUhm}
+      onClickSad={onClickSad}
       onChangeTitle={onChangeTitle}
       onChangeContents={onChangeContents}
       mapStatus={mapStatus}

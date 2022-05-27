@@ -10,8 +10,9 @@ const UPLOAD_BOARD_IMAGE = gql`
 `;
 
 const UploadImage = styled.img`
-  width: 45%;
-  height: 250px;
+  object-fit: contain;
+  width: 40%;
+  height: 200px;
   outline: none;
   cursor: pointer;
   padding: 2%;
@@ -20,19 +21,20 @@ const UploadImage = styled.img`
   border-radius: 10px;
 `;
 const UploadButton = styled.div`
-  width: 45%;
-  height: 250px;
+  width: 40%;
+  height: 200px;
   outline: none;
   cursor: pointer;
+  display: flex;
+  justify-content: center;
   padding: 9%;
-  padding-left: 16%;
   margin: 2%;
   background-image: url("data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%25' height='100%25' fill='none' rx='25' ry='25' stroke='gainsboro' stroke-width='4' stroke-dasharray='18' stroke-dashoffset='0' stroke-linecap='square'/%3e%3c/svg%3e");
   border-radius: 10px;
 `;
 const UploadIcon = styled.img`
-  /* width: 50%; */
-  /* height: 50%; */
+  width: 50%;
+  height: 90%;
 `;
 const UploadFileHidden = styled.input`
   display: none;
