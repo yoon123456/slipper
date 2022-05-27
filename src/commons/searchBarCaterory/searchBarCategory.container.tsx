@@ -3,7 +3,8 @@ import { ChangeEvent, MouseEvent, useState } from "react";
 import { useRecoilState } from "recoil";
 import { CategoryState, SearchBarIsActiveState, SearchState } from "../store";
 import SearchBarCategoryPresenter from "./searchBarCategory.presenter";
-export default function SearchBarCategoryContainer() {
+import { ISearchKeyWord } from "./searchBarCategory.types";
+export default function SearchBarCategoryContainer(props: ISearchKeyWord) {
   const [isActive, setIsActive] = useRecoilState(SearchBarIsActiveState);
   const [search, setSearch] = useRecoilState(SearchState);
   const [category, setCategory] = useState(CategoryState);
@@ -30,6 +31,8 @@ export default function SearchBarCategoryContainer() {
     category;
     console.log(search, category);
     setIsActive(false);
+    props.refetch({ search, page: 1 });
+    console.log(search);
   };
 
   return (

@@ -26,10 +26,24 @@ export default function DetailContainer() {
   >(DELETE_BOARD);
 
   // 게시글 삭제 함수
-  const onClickDeleteBoard = (event: MouseEvent<HTMLImageElement>) => {
-    deleteBoard({
-      variables: { boardId: String((event.target as HTMLImageElement).id) },
-      refetchQueries: [{ query: FETCH_BOARDS_PAGE }],
+  const onClickDeleteBoard = async (event: MouseEvent<HTMLImageElement>) => {
+    await deleteBoard({
+      variables: {
+        boardId: String((event.target as HTMLImageElement).id),
+      },
+      update(cache, { data }) {
+        const deleteBoard = data?.deleteBoard;
+        cache.modify({
+          fields: {
+            deleteBoard: (prev, { readField }) => {
+              const filteredPrev = prev.filter(
+                (el: any) => readField("id", el) !== deleteBoard
+              );
+              return [...filteredPrev];
+            },
+          },
+        });
+      },
     });
     alert("게시글 삭제에 성공하였습니다");
   };

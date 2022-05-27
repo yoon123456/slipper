@@ -119,8 +119,6 @@ export default function MyPageContainer() {
       if (error instanceof Error) Modal.error({ content: error.message });
     }
   };
-
-  console.log(data);
   return (
     <>
       <MyPagePresenter

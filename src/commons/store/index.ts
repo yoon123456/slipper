@@ -71,3 +71,17 @@ export const userNicknameState = atom({
   key: "userNicknameState",
   default: "",
 });
+
+export const userLoginInfo = atom({
+  key: "userLoginInfo",
+  default: {
+    email: "",
+    nickname: "",
+    subStart: "",
+    subEnd: "",
+    subType: "",
+    payment: {
+      impUid: "",
+    },
+  },
+});

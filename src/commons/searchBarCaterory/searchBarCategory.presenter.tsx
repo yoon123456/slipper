@@ -1,4 +1,5 @@
 import * as S from "./searchBarCategory.styles";
+import { v4 as uuidv4 } from "uuid";
 import { ISearchBarCategoryPresenter } from "./searchBarCategory.types";
 
 export const CATEGORYS = [
@@ -58,14 +59,18 @@ export default function SearchBarCategoryPresenter(
           onChange={props.onChangeSearch}
           value={props.search}
         />
-        <S.SearchButton type="submit" onClick={props.onClickButton}>
+        <S.SearchButton
+          key={uuidv4()}
+          type="submit"
+          onClick={props.onClickButton}
+        >
           검색
         </S.SearchButton>
       </S.SearchWrap>
       {props.isActive && (
         <S.CategoryWrapperOut>
           {CATEGORYS.map((el, i) => (
-            <S.BoxWrap key={i}>
+            <S.BoxWrap key={uuidv4()}>
               <S.Box value={el.value} onClick={props.onClickCategory}>
                 {el.value}
               </S.Box>
