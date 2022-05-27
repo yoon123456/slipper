@@ -2,9 +2,10 @@ import { ChangeEvent, useState } from "react";
 import AnswerWriteContainer from "../../answer/write/answerwrite.container";
 import * as S from "./questionlist.styles";
 
+// 승현-22.05.26-댓글
 export default function QuestionListUIItem() {
   const [isActive, setIsActive] = useState(false);
-  const [isCircle, setIsCircle] = useState(false);
+  // const [isCircle, setIsCircle] = useState(false);
   const [question, setQuestion] = useState("");
 
   const onChangeQuestionAnswer = (event: ChangeEvent<HTMLInputElement>) => {
@@ -15,9 +16,9 @@ export default function QuestionListUIItem() {
     setIsActive((isActive) => !isActive);
   };
 
-  const onClickCircle = () => {
-    setIsCircle((isCircle) => !isCircle);
-  };
+  // const onClickCircle = () => {
+  //   setIsCircle((isCircle) => !isCircle);
+  // };
   return (
     <>
       <S.WrapperOut>

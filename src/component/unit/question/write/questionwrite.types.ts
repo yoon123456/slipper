@@ -1,4 +1,4 @@
-import { ChangeEvent, MouseEventHandler } from "react";
+import { ChangeEvent } from "react";
 
 export interface IQuestionWritePresenter {
   onChangeQuestion: (event: ChangeEvent<HTMLInputElement>) => void;

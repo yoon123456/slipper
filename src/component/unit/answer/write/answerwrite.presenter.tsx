@@ -2,6 +2,7 @@ import { ChangeEvent, useState } from "react";
 import * as S from "./answerwrite.styles";
 import { IAnswerWritePresenter } from "./answerwrite.types";
 
+// 승현-22.05.26-댓글의댓글 작성칸
 export default function AnswerWritePresenter(props: IAnswerWritePresenter) {
   const [isActiveButton, setIsActiveButton] = useState(false);
 
