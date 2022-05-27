@@ -61,10 +61,19 @@ export const fadeInRight = keyframes`
     transform: none;
   }
 `;
+const R = keyframes`
+  from {
+    width: 50%;
+  }
+  to{
+  width: 70%;
+  }
+`;
+
 export const BossText = styled.div`
   margin-left: 30%;
   font-size: 1.5rem;
-  animation: ${fadeInDown} 5s both;
+  animation: ${fadeInDown} 1s both;
 `;
 export const WrapperOut = styled.div`
   width: 40%;
@@ -104,11 +113,18 @@ export const ProfileBox = styled.div`
   flex-direction: column;
   justify-content: center;
 `;
+
 export const InputProfile = styled.input`
   width: 70%;
   border: none;
   border-bottom: 2px solid gainsboro;
   margin-top: 12%;
+  outline: none;
+  :focus {
+    animation: ${R} 1s ease;
+    border-bottom: 2px solid #008af6;
+    transition: 0.5s linear;
+  }
 `;
 export const Check = styled.div`
   display: flex;
@@ -128,7 +144,9 @@ export const Tel = styled.input`
   height: 30px;
   border: 1px solid gainsboro;
   margin-right: 20px;
+  padding: 1%;
   border-radius: 5px;
+  outline: none;
 `;
 export const NumberAsk = styled.button`
   width: 100px;
@@ -137,6 +155,7 @@ export const NumberAsk = styled.button`
   background-color: #f2f2f2;
   border-radius: 10px;
   border: none;
+  outline: none;
 `;
 export const NumberBox = styled.div`
   margin-left: 3%;
@@ -147,7 +166,9 @@ export const Input = styled.input`
   height: 30px;
   border: 1px solid gainsboro;
   margin-right: 22px;
+  padding: 1%;
   border-radius: 5px;
+  outline: none;
 `;
 export const CheckEnd = styled.button`
   width: 100px;
@@ -158,49 +179,44 @@ export const CheckEnd = styled.button`
   border: none;
 `;
 export const PasswordCheck = styled.input`
-  width: 63%;
+  width: 70%;
   display: block;
   border: none;
   border-bottom: 2px solid gainsboro;
-  /* padding-bottom: 10px; */
   margin-top: 6.7%;
+  padding: 1%;
+  outline: none;
+  :focus {
+    animation: ${R} 1s ease;
+    border-bottom: 2px solid #008af6;
+    transition: 0.5s linear;
+  }
 `;
 export const PasswordCheck2 = styled.input`
-  width: 63%;
+  width: 70%;
   display: block;
   border: none;
   border-bottom: 2px solid gainsboro;
   margin-top: 7.3%;
-  /* margin-bottom: 6%; */
+  padding: 1%;
+  outline: none;
+  :focus {
+    animation: ${R} 1s ease;
+    border-bottom: 2px solid #008af6;
+    transition: 0.5s linear;
+  }
 `;
 export const Introduce = styled.input`
   width: 100%;
   height: 50px;
   display: block;
   margin-top: 35px;
+  padding: 1%;
   border: none;
   border: 1.5px solid gainsboro;
+  outline: none;
 `;
 export const JoinSlipper = styled.button`
-  /* width: 20%;
-  height: 30px;
-  line-height: 2.2;
-  margin: 0 auto;
-  padding: 5px;
-  margin-top: 5%;
-  margin-left: 40%;
-  text-align: center;
-  font-size: 1.3rem;
-  font-weight: bold;
-  background-color: white;
-  color: #008af6;
-  border: 2px solid #008af6;
-  border-radius: 10px;
-  cursor: pointer;
-  :hover {
-    background-color: #008af6;
-    color: white;
-  } */
   width: 100px;
   font-size: 1.3rem;
   padding: 5px;

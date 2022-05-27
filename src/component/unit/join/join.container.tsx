@@ -6,8 +6,14 @@ import { useForm } from "react-hook-form";
 import { useMutation } from "@apollo/client";
 import { CREATE_USER, GET_TOKEN, PROOF_TOKEN } from "./join.queries";
 import { ChangeEvent, useState } from "react";
-import { IFromValues } from "./join.types";
+import { IFormValues } from "./join.types";
 import { Modal } from "antd";
+import {
+  IMutation,
+  IMutationCreateUserArgs,
+  IMutationGetTokenArgs,
+  IMutationProofTokenArgs,
+} from "../../../commons/types/generated/types";
 
 const schema = yup.object({
   email: yup
@@ -39,7 +45,7 @@ const schema = yup.object({
 
 export default function JoinContainer() {
   const router = useRouter();
-  const { register, handleSubmit, formState } = useForm({
+  const { register, handleSubmit, formState } = useForm<IFormValues>({
     resolver: yupResolver(schema),
     mode: "onChange",
   });
@@ -51,15 +57,23 @@ export default function JoinContainer() {
   const [flag, setFlag] = useState(false);
   const [isActive, setIsActive] = useState(true);
   const [isActived, setIsActived] = useState(true);
-  // const [isButton, setIsButton] = useState(true);
 
   const [role, setRole] = useState("");
   const [isEdit, setIsEdit] = useState(false);
   const [isShow, setIsShow] = useState(true);
 
-  const [createUser] = useMutation(CREATE_USER);
-  const [getToken] = useMutation(GET_TOKEN);
-  const [proofToken] = useMutation(PROOF_TOKEN);
+  const [createUser] = useMutation<
+    Pick<IMutation, "createUser">,
+    IMutationCreateUserArgs
+  >(CREATE_USER);
+  const [getToken] = useMutation<
+    Pick<IMutation, "getToken">,
+    IMutationGetTokenArgs
+  >(GET_TOKEN);
+  const [proofToken] = useMutation<
+    Pick<IMutation, "proofToken">,
+    IMutationProofTokenArgs
+  >(PROOF_TOKEN);
 
   const onChangePhoneNum = (event: ChangeEvent<HTMLInputElement>) => {
     setPhoneNum(event.target.value);
@@ -114,10 +128,8 @@ export default function JoinContainer() {
     }
   };
 
-  const onClickJoin = async (data: IFromValues) => {
+  const onClickJoin = async (data: IFormValues) => {
     if (data.email && data.pw && data.nickname) {
-      // data 이름 바꾸기
-      console.log(data);
       try {
         const result = await createUser({
           variables: {
@@ -149,12 +161,10 @@ export default function JoinContainer() {
   const onClickRole = (event: ChangeEvent<HTMLInputElement>) => {
     setRole(event.target.value);
     setIsShow(false);
-    // setIsButton(false);
   };
   const onClickCancle = () => {
     router.push("/");
   };
-  console.log(role);
   return (
     <>
       <JoinPresenter
