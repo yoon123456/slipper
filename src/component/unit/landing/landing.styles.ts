@@ -33,6 +33,8 @@ export const WrapperTop = styled2.div`
 `;
 export const LogoBox = styled2.div`
   position: absolute;
+  width: 9%;
+  margin: 40px;
 `;
 export const HamBox = styled2.div`
   position: absolute;

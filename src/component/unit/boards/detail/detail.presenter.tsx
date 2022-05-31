@@ -10,6 +10,9 @@ import QuestionWriteContainer from "../../question/write/questionwrite.container
 import Dompurify from "dompurify";
 import QuestionListUIItem from "../../question/list/questiontlist.presenteritem";
 import { IBoardImage } from "../../../../commons/types/generated/types";
+import { useRecoilState } from "recoil";
+import { userNicknameState } from "../../../../commons/store";
+import QuestionListContainer from "../../question/list/questionlist.container";
 
 export default function DetailPresenter(props: IDetailPresenter) {
   const settings = {
@@ -33,7 +36,11 @@ export default function DetailPresenter(props: IDetailPresenter) {
                   {props.data?.fetchBoard.images?.map(
                     (el: IBoardImage, idx: number) => (
                       <S.ImgWrapper key={idx}>
-                        <S.Img src={el.imageUrl} />
+                        {el.imageUrl === "" ? (
+                          <S.Img src="/image/logo.png" />
+                        ) : (
+                          <S.Img src={el.imageUrl} />
+                        )}
                       </S.ImgWrapper>
                     )
                   )}
@@ -48,21 +55,28 @@ export default function DetailPresenter(props: IDetailPresenter) {
             <S.UserWriteDate>
               {getDate(props.data?.fetchBoard.createdAt)}
             </S.UserWriteDate>
-            <S.Icon
-              id={props.data?.fetchBoard.id}
-              src={"/image/edit.png"}
-              onClick={props.onClickMoveToBoardEdit}
-            />
-            <S.Icon
-              id={props.data?.fetchBoard.id}
-              src={"/image/delete3.png"}
-              onClick={props.onClickDeleteBoard}
-            />
+            {props.data?.fetchBoard.nickname ===
+            props.userData?.fetchUser.nickname ? (
+              <S.IconWrap>
+                <S.Icon
+                  id={props.data?.fetchBoard.id}
+                  src={"/image/edit.png"}
+                  onClick={props.onClickMoveToBoardEdit}
+                />
+                <S.Icon
+                  id={props.data?.fetchBoard.id}
+                  src={"/image/delete3.png"}
+                  onClick={props.onClickDeleteBoard}
+                />
+              </S.IconWrap>
+            ) : (
+              <></>
+            )}
           </S.EditDeleteWrap>
           <S.TopRight>
             <S.UserWrap>
               <S.UserTitle>{props.data?.fetchBoard.title}</S.UserTitle>
-              {props.isActive ? (
+              {props.likeData?.fetchUserLike.isLike ? (
                 <S.BookMark
                   id={props.data?.fetchBoard.id}
                   src="/image/bookmarkpick.png"
@@ -123,7 +137,7 @@ export default function DetailPresenter(props: IDetailPresenter) {
                     }
                   />
                 )}
-                <S.UserName>{props.data?.fetchBoard.user.nickname}</S.UserName>
+                <S.UserName>{props.data?.fetchBoard.nickname}</S.UserName>
               </S.User>
               <S.UserLivingWrap>
                 <S.UserLiving>거주기간:</S.UserLiving>
@@ -151,8 +165,10 @@ export default function DetailPresenter(props: IDetailPresenter) {
         </S.WrapperTop>
       </S.WrapperOut>
       <S.WraperQuestion>
-        <S.Question>댓글</S.Question>
-        <QuestionWriteContainer />
+        {/* <S.Question>댓글</S.Question> */}
+
+        <QuestionWriteContainer data={props.data} />
+        <QuestionListContainer data={props.data} />
         <QuestionListUIItem />
       </S.WraperQuestion>
     </>

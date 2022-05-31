@@ -11,21 +11,32 @@ import {
   IQuery,
   IQueryFetchBoardArgs,
 } from "../../../../commons/types/generated/types";
+import { FETCH_USER } from "../../login/login.queries";
+import { CLICK_LIKE } from "../list/list.query";
 import DetailPresenter from "./detail.presenter";
-import { CLICK_LIKE, DELETE_BOARD, FETCH_BOARD } from "./detail.query";
+import { DELETE_BOARD, FETCH_BOARD, FETCH_USER_LIKE } from "./detail.query";
 
 export default function DetailContainer() {
   const router = useRouter();
-  const [isActive, setIsActive] = useState(false);
+  const [isActive, setIsActive] = useState(0);
 
   // 게시글 상세 내용 가져오기 Query
-  const { data } = useQuery<Pick<IQuery, "fetchBoard">, IQueryFetchBoardArgs>(
-    FETCH_BOARD,
-    {
-      variables: { boardId: String(router.query.boardId) },
-    }
-  );
-  console.log(data, "ddd");
+  const { data, refetch } = useQuery<
+    Pick<IQuery, "fetchBoard">,
+    IQueryFetchBoardArgs
+  >(FETCH_BOARD, {
+    variables: { boardId: String(router.query.boardId) },
+  });
+
+  const { data: likeData } = useQuery(FETCH_USER_LIKE, {
+    variables: {
+      boardId: String(router.query.boardId),
+    },
+  });
+
+  // 유저 정보 가져오기 Query
+  const { data: userDate } = useQuery(FETCH_USER);
+
   // 게시글 삭제 Mutation
   const [deleteBoard] = useMutation<
     Pick<IMutation, "deleteBoard">,
@@ -33,10 +44,7 @@ export default function DetailContainer() {
   >(DELETE_BOARD);
 
   // 게시글 좋아요 Mutation
-  const [clickLike] = useMutation<
-    Pick<IMutation, "clickLike">,
-    IMutationClickLikeArgs
-  >(CLICK_LIKE);
+  const [clicklike] = useMutation(CLICK_LIKE);
 
   // 게시글 삭제 함수
   const onClickDeleteBoard = async (event: MouseEvent<HTMLImageElement>) => {
@@ -59,7 +67,7 @@ export default function DetailContainer() {
       },
     });
     Modal.success({ content: "게시글 삭제에 성공하였습니다" });
-    router.push("/boads");
+    router.push("/boards");
   };
 
   // 수정하기로 이동
@@ -75,12 +83,20 @@ export default function DetailContainer() {
   // 좋아요 함수
   const onClickLike = async (event: MouseEvent<HTMLImageElement>) => {
     try {
-      await clickLike({
+      const result = await clicklike({
         variables: {
           boardId: String((event.target as HTMLImageElement).id),
         },
+        refetchQueries: [
+          {
+            query: FETCH_USER_LIKE,
+            variables: {
+              boardId: String((event.target as HTMLImageElement).id),
+            },
+          },
+        ],
       });
-      setIsActive((isActive) => !isActive);
+      setIsActive(result.data?.clickLike);
     } catch (error) {
       alert("실패");
     }
@@ -90,10 +106,13 @@ export default function DetailContainer() {
     <DetailPresenter
       onClickDeleteBoard={onClickDeleteBoard}
       data={data}
+      likeData={likeData}
       onClickMoveToList={onClickMoveToList}
       onClickMoveToBoardEdit={onClickMoveToBoardEdit}
       onClickLike={onClickLike}
       isActive={isActive}
+      refetch={refetch}
+      userData={userDate}
     />
   );
 }

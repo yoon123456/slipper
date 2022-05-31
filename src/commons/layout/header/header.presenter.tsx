@@ -11,23 +11,32 @@ export default function HeaderPresenter(props: HeaderPrpos) {
   return (
     <>
       <S.WrapperOut>
-        <S.WrapperInLogo onClick={props.onClickMoveToPage("/boards")}>
-          <Logo />
-        </S.WrapperInLogo>
-        <S.WrapperIn>
+        <S.WrapperBox>
+          <S.WrapperInLogo onClick={props.onClickMoveToPage("/boards")}>
+            <Logo />
+          </S.WrapperInLogo>
+          <S.WrapperIn>
+            {/* 해리 - 햄버거 없애보기 */}
+            <S.TestWrapper>
+              <S.Test>글쓰기</S.Test>
+              <S.Test>구독서비스</S.Test>
+              <S.Test>내 신발장</S.Test>
+            </S.TestWrapper>
+          </S.WrapperIn>
           {accessToken ? (
             <S.WrapUser>
               <S.WrapperInUser>
                 {props.data?.fetchUser.nickname}
               </S.WrapperInUser>
               <S.WrapperInMy>님 안녕하세요</S.WrapperInMy>
+              <S.LogOut>로그아웃</S.LogOut>
             </S.WrapUser>
           ) : (
-            <div></div>
+            <S.LogIn>로그인</S.LogIn>
           )}
           {/* <S.WrapperInHam>햄버거</S.WrapperInHam> */}
-          <Ham />
-        </S.WrapperIn>
+          {/* <Ham /> */}
+        </S.WrapperBox>
       </S.WrapperOut>
     </>
   );

@@ -47,10 +47,10 @@ export default function FindIdPresenter(props: IFindIdPresenter) {
           <S.JoinWrap>
             {props.email ? (
               <S.JoinSlipper
-                onClick={onClickMoveToPage("login")}
+                onClick={onClickMoveToPage("/login")}
                 isActive={props.isActive}
               >
-                목록으로
+                로그인하러가기
               </S.JoinSlipper>
             ) : (
               <S.JoinSlipper

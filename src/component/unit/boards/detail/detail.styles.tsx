@@ -24,19 +24,22 @@ export const TopLeft = styled.div`
   padding: 5% 5% 5% 0%;
 `;
 export const EditDeleteWrap = styled.div`
-  width: 18%;
+  width: 37%;
   position: absolute;
   top: 12%;
   right: 6%;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
 `;
 export const UserWriteDate = styled.div`
   font-size: 1.4rem;
   color: gray;
   padding-top: 2%;
 `;
-
+export const IconWrap = styled.div`
+  display: flex;
+  align-items: center;
+`;
 export const Icon = styled.img`
   width: 25px;
   cursor: pointer;
@@ -68,7 +71,7 @@ export const ImgWrapper = styled(Slider)`
 export const Img = styled.img`
   width: 80%;
   height: 350px;
-  object-fit: cover;
+  object-fit: contain;
   margin-right: 10px;
   border-radius: 10px;
 `;
@@ -118,6 +121,7 @@ export const User = styled.div`
 `;
 export const UserImg = styled.img`
   width: 20%;
+  border-radius: 50%;
 `;
 
 export const UserName = styled.div`
@@ -159,11 +163,11 @@ export const UserMiddle = styled.div`
 `;
 export const ShopName = styled.div`
   width: 50%;
-  font-size: 2.1rem;
+  font-size: 1.9rem;
   /* margin-right: 3%; */
 `;
 export const ShopRatingWrap = styled.div`
-  width: 50%;
+  width: 60%;
   display: flex;
   justify-content: flex-end;
   align-items: center;
@@ -173,7 +177,10 @@ export const ShopRating = styled.div`
   font-size: 1.6rem;
 `;
 export const RatingWrap = styled.div`
-  /* width: 30%; */
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
 `;
 
 export const UserContents = styled.div`
@@ -183,7 +190,7 @@ export const UserContents = styled.div`
   font-size: 2rem;
   padding: 4%;
   margin: 5% 0;
-  box-shadow: rgba(0, 0, 0, 0.16) 0px 0.5px 2px;
+  border: 0.5px solid rgba(0, 0, 0, 0.16);
   border-radius: 10px;
   overflow: scroll;
   ::-webkit-scrollbar {
@@ -198,9 +205,11 @@ export const Map = styled.div`
   margin: 0 auto;
 `;
 export const CategoryWrap = styled.div`
-  width: 20%;
+  width: 30%;
   padding: 3% 0 4% 0;
-  margin-right: 2%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `;
 
 export const Category = styled.button`
@@ -219,15 +228,15 @@ export const Category = styled.button`
 `;
 
 export const Good = styled.img`
-  width: 18%;
+  width: 20%;
   padding: 3%;
 `;
 export const Soso = styled.img`
-  width: 18%;
+  width: 20%;
   padding: 3%;
 `;
 export const Bad = styled.img`
-  width: 18%;
+  width: 20%;
   padding: 3%;
 `;
 
@@ -259,9 +268,12 @@ export const Button = styled.button`
 `;
 
 export const WraperQuestion = styled.div`
-  width: 70%;
-  margin: 0 auto;
-  margin-bottom: 10%;
+  width: 64%;
+  margin: 6% auto;
+  padding-left: 3%;
+  padding-right: 1%;
+
+  /* margin-bottom: 10%; */
 `;
 export const Question = styled.div`
   font-size: 1.7rem;

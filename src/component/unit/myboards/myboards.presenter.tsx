@@ -1,23 +1,49 @@
-// 내가 쓴 글 리스트 presenter
-// 예원 작업 5/13
+// 예원 작업 5/16
 
 import * as S from "./myboards.styles";
+import { IMyBoardsPresenter } from "./myboards.types";
+import InfiniteScroll from "react-infinite-scroller";
+import { v4 as uuidv4 } from "uuid";
 
-export default function MyBoardsPresenter() {
+export default function MyBoardsPresenter(props: IMyBoardsPresenter) {
   return (
-    <S.WrapperOut>
+    <>
       <S.Head>내가 쓴 글</S.Head>
-      <S.UserContents>
-        <S.ImageWrap>
-          <S.Image src={"/image/listimage.png"} />
-          <S.Heart src="/image/pickheart.png" />
-        </S.ImageWrap>
-        <S.UserWrap>
-          <S.ListTitle>광교호수공원으로 놀러와</S.ListTitle>
-          <S.ListHometown>원천동</S.ListHometown>
-          <S.ListShopName>도미노피자</S.ListShopName>
-        </S.UserWrap>
-      </S.UserContents>
-    </S.WrapperOut>
+      <S.Infinite style={{ height: "600px", overflow: "auto" }}>
+        <InfiniteScroll
+          pageStart={0}
+          loadMore={props.onLoadMore}
+          hasMore={true}
+          useWindow={false}
+          onScroll={props.handleScroll}
+        >
+          <S.WrapperOut>
+            {props.data?.fetchUserBoards?.map((el: any) => (
+              <S.UserContents
+                key={uuidv4()}
+                id={el.id}
+                onClick={props.onClickDetail}
+              >
+                {el.thumbnail !== "" && (
+                  <S.ImageWrap onClick={props.onClickDetail} id={el.id}>
+                    <S.Image src={el.thumbnail} />
+                  </S.ImageWrap>
+                )}
+                {el.thumbnail === "" && (
+                  <S.ImageWrap onClick={props.onClickDetail} id={el.id}>
+                    <S.ImageLogo src={"/image/logo.png"} />
+                  </S.ImageWrap>
+                )}
+                <S.UserWrap>
+                  <S.ListTitle>{el.title}</S.ListTitle>
+                  <S.ListHometown>{el.address}</S.ListHometown>
+                  <S.ListShopName>{el.place}</S.ListShopName>
+                </S.UserWrap>
+              </S.UserContents>
+            )) || <div></div>}
+          </S.WrapperOut>
+        </InfiniteScroll>
+      </S.Infinite>
+    </>
   );
 }

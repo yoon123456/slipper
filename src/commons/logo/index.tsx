@@ -5,8 +5,8 @@ const LogoBox = styled.div`
   /* background-color: #fff314; */
 `;
 const LogoText = styled.img`
-  padding: 40px;
-  width: 17%;
+  /* padding: 40px; */
+  width: 100%;
 `;
 
 export default function Logo() {

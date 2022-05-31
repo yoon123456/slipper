@@ -9,18 +9,25 @@ export const WrapperOut = styled.div`
   align-items: center;
   font-family: "HallymGothic-Regular";
 `;
+export const Infinite = styled.div`
+  ::-webkit-scrollbar {
+    display: none;
+  }
+`;
+
 export const Head = styled.div`
   width: 100%;
   font-size: 1.8rem;
   border-bottom: 1px solid gainsboro;
   padding: 0% 1% 2% 2%;
-  margin-bottom: 4%;
+  /* margin-bottom: 2%; */
 `;
 export const UserContents = styled.div`
-  width: 95%;
+  width: 90%;
+  height: 125px;
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
+  justify-content: space-between;
   position: relative;
   cursor: pointer;
   box-shadow: 6px 4px 6px -5px gainsboro;
@@ -31,8 +38,7 @@ export const UserContents = styled.div`
   }
 `;
 export const ImageWrap = styled.div`
-  width: 40%;
-  height: 160px;
+  width: 34%;
 `;
 export const UserWrap = styled.div`
   width: 60%;
@@ -72,4 +78,11 @@ export const ListHometown = styled.div`
 export const ListShopName = styled.div`
   color: #2a2f2f;
   font-size: 1.5rem;
+`;
+export const ImageLogo = styled.img`
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  border-radius: 10px 0 0 10px;
+  position: relative;
 `;

@@ -85,3 +85,8 @@ export const userLoginInfo = atom({
     },
   },
 });
+
+export const detailIdState = atom({
+  key: "detailIdState",
+  default: [""],
+});
