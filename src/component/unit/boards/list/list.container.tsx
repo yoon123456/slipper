@@ -33,6 +33,8 @@ export default function ListContainer() {
     btnRef.current?.click();
   }, []);
 
+  console.log(userData);
+
   const handleScroll = () => {
     if (throttle) return;
     if (!throttle) {
@@ -87,22 +89,7 @@ export default function ListContainer() {
     setArray((event.target as HTMLDivElement).id);
   };
 
-  // 예원 상세페이지로 들어가는 기능
-  const onClickDetail = (event: MouseEvent<HTMLDivElement>) => {
-    if (detailId.includes(event.currentTarget.id) === false) {
-      if (detailId.length >= 6 && !userData.fetchUser.subEnd) {
-        router.push("/payment");
-        return;
-      }
-      setIsClickedNum((prev) => prev + 1);
-      aaa.push(event.currentTarget.id);
-      localStorage.setItem("isClickedNum", String(isClickedNum));
-      setDetailId((prev) => [...prev, ...aaa]);
-      localStorage.setItem("detailId", JSON.stringify(detailId));
-      router.push(`boards/${event.currentTarget.id}`);
-    } else {
-      router.push(`boards/${event.currentTarget.id}`);
-    }
+
   };
 
   //chan 검색 기능 추가 22.05.19

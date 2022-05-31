@@ -18,3 +18,9 @@ export const UPDATE_PAYMENT = gql`
     updatePayment(userId: $userId)
   }
 `;
+
+export const LOGOUT = gql`
+  mutation logout {
+    logout
+  }
+`;

@@ -9,6 +9,7 @@ import {
 } from "react-kakao-maps-sdk";
 import styled from "@emotion/styled";
 import { KaKaoMapStylesProps } from "./kakaomap.types";
+import { keyframes } from "@emotion/react";
 
 export const KaKaoMap = styled(Map)``;
 export const KakaoMapMarker = styled(MapMarker)`
@@ -16,14 +17,20 @@ export const KakaoMapMarker = styled(MapMarker)`
 `;
 export const KakaoMapTypeId = styled(MapTypeId)``;
 export const KakaoMapInfoWindow = styled(MapInfoWindow)``;
-export const KakaoMapRoadview = styled(Roadview)``;
+export const KakaoMapRoadview = styled(Roadview)`
+  border: 2px solid red;
+`;
+
 export const KakaoCustomOverlayRoadview = styled(CustomOverlayRoadview)``;
+
 export const KaKaoWarp = styled.div`
   width: 100%;
   height: ${(props: KaKaoMapStylesProps) =>
-    props.mapStatus ? "270px" : "100vh"};
-  /* height: 100vh; */
+    props.mapStatus ? "400px" : "95vh"};
+  display: ${(props: KaKaoMapStylesProps) =>
+    props.roadViewFlag ? "none" : ""};
 `;
+
 export const KaKaoOverLay = styled(CustomOverlayMap)``;
 
 export const MarkerDiv = styled.div``;
@@ -109,10 +116,24 @@ export const RoadButton = styled.button`
     top: 1px;
   }
   margin-right: 5px;
+  z-index: 99;
+  background-color: red;
 `;
+
+export const WarrapRoadViw = styled.div`
+  position: relative;
+`;
+
 export const WarrapOut = styled.div`
   z-index: 2;
+  overflow: hidden;
+  transition: max-height 0.3s ease-out;
 `;
+
+export const WarrapOut2 = styled.div`
+  z-index: 2;
+`;
+
 export const Category = styled.div`
   width: 40.5%;
   position: absolute;
@@ -128,10 +149,10 @@ export const Search = styled.input`
   width: 75%;
   height: 40px;
   background-color: #ffffff;
-  border: none;
+  /* border: none; */
   border-radius: 10px;
   box-shadow: 0px 2px 4px 0px #e1e1e1;
-  outline: none;
+  /* outline: none; */
   font-size: 1.3rem;
   margin-top: 1%;
 `;
@@ -183,10 +204,16 @@ export const SearchBtn = styled.button`
   display: none;
 `;
 
-export const SerchLength = styled.div`
+export const SerchLength = styled.p`
   width: 100%;
   text-align: right;
   font-size: 15px;
   margin-bottom: 10px;
   font-style: italic;
+`;
+
+export const HiddenBox = styled.div`
+  width: 100px;
+  height: 100px;
+  border: 1px solid red;
 `;

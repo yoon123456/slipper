@@ -1,5 +1,8 @@
 /* eslint-disable @next/next/no-img-element */
 import styled from "@emotion/styled";
+import { useRouter } from "next/router";
+import { useRecoilState } from "recoil";
+import { useMovetoPage } from "../../hooks/movePage";
 import { ContentProps } from "../keyword/kakaomap.types";
 
 const Box = styled.div`
@@ -17,23 +20,57 @@ const BoxFirst = styled.div`
   border: 1px solid #ccc;
   border-bottom: 2px solid #ddd;
   float: left;
+  cursor: pointer;
+  :hover {
+    color: #008af6;
+  }
 `;
 const BoxText = styled.div``;
 const BoxAddressName = styled.div``;
 const BoxPhone = styled.div``;
 const BoxPlaceUrl = styled.a``;
 export default function Contents(props: ContentProps) {
+  const { onClickMoveToPage } = useMovetoPage();
+
   return (
     <Box>
       <BoxInner>
         <>
-          <BoxFirst className="customoverlay">
-            <BoxContent>{props.marker.content}</BoxContent>
-            <BoxText>{props.marker.group_name}</BoxText>
-            <BoxAddressName>{props.marker.road_name}</BoxAddressName>
-            <BoxPhone>{props.marker.phone}</BoxPhone>
-            <BoxPlaceUrl className="title" href={`${props.marker.place_url}`}>
-              {props.marker.place_url}
+          <BoxFirst
+            className="customoverlay"
+            onClick={onClickMoveToPage(`/boards/${props.el?._id}`)}
+          >
+            <BoxContent>
+              {props.el?._source.place
+                ? props.el?._source.place
+                : props.marker?.content}
+            </BoxContent>
+            <BoxText>
+              {props.el?._source.category
+                ? props.el?._source.category
+                : props.marker?.group_name}
+            </BoxText>
+            <BoxAddressName>
+              {props.el?._source.address
+                ? props.el?._source.address
+                : props.marker?.road_name}
+            </BoxAddressName>
+            <BoxPhone>
+              {props.el?._source.placephone
+                ? props.el?._source.placephone
+                : props.marker?.phone}
+            </BoxPhone>
+            <BoxPlaceUrl
+              className="title"
+              href={`${
+                props.el?._source.placeurl
+                  ? props.el?._source.placeurl
+                  : props.marker?.place_url
+              }`}
+            >
+              {props.el?._source.placeurl
+                ? props.el?._source.placeurl
+                : props.marker?.place_url}
             </BoxPlaceUrl>
           </BoxFirst>
         </>

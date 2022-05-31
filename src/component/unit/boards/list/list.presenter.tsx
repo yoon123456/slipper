@@ -1,5 +1,4 @@
 // 예원작업 5/16
-
 import * as S from "./list.styles";
 import { useMovetoPage } from "../../../../commons/hooks/movePage";
 import KeyWord from "../../../../commons/kakao/keyword/kakaomap.container";
@@ -9,8 +8,7 @@ import { useRecoilState } from "recoil";
 import { SearchBarIsActiveState } from "../../../../commons/store";
 import InfiniteScroll from "react-infinite-scroller";
 import Banner from "../../../../commons/banner/banner.presenter";
-import ListPresenterItem from "./list.presenterItem";
-import { v4 as uuidv4 } from "uuid";
+
 
 export default function ListPresenter(props: IListPresenter) {
   const { onClickMoveToPage } = useMovetoPage();
@@ -20,6 +18,11 @@ export default function ListPresenter(props: IListPresenter) {
     <>
       <Banner />
       <S.WrapperOut isActive={isActive}>
+        <Script
+          type="text/javascript"
+          src="//dapi.kakao.com/v2/maps/sdk.js?appkey=10933d05118bfc99d732e83a2814b76a&libraries=services&autoload=false"
+          strategy="beforeInteractive"
+        />
         <S.WrapperTop>
           <SearchBarCategoryContainer
             refetch={props.refetch}
@@ -80,18 +83,4 @@ export default function ListPresenter(props: IListPresenter) {
       </S.WrapperOut>
     </>
   );
-}
-
-{
-  /* 
-<S.Gallery onClick={onClickMoveToPage("/boards/detail")}>
-  <S.A>
-    <S.Img src="/image/listimage.png" />
-    <S.Figcaption>
-      <S.Icon>만족도</S.Icon>
-      <S.Categoty>카테고리</S.Categoty>
-      <S.Title>제목</S.Title>
-    </S.Figcaption>
-  </S.A>
-</S.Gallery>; */
 }

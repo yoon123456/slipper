@@ -6,6 +6,8 @@ import { CREATE_PAYMENT } from "./payment.queries";
 import { useMutation, useQuery } from "@apollo/client";
 import Script from "next/script";
 import { IpropsPayment } from "./payment.type";
+import { useRecoilState } from "recoil";
+import { isClickedNumState } from "../store";
 
 declare const window: typeof globalThis & {
   IMP: any;
@@ -33,10 +35,11 @@ export const IButton = styled.div`
 
 export default function PaymentPage(props: IpropsPayment) {
   const [createPayment] = useMutation(CREATE_PAYMENT);
-
+  const [isClickedNum, setIsClickedNum] = useRecoilState(isClickedNumState);
   const [amount, setAmount] = useState(0);
 
   useEffect(() => {
+    setIsClickedNum(0);
     aaa();
   });
 
@@ -67,17 +70,9 @@ export default function PaymentPage(props: IpropsPayment) {
               impUid: String(rsp.imp_uid),
               amount: Number(rsp.paid_amount),
             },
-            // update(cache, { data }) {
-            //   cache.modify({
-            //     fields: {
-            //       fetchUserLoggedIn: (prev) => {
-            //         return [data?.createPointTransactionOfLoading + prev];
-            //       },
-            //     },
-            //   });
-            // },
           });
           Modal.success({ content: "결제완료" });
+          setIsClickedNum(99999);
         } else {
           console.log(rsp.error_msg);
         }

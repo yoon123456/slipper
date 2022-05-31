@@ -1,14 +1,15 @@
-import { values } from "lodash";
-import { ChangeEvent, MouseEvent, MouseEventHandler, useState } from "react";
-import { RecoilState, useRecoilState } from "recoil";
+import { ChangeEvent, useRef, useState } from "react";
+import { useRecoilState } from "recoil";
 import { CategoryState, SearchBarIsActiveState, SearchState } from "../store";
 import SearchBarCategoryPresenter from "./searchBarCategory.presenter";
 import { ISearchKeyWord } from "./searchBarCategory.types";
+
 export default function SearchBarCategoryContainer(props: ISearchKeyWord) {
   const [isActive, setIsActive] = useRecoilState(SearchBarIsActiveState);
   const [search, setSearch] = useRecoilState(SearchState);
   const [category, setCategory] = useRecoilState(CategoryState);
   const [aaa, setAaa] = useState<string[]>(["1"]);
+  const btnRef = useRef<HTMLButtonElement>(null);
 
   // 검색창을 누르면 숨겨진 카테고리가 나오는 기능
   const onMouseDown = () => {
@@ -17,20 +18,24 @@ export default function SearchBarCategoryContainer(props: ISearchKeyWord) {
 
   // 검색어를 입력하면 그 값을 받아오는 기능
   const onChangeSearch = (event: ChangeEvent<HTMLInputElement>) => {
+    btnRef.current?.blur;
     setSearch(event.target.value);
   };
 
   // 카테고리를 선택하는 기능
   const onClickCategory = (event: any) => {
-    const bbb = event.currentTarget.value;
-    if (category === bbb) {
+    const totalSearch = search;
+    const searchSplit = totalSearch.split(" ")[0];
+    const tag = event.currentTarget.value;
+    const searchTag = `${searchSplit} ${tag}`;
+    if (category === tag) {
       setSearch("");
     } else {
       setSearch((prev) => prev + " " + event.currentTarget.value);
-      setAaa((prev: any) => [...prev, bbb]);
+      // setAaa((prev: any) => [...prev, bbb]);
       setCategory(event.currentTarget.value);
     }
-    setSearch(search + bbb);
+    setSearch(searchTag);
   };
 
   // 검색 버튼 기능
@@ -39,7 +44,18 @@ export default function SearchBarCategoryContainer(props: ISearchKeyWord) {
     category;
     setIsActive(false);
     props.refetch({ search, page: 1 });
-    console.log(search);
+  };
+
+  const onEnterButton = (event: any) => {
+    if (
+      event.keyCode === 13 &&
+      (event.target as HTMLInputElement).value !== " "
+    ) {
+      search;
+      category;
+      setIsActive(false);
+      props.refetch({ search, page: 1 });
+    }
   };
 
   return (
@@ -51,6 +67,7 @@ export default function SearchBarCategoryContainer(props: ISearchKeyWord) {
       onClickCategory={onClickCategory}
       onClickButton={onClickButton}
       search={search}
+      onEnterButton={onEnterButton}
     />
   );
 }

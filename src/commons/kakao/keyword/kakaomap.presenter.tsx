@@ -5,6 +5,7 @@ import * as S from "./kakaomap.styled";
 import KakaomapMarks from "./kakaomapmarkers";
 import { v4 as uuidv4 } from "uuid";
 import { ZoomControl } from "react-kakao-maps-sdk";
+import Logo from "../../logo";
 export default function KakaomapPresenter(props: KaoKaoMap) {
   return (
     <>
@@ -13,50 +14,61 @@ export default function KakaomapPresenter(props: KaoKaoMap) {
         src="//dapi.kakao.com/v2/maps/sdk.js?appkey=10933d05118bfc99d732e83a2814b76a&libraries=services&autoload=false"
         strategy="beforeInteractive"
       />
-      {props.isOpen && (
-        <Modal visible={true}>
-          <Script
-            type="text/javascript"
-            src="//dapi.kakao.com/v2/maps/sdk.js?appkey=10933d05118bfc99d732e83a2814b76a&libraries=services&autoload=false"
-            strategy="beforeInteractive"
-          />
-
-          <S.KakaoMapRoadview // 로드뷰를 표시할 Container
-            position={{
-              // 지도의 중심좌표
-              lat: Number(props.address.position.lat),
-              lng: Number(props.address.position.lng),
-              radius: 50,
-            }}
-            style={{
-              width: "100%",
-              height: "50%",
-            }}
-          >
-            <S.KakaoCustomOverlayRoadview
-              position={{
-                lat: Number(props.lat),
-                lng: Number(props.lng),
-              }}
-              isFocus={true}
-              xAnchor={0.5}
-              yAnchor={0.5}
-            ></S.KakaoCustomOverlayRoadview>
-          </S.KakaoMapRoadview>
-        </Modal>
+      {props.roadViewFlag && (
+        <>
+          {props.address.position.lat ? (
+            <>
+              <S.RoadButton type="button" onClick={props.onClickRoadView}>
+                로드뷰
+              </S.RoadButton>
+              <S.KakaoMapRoadview // 로드뷰를 표시할 Container
+                position={{
+                  // 지도의 중심좌표
+                  lat: Number(props.address.position.lat),
+                  lng: Number(props.address.position.lng),
+                  radius: 50,
+                }}
+                style={{
+                  width: "100%",
+                  height: "30%",
+                }}
+              >
+                <S.KakaoCustomOverlayRoadview
+                  position={{
+                    lat: Number(props.lat),
+                    lng: Number(props.lng),
+                  }}
+                  isFocus={true}
+                  xAnchor={0.5}
+                  yAnchor={0.5}
+                ></S.KakaoCustomOverlayRoadview>
+              </S.KakaoMapRoadview>{" "}
+            </>
+          ) : (
+            <>
+              <Logo />
+            </>
+          )}
+        </>
       )}
-      <S.WarrapOut>
-        <S.KaKaoWarp mapStatus={props.mapStatus}>
-          {!props.isActive1 && (
+      <S.WarrapOut className="content" ref={props.listRef}>
+        <S.KaKaoWarp
+          mapStatus={props.mapStatus}
+          roadViewFlag={props.roadViewFlag}
+        >
+          {props.isActive1 && (
             <S.SerchLength>
               {props.search}으로 검색된 결과 총 {props.markersLenght} 건입니다{" "}
             </S.SerchLength>
           )}
           <S.Category>
             {props.mapStatus && (
-              <S.Search type="text" onChange={props.onChangeSearchbar} />
+              <S.Search
+                type="text"
+                onChange={props.onChangeSearchbar}
+                onKeyUp={(e: any) => e.keyCode === 13}
+              />
             )}
-
             <S.SearchBtn
               type="submit"
               onClick={props.onClickButton}
@@ -96,7 +108,7 @@ export default function KakaomapPresenter(props: KaoKaoMap) {
               width: "100%",
               height: "100%",
             }}
-            level={3}
+            level={2}
             onZoomChanged={(map) => props.setLevel(map.getLevel())}
             onCreate={props.setMap}
           >
@@ -108,44 +120,22 @@ export default function KakaomapPresenter(props: KaoKaoMap) {
               info={props.info}
               contentFlag={props.contentFlag}
               data={props.data}
+              onClickContent={props.onClickContent}
+              userContentFlag={props.userContentFlag}
             />
 
             <S.KakaoMapMarker
               position={{ lat: props.geoLat, lng: props.geoLng }}
+              image={{
+                src: "https://media.giphy.com/media/4mML4cVNOKVakSy649/giphy.gif",
+                size: { width: 20, height: 35 },
+              }}
             ></S.KakaoMapMarker>
             {props.trrapicFlag ? (
               <S.KaoKaoMapTypeId type={kakao.maps.MapTypeId.TRAFFIC} />
             ) : (
               <div></div>
             )}
-            {/*
-            {props.roadViewFlag ? (
-              <S.KakaoMapRoadview // 로드뷰를 표시할 Container
-                position={{
-                  // 지도의 중심좌표
-                  lat: Number(props.address.position.lat),
-                  lng: Number(props.address.position.lng),
-                  radius: 50,
-                }}
-                style={{
-                  width: "100%",
-                  height: "50%",
-                }}
-                onErrorGetNearestPanoId={props.onErrorGetNearestPanoId}
-              >
-                <S.KakaoCustomOverlayRoadview
-                  position={{
-                    lat: props.lat,
-                    lng: props.lng,
-                  }}
-                  isFocus={true}
-                  xAnchor={0.5}
-                  yAnchor={0.5}
-                ></S.KakaoCustomOverlayRoadview>
-              </S.KakaoMapRoadview>
-            ) : (
-              <div></div>
-            )} */}
           </S.KaKaoMap>
         </S.KaKaoWarp>
       </S.WarrapOut>
