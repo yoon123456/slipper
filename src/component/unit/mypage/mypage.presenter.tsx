@@ -12,11 +12,13 @@ export default function MyPagePresenter(props: IMyPagePresenter) {
     <S.WrapperOut>
       <S.WrapperLeft>
         <S.LeftTop>
+          {/* 닉네임 */}
           <S.NicknameRow>
             <S.Nickname>{props.data?.fetchUser.nickname}</S.Nickname>
             <S.NicknameFixed>님</S.NicknameFixed>
             <S.EditIcon src="/image/mypageEdit.png" onClick={props.showModal} />
           </S.NicknameRow>
+          {/* 프로필이미지 */}
           <S.ProfileImage
             src={
               props.data?.fetchUser.imageUrl
@@ -24,29 +26,33 @@ export default function MyPagePresenter(props: IMyPagePresenter) {
                 : "/image/profileDefault.png"
             }
           />
+          {/* 자기소개 */}
           {props.data?.fetchUser.introduce === "" ? (
             <S.Introduce>자기소개를 적어주세요.</S.Introduce>
           ) : (
             <S.Introduce>{props.data?.fetchUser.introduce}</S.Introduce>
           )}
+          {/* 수정 모달 */}
           <Modal
             title="개인정보 수정"
             visible={props.modalVisible}
             onCancel={props.modalCancel}
             onOk={props.modalOk}
           >
-            <div>닉네임 수정</div>
+            <S.ModalHead>닉네임 수정</S.ModalHead>
             <S.NicknameEditInput
               type="text"
-              defaultValue={props.data?.fetchUser.nickname}
+              value={props.nickname}
               onChange={props.onChangeNickname}
             />
-            <div>프로필 이미지 수정</div>
-            <ImageProfile
-              onChangeFileUrl={props.onChangeFileUrl}
-              fileUrl={props.fileUrl}
-            />
-            <div>자기소개글 수정</div>
+            <S.ProfileImageEditWrapper>
+              <S.ModalHead>프로필 이미지 수정</S.ModalHead>
+              <ImageProfile
+                onChangeFileUrl={props.onChangeFileUrl}
+                fileUrl={props.fileUrl}
+              />
+            </S.ProfileImageEditWrapper>
+            <S.ModalHead>자기소개글 수정</S.ModalHead>
             <S.IntroduceEditInput
               type="text"
               defaultValue={
@@ -58,7 +64,7 @@ export default function MyPagePresenter(props: IMyPagePresenter) {
             />
           </Modal>
         </S.LeftTop>
-        {/* 좌측 메뉴버튼 */}
+        {/* 메뉴버튼 */}
         <S.MenuWrapper
           onClick={props.onClickMypicks}
           mypageRight={props.mypageRight === "mypicks"}
@@ -81,7 +87,7 @@ export default function MyPagePresenter(props: IMyPagePresenter) {
           <S.MenuButton>결제내역</S.MenuButton>
         </S.MenuWrapper>
       </S.WrapperLeft>
-      {/* 우측 */}
+      {/* 우측 본문 */}
       <S.WrapperRight>
         <S.Right>
           {props.mypageRight === "mypicks" && <MypicksContainer />}

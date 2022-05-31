@@ -28,9 +28,9 @@ export default function MyPageContainer() {
     setMypageRight("mypaids");
   };
 
-  // haeri 닉네임,프로필사진,자기소개글 수정
+  // haeri 닉네임,프로필사진,자기소개글 수정(Modal)
   const [modalVisible, setModalVisible] = useState(false);
-  const [nickname, setNickname] = useState("");
+  const [nickname, setNickname] = useState(data?.fetchUser.nickname);
   const [fileUrl, setFileUrl] = useState([""]);
   const [introduce, setIntroduce] = useState("");
   const showModal = () => {
@@ -50,41 +50,52 @@ export default function MyPageContainer() {
     setIntroduce(event.target.value);
   };
   const modalOk = async () => {
+    if (!nickname && !fileUrl && !introduce) {
+      Modal.error({ content: "수정한 내용이 없습니다." });
+      return;
+    }
+    // if (!nickname) setNickname("");
+    // const updateUserInput:IUpdateUserInput = {};
+    const updateUserInput = {};
+    if (nickname) updateUserInput.nickname = nickname;
+    if (fileUrl) updateUserInput.imageUrl = String(fileUrl);
+    if (introduce) updateUserInput.introduce = introduce;
     try {
       await updateUser({
         variables: {
-          updateUserInput: {
-            nickname,
-            imageUrl: String(fileUrl),
-            introduce,
-          },
+          // updateUserInput: {
+          //   nickname,
+          //   imageUrl: String(fileUrl),
+          //   introduce,
+          // },
+          updateUserInput,
         },
       });
       refetch();
       setModalVisible(false);
       Modal.success({ content: "개인정보 수정 완료" });
+      setNickname("");
     } catch (error) {
       if (error instanceof Error) Modal.error({ content: error.message });
     }
   };
 
   return (
-    <>
-      <MyPagePresenter
-        mypageRight={mypageRight}
-        onClickMypicks={onClickMypicks}
-        onClickMyboards={onClickMyboards}
-        onClickMypaids={onClickMypaids}
-        data={data}
-        showModal={showModal}
-        modalVisible={modalVisible}
-        modalCancel={modalCancel}
-        onChangeNickname={onChangeNickname}
-        onChangeFileUrl={onChangeFileUrl}
-        fileUrl={fileUrl}
-        onChangeIntroduce={onChangeIntroduce}
-        modalOk={modalOk}
-      />
-    </>
+    <MyPagePresenter
+      mypageRight={mypageRight}
+      onClickMypicks={onClickMypicks}
+      onClickMyboards={onClickMyboards}
+      onClickMypaids={onClickMypaids}
+      data={data}
+      showModal={showModal}
+      modalVisible={modalVisible}
+      modalCancel={modalCancel}
+      onChangeNickname={onChangeNickname}
+      onChangeFileUrl={onChangeFileUrl}
+      fileUrl={fileUrl}
+      onChangeIntroduce={onChangeIntroduce}
+      modalOk={modalOk}
+      nickname={nickname}
+    />
   );
 }

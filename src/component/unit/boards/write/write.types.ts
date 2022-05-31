@@ -1,11 +1,11 @@
 import { ChangeEvent, MouseEvent } from "react";
+import internal from "stream";
 import { IQuery } from "../../../../commons/types/generated/types";
 
 export interface IWriteContainer {
   isEdit: boolean;
   data?: Pick<IQuery, "fetchBoard">;
 }
-
 export interface IUpdateBoardInput {
   title?: string;
   contents?: string;
@@ -19,14 +19,21 @@ export interface IWritePresenter {
   onClickSecondNext: () => void;
   onClickThirdPrev: () => void;
   onChangeRange: (date: any, dateString: any) => void;
-  happy: boolean;
-  uhm: boolean;
-  sad: boolean;
+  startDate: string;
+  endDate: string;
+  dateError: string;
+  onChangeTitle: (event: ChangeEvent<HTMLInputElement>) => void;
+  title: string;
+  titleError: string;
   onClickHappy: () => void;
   onClickUhm: () => void;
   onClickSad: () => void;
-  onChangeTitle: (event: ChangeEvent<HTMLInputElement>) => void;
+  score: number;
+  scoreError: string;
+  scoreClear?: number;
   onChangeContents: (value: string) => void;
+  contents: string;
+  contentsError: string;
   onChangeFileUrls: (fileUrl: string, index: number) => void;
   fileUrls: string[];
   mapStatus?: boolean;
@@ -46,6 +53,11 @@ export interface IWritePresenter {
       lng: "";
     };
   };
+  mapError: string;
   onClickWriteBoard: () => void;
   onClickEditBoard: () => void;
+  isButtonActive: boolean;
+}
+export interface IProps {
+  isButtonActive: boolean;
 }
