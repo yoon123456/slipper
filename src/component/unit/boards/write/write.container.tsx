@@ -3,7 +3,7 @@ import WritePresenter from "./write.presenter";
 import { CREATE_BOARD, UPDATE_BOARD } from "./write.query";
 import { useMutation } from "@apollo/client";
 import { Modal } from "antd";
-import { ChangeEvent, useState, MouseEvent } from "react";
+import { ChangeEvent, useState, MouseEvent, useEffect } from "react";
 import { useRouter } from "next/router";
 import { useRecoilState } from "recoil";
 import { kakaoAddress } from "../../../../commons/store/kakaounit";
@@ -14,9 +14,17 @@ import {
   IMutationUpdateBoardArgs,
   IUpdateBoardInput,
 } from "../../../../commons/types/generated/types";
+import { accessTokenState } from "../../../../commons/store";
 
 export default function WriteContainer(props: IWriteContainer) {
+  const [accessToken, setAccessToken] = useRecoilState(accessTokenState);
   const router = useRouter();
+  useEffect(() => {
+    if (!accessToken) {
+      Modal.error({ content: "로그인이 필요한 서비스 입니다" });
+      router.push("/login");
+    }
+  });
 
   const [activeStep, setActiveStep] = useState("first");
 

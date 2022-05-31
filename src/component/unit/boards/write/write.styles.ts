@@ -173,12 +173,18 @@ export const StyledQuill = styled(ReactQuill)`
 `;
 export const MapWrapper = styled.div`
   height: 50%;
+  margin-bottom: 7%;
+`;
+export const MapHead = styled.div`
+  padding-bottom: 2.5%;
+  font-size: 1.6rem;
+  color: #008af6;
 `;
 export const MapDetail = styled.div`
   width: 100%;
   height: 5%;
   padding: 0.5%;
-  margin-bottom: 7%;
+  margin-bottom: 5%;
   border: none;
   border-bottom: 1px solid gainsboro;
   outline: none;

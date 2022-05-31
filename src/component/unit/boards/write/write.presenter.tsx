@@ -9,18 +9,8 @@ import ImageBoardUpload from "../../../../commons/imageBoard";
 import { v4 as uuidv4 } from "uuid";
 import moment from "moment";
 import "moment/locale/zh-cn";
-import { useRouter } from "next/router";
-import { useRecoilState } from "recoil";
-import { accessTokenState } from "../../../../commons/store";
 
 export default function WritePresenter(props: IWritePresenter) {
-  const [accessToken, setAccessToken] = useRecoilState(accessTokenState);
-  const router = useRouter();
-  if (!accessToken) {
-    Modal.error({ content: "로그인이 필요한 서비스 입니다" });
-    router.push("/login");
-  }
-
   return (
     <S.WrapperOut>
       <Script
@@ -139,7 +129,7 @@ export default function WritePresenter(props: IWritePresenter) {
               <S.Error>{props.titleError}</S.Error>
             </S.InputWrapper>
             <S.InputWrapper>
-              <S.Head>인프라 사용 만족도</S.Head>
+              <S.Head>만족도</S.Head>
               {props.resetScore ? (
                 <S.RatingWrapper>
                   {props.score === 1 ? (
@@ -242,7 +232,7 @@ export default function WritePresenter(props: IWritePresenter) {
             </S.InputWrapper>
           </S.Body>
           <S.ButtonWrapper>
-            <S.Button>취소</S.Button>
+            <S.Button isButtonActive={props.isButtonActive}>취소</S.Button>
             <S.Button
               isButtonActive={props.isButtonActive}
               onClick={props.onClickFirstNext}
@@ -258,13 +248,13 @@ export default function WritePresenter(props: IWritePresenter) {
         <S.BodyWrapper>
           <S.Body>
             <S.MapWrapper>
-              <S.Head>위치</S.Head>
+              {/* <S.MapHead>위치</S.MapHead> */}
               <S.Error>{props.mapError}</S.Error>
               <KeyWord mapStatus={props.mapStatus} />
             </S.MapWrapper>
             {props.address.group_name !== "" && (
               <>
-                <S.Head>카테고리</S.Head>
+                <S.MapHead>카테고리</S.MapHead>
                 {props.isEdit ? (
                   <S.MapDetail>
                     {props.data?.fetchBoard.category || ""}
@@ -274,13 +264,13 @@ export default function WritePresenter(props: IWritePresenter) {
                 )}
               </>
             )}
-            <S.Head>상호명</S.Head>
+            <S.MapHead>상호명</S.MapHead>
             {props.isEdit ? (
               <S.MapDetail>{props.data?.fetchBoard.place || ""}</S.MapDetail>
             ) : (
               <S.MapDetail>{props.address.content}</S.MapDetail>
             )}
-            <S.Head>주소</S.Head>
+            <S.MapHead>주소</S.MapHead>
             {props.isEdit ? (
               <S.MapDetail>{props.data?.fetchBoard.address || ""}</S.MapDetail>
             ) : (
@@ -288,7 +278,12 @@ export default function WritePresenter(props: IWritePresenter) {
             )}
           </S.Body>
           <S.ButtonWrapper>
-            <S.Button onClick={props.onClickSecondPrev}>&lt;</S.Button>
+            <S.Button
+              isButtonActive={props.isButtonActive}
+              onClick={props.onClickSecondPrev}
+            >
+              &lt;
+            </S.Button>
             {props.address.address_name !== "" ? (
               <S.MapButtonOn onClick={props.onClickSecondNext}>
                 &gt;
@@ -319,7 +314,12 @@ export default function WritePresenter(props: IWritePresenter) {
             </S.ImageBody>
           </S.Body>
           <S.ImageButtonWrapper>
-            <S.Button onClick={props.onClickThirdPrev}>&lt;</S.Button>
+            <S.Button
+              isButtonActive={props.isButtonActive}
+              onClick={props.onClickThirdPrev}
+            >
+              &lt;
+            </S.Button>
             <S.FinishButton
               onClick={
                 props.isEdit ? props.onClickEditBoard : props.onClickWriteBoard
