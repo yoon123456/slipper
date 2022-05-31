@@ -57,6 +57,8 @@ export interface IWritePresenter {
   onClickWriteBoard: () => void;
   onClickEditBoard: () => void;
   isButtonActive: boolean;
+  resetScore: boolean;
+  onClickResetScore: () => void;
 }
 export interface IProps {
   isButtonActive: boolean;
