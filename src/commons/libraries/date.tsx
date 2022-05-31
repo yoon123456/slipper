@@ -1,5 +1,3 @@
-import { TagTwoTone } from "@ant-design/icons";
-
 export const getDate = (date: any) => {
   const newdate = new Date(date);
 

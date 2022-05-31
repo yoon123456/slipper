@@ -7,10 +7,11 @@ import {
 
 export interface IListPresenter {
   onClickDetail: (event: MouseEvent<HTMLDivElement>) => void; // 예원 클릭 디테일 이벤트
+  onClickArray: (event: MouseEvent<HTMLDivElement>) => void; // 예원 최신순,찜한순 정렬
   onChangeKeyword: (value: string) => void; //chan 검색 기능 추가 22.05.19
   keyword: string; //chan 검색 keyword 추가 22.05.19
   data?: Pick<IQuery, "fetchBoardsPage">; //chan 검색 keyword 추가 22.05.19
-
+  // onClickLikeArray: () => void;
   refetch: (
     variables:
       | Partial<{ page: number; category: string; search: string }>
@@ -22,6 +23,15 @@ export interface IListPresenter {
   handleScroll: () => void;
 }
 
+export interface IListPresenterItem {
+  el: any;
+  onClickDetail: (event: MouseEvent<HTMLDivElement>) => void; // 예원 클릭 디테일 이벤트
+  refetch?: (
+    variables:
+      | Partial<{ page: number; category: string; search: string }>
+      | undefined
+  ) => Promise<ApolloQueryResult<any>>;
+}
 export interface Iprops {
   isActive: boolean;
 }

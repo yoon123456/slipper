@@ -103,6 +103,10 @@ export const Box = styled.button`
   border-radius: 30px;
   box-shadow: 0px 2px 4px 0px #e1e1e1;
   cursor: pointer;
+  :hover {
+    color: #008af6;
+    border: 1px solid #008af6;
+  }
   :focus {
     color: #008af6;
     border: 1px solid #008af6;

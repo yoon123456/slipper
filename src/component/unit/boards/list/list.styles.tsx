@@ -15,8 +15,21 @@ export const WrapperOut = styled.div`
 export const WrapperLeft = styled.div`
   width: 60%;
   margin: 0 auto;
-  height: 100vh;
-  overflow: scroll;
+  margin-bottom: 50px;
+  height: 110vh;
+`;
+export const EmphyLeft = styled.div`
+  width: 60%;
+  margin: 0 auto;
+  height: 110vh;
+  border-top: 1px solid gainsboro;
+  margin-top: 35px;
+  text-align: center;
+  font-size: 2.5rem;
+  font-style: italic;
+`;
+export const EmphyText = styled.div`
+  margin-top: 50px;
 `;
 
 export const Infinite = styled.div`
@@ -50,14 +63,14 @@ export const WrapperMiddle = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 5% 0% 4% 0%;
+  padding: 10% 0% 4% 0%;
   margin: 0 auto;
 `;
 export const WrapperWrite = styled.div`
   width: 10%;
-  display: flex;
+  /* display: flex;
   justify-content: flex-end;
-  align-items: center;
+  align-items: center; */
 `;
 
 export const WrapperArray = styled.div`
@@ -66,9 +79,27 @@ export const WrapperArray = styled.div`
   justify-content: flex-start;
 `;
 export const Array = styled.div`
-  width: 5%;
-  text-align: end;
-  font-size: 1.5rem;
+  width: 7%;
+  height: 30px;
+  line-height: 2;
+  border-radius: 10px;
+  text-align: center;
+  font-size: 1.6rem;
+  color: #008af6;
+  cursor: pointer;
+  :hover {
+    text-decoration: underline;
+  }
+`;
+export const Pick = styled.div`
+  width: 7%;
+  height: 30px;
+  line-height: 2;
+  border-radius: 10px;
+  text-align: center;
+  font-size: 1.6rem;
+  margin-left: 10px;
+  color: #008af6;
   cursor: pointer;
   :hover {
     text-decoration: underline;
@@ -85,24 +116,34 @@ export const WrapperBottom = styled.div`
 export const Button = styled.div`
   width: 95%;
   height: 35px;
-  display: flex;
-  padding-right: 5%;
-  justify-content: flex-end;
-  align-items: center;
+  text-align: center;
+  line-height: 2;
+  color: white;
+  border-radius: 10px;
   font-size: 1.7rem;
   cursor: pointer;
   :hover {
     font-weight: bold;
   }
+  background-color: #008af6;
 `;
-export const Pen = styled.img`
-  width: 25px;
+export const Pen = styled.div`
+  font-size: 3.5rem;
+  color: white;
+  color: black;
   cursor: pointer;
 `;
 export const WrapperRight = styled.div`
   width: 50%;
+  height: 110vh;
   margin: 0 auto;
   padding-right: 6%;
+  overflow: scroll;
+  ::-webkit-scrollbar {
+    display: none;
+  }
+  display: flex;
+  flex-direction: column;
 `;
 
 export const Wrapper = styled.div`
@@ -152,8 +193,23 @@ export const UserDate = styled.div`
   padding: 2%;
   display: flex;
   flex-direction: column;
-  justify-content: flex-end;
+  justify-content: space-between;
   align-items: flex-end;
+`;
+export const LikeWrap = styled.div`
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+`;
+export const Marker = styled.img`
+  width: 90%;
+  z-index: 2;
+`;
+
+export const Count = styled.div`
+  font-size: 1.2rem;
 `;
 export const Image = styled.img`
   width: 100%;

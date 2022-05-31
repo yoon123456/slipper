@@ -1,5 +1,10 @@
+import { ApolloQueryResult } from "@apollo/client";
 import { MouseEvent } from "react";
-import { IBoard, IQuery } from "../../../../commons/types/generated/types";
+import {
+  IBoard,
+  IQuery,
+  IQueryFetchBoardArgs,
+} from "../../../../commons/types/generated/types";
 
 export interface IDetailPresenter {
   onClickDeleteBoard: (event: MouseEvent<HTMLImageElement>) => void;
@@ -7,5 +12,10 @@ export interface IDetailPresenter {
   onClickMoveToList: () => void;
   onClickMoveToBoardEdit: () => void;
   data: Pick<IQuery, "fetchBoard"> | undefined;
-  isActive: boolean;
+  isActive: number;
+  refetch: (
+    variables: Partial<IQueryFetchBoardArgs>
+  ) => Promise<ApolloQueryResult<Pick<IQuery, "fetchBoard">>>;
+  userData: Pick<IQuery, "fetchUser"> | undefined;
+  likeData: any;
 }
