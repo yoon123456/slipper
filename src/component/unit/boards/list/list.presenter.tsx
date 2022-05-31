@@ -8,7 +8,9 @@ import { useRecoilState } from "recoil";
 import { SearchBarIsActiveState } from "../../../../commons/store";
 import InfiniteScroll from "react-infinite-scroller";
 import Banner from "../../../../commons/banner/banner.presenter";
-
+import Script from "next/script";
+import ListPresenterItem from "./list.presenterItem";
+import { v4 as uuidv4 } from "uuid";
 
 export default function ListPresenter(props: IListPresenter) {
   const { onClickMoveToPage } = useMovetoPage();
@@ -41,8 +43,7 @@ export default function ListPresenter(props: IListPresenter) {
             </S.WrapperArray>
             <S.WrapperWrite>
               <S.Button onClick={onClickMoveToPage("/boards/new")}>
-                글쓰기{/* <S.Pen src="/image/plus.png" /> */}
-                {/* <S.Pen>+</S.Pen> */}
+                글쓰기
               </S.Button>
             </S.WrapperWrite>
           </S.WrapperMiddle>
