@@ -127,12 +127,6 @@ export const Button = styled.div`
   }
   background-color: #008af6;
 `;
-export const Pen = styled.div`
-  font-size: 3.5rem;
-  color: white;
-  color: black;
-  cursor: pointer;
-`;
 export const WrapperRight = styled.div`
   width: 50%;
   height: 110vh;
