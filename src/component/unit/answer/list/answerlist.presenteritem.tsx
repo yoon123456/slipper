@@ -58,12 +58,16 @@ export default function AnswernListUIItem(props: IAnswerListUIItem) {
             </S.Profile>
             <S.RightBox>
               <S.Top>
-                <S.Name>{props.subCommentEl.nickname}</S.Name>
-                <S.Time>{timeForToday(props.subCommentEl.createdAt)}</S.Time>
-                <S.Edit onClick={onClickUpdate}>수정</S.Edit>
-                <S.Delete onClick={onClickDelete} id={props.subCommentEl.id}>
-                  삭제
-                </S.Delete>
+                <S.Left>
+                  <S.Name>{props.subCommentEl.nickname}</S.Name>
+                  <S.Time>{timeForToday(props.subCommentEl.createdAt)}</S.Time>
+                </S.Left>
+                <S.Option>
+                  <S.Edit onClick={onClickUpdate}>수정</S.Edit>
+                  <S.Delete onClick={onClickDelete} id={props.subCommentEl.id}>
+                    삭제
+                  </S.Delete>
+                </S.Option>
               </S.Top>
               <S.Question>{props.subCommentEl.contents}</S.Question>
             </S.RightBox>

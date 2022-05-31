@@ -21,8 +21,6 @@ export const ProfileImage = styled.img`
   width: 90%;
   height: 90%;
   border-radius: 10px;
-  /* padding-right: 10px; */
-  /* object-fit: contain; */
 `;
 export const RightBox = styled.div`
   width: 90%;
@@ -32,6 +30,16 @@ export const Top = styled.div`
   /* background-color: red; */
   display: flex;
   align-items: baseline;
+`;
+export const Left = styled.div`
+  display: flex;
+  align-items: baseline;
+  width: 90%;
+`;
+export const Option = styled.div`
+  display: flex;
+  align-items: center;
+  width: 110px;
 `;
 export const Name = styled.h4`
   font-size: 1.5rem;
@@ -68,13 +76,20 @@ export const Circle = styled.img`
   margin-top: 38px;
 `;
 export const Edit = styled.div`
-  margin-left: 10px;
-  font-size: 1.1rem;
+  margin-left: 30px;
+  font-size: 1.2rem;
+  cursor: pointer;
+  :hover {
+    color: #008fa6;
+  }
 `;
 export const Delete = styled.div`
-  margin-left: 10px;
-  font-size: 1.1rem;
+  margin-left: 25px;
+  font-size: 1.2rem;
   cursor: pointer;
+  :hover {
+    color: #008fa6;
+  }
 `;
 export const AnswerBox = styled.div`
   display: flex;

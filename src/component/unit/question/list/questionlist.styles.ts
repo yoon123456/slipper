@@ -18,10 +18,9 @@ export const Profile = styled.div`
   width: 7%;
 `;
 export const ProfileImage = styled.img`
-  padding: 10%;
-  width: 80px;
-  height: 80px;
-  object-fit: fill;
+  width: 80%;
+  height: 65%;
+  border-radius: 10px;
 `;
 export const RightBox = styled.div`
   width: 90%;
@@ -39,7 +38,7 @@ export const Left = styled.div`
 export const Option = styled.div`
   display: flex;
   align-items: center;
-  width: 9%;
+  width: 110px;
 `;
 export const Name = styled.h4`
   font-size: 1.5rem;
@@ -56,13 +55,13 @@ export const Question = styled.div`
   outline: none;
   border-radius: 12px;
   padding: 1%;
-  /* box-shadow: 8px 13px 3px lightgray; */
+  box-shadow: 8px 13px 3px lightgray;
   background-color: #f6f6f6;
 `;
 export const QuestionAnswer = styled.div`
   width: 80px;
   height: 30px;
-  margin: 1% 0% 0% 0%;
+  margin: 2% 0% 0% 0%;
   line-height: 2.2;
   font-size: 1.3rem;
   text-align: center;

@@ -54,7 +54,7 @@ export const Box = styled.div``;
 export const ButtonBox = styled.div`
   display: flex;
   justify-content: flex-end;
-  margin: 1% 2%;
+  margin: 2% 0% 0% 0%;
 `;
 export const Cancel = styled.div`
   width: 80px;
@@ -67,7 +67,7 @@ export const Cancel = styled.div`
 export const Write = styled.div`
   width: 80px;
   height: 30px;
-  margin-top: 10px;
+  margin-top: 5px;
   line-height: 2.4;
   font-size: 1.3rem;
   text-align: center;
