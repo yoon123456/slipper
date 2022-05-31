@@ -127,8 +127,8 @@ export default function KakaomapPresenter(props: KaoKaoMap) {
             <S.KakaoMapMarker
               position={{ lat: props.geoLat, lng: props.geoLng }}
               image={{
-                src: "https://media.giphy.com/media/4mML4cVNOKVakSy649/giphy.gif",
-                size: { width: 20, height: 35 },
+                src: "https://media.giphy.com/media/rcSLJHmBdAMfRJ67bs/giphy.gif",
+                size: { width: 50, height: 55 },
               }}
             ></S.KakaoMapMarker>
             {props.trrapicFlag ? (

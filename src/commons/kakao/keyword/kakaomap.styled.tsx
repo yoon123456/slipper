@@ -26,7 +26,7 @@ export const KakaoCustomOverlayRoadview = styled(CustomOverlayRoadview)``;
 export const KaKaoWarp = styled.div`
   width: 100%;
   height: ${(props: KaKaoMapStylesProps) =>
-    props.mapStatus ? "400px" : "95vh"};
+    props.mapStatus ? "250px" : "95vh"};
   display: ${(props: KaKaoMapStylesProps) =>
     props.roadViewFlag ? "none" : ""};
 `;
@@ -215,5 +215,5 @@ export const SerchLength = styled.p`
 export const HiddenBox = styled.div`
   width: 100px;
   height: 100px;
-  border: 1px solid red;
+  /* border: 1px solid red; */
 `;

@@ -185,10 +185,10 @@ export default function WriteContainer(props: IWriteContainer) {
             placePhone: address.phone,
             placeUrl: address.place_url,
             images: fileUrls,
+            groupCode: address.group_code,
           },
         },
       });
-      console.log(result);
       Modal.success({ content: "회원님의 글이 정상적으로 등록되었습니다." });
       setIsButtonActive(false);
       setScore(0);
