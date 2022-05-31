@@ -11,6 +11,7 @@ export interface ISearchBarCategoryPresenter {
   onChangeSearch: (event: ChangeEvent<HTMLInputElement>) => void;
   onClickCategory: (event: any) => void;
   onClickButton: () => void;
+  onEnterButton: (event: any) => void;
 }
 
 export interface ISearchKeyWord {

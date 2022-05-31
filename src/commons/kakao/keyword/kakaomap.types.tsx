@@ -1,16 +1,17 @@
 import { ChangeEvent, LegacyRef, ReactNode } from "react";
-import { MapMarkerProps } from "react-kakao-maps-sdk";
 import { IQuery } from "../../types/generated/types";
 
 export interface KaoKaoMap {
   onChangeSearchbar: (event: ChangeEvent<HTMLInputElement>) => void;
-  markerClick: (info: any) => (address: any) => void;
+  markerClick: (marker: any) => () => void;
   onclickGeoLocation: () => void;
   onClickTrrapic: () => void;
   onClickRoadView: () => void;
-  onClickContent: () => void;
+  onClickContent: (marker: any) => () => void;
   onCancel: () => void;
   onClickButton: () => void;
+  listRef: LegacyRef<HTMLDivElement> | undefined;
+  closeList: boolean;
   mapStatus?: boolean;
   isOpen: boolean;
   trrapicFlag: boolean;
@@ -25,6 +26,15 @@ export interface KaoKaoMap {
   btnRef: LegacyRef<HTMLButtonElement>;
   isActive: boolean;
   roadViewFlag: boolean;
+  userContentFlag: boolean;
+  contentFlag: boolean;
+  search: string;
+  data?: Pick<IQuery, "fetchBoardsPage">;
+  markersLenght: number;
+  isActive1: boolean;
+  setLevel: (level: number) => void;
+  level: number;
+
   address: {
     content: string;
     address_name: string;
@@ -41,13 +51,6 @@ export interface KaoKaoMap {
       lng: string;
     };
   };
-  contentFlag: boolean;
-  search: string;
-  data?: Pick<IQuery, "fetchBoardsPage">;
-  markersLenght: number;
-  isActive1: boolean;
-  setLevel: (level: number) => void;
-  level: number;
 }
 
 export interface KaoKeyWord {
@@ -58,7 +61,7 @@ export interface KaoKeyWord {
 }
 
 export interface ContentProps {
-  marker: {
+  marker?: {
     content: string;
     address_name: string;
     place_url: string;
@@ -66,16 +69,57 @@ export interface ContentProps {
     road_name: string;
     group_name: string;
   };
+  // data?: Pick<IQuery, "fetchBoardsPage">;
+  el?: {
+    _id: string;
+    _source: {
+      address: string;
+      category: string;
+      createdat: string;
+      id: string;
+      lat: string;
+      likecount: number;
+      lng: string;
+      nickname: string;
+      place: string;
+      sortdate: number;
+      thumbnail: string;
+      title: string;
+      placephone: string;
+      placeurl: string;
+    };
+  };
 }
 
 export interface MarkerProps {
   markers: never[];
-  markerClick: (info: any) => (address: any) => void;
-  info: MapMarkerProps;
+  markerClick: (marker: any) => () => void;
+  onClickContent: (marker: any) => () => void;
+  info: any;
   contentFlag: boolean;
   data?: Pick<IQuery, "fetchBoardsPage">;
+  el?: {
+    _source: {
+      address: string;
+      category: string;
+      createdat: string;
+      id: string;
+      lat: string;
+      likecount: number;
+      lng: string;
+      nickname: string;
+      place: string;
+      sortdate: number;
+      thumbnail: string;
+      title: string;
+      placephone: string;
+      placeurl: string;
+    };
+  };
+  userContentFlag: boolean;
 }
 
 export interface KaKaoMapStylesProps {
   mapStatus?: boolean;
+  roadViewFlag?: boolean;
 }

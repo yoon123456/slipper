@@ -30,6 +30,8 @@ export default function ListContainer() {
     btnRef.current?.click();
   }, []);
 
+  console.log(userData);
+
   const handleScroll = () => {
     if (throttle) return;
     if (!throttle) {
@@ -79,10 +81,10 @@ export default function ListContainer() {
     localStorage.setItem("isClickedNum", String(isClickedNum));
 
     // 결제권없는 사람일 경우
-    if (isClickedNum >= 5) {
-      alert("6개 이상의 게시물을 보시려면 결제가 필요합니다");
-      router.push("/payment");
-    }
+    // if (isClickedNum >= 5) {
+    //   alert("6개 이상의 게시물을 보시려면 결제가 필요합니다");
+    //   router.push("/payment");
+    // }
 
     // 결제권이 있는 사람일 경우는 만료일과 비교하여서 만료일일 경우 결제페이지로 이동하도록 유도한다
     router.push(`boards/${event.currentTarget.id}`);

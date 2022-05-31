@@ -54,7 +54,7 @@ export default function JoinPresenter(props: IJoinPresenter) {
 
               <S.SnsBox>
                 <S.AWrap href="https://backend.slipperofficial.shop/login/kakao">
-                  <S.KaKao src="/image/kakao.png" />
+                  <S.KaKao src="https://upload.wikimedia.org/wikipedia/commons/e/e3/KakaoTalk_logo.svg" />
                 </S.AWrap>
                 <S.AWrap href="https://backend.slipperofficial.shop/login/google">
                   <S.Google src="https://upload.wikimedia.org/wikipedia/commons/0/09/IOS_Google_icon.png" />

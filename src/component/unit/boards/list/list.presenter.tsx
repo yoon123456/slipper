@@ -1,5 +1,4 @@
 // 예원작업 5/16
-
 import * as S from "./list.styles";
 import { useMovetoPage } from "../../../../commons/hooks/movePage";
 import KeyWord from "../../../../commons/kakao/keyword/kakaomap.container";
@@ -11,6 +10,7 @@ import InfiniteScroll from "react-infinite-scroller";
 import { v4 as uuidv4 } from "uuid";
 import Banner from "../../../../commons/banner/banner.presenter";
 import { timeForToday } from "../../../../commons/timefortoday/timeForToday";
+import Script from "next/script";
 
 export default function ListPresenter(props: IListPresenter) {
   const { onClickMoveToPage } = useMovetoPage();
@@ -19,6 +19,11 @@ export default function ListPresenter(props: IListPresenter) {
     <>
       <Banner />
       <S.WrapperOut isActive={isActive}>
+        <Script
+          type="text/javascript"
+          src="//dapi.kakao.com/v2/maps/sdk.js?appkey=10933d05118bfc99d732e83a2814b76a&libraries=services&autoload=false"
+          strategy="beforeInteractive"
+        />
         <S.WrapperTop>
           {/* chan 검색 기능 추가 22.05.19 */}
           {/* 예원 검색,카테고리,검색버튼 컴포넌트추가 22.05.21 */}
@@ -97,18 +102,4 @@ export default function ListPresenter(props: IListPresenter) {
       </S.WrapperOut>
     </>
   );
-}
-
-{
-  /* 
-<S.Gallery onClick={onClickMoveToPage("/boards/detail")}>
-  <S.A>
-    <S.Img src="/image/listimage.png" />
-    <S.Figcaption>
-      <S.Icon>만족도</S.Icon>
-      <S.Categoty>카테고리</S.Categoty>
-      <S.Title>제목</S.Title>
-    </S.Figcaption>
-  </S.A>
-</S.Gallery>; */
 }

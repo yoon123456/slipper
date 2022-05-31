@@ -17,7 +17,7 @@ export const SearchWrap = styled.div`
 
 export const Search = styled.input`
   width: 80%;
-  height: 50px;
+  height: 80px;
   background-color: #ffffff;
   border: none;
   border-radius: 10px;
@@ -81,7 +81,7 @@ export const CategoryWrapperOut = styled.div`
   border-radius: 10px;
   background-color: rgba(255, 255, 255, 0.9);
   position: absolute;
-  top: 38px;
+  top: 65px;
   z-index: 2;
 `;
 export const BoxWrap = styled.div`

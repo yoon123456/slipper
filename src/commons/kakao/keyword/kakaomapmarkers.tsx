@@ -4,15 +4,35 @@ import * as S from "./kakaomap.styled";
 import { v4 as uuidv4 } from "uuid";
 
 export default function KakaomapMarks(props: MarkerProps) {
-  console.log(props.data?.fetchBoardsPage?.map((el) => el));
   return (
     <>
+      {props.data?.fetchBoardsPage &&
+        props.data?.fetchBoardsPage.map((el) => (
+          <S.KakaoMapMarker
+            // key={`marker-${marker.content}-${marker.position.lng},${marker.position.lng}`}
+            key={el._source.id}
+            position={{
+              lat: Number(el._source.lat),
+              lng: Number(el._source.lng),
+            }}
+            image={{
+              src: "https://media.giphy.com/media/4mML4cVNOKVakSy649/giphy.gif",
+              size: { width: 20, height: 35 },
+            }}
+            onClick={props.onClickContent(el._source.id)}
+          >
+            {props.info && props.userContentFlag && !props.contentFlag && (
+              <Contents el={el} />
+            )}
+          </S.KakaoMapMarker>
+        ))}
+
       {props.markers.map((marker: any) => (
         <>
           {marker.group_code === "FD6" && (
             <S.KakaoMapMarker
-              // key={`marker-${marker.content}-${marker.position.lng},${marker.position.lng}`}
-              key={uuidv4()}
+              key={`marker-${marker.content}-${marker.position.lng},${marker.position.lng}`}
+              // key={uuidv4()}
               position={marker.position}
               onClick={props.markerClick(marker)}
               image={{
@@ -27,8 +47,8 @@ export default function KakaomapMarks(props: MarkerProps) {
           )}
           {marker.group_code === "SC4" && (
             <S.KakaoMapMarker
-              // key={`marker-${marker.content}-${marker.position.lng},${marker.position.lng}`}
-              key={uuidv4()}
+              key={`marker-${marker.content}-${marker.position.lng},${marker.position.lng}`}
+              // key={uuidv4()}
               position={marker.position}
               onClick={props.markerClick(marker)}
               image={{
@@ -43,8 +63,8 @@ export default function KakaomapMarks(props: MarkerProps) {
           )}
           {marker.group_code === "HP8" && (
             <S.KakaoMapMarker
-              // key={`marker-${marker.content}-${marker.position.lng},${marker.position.lng}`}
-              key={uuidv4()}
+              key={`marker-${marker.content}-${marker.position.lng},${marker.position.lng}`}
+              // key={uuidv4()}
               position={marker.position}
               onClick={props.markerClick(marker)}
               image={{
@@ -59,8 +79,8 @@ export default function KakaomapMarks(props: MarkerProps) {
           )}
           {marker.group_code === "MT1" && (
             <S.KakaoMapMarker
-              // key={`marker-${marker.content}-${marker.position.lng},${marker.position.lng}`}
-              key={uuidv4()}
+              key={`marker-${marker.content}-${marker.position.lng},${marker.position.lng}`}
+              // key={uuidv4()}
               position={marker.position}
               onClick={props.markerClick(marker)}
               image={{
@@ -75,8 +95,8 @@ export default function KakaomapMarks(props: MarkerProps) {
           )}
           {marker.group_code === "OL7" && (
             <S.KakaoMapMarker
-              // key={`marker-${marker.content}-${marker.position.lng},${marker.position.lng}`}
-              key={uuidv4()}
+              key={`marker-${marker.content}-${marker.position.lng},${marker.position.lng}`}
+              // key={uuidv4()}
               position={marker.position}
               onClick={props.markerClick(marker)}
               image={{
@@ -89,10 +109,11 @@ export default function KakaomapMarks(props: MarkerProps) {
                 props.contentFlag && <Contents marker={marker} />}
             </S.KakaoMapMarker>
           )}
+
           {marker.group_code === "CE7" && (
             <S.KakaoMapMarker
-              // key={`marker-${marker.content}-${marker.position.lng},${marker.position.lng}`}
-              key={uuidv4()}
+              key={`marker-${marker.content}-${marker.position.lng},${marker.position.lng}`}
+              // key={uuidv4()}
               position={marker.position}
               onClick={props.markerClick(marker)}
               image={{
@@ -139,8 +160,8 @@ export default function KakaomapMarks(props: MarkerProps) {
           )}
           {marker.group_code === "PK6" && (
             <S.KakaoMapMarker
-              // key={`marker-${marker.content}-${marker.position.lng},${marker.position.lng}`}
-              key={uuidv4()}
+              key={`marker-${marker.content}-${marker.position.lng},${marker.position.lng}`}
+              // key={uuidv4()}
               position={marker.position}
               onClick={props.markerClick(marker)}
               image={{
@@ -155,8 +176,8 @@ export default function KakaomapMarks(props: MarkerProps) {
           )}
           {marker.group_code === "CS2" && (
             <S.KakaoMapMarker
-              // key={`marker-${marker.content}-${marker.position.lng},${marker.position.lng}`}
-              key={uuidv4()}
+              key={`marker-${marker.content}-${marker.position.lng},${marker.position.lng}`}
+              // key={uuidv4()}
               position={marker.position}
               onClick={props.markerClick(marker)}
               image={{
@@ -171,8 +192,8 @@ export default function KakaomapMarks(props: MarkerProps) {
           )}
           {marker.group_code === "PS3" && (
             <S.KakaoMapMarker
-              // key={`marker-${marker.content}-${marker.position.lng},${marker.position.lng}`}
-              key={uuidv4()}
+              key={`marker-${marker.content}-${marker.position.lng},${marker.position.lng}`}
+              // key={uuidv4()}
               position={marker.position}
               onClick={props.markerClick(marker)}
               image={{
@@ -187,8 +208,8 @@ export default function KakaomapMarks(props: MarkerProps) {
           )}
           {marker.group_code === "AC5" && (
             <S.KakaoMapMarker
-              // key={`marker-${marker.content}-${marker.position.lng},${marker.position.lng}`}
-              key={uuidv4()}
+              key={`marker-${marker.content}-${marker.position.lng},${marker.position.lng}`}
+              // key={uuidv4()}
               position={marker.position}
               onClick={props.markerClick(marker)}
               image={{
@@ -203,8 +224,8 @@ export default function KakaomapMarks(props: MarkerProps) {
           )}
           {marker.group_code === "CT1" && (
             <S.KakaoMapMarker
-              // key={`marker-${marker.content}-${marker.position.lng},${marker.position.lng}`}
-              key={uuidv4()}
+              key={`marker-${marker.content}-${marker.position.lng},${marker.position.lng}`}
+              // key={uuidv4()}
               position={marker.position}
               onClick={props.markerClick(marker)}
               image={{
@@ -219,8 +240,8 @@ export default function KakaomapMarks(props: MarkerProps) {
           )}
           {marker.group_code === "AG2" && (
             <S.KakaoMapMarker
-              // key={`marker-${marker.content}-${marker.position.lng},${marker.position.lng}`}
-              key={uuidv4()}
+              key={`marker-${marker.content}-${marker.position.lng},${marker.position.lng}`}
+              // key={uuidv4()}
               position={marker.position}
               onClick={props.markerClick(marker)}
               image={{
@@ -235,8 +256,8 @@ export default function KakaomapMarks(props: MarkerProps) {
           )}
           {marker.group_code === "PO3" && (
             <S.KakaoMapMarker
-              // key={`marker-${marker.content}-${marker.position.lng},${marker.position.lng}`}
-              key={uuidv4()}
+              key={`marker-${marker.content}-${marker.position.lng},${marker.position.lng}`}
+              // key={uuidv4()}
               position={marker.position}
               onClick={props.markerClick(marker)}
               image={{
@@ -251,8 +272,8 @@ export default function KakaomapMarks(props: MarkerProps) {
           )}
           {marker.group_code === "AT4" && (
             <S.KakaoMapMarker
-              // key={`marker-${marker.content}-${marker.position.lng},${marker.position.lng}`}
-              key={uuidv4()}
+              key={`marker-${marker.content}-${marker.position.lng},${marker.position.lng}`}
+              // key={uuidv4()}
               position={marker.position}
               onClick={props.markerClick(marker)}
               image={{
@@ -267,8 +288,8 @@ export default function KakaomapMarks(props: MarkerProps) {
           )}
           {marker.group_code === "AD5" && (
             <S.KakaoMapMarker
-              // key={`marker-${marker.content}-${marker.position.lng},${marker.position.lng}`}
-              key={uuidv4()}
+              key={`marker-${marker.content}-${marker.position.lng},${marker.position.lng}`}
+              // key={uuidv4()}
               position={marker.position}
               onClick={props.markerClick(marker)}
               image={{
@@ -283,8 +304,8 @@ export default function KakaomapMarks(props: MarkerProps) {
           )}
           {marker.group_code === "PM9" && (
             <S.KakaoMapMarker
-              // key={`marker-${marker.content}-${marker.position.lng},${marker.position.lng}`}
-              key={uuidv4()}
+              key={`marker-${marker.content}-${marker.position.lng},${marker.position.lng}`}
+              // key={uuidv4()}
               position={marker.position}
               onClick={props.markerClick(marker)}
               image={{
@@ -299,8 +320,8 @@ export default function KakaomapMarks(props: MarkerProps) {
           )}
           {marker.group_code === "" && (
             <S.KakaoMapMarker
-              // key={`marker-${marker.content}-${marker.position.lng},${marker.position.lng}`}
-              key={uuidv4()}
+              key={`marker-${marker.content}-${marker.position.lng},${marker.position.lng}`}
+              // key={uuidv4()}
               position={marker.position}
               onClick={props.markerClick(marker)}
               image={{
@@ -313,31 +334,8 @@ export default function KakaomapMarks(props: MarkerProps) {
                 props.contentFlag && <Contents marker={marker} />}
             </S.KakaoMapMarker>
           )}
-          {/* {marker.category_name.includes("문화유적") && (
-            <S.KakaoMapMarker
-              position={marker.position}
-              onClick={props.markerClick(marker)}
-              image={{
-                src: "/image/culutre.png",
-                size: { width: 40, height: 40 },
-              }}
-            >
-              {props.info &&
-                props.info.content === marker.content &&
-                props.contentFlag && <Contents marker={marker} />}
-            </S.KakaoMapMarker>
-          )} */}
         </>
       ))}
     </>
   );
 }
-
-// src="https://img.icons8.com/external-nawicon-outline-color-nawicon/64/000000/external-location-maps-and-navigation-nawicon-outline-color-nawicon-2.png"/>
-//   const at4 = props.markers
-//     .filter((el: any) => el.category_name.includes("미용실"))
-//     .map((el: any) => el);
-//   console.log(at4, 123);
-// infoWindowOptions={{
-//   style: { backgroundColor: "red", width: "200px" },
-// }}
