@@ -55,7 +55,7 @@
 // 해리 작업 5/11(ANTD햄버거)
 import { gql, useMutation } from "@apollo/client";
 import styled from "@emotion/styled";
-import { Menu, Dropdown, Button } from "antd";
+import { Menu, Dropdown, Button, Modal } from "antd";
 import { useRouter } from "next/router";
 import { useRecoilState } from "recoil";
 import { useMovetoPage } from "../hooks/movePage";
@@ -73,10 +73,14 @@ const HamMenu = styled.div`
 `;
 
 const HamIcon = styled.img`
-  width: 80px;
-  height: 35px;
+  /* width: 80px; */
+  width: 90px;
+  /* height: 35px; */
+  height: 60px;
   margin: 20px;
-  padding-left: 40px;
+  /* padding-left: 40px; */
+  padding-left: 25px;
+  cursor: pointer;
 `;
 
 const LOGOUT = gql`
@@ -94,10 +98,10 @@ export default function Ham() {
   const onClickLogout = async () => {
     try {
       await logout();
-      alert("성공");
+      Modal.success({ content: "로그아웃에 성공하였습니다." });
       router.push("/boards");
     } catch (error) {
-      alert("메롱");
+      Modal.error({ content: "로그아웃에 실패하였습니다." });
     }
   };
 
@@ -137,7 +141,8 @@ export default function Ham() {
       {/* <Dropdown overlay={menu} placement="bottom" arrow> */}
       {/* <Dropdown overlay={menu} arrow> */}
       <Dropdown overlay={menu}>
-        <HamIcon src="/image/hamBorder.png" />
+        {/* <HamIcon src="/image/hamBorder.png" /> */}
+        <HamIcon src="/image/writeSlipper.png" />
         {/* <Button>bottom</Button> */}
       </Dropdown>
     </>

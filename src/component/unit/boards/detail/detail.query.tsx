@@ -34,7 +34,6 @@ export const FETCH_BOARD = gql`
   }
 `;
 
-// 게시글을 삭제하는 mutation
 export const DELETE_BOARD = gql`
   mutation deleteBoard($boardId: String!) {
     deleteBoard(boardId: $boardId)

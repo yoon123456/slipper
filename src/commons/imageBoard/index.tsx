@@ -10,7 +10,7 @@ const UPLOAD_BOARD_IMAGE = gql`
 `;
 
 const UploadImage = styled.img`
-  object-fit: contain;
+  object-fit: cover;
   width: 40%;
   height: 190px;
   outline: none;

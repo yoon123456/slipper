@@ -10,8 +10,6 @@ import QuestionWriteContainer from "../../question/write/questionwrite.container
 import Dompurify from "dompurify";
 import QuestionListUIItem from "../../question/list/questiontlist.presenteritem";
 import { IBoardImage } from "../../../../commons/types/generated/types";
-import { useRecoilState } from "recoil";
-import { userNicknameState } from "../../../../commons/store";
 import QuestionListContainer from "../../question/list/questionlist.container";
 
 export default function DetailPresenter(props: IDetailPresenter) {
@@ -165,11 +163,7 @@ export default function DetailPresenter(props: IDetailPresenter) {
         </S.WrapperTop>
       </S.WrapperOut>
       <S.WraperQuestion>
-        {/* <S.Question>댓글</S.Question> */}
 
-        <QuestionWriteContainer data={props.data} />
-        <QuestionListContainer data={props.data} />
-        <QuestionListUIItem />
       </S.WraperQuestion>
     </>
   );

@@ -2,16 +2,16 @@ import styled from "@emotion/styled";
 import { IWriteButtonProps } from "./questionwrite.types";
 
 export const Div = styled.div`
-  width: 100%;
+  width: 97%;
   display: flex;
-  /* justify-content: space-between; */
+  align-items: baseline;
   margin-bottom: 2%;
 `;
 export const PersonBox = styled.div`
   width: 7%;
 `;
 export const CommentBox = styled.div`
-  width: 90%;
+  width: 100%;
 `;
 export const Top = styled.div`
   display: flex;
@@ -45,7 +45,6 @@ export const Box = styled.div`
 export const ButtonBox = styled.div`
   display: flex;
   justify-content: flex-end;
-  margin: 1% 2%;
 `;
 export const Cancel = styled.div`
   width: 80px;
