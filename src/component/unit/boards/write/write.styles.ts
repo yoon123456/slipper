@@ -3,6 +3,7 @@ import styled from "@emotion/styled";
 import { DatePicker } from "antd";
 import "react-quill/dist/quill.snow.css";
 import dynamic from "next/dynamic";
+import { IProps } from "./write.types";
 
 const { RangePicker } = DatePicker;
 const ReactQuill = dynamic(() => import("react-quill"), { ssr: false });
@@ -21,9 +22,10 @@ export const TopWrapper = styled.div`
   align-items: center;
   justify-content: space-between;
 `;
-export const TopColumnOn = styled.div`
+export const TopOn = styled.div`
   width: 33.5%;
   height: 90px;
+  margin-top: 20px;
   padding: 2%;
   display: flex;
   flex-direction: column;
@@ -33,31 +35,32 @@ export const TopColumnOn = styled.div`
   border-top-left-radius: 20px;
   border-top-right-radius: 20px;
   /* box-shadow: 5px -5px 8px rgba(214, 214, 214, 1); */
-  box-shadow: 5px -5px 8px rgb(221 220 220);
+  /* box-shadow: 0px -5px 8px rgb(221 220 220); */
+  box-shadow: 0px -6px 9px rgb(221 220 220);
   /* border: 1px solid lightgray; */
   /* border-bottom: none; */
-  margin-top: 20px;
   z-index: 9999;
 `;
-export const TopColumnOff = styled.div`
+export const TopOff = styled.div`
   width: 33.5%;
   height: 90px;
+  margin-top: 20px;
   padding: 2%;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
   color: gray;
-  /* background-color: #f6f6f6; */
+  background-color: #f4f7f9b3;
   border-top-left-radius: 20px;
   border-top-right-radius: 20px;
-  box-shadow: 5px -5px 8px rgb(238 238 238);
+  /* box-shadow: 5px -5px 8px rgb(238 238 238); */
+  box-shadow: 7px -3px 8px 0px rgb(238 238 238);
   /* border: 1px solid lightgray; */
   /* border-bottom: none; */
-  margin-top: 20px;
 `;
 export const TopRow = styled.div`
-  width: 40%;
+  width: 35%;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -67,60 +70,56 @@ export const TopImg = styled.img`
   width: 25%;
   height: 80%;
 `;
-export const Top = styled.div`
+export const StepName = styled.div`
   font-size: 2rem;
 `;
-export const TopDetail = styled.div`
+export const StepDetail = styled.div`
   width: 100%;
   text-align: center;
   font-size: 1.2rem;
 `;
-export const StepWrapper = styled.div`
+export const BodyWrapper = styled.div`
   width: 100%;
-  height: 900px;
-  padding: 3% 15% 8.5% 15%;
+  height: 1000px;
+  padding: 7% 15% 5% 15%;
   border-radius: 0px 0px 41px 41px;
   /* box-shadow: 0px 10px 20px rgba(214, 214, 214, 1); */
-  /* box-shadow: 0px 7px 20px #008af6; */
   box-shadow: 4px 2px 14px 0px #e8e8e8;
-  /* border: 1px solid lightgray; */
-  /* border-top: none; */
   z-index: 0;
 `;
-export const StepBody = styled.div`
+export const Body = styled.div`
   width: 100%;
   height: 90%;
 `;
+export const InputWrapper = styled.div`
+  height: 17%;
+`;
 export const Head = styled.div`
-  /* margin-top: 5%; */
-  margin-bottom: 3%;
+  padding-bottom: 2.5%;
   font-size: 1.6rem;
   color: #008af6;
 `;
 export const StyledRangePicker = styled(RangePicker)`
   width: 130%;
-  margin-bottom: 15%;
 `;
-export const HeadCategory = styled.div`
-  margin-bottom: 0;
-  font-size: 1.4rem;
-  color: #008af6;
+export const Error = styled.div`
+  font-size: 1.1rem;
+  color: red;
+  padding: 2% 0 0 0.5%;
 `;
 export const HeadContents = styled.div`
   /* margin-top: 1%; */
-  margin-bottom: 3%;
+  margin-bottom: 2.5%;
   font-size: 1.6rem;
   color: #008af6;
 `;
 export const Input = styled.input`
   width: 100%;
-  padding: 1%;
-  /* margin-bottom: 2%; */
-  margin-bottom: 7%;
+  padding: 0.5%;
   border: none;
   border-bottom: 1px solid gainsboro;
   outline: none;
-  font-size: 1.2rem;
+  font-size: 1.5rem;
   ::placeholder {
     color: lightgray;
   }
@@ -131,19 +130,38 @@ export const RatingWrapper = styled.div`
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  margin-bottom: 7%;
-  /* padding-top: 1%; */
+  /* margin-bottom: 7%; */
+  padding-top: 1%;
 `;
 export const RatingImg = styled.img`
   cursor: pointer;
   width: 25%;
   height: 50%;
+  :active {
+    position: relative;
+    top: 2px;
+  }
+`;
+export const ResetScore = styled.button`
+  width: 5%;
+  height: 15%;
+  margin-top: 1%;
+  font-size: 1rem;
+  border: 1px solid gray;
+  border-radius: 5px;
+  background-color: white;
+  color: gray;
+  cursor: pointer;
+  :active {
+    position: relative;
+    top: 2px;
+  }
 `;
 export const StyledQuill = styled(ReactQuill)`
-  height: 250px;
-  margin-bottom: 15px;
+  height: 270px;
+  margin-bottom: 6%;
   .ql-editor {
-    padding: 1%;
+    padding: 2%;
     min-height: 320px;
     font-size: 25px;
     line-height: 1.5;
@@ -153,7 +171,23 @@ export const StyledQuill = styled(ReactQuill)`
     left: 0;
   } */
 `;
-export const StepBottom = styled.div`
+export const MapWrapper = styled.div`
+  height: 50%;
+`;
+export const MapDetail = styled.div`
+  width: 100%;
+  height: 5%;
+  padding: 0.5%;
+  margin-bottom: 7%;
+  border: none;
+  border-bottom: 1px solid gainsboro;
+  outline: none;
+  font-size: 1.5rem;
+  ::placeholder {
+    color: lightgray;
+  }
+`;
+export const ButtonWrapper = styled.div`
   width: 100%;
   height: 10%;
   display: flex;
@@ -161,36 +195,70 @@ export const StepBottom = styled.div`
   align-items: center;
   justify-content: space-between;
 `;
-export const StepButton = styled.button`
-  width: 13%;
-  height: 40%;
+export const Button = styled.button`
+  width: 15%;
+  height: 50%;
   padding: 1%;
-  color: gray;
-  font-size: 1.3rem;
+  font-size: 1.5rem;
   text-decoration: none;
   text-shadow: 0px 0px 0px #f0f0f0;
   border: none;
   border-radius: 10px;
-  background-color: white;
-  background: linear-gradient(to bottom, white 5%, #ffffff 100%);
+  /* background: linear-gradient(to bottom, white 5%, #ffffff 100%); */
+  background-color: ${(props: IProps) =>
+    props.isButtonActive ? "#008af6" : "#f4f7f9b3"};
+  color: ${(props: IProps) => (props.isButtonActive ? "white" : "#008af6")};
   display: inline-block;
-  box-shadow: 3px 3px 7px 0 rgba(0, 0, 0, 0.25),
-    -4px -4px 7px 0 rgba(255, 255, 255, 0.3);
   cursor: pointer;
   :active {
     position: relative;
     top: 2px;
-    color: #008af6;
   }
 `;
-export const ImageStepWrapper = styled.div`
+export const MapButtonOn = styled.button`
+  width: 15%;
+  height: 50%;
+  padding: 1%;
+  font-size: 1.5rem;
+  text-decoration: none;
+  text-shadow: 0px 0px 0px #f0f0f0;
+  border: none;
+  border-radius: 10px;
+  background-color: #008af6;
+  color: white;
+  display: inline-block;
+  cursor: pointer;
+  :active {
+    position: relative;
+    top: 2px;
+  }
+`;
+export const MapButtonOff = styled.button`
+  width: 15%;
+  height: 50%;
+  padding: 1%;
+  font-size: 1.5rem;
+  text-decoration: none;
+  text-shadow: 0px 0px 0px #f0f0f0;
+  border: none;
+  border-radius: 10px;
+  background-color: #f4f7f9b3;
+  color: #008af6;
+  display: inline-block;
+  cursor: pointer;
+  :active {
+    position: relative;
+    top: 2px;
+  }
+`;
+export const ImageBodyWrapper = styled.div`
   width: 100%;
-  height: 900px;
+  height: 1000px;
   padding: 7% 15% 5% 15%;
   border-radius: 0px 0px 41px 41px;
   box-shadow: 0px 10px 20px rgba(214, 214, 214, 1);
 `;
-export const ImageMap = styled.div`
+export const ImageBody = styled.div`
   width: 100%;
   height: 90%;
   display: flex;
@@ -200,11 +268,29 @@ export const ImageMap = styled.div`
   padding-top: 10%;
   padding-bottom: 10%;
 `;
-export const ImageBottom = styled.div`
+export const ImageButtonWrapper = styled.div`
   width: 100%;
   height: 10%;
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
+`;
+export const FinishButton = styled.button`
+  width: 15%;
+  height: 50%;
+  padding: 1%;
+  font-size: 1.5rem;
+  text-decoration: none;
+  text-shadow: 0px 0px 0px #f0f0f0;
+  border: none;
+  border-radius: 10px;
+  background-color: #008af6;
+  color: white;
+  display: inline-block;
+  cursor: pointer;
+  :active {
+    position: relative;
+    top: 2px;
+  }
 `;

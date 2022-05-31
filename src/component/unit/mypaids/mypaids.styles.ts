@@ -2,7 +2,6 @@ import styled from "@emotion/styled";
 
 export const WrapperOut = styled.div`
   width: 100%;
-  /* padding: 5%; */
 `;
 export const Head = styled.div`
   font-size: 1.8rem;
@@ -10,27 +9,34 @@ export const Head = styled.div`
   padding: 5% 1% 2% 2%;
 `;
 export const BodyWrapper = styled.div`
+  width: 100%;
+  padding: 1%;
   display: flex;
   flex-direction: column;
 `;
 export const BodyHeadWrapper = styled.div`
   width: 100%;
+  height: 5px;
+  /* padding: 5% 1% 1% 1%; */
+  margin: 1%;
+  padding: 2%;
+  padding-top: 5%;
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: space-around;
-  padding: 5% 5% 0% 5%;
+  justify-content: left;
+`;
+export const BodyHeadFirst = styled.div`
+  width: 20%;
+  font-size: 1.5rem;
 `;
 export const BodyHead = styled.div`
-  font-size: 1.6rem;
-  width: 30%;
-  text-align: center;
-  padding-right: 4%;
-  margin-bottom: 2%;
+  width: 34.5%;
+  font-size: 1.5rem;
 `;
 export const Body = styled.div`
-  /* padding: 1%; */
   height: 500px;
+  /* padding: 1%; */
   overflow: scroll;
   ::-webkit-scrollbar {
     display: none;
@@ -38,24 +44,22 @@ export const Body = styled.div`
 `;
 export const RowWrapper = styled.div`
   width: 100%;
+  height: 55px;
+  margin: 1%;
+  padding: 2%;
+  /* padding: 0 5% 0 5%; */
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: space-around;
-  /* background-color: #f5f7f9; */
+  justify-content: left;
   background-color: #f4f7f9b3;
   border-radius: 5px;
-  padding: 1% 4% 1% 4%;
-  margin: 1%;
-  :hover {
-    /* position: relative; */
-    /* bottom: 2px; */
-    color: #008af6;
-  }
+`;
+export const RowFirst = styled.div`
+  width: 20%;
+  font-size: 1.4rem;
 `;
 export const Row = styled.div`
+  width: 35%;
   font-size: 1.4rem;
-  width: 30%;
-  text-align: center;
-  padding-right: 5%;
 `;
