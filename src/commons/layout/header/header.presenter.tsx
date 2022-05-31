@@ -18,9 +18,15 @@ export default function HeaderPresenter(props: HeaderPrpos) {
           <S.WrapperIn>
             {/* 해리 - 햄버거 없애보기 */}
             <S.TestWrapper>
-              <S.Test>글쓰기</S.Test>
-              <S.Test>구독서비스</S.Test>
-              <S.Test>내 신발장</S.Test>
+              <S.Test onClick={props.onClickMoveToPage("/boards/new")}>
+                글쓰기
+              </S.Test>
+              <S.Test onClick={props.onClickMoveToPage("/payment")}>
+                구독서비스
+              </S.Test>
+              <S.Test onClick={props.onClickMoveToPage("/mypage")}>
+                내 신발장
+              </S.Test>
             </S.TestWrapper>
           </S.WrapperIn>
           {accessToken ? (
@@ -29,10 +35,12 @@ export default function HeaderPresenter(props: HeaderPrpos) {
                 {props.data?.fetchUser.nickname}
               </S.WrapperInUser>
               <S.WrapperInMy>님 안녕하세요</S.WrapperInMy>
-              <S.LogOut>로그아웃</S.LogOut>
+              <S.LogOut onClick={props.out}>로그아웃</S.LogOut>
             </S.WrapUser>
           ) : (
-            <S.LogIn>로그인</S.LogIn>
+            <S.LogIn onClick={props.onClickMoveToPage("/login")}>
+              로그인
+            </S.LogIn>
           )}
           {/* <S.WrapperInHam>햄버거</S.WrapperInHam> */}
           {/* <Ham /> */}

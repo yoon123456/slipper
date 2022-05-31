@@ -22,10 +22,10 @@ export type IBoard = {
   __typename?: 'Board';
   address: Scalars['String'];
   category: Scalars['String'];
-  comment?: Maybe<Array<IComment>>;
   contents: Scalars['String'];
   createdAt?: Maybe<Scalars['DateTime']>;
   endDate?: Maybe<Scalars['String']>;
+  groupCode: Scalars['String'];
   id: Scalars['String'];
   images?: Maybe<Array<IBoardImage>>;
   lat: Scalars['String'];
@@ -33,6 +33,8 @@ export type IBoard = {
   lng: Scalars['String'];
   nickname: Scalars['String'];
   place: Scalars['String'];
+  placePhone?: Maybe<Scalars['String']>;
+  placeUrl?: Maybe<Scalars['String']>;
   score: Scalars['Int'];
   startDate?: Maybe<Scalars['String']>;
   thumbnail?: Maybe<Scalars['String']>;
@@ -86,11 +88,12 @@ export type IBusinessBoardImage = {
 export type IComment = {
   __typename?: 'Comment';
   board: IBoard;
-  contents: Scalars['String'];
-  createdAt: Scalars['DateTime'];
+  contents?: Maybe<Scalars['String']>;
+  createdAt?: Maybe<Scalars['DateTime']>;
   id: Scalars['String'];
   imageUrl?: Maybe<Scalars['String']>;
-  nickname: Scalars['String'];
+  nickname?: Maybe<Scalars['String']>;
+  subComment?: Maybe<Array<ISubComment>>;
 };
 
 export type ICreateBoardInput = {
@@ -98,10 +101,13 @@ export type ICreateBoardInput = {
   category: Scalars['String'];
   contents: Scalars['String'];
   endDate?: InputMaybe<Scalars['String']>;
+  groupCode: Scalars['String'];
   images?: InputMaybe<Array<Scalars['String']>>;
   lat: Scalars['String'];
   lng: Scalars['String'];
   place: Scalars['String'];
+  placePhone?: InputMaybe<Scalars['String']>;
+  placeUrl?: InputMaybe<Scalars['String']>;
   score: Scalars['Int'];
   startDate?: InputMaybe<Scalars['String']>;
   thumbnail?: InputMaybe<Scalars['String']>;
@@ -153,16 +159,23 @@ export type IJoin = {
 
 export type IMutation = {
   __typename?: 'Mutation';
-  clickLike: IBoard;
+  TEST_createBoard: IBoard;
+  TEST_payment: Scalars['String'];
+  clickLike: IBoardLike;
   createBoard: IBoard;
   createBusinessBoard: IBusinessBoard;
   createComment: Scalars['JSONObject'];
   createPayment: IPayment;
   createSubComment: Scalars['JSONObject'];
   createUser: IJoin;
+  deleteAdiminBusinessBoard: Scalars['String'];
+  deleteAdminUserBoard: Scalars['String'];
+  deleteAdminUserComment: Scalars['String'];
+  deleteAdminUserSubComment: Scalars['String'];
   deleteBoard: Scalars['String'];
   deleteBusinessBoard: Scalars['Boolean'];
-  deleteComment: Scalars['JSONObject'];
+  deleteComment: Scalars['String'];
+  deleteSubComment: Scalars['String'];
   deleteUser: Scalars['Boolean'];
   getToken: Scalars['String'];
   login: Scalars['String'];
@@ -170,18 +183,32 @@ export type IMutation = {
   proofToken: Scalars['String'];
   restoreAccessToken: Scalars['String'];
   searchUserEmail: IJoin;
-  testCreateBoard: IBoard;
   updateBoard: IBoard;
   updateBusinessBoard: IBusinessBoard;
-  updateComment: Scalars['JSONObject'];
+  updateComment: Scalars['String'];
   updatePayment: Scalars['String'];
-  updateSubComment: Scalars['JSONObject'];
+  updateSubComment: Scalars['String'];
   updateUser: IJoin;
   updateUserPw: Scalars['String'];
   uploadBoardImage: Array<Scalars['String']>;
   uploadBusinessImage: Array<Scalars['String']>;
   uploadProfileImage: Array<Scalars['String']>;
   userGetToken: Scalars['String'];
+};
+
+
+export type IMutationTest_CreateBoardArgs = {
+  createBoardInput: ICreateBoardInput;
+  email: Scalars['String'];
+};
+
+
+export type IMutationTest_PaymentArgs = {
+  impUid: Scalars['String'];
+  paymentAmount: Scalars['Float'];
+  subEnd: Scalars['DateTime'];
+  subStart: Scalars['DateTime'];
+  userId: Scalars['String'];
 };
 
 
@@ -223,6 +250,26 @@ export type IMutationCreateUserArgs = {
 };
 
 
+export type IMutationDeleteAdiminBusinessBoardArgs = {
+  businessBoardId: Scalars['String'];
+};
+
+
+export type IMutationDeleteAdminUserBoardArgs = {
+  boardId: Scalars['String'];
+};
+
+
+export type IMutationDeleteAdminUserCommentArgs = {
+  commentId: Scalars['String'];
+};
+
+
+export type IMutationDeleteAdminUserSubCommentArgs = {
+  subCommentId: Scalars['String'];
+};
+
+
 export type IMutationDeleteBoardArgs = {
   boardId: Scalars['String'];
 };
@@ -235,6 +282,11 @@ export type IMutationDeleteBusinessBoardArgs = {
 
 export type IMutationDeleteCommentArgs = {
   commentId: Scalars['String'];
+};
+
+
+export type IMutationDeleteSubCommentArgs = {
+  subCommentId: Scalars['String'];
 };
 
 
@@ -257,12 +309,6 @@ export type IMutationProofTokenArgs = {
 
 export type IMutationSearchUserEmailArgs = {
   phone: Scalars['String'];
-};
-
-
-export type IMutationTestCreateBoardArgs = {
-  createBoardInput: ICreateBoardInput;
-  email: Scalars['String'];
 };
 
 
@@ -325,26 +371,57 @@ export type IMutationUserGetTokenArgs = {
   phone: Scalars['String'];
 };
 
+export enum IPayment_Status_Enum {
+  Day7 = 'DAY7',
+  Day30 = 'DAY30',
+  Day90 = 'DAY90'
+}
+
 export type IPayment = {
   __typename?: 'Payment';
+  id: Scalars['String'];
   impUid: Scalars['String'];
+  paymentAmount: Scalars['Int'];
+  subEnd: Scalars['DateTime'];
+  subStart: Scalars['DateTime'];
+  subType: IPayment_Status_Enum;
+  user?: Maybe<IJoin>;
 };
 
 export type IQuery = {
   __typename?: 'Query';
+  TEST_API: Scalars['String'];
+  TEST_fetchBoards: Array<IBoard>;
+  TEST_fetchBoardsPage: Array<Scalars['JSONObject']>;
+  TEST_fetchUser: IJoin;
   fetchAllUser: Array<IJoin>;
   fetchBoard: IBoard;
+  fetchBoardLikeCount: Scalars['Int'];
   fetchBoardsPage: Array<Scalars['JSONObject']>;
   fetchBusinessBoard: IBusinessBoard;
   fetchBusinessBoards: Array<IBusinessBoard>;
+  fetchBusinessBoardsPage: Array<Scalars['JSONObject']>;
+  fetchComments: Array<IComment>;
   fetchLikeBoards: Array<IBoardLike>;
+  fetchPayments: Array<IPayment>;
+  fetchSubComment: Array<ISubComment>;
   fetchUser: IJoin;
   fetchUserBoards: Array<IBoard>;
+  fetchUserLike: IBoardLike;
   fetchUsers: Array<IJoin>;
-  testAPI: Scalars['String'];
-  testFetchBoards: Array<IBoard>;
-  testFetchBoardsPage: Array<Scalars['JSONObject']>;
-  testFetchUser: IJoin;
+  likeBoardsArray: Array<IBoard>;
+};
+
+
+export type IQueryTest_FetchBoardsPageArgs = {
+  category?: InputMaybe<Scalars['String']>;
+  page?: InputMaybe<Scalars['Float']>;
+  search?: InputMaybe<Scalars['String']>;
+};
+
+
+export type IQueryTest_FetchUserArgs = {
+  email: Scalars['String'];
 };
 
 
@@ -353,10 +430,16 @@ export type IQueryFetchBoardArgs = {
 };
 
 
+export type IQueryFetchBoardLikeCountArgs = {
+  boardId?: InputMaybe<Scalars['String']>;
+};
+
+
 export type IQueryFetchBoardsPageArgs = {
   category?: InputMaybe<Scalars['String']>;
   page?: InputMaybe<Scalars['Int']>;
   search?: InputMaybe<Scalars['String']>;
+  sortType?: InputMaybe<Scalars['String']>;
 };
 
 
@@ -365,15 +448,41 @@ export type IQueryFetchBusinessBoardArgs = {
 };
 
 
-export type IQueryTestFetchBoardsPageArgs = {
+export type IQueryFetchBusinessBoardsPageArgs = {
   category?: InputMaybe<Scalars['String']>;
-  page?: InputMaybe<Scalars['Float']>;
+  page?: InputMaybe<Scalars['Int']>;
   search?: InputMaybe<Scalars['String']>;
+  sortType?: InputMaybe<Scalars['String']>;
 };
 
 
-export type IQueryTestFetchUserArgs = {
-  email: Scalars['String'];
+export type IQueryFetchCommentsArgs = {
+  boardId: Scalars['String'];
+};
+
+
+export type IQueryFetchLikeBoardsArgs = {
+  page?: InputMaybe<Scalars['Int']>;
+};
+
+
+export type IQueryFetchSubCommentArgs = {
+  commentId: Scalars['String'];
+};
+
+
+export type IQueryFetchUserBoardsArgs = {
+  page?: InputMaybe<Scalars['Int']>;
+};
+
+
+export type IQueryFetchUserLikeArgs = {
+  boardId: Scalars['String'];
+};
+
+
+export type IQueryLikeBoardsArrayArgs = {
+  page?: InputMaybe<Scalars['Int']>;
 };
 
 export enum IRole {
@@ -382,15 +491,28 @@ export enum IRole {
   User = 'USER'
 }
 
+export type ISubComment = {
+  __typename?: 'SubComment';
+  comment: IComment;
+  contents?: Maybe<Scalars['String']>;
+  createdAt?: Maybe<Scalars['DateTime']>;
+  id: Scalars['String'];
+  imageUrl?: Maybe<Scalars['String']>;
+  nickname?: Maybe<Scalars['String']>;
+};
+
 export type IUpdateBoardInput = {
   address?: InputMaybe<Scalars['String']>;
   category?: InputMaybe<Scalars['String']>;
   contents?: InputMaybe<Scalars['String']>;
   endDate?: InputMaybe<Scalars['String']>;
+  groupCode?: InputMaybe<Scalars['String']>;
   images?: InputMaybe<Array<Scalars['String']>>;
   lat?: InputMaybe<Scalars['String']>;
   lng?: InputMaybe<Scalars['String']>;
   place?: InputMaybe<Scalars['String']>;
+  placePhone?: InputMaybe<Scalars['String']>;
+  placeUrl?: InputMaybe<Scalars['String']>;
   score?: InputMaybe<Scalars['Int']>;
   startDate?: InputMaybe<Scalars['String']>;
   thumbnail?: InputMaybe<Scalars['String']>;

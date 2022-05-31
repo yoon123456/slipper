@@ -37,20 +37,20 @@ export interface IWritePresenter {
   onChangeFileUrls: (fileUrl: string, index: number) => void;
   fileUrls: string[];
   mapStatus?: boolean;
+  resetScore: boolean;
+  onClickResetScore: () => void;
   address: {
-    content: "";
-    address_name: "";
-    group_name: "";
-    group_code: "";
-    category_name: "";
-    distance: "";
-    id: "";
-    phone: "";
-    place_url: "";
-    road_name: "";
+    address_name: string;
+    category_name: string;
+    content: string;
+    group_code: string;
+    group_name: string;
+    phone: string;
+    place_url: string;
+    road_name: string;
     position: {
-      lat: "";
-      lng: "";
+      lat: string;
+      lng: string;
     };
   };
   mapError: string;

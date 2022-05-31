@@ -17,10 +17,9 @@ export default function HeaderContainer() {
   const { onClickMoveToPage } = useMovetoPage();
   const [, setIsClickedNum] = useRecoilState(isClickedNumState);
   const { data } = useQuery(FETCH_USER);
-
   const [logout] = useMutation<Pick<IMutation, "logout">>(LOGOUT);
   const router = useRouter();
-  console.log(data);
+
   const [udpatePayment] = useMutation<
     Pick<IMutation, "updatePayment">,
     IMutationUpdatePaymentArgs
@@ -69,5 +68,11 @@ export default function HeaderContainer() {
     userPayment();
   }, [data]);
 
-  return <HeaderPresenter onClickMoveToPage={onClickMoveToPage} data={data} />;
+  return (
+    <HeaderPresenter
+      onClickMoveToPage={onClickMoveToPage}
+      data={data}
+      out={out}
+    />
+  );
 }

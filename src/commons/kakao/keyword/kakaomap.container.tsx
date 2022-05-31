@@ -136,7 +136,7 @@ export default function KaKaoMapContainer(props: KaoKeyWord) {
       }
     });
     btnRef.current?.blur;
-
+    console.log(address);
     //등록페이지 상태값 확인후 초기화
     if (props.mapStatus) {
       setAddress(adressReset);
