@@ -13,8 +13,8 @@ export interface IQuestionWritePresenter {
   el: any;
 }
 export interface IQuestionWriteContainer {
-  isEdit: boolean;
-  el: any;
+  isEdit?: boolean;
+  el?: any;
   data?: any;
 }
 export interface IWriteButtonProps {
