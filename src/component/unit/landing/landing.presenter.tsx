@@ -38,10 +38,6 @@ export default function LandingPresenter() {
           <S.LogoBox>
             <Logo />
           </S.LogoBox>
-          {/* <S.Ham src="/image/hamWhite.png"></S.Ham> */}
-          <S.HamBox>
-            <Ham />
-          </S.HamBox>
 
           <S.H1>
             <span>s</span>

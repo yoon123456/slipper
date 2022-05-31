@@ -1,16 +1,17 @@
-// 예원 작업 5/11 ,5/18, 5/22, 5,23
+// 예원 작업 5/11 ,5/18, 5/22, 5,23 5,27
 
 import { useRouter } from "next/router";
 import { ChangeEvent, MouseEvent, useEffect, useRef, useState } from "react";
 import { useRecoilState } from "recoil";
 import { useMovetoPage } from "../../../../commons/hooks/movePage";
-import { isClickedNumState } from "../../../../commons/store";
+import { detailIdState, isClickedNumState } from "../../../../commons/store";
 import ListPresenter from "./list.presenter";
-import { kakaoAddress } from "../../../../commons/store/kakaounit";
-import { gql, useQuery } from "@apollo/client";
+import { useQuery } from "@apollo/client";
 import { FETCH_BOARDS_PAGE } from "./list.query";
-import { FETCH_USER } from "../../login/login.queries";
+import { FETCH_USER } from "./list.query";
 import {
+  IMutation,
+  IMutationClickLikeArgs,
   IQuery,
   IQueryFetchBoardsPageArgs,
 } from "../../../../commons/types/generated/types";
@@ -20,11 +21,13 @@ export default function ListContainer() {
   const { onClickMoveToPage } = useMovetoPage();
   const [isClickedNum, setIsClickedNum] = useRecoilState(isClickedNumState);
   const [keyword, setKeyword] = useState(""); // Chan 검색기능 추가
-  const { data: userData } = useQuery(FETCH_USER);
   const btnRef = useRef<HTMLButtonElement>(null);
-
+  const [array, setArray] = useState("");
+  const [detailId, setDetailId] = useRecoilState(detailIdState);
+  const { data: userData } = useQuery(FETCH_USER);
+  const aaa: string[] = [];
   const [page, setPage] = useState(0);
-  const [throttle, setThrottle] = useState(false);
+  const [throttle, setThrottle] = useState(true);
 
   useEffect(() => {
     btnRef.current?.click();
@@ -45,18 +48,23 @@ export default function ListContainer() {
   };
 
   // fetchBoardsPage query
-  const { data, refetch, fetchMore } = useQuery<
-    Pick<IQuery, "fetchBoardsPage">,
-    IQueryFetchBoardsPageArgs
-  >(FETCH_BOARDS_PAGE, {
-    variables: {
-      page: 1,
-      search: "",
-      category: "",
-    },
-  });
+  const { data, refetch, fetchMore } = useQuery(
+    // <
+    //   Pick<IQuery, "fetchBoardsPage">,
+    //   IQueryFetchBoardsPageArgs
+    // >
+    FETCH_BOARDS_PAGE,
+    {
+      variables: {
+        page: 1,
+        search: "",
+        category: "",
+        sortType: array,
+      },
+    }
+  );
 
-  // 무한스크롤 기능
+  // 예원 무한스크롤 기능
   const onLoadMore = () => {
     if (!data) return;
     fetchMore({
@@ -76,27 +84,23 @@ export default function ListContainer() {
     });
   };
 
-  const onClickDetail = (event: MouseEvent<HTMLDivElement>) => {
-    setIsClickedNum((prev) => prev + 1);
-    localStorage.setItem("isClickedNum", String(isClickedNum));
+  // 예원 최신순, 찜한순 정렬 기능 추가 5.28
+  const onClickArray = (event: MouseEvent<HTMLDivElement>) => {
+    setArray((event.target as HTMLDivElement).id);
+  };
 
-    // 결제권없는 사람일 경우
-    // if (isClickedNum >= 5) {
-    //   alert("6개 이상의 게시물을 보시려면 결제가 필요합니다");
-    //   router.push("/payment");
-    // }
 
-    // 결제권이 있는 사람일 경우는 만료일과 비교하여서 만료일일 경우 결제페이지로 이동하도록 유도한다
-    router.push(`boards/${event.currentTarget.id}`);
   };
 
   //chan 검색 기능 추가 22.05.19
   function onChangeKeyword(value: string) {
     setKeyword(value);
   }
+
   return (
     <ListPresenter
       onClickDetail={onClickDetail}
+      onClickArray={onClickArray}
       onChangeKeyword={onChangeKeyword}
       keyword={keyword} // chan
       data={data} //예원

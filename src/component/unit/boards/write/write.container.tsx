@@ -17,18 +17,30 @@ import {
 
 export default function WriteContainer(props: IWriteContainer) {
   const router = useRouter();
-  const [activeStep, SetActiveStep] = useState("first");
-  const [startDate, SetStartDate] = useState("");
-  const [endDate, SetEndDate] = useState("");
-  const [happy, setHappy] = useState(false);
-  const [uhm, setUhm] = useState(false);
-  const [sad, setSad] = useState(false);
-  const [score, setScore] = useState(0);
+
+  const [activeStep, setActiveStep] = useState("first");
+
+  const [startDate, setStartDate] = useState("");
+  const [endDate, setEndDate] = useState("");
+  const [dateError, setDateError] = useState("");
+
   const [title, setTitle] = useState("");
+  const [titleError, setTitleError] = useState("");
+
+  const [score, setScore] = useState(0);
+  const [scoreError, setScoreError] = useState("");
+  const [resetScore, setResetScore] = useState(false);
+
   const [contents, setContents] = useState("");
+  const [contentsError, setContentsError] = useState("");
+
   const [mapStatus, setMapStatus] = useState(false);
   const [address, setAddress] = useRecoilState(kakaoAddress);
+  const [mapError, setMapError] = useState("");
+
   const [fileUrls, setFileUrls] = useState(["", "", "", ""]);
+
+  const [isButtonActive, setIsButtonActive] = useState(false);
 
   const [createBoard] = useMutation<
     Pick<IMutation, "createBoard">,
@@ -40,56 +52,111 @@ export default function WriteContainer(props: IWriteContainer) {
     IMutationUpdateBoardArgs
   >(UPDATE_BOARD);
 
-  // haeri 단계 이동
+  // haeri 1->2단계 이동
   const onClickFirstNext = () => {
-    SetActiveStep("second");
-    setMapStatus(true);
+    if (startDate === "" || endDate === "") {
+      setDateError("거주 기간을 입력해주세요.");
+    }
+    if (title === "") {
+      setTitleError("제목을 입력해주세요.");
+    }
+    if (score === 0) {
+      setScoreError("만족도를 선택해주세요.");
+    }
+    if (contents === "") {
+      setContentsError("내용을 입력해주세요.");
+    }
+    if (
+      startDate !== "" &&
+      endDate !== "" &&
+      title !== "" &&
+      score !== 0 &&
+      contents !== ""
+    ) {
+      setActiveStep("second");
+      setMapStatus(true);
+    }
+    if (props.isEdit && !startDate && !startDate) {
+      setDateError("거주 기간에 수정된 부분이 없습니다.");
+    }
+    if (props.isEdit && !title) {
+      setTitleError("제목에 수정된 부분이 없습니다.");
+    }
+    if (props.isEdit && !score) {
+      setScoreError("만족도에 수정된 부분이 없습니다.");
+    }
+    if (props.isEdit && !contents) {
+      setContentsError("내용에 수정된 부분이 없습니다.");
+    }
   };
+
+  // haeri 2->1단계 이동
   const onClickSecondPrev = () => {
-    SetActiveStep("first");
+    setActiveStep("first");
   };
+
+  // haeri 2->3단계 이동
   const onClickSecondNext = () => {
-    SetActiveStep("third");
+    if (address.address_name === "") {
+      setMapError("가게 정보를 검색해주세요.");
+    }
+    if (address.address_name !== "") setActiveStep("third");
   };
+
+  // haeri 3->2단계 이동
   const onClickThirdPrev = () => {
-    SetActiveStep("second");
+    setActiveStep("second");
   };
 
   // haeri 기간 선택
   const onChangeRange = (date: any, dateString: any) => {
-    SetStartDate(dateString[0]);
-    SetEndDate(dateString[1]);
-  };
-  console.log(startDate, endDate);
-
-  // haeri 만족도 선택
-  const onClickHappy = () => {
-    setHappy((prev) => !prev);
-    setUhm(false);
-    setSad(false);
-    setScore(1);
-  };
-  const onClickUhm = () => {
-    setHappy(false);
-    setUhm((prev) => !prev);
-    setSad(false);
-    setScore(2);
-  };
-  const onClickSad = () => {
-    setHappy(false);
-    setUhm(false);
-    setSad((prev) => !prev);
-    setScore(3);
+    setStartDate(dateString[0]);
+    setEndDate(dateString[1]);
+    setDateError("");
   };
 
   // haeri 제목 입력
   const onChangeTitle = (event: ChangeEvent<HTMLInputElement>) => {
     setTitle(event.target.value);
+    if (event.target.value !== "") {
+      setTitleError("");
+    }
+  };
+
+  // haeri 만족도 선택
+  const onClickHappy = () => {
+    setScore(1);
+    setScoreError("");
+  };
+  const onClickUhm = () => {
+    setScore(2);
+    setScoreError("");
+  };
+  const onClickSad = () => {
+    setScore(3);
+    setScoreError("");
+  };
+
+  // haeri 만족도 수정 전 리셋
+  const onClickResetScore = () => {
+    setResetScore(true);
   };
 
   // haeri 내용 입력
   const onChangeContents = (value: string) => {
     setContents(value === "<p><br></p>" ? "" : value);
+    if (value !== "") {
+      setContentsError("");
+    }
+    if (
+      startDate !== "" &&
+      endDate !== "" &&
+      score !== 0 &&
+      title !== "" &&
+      contents !== ""
+    ) {
+      setIsButtonActive(true);
+    }
   };
 
   // haeri 이미지 등록
@@ -115,12 +182,16 @@ export default function WriteContainer(props: IWriteContainer) {
             lng: address.position.lng,
             address: address.address_name,
             place: address.content,
+            placePhone: address.phone,
+            placeUrl: address.place_url,
             images: fileUrls,
           },
         },
       });
       console.log(result);
       Modal.success({ content: "회원님의 글이 정상적으로 등록되었습니다." });
+      setIsButtonActive(false);
+      setScore(0);
       router.push(`/boards/${result.data?.createBoard.id}`);
     } catch (error) {
       if (error instanceof Error) Modal.error({ content: error.message });
@@ -129,13 +200,20 @@ export default function WriteContainer(props: IWriteContainer) {
 
   // haeri 글 수정
   const onClickEditBoard = async () => {
-    if (!title && !contents) {
-      Modal.error({ content: "수정한 내용이 없습니다." });
-      return;
-    }
     const updateBoardInput: IUpdateBoardInput = {};
+    if (startDate) updateBoardInput.startDate = startDate;
+    if (endDate) updateBoardInput.endDate = endDate;
+    if (score) updateBoardInput.score = score;
     if (title) updateBoardInput.title = title;
     if (contents) updateBoardInput.contents = contents;
+    if (address.group_name) updateBoardInput.category = address.group_name;
+    if (address.position.lat) updateBoardInput.lat = address.position.lat;
+    if (address.position.lng) updateBoardInput.lng = address.position.lng;
+    if (address.address_name) updateBoardInput.address = address.address_name;
+    if (address.content) updateBoardInput.place = address.content;
+    if (address.phone) updateBoardInput.placePhone = address.phone;
+    if (address.place_url) updateBoardInput.placeUrl = address.place_url;
+    if (fileUrls) updateBoardInput.images = fileUrls;
     try {
       await updateBoard({
         variables: {
@@ -143,7 +221,7 @@ export default function WriteContainer(props: IWriteContainer) {
           updateBoardInput,
         },
       });
-      Modal.success({ content: "게시글 수정에 성공하였습니다!" });
+      Modal.success({ content: "회원님의 글이 정상적으로 수정되었습니다." });
       router.push(`/boards/${router.query.boardId}`);
     } catch (error) {
       if (error instanceof Error) Modal.error({ content: error.message });
@@ -160,20 +238,30 @@ export default function WriteContainer(props: IWriteContainer) {
       onClickSecondNext={onClickSecondNext}
       onClickThirdPrev={onClickThirdPrev}
       onChangeRange={onChangeRange}
-      happy={happy}
-      uhm={uhm}
-      sad={sad}
+      startDate={startDate}
+      endDate={endDate}
+      dateError={dateError}
+      onChangeTitle={onChangeTitle}
+      title={title}
+      titleError={titleError}
       onClickHappy={onClickHappy}
       onClickUhm={onClickUhm}
       onClickSad={onClickSad}
-      onChangeTitle={onChangeTitle}
+      score={score}
+      scoreError={scoreError}
+      resetScore={resetScore} //
+      onClickResetScore={onClickResetScore} //
       onChangeContents={onChangeContents}
+      contents={contents}
+      contentsError={contentsError}
       onChangeFileUrls={onChangeFileUrls}
       fileUrls={fileUrls}
       mapStatus={mapStatus}
       address={address}
+      mapError={mapError}
       onClickWriteBoard={onClickWriteBoard}
       onClickEditBoard={onClickEditBoard}
+      isButtonActive={isButtonActive}
     />
   );
 }

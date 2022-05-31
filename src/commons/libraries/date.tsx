@@ -1,16 +1,4 @@
-// export const getDate = (date: any) => {
-//   const newdate = new Date(date);
-//   const yyyy = newdate.getFullYear();
-//   const mm = String(newdate.getMonth() + 1).padStart(2, "0");
-//   const dd = String(newdate.getDate()).padStart(2, "0");
-//   const tt = newdate.toLocaleTimeString();
-//   return `${yyyy}-${mm}-${dd}-${tt}`;
-// };
 
-// export const getDate = (add = 0) => {
-//   const time = new Date();
-//   const UTC = time.getTime() + time.getTimezoneOffset() * 60 * 1000;
-//   const nineHours = 9 * 60 * 60 * 1000;
 
 //   const date = new Date(UTC + nineHours);
 //   date.setDate(date.getDate() + add);

@@ -1,65 +1,95 @@
-import { ChangeEvent, useState } from "react";
-import AnswerWriteContainer from "../../answer/write/answerwrite.container";
+import { useMutation, useQuery } from "@apollo/client";
+import { Modal } from "antd";
+import { useRouter } from "next/router";
+import { useState } from "react";
+import { timeForToday } from "../../../../commons/timefortoday/timeForToday";
+import AnswerListContainer from "../../answer/list/answerlist.container";
+import QuestionWriteContainer from "../write/questionwrite.container";
+import { DELETE_COMMENT, FETCH_COMMENTS } from "./questionlist.queries";
 import * as S from "./questionlist.styles";
+import { IQuestionListUIItem } from "./questionlist.types";
 
 // 승현-22.05.26-댓글
-export default function QuestionListUIItem() {
-  const [isActive, setIsActive] = useState(false);
-  // const [isCircle, setIsCircle] = useState(false);
-  const [question, setQuestion] = useState("");
+export default function QuestionListUIItem(props: IQuestionListUIItem) {
+  const router = useRouter();
 
-  const onChangeQuestionAnswer = (event: ChangeEvent<HTMLInputElement>) => {
-    setQuestion(event.target.value);
-  };
+  const [isActive, setIsActive] = useState(false);
+  const [isEdit, setIsEdit] = useState(false);
+  // const [question, setQuestion] = useState("");
+
+  const [deleteComment] = useMutation(DELETE_COMMENT);
 
   const onCLickQuestionAnswer = () => {
-    setIsActive((isActive) => !isActive);
+    setIsActive((prev) => !prev);
   };
 
-  // const onClickCircle = () => {
-  //   setIsCircle((isCircle) => !isCircle);
-  // };
+  const onClickDelete = async () => {
+    try {
+      await deleteComment({
+        variables: {
+          commentId: props.el?.id,
+        },
+        refetchQueries: [
+          {
+            query: FETCH_COMMENTS,
+            variables: { boardId: String(props.data?.fetchBoard.id) },
+          },
+        ],
+      });
+      Modal.success({ content: "댓글이 삭제되었습니다." });
+    } catch (error) {
+      Modal.error({ content: "댓글이 삭제되지않았습니다." });
+    }
+  };
+
+  const onClickUpdate = () => {
+    setIsEdit(true);
+  };
+
   return (
     <>
       <S.WrapperOut>
-        <S.RowBox>
-          <S.Profile>
-            <S.ProfileImage src="/image/person.png"></S.ProfileImage>
-          </S.Profile>
-          <S.RightBox>
-            <S.Top>
-              <S.Name>attosisss_</S.Name>
-              <S.Time>17시간전</S.Time>
-            </S.Top>
-            <S.Question onChange={onChangeQuestionAnswer}>
-              이것은 댓글이 달린 모습
-            </S.Question>
-            <S.QuestionAnswer onClick={onCLickQuestionAnswer}>
-              답글
-            </S.QuestionAnswer>
-          </S.RightBox>
-          {/* <S.DropDown>
-            <S.Circle src="/image/circlemenu.png" onClick={onClickCircle} />
-            {isCircle ? (
-              <S.Submenu>
-                <S.Edit>수정하기</S.Edit>
-                <S.Delete>삭제하기</S.Delete>
-              </S.Submenu>
-            ) : (
-              <div></div>
-            )}
-          </S.DropDown> */}
-        </S.RowBox>
-        {/* 답글 */}
-        {isActive ? (
-          <AnswerWriteContainer
-            question={question}
-            isActive={isActive}
-            setIsActive={setIsActive}
-          />
-        ) : (
-          <div></div>
+        {/* 댓글 디테일 */}
+        {!isEdit && (
+          <S.RowBox>
+            <S.Profile>
+              <S.ProfileImage
+                src={
+                  props.el?.imageUrl === ""
+                    ? "/image/person.png"
+                    : props.el?.imageUrl?.startsWith("https", 0)
+                    ? `${props.el?.imageUrl}`
+                    : `https://storage.googleapis.com/${props.el?.imageUrl}`
+                }
+              />
+            </S.Profile>
+            <S.RightBox>
+              <S.Top>
+                <S.Left>
+                  <S.Name>{props.el?.nickname}</S.Name>
+                  <S.Time>{timeForToday(props.el?.createdAt)}</S.Time>
+                </S.Left>
+                <S.Option>
+                  <S.Edit onClick={onClickUpdate}>수정</S.Edit>
+                  <S.Delete onClick={onClickDelete} id={props.el?.id}>
+                    삭제
+                  </S.Delete>
+                </S.Option>
+              </S.Top>
+              <S.Question>{props.el?.contents}</S.Question>
+              <S.AnswerBox>
+                <S.QuestionAnswer onClick={onCLickQuestionAnswer}>
+                  답글
+                </S.QuestionAnswer>
+              </S.AnswerBox>
+            </S.RightBox>
+          </S.RowBox>
         )}
+        {/* 답글 */}
+        {/* 댓글수정 건드리지말것 */}
+        {isEdit && <QuestionWriteContainer isEdit={isEdit} el={props.el} />}
+        {/* 대댓글 목록 */}
+        {isActive && <AnswerListContainer el={props.el} isActive={isActive} />}
       </S.WrapperOut>
     </>
   );
