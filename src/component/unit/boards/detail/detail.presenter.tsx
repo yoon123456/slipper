@@ -10,6 +10,7 @@ import QuestionWriteContainer from "../../question/write/questionwrite.container
 import Dompurify from "dompurify";
 import QuestionListUIItem from "../../question/list/questiontlist.presenteritem";
 import { IBoardImage } from "../../../../commons/types/generated/types";
+import QuestionListContainer from "../../question/list/questionlist.container";
 
 export default function DetailPresenter(props: IDetailPresenter) {
   const settings = {
@@ -153,7 +154,7 @@ export default function DetailPresenter(props: IDetailPresenter) {
       <S.WraperQuestion>
         <S.Question>댓글</S.Question>
         <QuestionWriteContainer />
-        <QuestionListUIItem />
+        <QuestionListContainer />
       </S.WraperQuestion>
     </>
   );
