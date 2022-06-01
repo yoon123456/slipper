@@ -1,17 +1,19 @@
 import { ChangeEvent, MouseEvent } from "react";
-import internal from "stream";
 import { IQuery } from "../../../../commons/types/generated/types";
 
 export interface IWriteContainer {
-  isEdit: boolean;
+  isEdit?: boolean;
   data?: Pick<IQuery, "fetchBoard">;
 }
 export interface IUpdateBoardInput {
+  startDate?: string;
+  endDate?: string;
+  score?: number;
   title?: string;
   contents?: string;
 }
 export interface IWritePresenter {
-  isEdit: boolean;
+  isEdit?: boolean;
   data?: Pick<IQuery, "fetchBoard">;
   activeStep: string;
   onClickFirstNext: () => void;
@@ -57,8 +59,6 @@ export interface IWritePresenter {
   onClickWriteBoard: () => void;
   onClickEditBoard: () => void;
   isButtonActive: boolean;
-  resetScore: boolean;
-  onClickResetScore: () => void;
 }
 export interface IProps {
   isButtonActive: boolean;

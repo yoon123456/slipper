@@ -21,7 +21,6 @@ export const CREATE_BOARD = gql`
       user {
         email
         nickname
-        # role
       }
     }
   }
@@ -38,8 +37,6 @@ export const UPDATE_BOARD = gql`
         imageUrl
       }
       createdAt
-      # user
-      # nickname
       category
       title
       contents
