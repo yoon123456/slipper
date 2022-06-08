@@ -10,6 +10,7 @@ import {
   IMutationDeleteBoardArgs,
   IQuery,
   IQueryFetchBoardArgs,
+  IQueryFetchUserLikeArgs,
 } from "../../../../commons/types/generated/types";
 import { FETCH_USER } from "../../login/login.queries";
 import { CLICK_LIKE } from "../list/list.query";
@@ -28,7 +29,10 @@ export default function DetailContainer() {
     variables: { boardId: String(router.query.boardId) },
   });
 
-  const { data: likeData } = useQuery(FETCH_USER_LIKE, {
+  const { data: likeData } = useQuery<
+    Pick<IQuery, "fetchUserLike">,
+    IQueryFetchUserLikeArgs
+  >(FETCH_USER_LIKE, {
     variables: {
       boardId: String(router.query.boardId),
     },

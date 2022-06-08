@@ -1,3 +1,4 @@
+import { Pick } from "./../../boards/list/list.styles";
 import { IQuery } from "./../../../../commons/types/generated/types";
 export interface IWriteButtonProps {
   isActive: boolean;

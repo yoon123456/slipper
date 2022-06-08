@@ -17,7 +17,6 @@ export const BodyWrapper = styled.div`
 export const BodyHeadWrapper = styled.div`
   width: 100%;
   height: 5px;
-  /* padding: 5% 1% 1% 1%; */
   margin: 1%;
   padding: 2%;
   padding-top: 5%;
@@ -36,7 +35,6 @@ export const BodyHead = styled.div`
 `;
 export const Body = styled.div`
   height: 500px;
-  /* padding: 1%; */
   overflow: scroll;
   ::-webkit-scrollbar {
     display: none;
@@ -47,7 +45,6 @@ export const RowWrapper = styled.div`
   height: 55px;
   margin: 1%;
   padding: 2%;
-  /* padding: 0 5% 0 5%; */
   display: flex;
   flex-direction: row;
   align-items: center;

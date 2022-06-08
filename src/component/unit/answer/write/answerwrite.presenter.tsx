@@ -6,7 +6,6 @@ import { IAnswerWritePresenter } from "./answerwrite.types";
 export default function AnswerWritePresenter(props: IAnswerWritePresenter) {
   return (
     <>
-      {/* !props.isCancle  */}
       {props.isActive && (
         <S.QuestionBox>
           <S.PersonBox>
@@ -22,7 +21,6 @@ export default function AnswerWritePresenter(props: IAnswerWritePresenter) {
             />
             <S.Box>
               <S.ButtonBox>
-                {/* <S.Cancel onClick={props.onClickClose}>취소</S.Cancel> */}
                 <S.Write
                   isActiveButton={props.isActiveButton}
                   onClick={

@@ -21,7 +21,16 @@ export interface IListPresenter {
 }
 
 export interface IListPresenterItem {
-  el: any;
+  el: {
+    _source: {
+      thumbnail: string;
+      title: string;
+      address: string;
+      place: string;
+      id: string;
+      createdat: string;
+    };
+  };
   onClickDetail: (event: MouseEvent<HTMLDivElement>) => void; // 예원 클릭 디테일 이벤트
   refetch?: (
     variables:

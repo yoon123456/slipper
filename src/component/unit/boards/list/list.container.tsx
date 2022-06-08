@@ -1,7 +1,7 @@
 // 예원 작업 5/11 ,5/18, 5/22, 5,23 5,27
 
 import { useRouter } from "next/router";
-import { ChangeEvent, MouseEvent, useEffect, useRef, useState } from "react";
+import { MouseEvent, useEffect, useRef, useState } from "react";
 import { useRecoilState } from "recoil";
 import { useMovetoPage } from "../../../../commons/hooks/movePage";
 import {
@@ -17,11 +17,10 @@ import { useQuery } from "@apollo/client";
 import { FETCH_BOARDS_PAGE } from "./list.query";
 import { FETCH_USER } from "./list.query";
 import {
-  IMutation,
-  IMutationClickLikeArgs,
   IQuery,
   IQueryFetchBoardsPageArgs,
 } from "../../../../commons/types/generated/types";
+import { Modal } from "antd";
 
 export default function ListContainer() {
   const router = useRouter();
@@ -53,14 +52,6 @@ export default function ListContainer() {
     }
   };
 
-  const { data, refetch, fetchMore } = useQuery(FETCH_BOARDS_PAGE, {
-    variables: {
-      page: 1,
-      search: serch,
-      category: category,
-      sortType: array,
-    },
-  });
 
   // 예원 무한스크롤 기능
   const onLoadMore = () => {
@@ -91,6 +82,9 @@ export default function ListContainer() {
   const onClickDetail = (event: MouseEvent<HTMLDivElement>) => {
     if (detailId.includes(event.currentTarget.id) === false) {
       if (detailId.length >= 6 && !userData.fetchUser.subEnd) {
+        Modal.error({
+          content: "6개 이상의 게시글을 보시려면 결제가 필요합니다 ",
+        });
         router.push("/payment");
         return;
       }

@@ -6,21 +6,25 @@ import { useQuery } from "@apollo/client";
 import { useRouter } from "next/router";
 import { MouseEvent, useState } from "react";
 import { FETCH_USER_BOARDS } from "./myboards.query";
-import { IQuery } from "../../../commons/types/generated/types";
+import {
+  IQuery,
+  IQueryFetchUserBoardsArgs,
+} from "../../../commons/types/generated/types";
 
 export default function MyBoardsContainer() {
   const router = useRouter();
   const [page, setPage] = useState(0);
   const [throttle, setThrottle] = useState(true);
 
-  const { data, fetchMore } = useQuery<Pick<IQuery, "fetchUserBoards">>(
-    FETCH_USER_BOARDS,
-    {
-      variables: {
-        page: 1,
-      },
-    }
-  );
+  // 내가 쓴 글 목록을 불러오는 query
+  const { data, fetchMore } = useQuery<
+    Pick<IQuery, "fetchUserBoards">,
+    IQueryFetchUserBoardsArgs
+  >(FETCH_USER_BOARDS, {
+    variables: {
+      page: 1,
+    },
+  });
 
   const onClickDetail = (event: MouseEvent<HTMLDivElement>) => {
     router.push(`boards/${event.currentTarget.id}`);

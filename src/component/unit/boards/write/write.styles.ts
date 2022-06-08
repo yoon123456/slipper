@@ -34,11 +34,7 @@ export const TopOn = styled.div`
   background-color: white;
   border-top-left-radius: 20px;
   border-top-right-radius: 20px;
-  /* box-shadow: 5px -5px 8px rgba(214, 214, 214, 1); */
-  /* box-shadow: 0px -5px 8px rgb(221 220 220); */
   box-shadow: 0px -6px 9px rgb(221 220 220);
-  /* border: 1px solid lightgray; */
-  /* border-bottom: none; */
   z-index: 9999;
 `;
 export const TopOff = styled.div`
@@ -54,10 +50,7 @@ export const TopOff = styled.div`
   background-color: #f4f7f9b3;
   border-top-left-radius: 20px;
   border-top-right-radius: 20px;
-  /* box-shadow: 5px -5px 8px rgb(238 238 238); */
   box-shadow: 7px -3px 8px 0px rgb(238 238 238);
-  /* border: 1px solid lightgray; */
-  /* border-bottom: none; */
 `;
 export const TopRow = styled.div`
   width: 35%;
@@ -83,7 +76,6 @@ export const BodyWrapper = styled.div`
   height: 1000px;
   padding: 7% 15% 5% 15%;
   border-radius: 0px 0px 41px 41px;
-  /* box-shadow: 0px 10px 20px rgba(214, 214, 214, 1); */
   box-shadow: 4px 2px 14px 0px #e8e8e8;
   z-index: 0;
 `;
@@ -108,7 +100,6 @@ export const Error = styled.div`
   padding: 2% 0 0 0.5%;
 `;
 export const HeadContents = styled.div`
-  /* margin-top: 1%; */
   margin-bottom: 2.5%;
   font-size: 1.6rem;
   color: #008af6;
@@ -130,7 +121,6 @@ export const RatingWrapper = styled.div`
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  /* margin-bottom: 7%; */
   padding-top: 1%;
 `;
 export const RatingImg = styled.img`
@@ -166,10 +156,6 @@ export const StyledQuill = styled(ReactQuill)`
     font-size: 25px;
     line-height: 1.5;
   }
-  /* 첫번째 자식요소에 스타일링 css */
-  /* .ql-editor .ql-blank::before {
-    left: 0;
-  } */
 `;
 export const MapWrapper = styled.div`
   height: 50%;
@@ -210,7 +196,6 @@ export const Button = styled.button`
   text-shadow: 0px 0px 0px #f0f0f0;
   border: none;
   border-radius: 10px;
-  /* background: linear-gradient(to bottom, white 5%, #ffffff 100%); */
   background-color: ${(props: IProps) =>
     props.isButtonActive ? "#008af6" : "#f4f7f9b3"};
   color: ${(props: IProps) => (props.isButtonActive ? "white" : "#008af6")};

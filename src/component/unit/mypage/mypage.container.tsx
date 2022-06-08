@@ -4,17 +4,11 @@ import { FETCH_USER, UPDATE_USER } from "./mypage.queries";
 import { useMutation, useQuery } from "@apollo/client";
 import React, { ChangeEvent, useState } from "react";
 import { Modal } from "antd";
-import {
-  IQuery,
-  IQueryTestFetchUserArgs,
-} from "../../../commons/types/generated/types";
+import { IUpdateUserInput } from "./mypage.types";
 
 export default function MyPageContainer() {
   const [updateUser] = useMutation(UPDATE_USER);
-  const { data, refetch } = useQuery<
-    Pick<IQuery, "fetchUser">,
-    IQueryTestFetchUserArgs
-  >(FETCH_USER);
+  const { data, refetch } = useQuery(FETCH_USER);
 
   // haeri 메뉴 전환
   const [mypageRight, setMypageRight] = useState("mypicks");
@@ -54,20 +48,13 @@ export default function MyPageContainer() {
       Modal.error({ content: "수정한 내용이 없습니다." });
       return;
     }
-    // if (!nickname) setNickname("");
-    // const updateUserInput:IUpdateUserInput = {};
-    const updateUserInput = {};
+    const updateUserInput: IUpdateUserInput = {};
     if (nickname) updateUserInput.nickname = nickname;
     if (fileUrl) updateUserInput.imageUrl = String(fileUrl);
     if (introduce) updateUserInput.introduce = introduce;
     try {
       await updateUser({
         variables: {
-          // updateUserInput: {
-          //   nickname,
-          //   imageUrl: String(fileUrl),
-          //   introduce,
-          // },
           updateUserInput,
         },
       });

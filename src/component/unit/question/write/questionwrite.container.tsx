@@ -40,7 +40,7 @@ export default function QuestionWriteContainer(props: IQuestionWriteContainer) {
   const onClickQuestion = async () => {
     try {
       if (question !== "") {
-        const result = await createComment({
+        await createComment({
           variables: {
             content: question,
             boardId: String(router.query.boardId),
@@ -53,7 +53,6 @@ export default function QuestionWriteContainer(props: IQuestionWriteContainer) {
           ],
         });
         setQuestion("");
-        console.log(result);
       }
     } catch (error) {
       Modal.error({ content: "댓글 등록에 실패하였습니다." });

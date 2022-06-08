@@ -2,6 +2,11 @@ import { useMutation } from "@apollo/client";
 import { Modal } from "antd";
 import { useRouter } from "next/router";
 import { ChangeEvent, useState } from "react";
+import {
+  IMutation,
+  IMutationCreateSubCommentArgs,
+  IMutationUpdateSubCommentArgs,
+} from "../../../../commons/types/generated/types";
 import { FETCH_SUB_COMMENT } from "../list/answerlist.queries";
 import AnswerWritePresenter from "./answerwrite.presenter";
 import { CREATE_SUB_COMMENT, UPDATE_SUB_COMMENT } from "./answerwrite.queries";
@@ -9,10 +14,15 @@ import { IAnswerWriteContainer } from "./answerwrite.types";
 
 export default function AnswerWriteContainer(props: IAnswerWriteContainer) {
   const router = useRouter();
-  const [createSubComment] = useMutation(CREATE_SUB_COMMENT);
-  const [updateSubComment] = useMutation(UPDATE_SUB_COMMENT);
+  const [createSubComment] = useMutation<
+    Pick<IMutation, "createSubComment">,
+    IMutationCreateSubCommentArgs
+  >(CREATE_SUB_COMMENT);
+  const [updateSubComment] = useMutation<
+    Pick<IMutation, "updateSubComment">,
+    IMutationUpdateSubCommentArgs
+  >(UPDATE_SUB_COMMENT);
 
-  // const [isCancle, setIsCancle] = useState(false);
   const [question, setQuestion] = useState("");
 
   const [isActiveButton, setIsActiveButton] = useState(false);
@@ -21,10 +31,6 @@ export default function AnswerWriteContainer(props: IAnswerWriteContainer) {
     setQuestion(event.target.value);
     setIsActiveButton(true);
   };
-
-  // const onClickClose = () => {
-  //   setIsCancle((prev) => !prev);
-  // };
 
   const onClickSubQuestion = async () => {
     try {

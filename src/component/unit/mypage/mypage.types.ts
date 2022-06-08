@@ -1,6 +1,11 @@
 import { ChangeEvent } from "react";
 import { IQuery } from "../../../commons/types/generated/types";
 
+export interface IUpdateUserInput {
+  nickname?: string;
+  imageUrl?: string;
+  introduce?: string;
+}
 export interface IMyPagePresenter {
   mypageRight: string;
   onClickMypicks: () => void;

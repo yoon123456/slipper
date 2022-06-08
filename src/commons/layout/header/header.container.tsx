@@ -59,6 +59,8 @@ export default function HeaderContainer() {
     try {
       await logout();
       Modal.success({ content: "다시 로그인 해주세요" });
+      // location.reload();
+      router.push("/boards");
     } catch (error: any) {
       Modal.error({ content: error.message });
     }

@@ -7,16 +7,22 @@ import * as S from "./answerlist.styles";
 import { IAnswerListUIItem } from "./answerlist.types";
 import { DELETE_SUB_COMMENT, FETCH_SUB_COMMENT } from "./answerlist.queries";
 import { timeForToday } from "../../../../commons/timefortoday/timeForToday";
+import {
+  IMutation,
+  IMutationDeleteSubCommentArgs,
+} from "../../../../commons/types/generated/types";
 
 export default function AnswernListUIItem(props: IAnswerListUIItem) {
   const router = useRouter();
 
   const [isEdit, setIsEdit] = useState(false);
 
-  const [deleteSubComment] = useMutation(DELETE_SUB_COMMENT);
+  const [deleteSubComment] = useMutation<
+    Pick<IMutation, "deleteSubComment">,
+    IMutationDeleteSubCommentArgs
+  >(DELETE_SUB_COMMENT);
 
   const onClickDelete = async () => {
-    console.log(props?.el?.id);
     try {
       await deleteSubComment({
         variables: {
