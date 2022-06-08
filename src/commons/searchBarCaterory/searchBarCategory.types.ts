@@ -22,4 +22,5 @@ export interface ISearchKeyWord {
   ) => Promise<ApolloQueryResult<any>>;
 
   onChangeKeyword: (value: string) => void;
+  data?: any;
 }

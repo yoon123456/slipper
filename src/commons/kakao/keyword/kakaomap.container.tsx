@@ -17,6 +17,7 @@ export default function KaKaoMapContainer(props: KaoKeyWord) {
   const [level, setLevel] = useState<number>(0);
   const [map, setMap] = useState<KaoKaoMap>();
   const [, setUserAddress] = useState();
+  const [position, setPosition] = useState();
 
   const [address, setAddress] = useRecoilState(kakaoAddress);
   const [adressReset] = useRecoilState(resetAdress);
@@ -135,15 +136,13 @@ export default function KaKaoMapContainer(props: KaoKeyWord) {
         map.setBounds(bounds);
       }
     });
-    btnRef.current?.blur;
-    console.log(address);
     //등록페이지 상태값 확인후 초기화
     if (props.mapStatus) {
       setAddress(adressReset);
       setSearch("");
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [map, isActive, isActive1]);
+  }, [isActive, isActive1]);
 
   return (
     <KakaomapPresenter
@@ -180,6 +179,8 @@ export default function KaKaoMapContainer(props: KaoKeyWord) {
       userContentFlag={userContentFlag}
       closeList={closeList}
       listRef={listRef}
+      setPosition={setPosition}
+      position={position}
     />
   );
 }

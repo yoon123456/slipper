@@ -7,10 +7,11 @@ export default function KakaomapMarks(props: MarkerProps) {
   return (
     <>
       {props.data?.fetchBoardsPage &&
+        !props.isActive1 &&
         props.data?.fetchBoardsPage.map((el) => (
           <S.KakaoMapMarker
-            // key={`marker-${marker.content}-${marker.position.lng},${marker.position.lng}`}
-            key={el._source.id}
+            // key={`marker-${el._source.content}-${el._source.position.lng},${el._source.position.lng}`}
+            key={uuidv4()}
             position={{
               lat: Number(el._source.lat),
               lng: Number(el._source.lng),
@@ -21,9 +22,10 @@ export default function KakaomapMarks(props: MarkerProps) {
             }}
             onClick={props.onClickContent(el._source.id)}
           >
-            {props.info && props.userContentFlag && !props.contentFlag && (
-              <Contents el={el} />
-            )}
+            {props.info &&
+              props.userContentFlag &&
+              !props.contentFlag &&
+              props.info === el._source.id && <Contents el={el} />}
           </S.KakaoMapMarker>
         ))}
 

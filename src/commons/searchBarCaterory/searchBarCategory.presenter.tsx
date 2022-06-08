@@ -2,31 +2,30 @@ import * as S from "./searchBarCategory.styles";
 import { v4 as uuidv4 } from "uuid";
 import { ISearchBarCategoryPresenter } from "./searchBarCategory.types";
 
-export const CATEGORYS = [
-  { value: "대형마트" },
-  { value: "편의점" },
-  { value: "유치원" },
-  { value: "학교" },
-  { value: "학원" },
-  { value: "주차장" },
-  { value: "주유소" },
-  { value: "지하철역" },
-  { value: "은행" },
-  { value: "문화시설" },
-  { value: "중개업소" },
-  { value: "공공기관" },
-  { value: "관광명소" },
-  { value: "숙박" },
-  { value: "음식점" },
-  { value: "카페" },
-  { value: "병원" },
-  { value: "약국" },
-  { value: "기타" },
-];
-
 export default function SearchBarCategoryPresenter(
   props: ISearchBarCategoryPresenter
 ) {
+  const CATEGORYS = [
+    "대형마트",
+    "편의점",
+    "유치원",
+    "학교",
+    "학원",
+    "주차장",
+    "주유소",
+    "지하철역",
+    "은행",
+    "문화시설",
+    "중개업소",
+    "공공기관",
+    "관광명소",
+    "숙박",
+    "음식점",
+    "카페",
+    "병원",
+    "약국",
+    "기타",
+  ];
   return (
     <S.WrapperOut>
       <S.SearchWrap>
@@ -52,9 +51,13 @@ export default function SearchBarCategoryPresenter(
         <S.CategoryWrapperOut>
           {CATEGORYS.map((el, i) => (
             <S.BoxWrap key={uuidv4()}>
-              <S.Box value={el.value} onClick={props.onClickCategory}>
-                {el.value}
-              </S.Box>
+              {el !== undefined ? (
+                <S.Box value={el} onClick={props.onClickCategory}>
+                  {el}
+                </S.Box>
+              ) : (
+                <div></div>
+              )}
             </S.BoxWrap>
           ))}
         </S.CategoryWrapperOut>

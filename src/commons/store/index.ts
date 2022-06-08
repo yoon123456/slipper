@@ -90,3 +90,13 @@ export const detailIdState = atom({
   key: "detailIdState",
   default: [""],
 });
+
+export const serchBar = atom({
+  key: "serch",
+  default: "",
+});
+
+export const categoryBar = atom({
+  key: "category",
+  default: "",
+});

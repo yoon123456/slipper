@@ -6,6 +6,7 @@ import KakaomapMarks from "./kakaomapmarkers";
 import { v4 as uuidv4 } from "uuid";
 import { ZoomControl } from "react-kakao-maps-sdk";
 import Logo from "../../logo";
+import WeatherAppleCation from "../weather/weather";
 export default function KakaomapPresenter(props: KaoKaoMap) {
   return (
     <>
@@ -14,9 +15,12 @@ export default function KakaomapPresenter(props: KaoKaoMap) {
         src="//dapi.kakao.com/v2/maps/sdk.js?appkey=10933d05118bfc99d732e83a2814b76a&libraries=services&autoload=false"
         strategy="beforeInteractive"
       />
+      <S.WeatherBox>
+        <WeatherAppleCation lat={props.geoLat} lng={props.geoLng} />
+      </S.WeatherBox>
       {props.roadViewFlag && (
         <>
-          {props.address.position.lat ? (
+          {props.address?.position.lat ? (
             <>
               <S.RoadButton type="button" onClick={props.onClickRoadView}>
                 로드뷰
@@ -24,8 +28,8 @@ export default function KakaomapPresenter(props: KaoKaoMap) {
               <S.KakaoMapRoadview // 로드뷰를 표시할 Container
                 position={{
                   // 지도의 중심좌표
-                  lat: Number(props.address.position.lat),
-                  lng: Number(props.address.position.lng),
+                  lat: Number(props.address?.position.lat),
+                  lng: Number(props.address?.position.lng),
                   radius: 50,
                 }}
                 style={{
@@ -51,6 +55,7 @@ export default function KakaomapPresenter(props: KaoKaoMap) {
           )}
         </>
       )}
+
       <S.WarrapOut className="content" ref={props.listRef}>
         <S.KaKaoWarp
           mapStatus={props.mapStatus}
@@ -73,9 +78,7 @@ export default function KakaomapPresenter(props: KaoKaoMap) {
               type="submit"
               onClick={props.onClickButton}
               ref={props.btnRef}
-            >
-              검색
-            </S.SearchBtn>
+            ></S.SearchBtn>
             <S.CategorySearch>
               <S.LocationButton
                 type="button"
@@ -108,11 +111,12 @@ export default function KakaomapPresenter(props: KaoKaoMap) {
               width: "100%",
               height: "100%",
             }}
-            level={2}
+            level={4}
             onZoomChanged={(map) => props.setLevel(map.getLevel())}
             onCreate={props.setMap}
           >
             <ZoomControl />
+
             <KakaomapMarks
               key={uuidv4()}
               markers={props.markers}
@@ -122,6 +126,7 @@ export default function KakaomapPresenter(props: KaoKaoMap) {
               data={props.data}
               onClickContent={props.onClickContent}
               userContentFlag={props.userContentFlag}
+              isActive1={props.isActive1}
             />
 
             <S.KakaoMapMarker
