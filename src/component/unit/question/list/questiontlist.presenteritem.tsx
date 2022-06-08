@@ -3,6 +3,10 @@ import { Modal } from "antd";
 import { useRouter } from "next/router";
 import { useState } from "react";
 import { timeForToday } from "../../../../commons/timefortoday/timeForToday";
+import {
+  IMutation,
+  IMutationDeleteCommentArgs,
+} from "../../../../commons/types/generated/types";
 import AnswerListContainer from "../../answer/list/answerlist.container";
 import QuestionWriteContainer from "../write/questionwrite.container";
 import { DELETE_COMMENT, FETCH_COMMENTS } from "./questionlist.queries";
@@ -17,7 +21,10 @@ export default function QuestionListUIItem(props: IQuestionListUIItem) {
   const [isEdit, setIsEdit] = useState(false);
   // const [question, setQuestion] = useState("");
 
-  const [deleteComment] = useMutation(DELETE_COMMENT);
+  const [deleteComment] = useMutation<
+    Pick<IMutation, "deleteComment">,
+    IMutationDeleteCommentArgs
+  >(DELETE_COMMENT);
 
   const onCLickQuestionAnswer = () => {
     setIsActive((prev) => !prev);

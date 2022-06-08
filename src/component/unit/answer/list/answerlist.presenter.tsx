@@ -15,9 +15,8 @@ export default function AnswerListPresenter(props: IAnswerListPresenter) {
         subCommentEl={undefined}
         setIsEdit={function (value: SetStateAction<boolean>): void {
           throw new Error("Function not implemented.");
-        }} // onClickDelete={onClickDelete}
+        }}
       />
-      {/* props.data.fetchSubComment[0].contents */}
       {props.data?.fetchSubComment.map((subCommentEl: any) => (
         <AnswernListUIItem
           key={uuidv4()}
