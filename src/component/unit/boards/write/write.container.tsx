@@ -257,8 +257,8 @@ export default function WriteContainer(props: IWriteContainer) {
       onClickSad={onClickSad}
       score={score}
       scoreError={scoreError}
-      resetScore={resetScore} //
-      onClickResetScore={onClickResetScore} //
+      resetScore={resetScore}
+      onClickResetScore={onClickResetScore}
       onChangeContents={onChangeContents}
       contents={contents}
       contentsError={contentsError}

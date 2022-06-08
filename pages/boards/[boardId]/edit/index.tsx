@@ -10,22 +10,6 @@ import WriteContainer from "../../../../src/component/unit/boards/write/write.co
 const FETCH_BOARD = gql`
   query fetchBoard($boardId: String!) {
     fetchBoard(boardId: $boardId) {
-      #   id
-      #   createdAt
-      #   updatedAt
-      #   category
-      #   title
-      #   contents
-      #   score
-      #   startDate
-      #   endDate
-      #   lat
-      #   lng
-      #   address
-      #   place
-      #   images {
-      #     imageUrl
-      #   }
       id
       createdAt
       nickname
@@ -64,8 +48,6 @@ export default function Edit() {
       variables: { boardId: String(router.query.boardId) },
     }
   );
-
-  console.log(data);
 
   return <WriteContainer isEdit={true} data={data} />;
 }
