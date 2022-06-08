@@ -3,13 +3,10 @@
 import { useRouter } from "next/router";
 import { MouseEvent, useEffect, useRef, useState } from "react";
 import { useRecoilState } from "recoil";
-import { useMovetoPage } from "../../../../commons/hooks/movePage";
 import {
   categoryBar,
-  CategoryState,
   detailIdState,
   isClickedNumState,
-  SearchState,
   serchBar,
 } from "../../../../commons/store";
 import ListPresenter from "./list.presenter";
@@ -52,6 +49,17 @@ export default function ListContainer() {
     }
   };
 
+  const { data, refetch, fetchMore } = useQuery<
+    Pick<IQuery, "fetchBoardsPage">,
+    IQueryFetchBoardsPageArgs
+  >(FETCH_BOARDS_PAGE, {
+    variables: {
+      page: 1,
+      search: serch,
+      category: category,
+      sortType: array,
+    },
+  });
 
   // 예원 무한스크롤 기능
   const onLoadMore = () => {
