@@ -18,7 +18,6 @@ import {
 import { Modal } from "antd";
 
 export default function FindIdContainer() {
-  const router = useRouter();
   const [phoneNum, setPhoneNum] = useState("");
   const [proofNum, setProofNum] = useState("");
   const [flag, setFlag] = useState(false);
@@ -57,13 +56,12 @@ export default function FindIdContainer() {
   // 예원 인증번호 요청 기능
   const onClickGetToken = async () => {
     try {
-      const result = await userGetToken({
+      await userGetToken({
         variables: {
           phone: phoneNum,
         },
       });
       Modal.success({ content: "인증번호를 전송하였습니다" });
-      console.log(result, "resie");
     } catch (error) {
       Modal.error({ content: "인증번호 전송에 실패하였습니다" });
     }
@@ -77,14 +75,13 @@ export default function FindIdContainer() {
       return;
     }
     try {
-      const result = await proofToken({
+      await proofToken({
         variables: {
           phone: phoneNum,
           mytoken: proofNum,
         },
       });
       Modal.success({ content: "인증이 완료되었습니다" });
-      console.log(result, " 인증");
       setFlag(false);
     } catch (error) {
       Modal.error({ content: "인증에 실패하였습니다" });

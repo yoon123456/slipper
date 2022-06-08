@@ -35,7 +35,6 @@ export const Join = styled.div`
   } */
 `;
 export const Profile = styled.div`
-  /* padding-top: 10%; */
   margin: 0 auto;
   font-size: 2.5rem;
   font-family: "HallymGothic-Regular";

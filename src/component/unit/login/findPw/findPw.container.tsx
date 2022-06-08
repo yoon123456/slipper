@@ -112,7 +112,6 @@ export default function FindPwContainer() {
             pw: pw,
           },
         });
-        console.log(result);
         Modal.success({ content: "비밀번호 변경에 성공하였습니다!" });
         router.push("/login");
       } catch (error) {
