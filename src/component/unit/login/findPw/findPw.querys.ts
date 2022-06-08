@@ -3,10 +3,7 @@ import { gql } from "@apollo/client";
 // 비번을 변경하는 mutation
 export const UPDATE_USER_PW = gql`
   mutation updateUserPw($email: String!, $pw: String!) {
-    updateUserPw(email: $email, pw: $pw) {
-      id
-      email
-    }
+    updateUserPw(email: $email, pw: $pw)
   }
 `;
 

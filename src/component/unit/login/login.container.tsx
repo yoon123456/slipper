@@ -14,7 +14,6 @@ import {
   IMutation,
   IMutationLoginArgs,
 } from "../../../commons/types/generated/types";
-import { IFromValues } from "../join/join.types";
 
 const schema = yup.object({
   email: yup
@@ -40,7 +39,7 @@ export default function LoginContainer() {
   const [, setUserNickname] = useRecoilState(userNicknameState);
   const [isActive, setIsActive] = useState(false);
 
-  const { register, handleSubmit, formState } = useForm<IFromValues>({
+  const { register, handleSubmit, formState } = useForm<IFormValues>({
     resolver: yupResolver(schema),
     mode: "onChange",
   });

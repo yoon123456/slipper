@@ -15,7 +15,6 @@ import { v4 as uuidv4 } from "uuid";
 export default function ListPresenter(props: IListPresenter) {
   const { onClickMoveToPage } = useMovetoPage();
   const [isActive] = useRecoilState(SearchBarIsActiveState);
-  console.log(props.data, "dddd");
   return (
     <>
       <Banner />

@@ -1,11 +1,13 @@
 import * as S from "./list.styles";
 import { timeForToday } from "../../../../commons/timefortoday/timeForToday";
 import { IListPresenterItem } from "./list.types";
-import { MouseEvent, useState } from "react";
+import { MouseEvent } from "react";
 import { useMutation, useQuery } from "@apollo/client";
 import {
   IMutation,
   IMutationClickLikeArgs,
+  IQuery,
+  IQueryFetchUserLikeArgs,
 } from "../../../../commons/types/generated/types";
 import { CLICK_LIKE, FETCH_USER_LIKE, FETCH_BOARDS_PAGE } from "./list.query";
 import { Modal } from "antd";
@@ -14,9 +16,16 @@ import { useRouter } from "next/router";
 export default function ListPresenterItem(props: IListPresenterItem) {
   const router = useRouter();
   // 예원 게시글 좋아요 Mutation
-  const [clickLike] = useMutation(CLICK_LIKE);
+  const [clickLike] = useMutation<
+    Pick<IMutation, "clickLike">,
+    IMutationClickLikeArgs
+  >(CLICK_LIKE);
 
-  const { data } = useQuery(FETCH_USER_LIKE, {
+  // 예원 게시글 좋아요 갯수를 가져오는 query
+  const { data } = useQuery<
+    Pick<IQuery, "fetchUserLike">,
+    IQueryFetchUserLikeArgs
+  >(FETCH_USER_LIKE, {
     variables: {
       boardId: String(props.el._source.id),
     },

@@ -1,7 +1,6 @@
 import { ApolloQueryResult } from "@apollo/client";
 import { MouseEvent } from "react";
 import {
-  IBoard,
   IQuery,
   IQueryFetchBoardArgs,
 } from "../../../../commons/types/generated/types";
@@ -17,5 +16,5 @@ export interface IDetailPresenter {
     variables: Partial<IQueryFetchBoardArgs>
   ) => Promise<ApolloQueryResult<Pick<IQuery, "fetchBoard">>>;
   userData: Pick<IQuery, "fetchUser"> | undefined;
-  likeData: any;
+  likeData: Pick<IQuery, "fetchUserLike"> | undefined;
 }
