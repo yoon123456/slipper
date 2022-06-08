@@ -4,7 +4,14 @@ import { useRouter } from "next/router";
 import { ChangeEvent, MouseEvent, useEffect, useRef, useState } from "react";
 import { useRecoilState } from "recoil";
 import { useMovetoPage } from "../../../../commons/hooks/movePage";
-import { detailIdState, isClickedNumState } from "../../../../commons/store";
+import {
+  categoryBar,
+  CategoryState,
+  detailIdState,
+  isClickedNumState,
+  SearchState,
+  serchBar,
+} from "../../../../commons/store";
 import ListPresenter from "./list.presenter";
 import { useQuery } from "@apollo/client";
 import { FETCH_BOARDS_PAGE } from "./list.query";
@@ -18,9 +25,8 @@ import {
 
 export default function ListContainer() {
   const router = useRouter();
-  const { onClickMoveToPage } = useMovetoPage();
   const [isClickedNum, setIsClickedNum] = useRecoilState(isClickedNumState);
-  const [keyword, setKeyword] = useState(""); // Chan 검색기능 추가
+  const [keyword, setKeyword] = useState("");
   const btnRef = useRef<HTMLButtonElement>(null);
   const [array, setArray] = useState("");
   const [detailId, setDetailId] = useRecoilState(detailIdState);
@@ -28,12 +34,12 @@ export default function ListContainer() {
   const aaa: string[] = [];
   const [page, setPage] = useState(0);
   const [throttle, setThrottle] = useState(true);
+  const [serch] = useRecoilState(serchBar);
+  const [category] = useRecoilState(categoryBar);
 
   useEffect(() => {
     btnRef.current?.click();
   }, []);
-
-  console.log(userData);
 
   const handleScroll = () => {
     if (throttle) return;
@@ -47,22 +53,14 @@ export default function ListContainer() {
     }
   };
 
-  // fetchBoardsPage query
-  const { data, refetch, fetchMore } = useQuery(
-    // <
-    //   Pick<IQuery, "fetchBoardsPage">,
-    //   IQueryFetchBoardsPageArgs
-    // >
-    FETCH_BOARDS_PAGE,
-    {
-      variables: {
-        page: 1,
-        search: "",
-        category: "",
-        sortType: array,
-      },
-    }
-  );
+  const { data, refetch, fetchMore } = useQuery(FETCH_BOARDS_PAGE, {
+    variables: {
+      page: 1,
+      search: serch,
+      category: category,
+      sortType: array,
+    },
+  });
 
   // 예원 무한스크롤 기능
   const onLoadMore = () => {

@@ -32,16 +32,13 @@ export const KaKaoWarp = styled.div`
 `;
 
 export const KaKaoOverLay = styled(CustomOverlayMap)``;
-
 export const MarkerDiv = styled.div``;
-
 export const MarkerDiv2 = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  border: 1px solid red;
-  /* padding-left: 9px; */
 `;
+
 export const LocationButton = styled.button`
   width: 8%;
   height: 35px;
@@ -67,6 +64,7 @@ export const LocationButton = styled.button`
   }
   margin-right: 5px;
 `;
+
 export const TrappickButton = styled.button`
   width: 8%;
   height: 35px;
@@ -92,6 +90,7 @@ export const TrappickButton = styled.button`
   }
   margin-right: 5px;
 `;
+
 export const RoadButton = styled.button`
   width: 8%;
   height: 35px;
@@ -216,4 +215,8 @@ export const HiddenBox = styled.div`
   width: 100px;
   height: 100px;
   /* border: 1px solid red; */
+`;
+
+export const WeatherBox = styled.div`
+  border: 2px solid red;
 `;

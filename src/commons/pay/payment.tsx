@@ -8,6 +8,7 @@ import Script from "next/script";
 import { IpropsPayment } from "./payment.type";
 import { useRecoilState } from "recoil";
 import { isClickedNumState } from "../store";
+import { useRouter } from "next/router";
 
 declare const window: typeof globalThis & {
   IMP: any;
@@ -23,7 +24,6 @@ export const IButton = styled.div`
   border-radius: 10px;
   background-color: white;
   background: linear-gradient(to bottom, white 5%, #ffffff 100%);
-  /* display: inline-block; */
   box-shadow: 3px 3px 7px 0 rgba(0, 0, 0, 0.25),
     -4px -4px 7px 0 rgba(255, 255, 255, 0.3);
   cursor: pointer;
@@ -35,8 +35,9 @@ export const IButton = styled.div`
 
 export default function PaymentPage(props: IpropsPayment) {
   const [createPayment] = useMutation(CREATE_PAYMENT);
-  const [isClickedNum, setIsClickedNum] = useRecoilState(isClickedNumState);
+  const [, setIsClickedNum] = useRecoilState(isClickedNumState);
   const [amount, setAmount] = useState(0);
+  const router = useRouter();
 
   useEffect(() => {
     setIsClickedNum(0);
@@ -72,9 +73,10 @@ export default function PaymentPage(props: IpropsPayment) {
             },
           });
           Modal.success({ content: "결제완료" });
+
           setIsClickedNum(99999);
         } else {
-          console.log(rsp.error_msg);
+          Modal.error({ content: "결제가 되지 않았습니다." });
         }
       }
     );

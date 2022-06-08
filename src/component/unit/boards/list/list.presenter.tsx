@@ -15,7 +15,7 @@ import { v4 as uuidv4 } from "uuid";
 export default function ListPresenter(props: IListPresenter) {
   const { onClickMoveToPage } = useMovetoPage();
   const [isActive] = useRecoilState(SearchBarIsActiveState);
-  console.log(props.data, "dddd");
+
   return (
     <>
       <Banner />
@@ -29,6 +29,7 @@ export default function ListPresenter(props: IListPresenter) {
           <SearchBarCategoryContainer
             refetch={props.refetch}
             onChangeKeyword={props.onChangeKeyword}
+            data={props.data}
           />
         </S.WrapperTop>
         <S.WrapperContents isActive={isActive}>

@@ -1,4 +1,4 @@
-import { ChangeEvent, LegacyRef, ReactNode } from "react";
+import { ChangeEvent, Dispatch, LegacyRef, SetStateAction } from "react";
 import { IQuery } from "../../types/generated/types";
 
 export interface KaoKaoMap {
@@ -10,6 +10,13 @@ export interface KaoKaoMap {
   onClickContent: (marker: any) => () => void;
   onCancel: () => void;
   onClickButton: () => void;
+  setPosition: (position: undefined) => void;
+
+  position?: {
+    lat: number;
+    lng: number;
+  };
+
   listRef: LegacyRef<HTMLDivElement> | undefined;
   closeList: boolean;
   mapStatus?: boolean;
@@ -19,8 +26,23 @@ export interface KaoKaoMap {
   lng: string;
   setMap: any;
   markers: never[];
-  setInfo: any;
-  info: any;
+  setInfo: Dispatch<SetStateAction<undefined>>;
+
+  info?: {
+    address_name: string;
+    category_name: string;
+    content: string;
+    group_code: string;
+    group_name: string;
+    phone: string;
+    place_url: string;
+    position: {
+      lat: string;
+      lng: string;
+    };
+    road_name: string;
+  };
+
   geoLat: number;
   geoLng: number;
   btnRef: LegacyRef<HTMLButtonElement>;
@@ -35,7 +57,7 @@ export interface KaoKaoMap {
   setLevel: (level: number) => void;
   level: number;
 
-  address: {
+  address?: {
     content: string;
     address_name: string;
     group_name: string;
@@ -69,7 +91,7 @@ export interface ContentProps {
     road_name: string;
     group_name: string;
   };
-  // data?: Pick<IQuery, "fetchBoardsPage">;
+
   el?: {
     _id: string;
     _source: {
@@ -95,9 +117,25 @@ export interface MarkerProps {
   markers: never[];
   markerClick: (marker: any) => () => void;
   onClickContent: (marker: any) => () => void;
-  info: any;
+  info?: {
+    address_name: string;
+    category_name: string;
+    content: string;
+    group_code: string;
+    group_name: string;
+    phone: string;
+    place_url: string;
+    position: {
+      lat: string;
+      lng: string;
+    };
+    road_name: string;
+  };
+
   contentFlag: boolean;
   data?: Pick<IQuery, "fetchBoardsPage">;
+  isActive1: boolean;
+
   el?: {
     _source: {
       address: string;

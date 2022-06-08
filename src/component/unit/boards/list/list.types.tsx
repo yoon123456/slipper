@@ -1,9 +1,6 @@
 import { ApolloQueryResult } from "@apollo/client";
 import { LegacyRef, MouseEvent } from "react";
-import {
-  IQuery,
-  IQueryTestFetchBoardsPageArgs,
-} from "../../../../commons/types/generated/types";
+import { IQuery } from "../../../../commons/types/generated/types";
 
 export interface IListPresenter {
   onClickDetail: (event: MouseEvent<HTMLDivElement>) => void; // 예원 클릭 디테일 이벤트
