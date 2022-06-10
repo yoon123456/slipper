@@ -20,7 +20,7 @@ export interface IMyPagePresenter {
   onChangeFileUrl: (fileUrl: string) => void;
   onChangeIntroduce: (event: ChangeEvent<HTMLInputElement>) => void;
   modalOk: () => void;
-  nickname: any;
+  nickname: string;
 }
 
 export interface IProps {

@@ -44,10 +44,13 @@
     "react-router-dom": "^6.3.0",
     "react-slick": "^0.29.0",
     "react-transition-group": "^4.4.2",
+    "react-xml-parser": "^1.1.8",
     "recoil": "^0.7.0",
+    "request": "^2.88.2",
     "slick-carousel": "^1.8.1",
     "styled-components": "^5.3.5",
     "uuid": "^8.3.2",
+    "xml-js": "^1.6.11",
     "yup": "^0.32.11"
   },
   "devDependencies": {

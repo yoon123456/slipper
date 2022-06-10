@@ -1,4 +1,3 @@
-// haeri 작업시작 22.05.13
 import MyPagePresenter from "./mypage.presenter";
 import { FETCH_USER, UPDATE_USER } from "./mypage.queries";
 import { useMutation, useQuery } from "@apollo/client";
@@ -9,9 +8,12 @@ import { IUpdateUserInput } from "./mypage.types";
 export default function MyPageContainer() {
   const [updateUser] = useMutation(UPDATE_USER);
   const { data, refetch } = useQuery(FETCH_USER);
-
-  // haeri 메뉴 전환
+  const [modalVisible, setModalVisible] = useState(false);
+  const [nickname, setNickname] = useState("");
+  const [fileUrl, setFileUrl] = useState([""]);
+  const [introduce, setIntroduce] = useState("");
   const [mypageRight, setMypageRight] = useState("mypicks");
+
   const onClickMypicks = () => {
     setMypageRight("mypicks");
   };
@@ -21,12 +23,6 @@ export default function MyPageContainer() {
   const onClickMypaids = () => {
     setMypageRight("mypaids");
   };
-
-  // haeri 닉네임,프로필사진,자기소개글 수정(Modal)
-  const [modalVisible, setModalVisible] = useState(false);
-  const [nickname, setNickname] = useState(data?.fetchUser.nickname);
-  const [fileUrl, setFileUrl] = useState([""]);
-  const [introduce, setIntroduce] = useState("");
   const showModal = () => {
     setModalVisible(true);
   };
@@ -43,22 +39,31 @@ export default function MyPageContainer() {
   const onChangeIntroduce = (event: ChangeEvent<HTMLInputElement>) => {
     setIntroduce(event.target.value);
   };
-  const modalOk = async () => {
-    if (!nickname && !fileUrl && !introduce) {
-      Modal.error({ content: "수정한 내용이 없습니다." });
-      return;
-    }
+
+  const myInfo = async () => {
     const updateUserInput: IUpdateUserInput = {};
     if (nickname) updateUserInput.nickname = nickname;
     if (fileUrl) updateUserInput.imageUrl = String(fileUrl);
     if (introduce) updateUserInput.introduce = introduce;
+    await updateUser({
+      variables: {
+        updateUserInput,
+      },
+      update(cache, { data }) {
+        cache.modify({
+          fields: {
+            fetchUser: () => {
+              return data.updateUser;
+            },
+          },
+        });
+      },
+    });
+  };
+
+  const modalOk = () => {
     try {
-      await updateUser({
-        variables: {
-          updateUserInput,
-        },
-      });
-      refetch();
+      myInfo();
       setModalVisible(false);
       Modal.success({ content: "개인정보 수정 완료" });
       setNickname("");
@@ -86,3 +91,10 @@ export default function MyPageContainer() {
     />
   );
 }
+
+// const ModalError = () => {
+//   if (!nickname && !fileUrl && !introduce) {
+//     Modal.error({ content: "수정한 내용이 없습니다." });
+//     return;
+//   }
+// };
