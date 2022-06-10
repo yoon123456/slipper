@@ -45,21 +45,14 @@ export default function FindIdPresenter(props: IFindIdPresenter) {
           </S.Profile>
           <S.Eamil>{props.email}</S.Eamil>
           <S.JoinWrap>
-            {props.email ? (
-              <S.JoinSlipper
-                onClick={onClickMoveToPage("/login")}
-                isActive={props.isActive}
-              >
-                로그인하러가기
-              </S.JoinSlipper>
-            ) : (
-              <S.JoinSlipper
-                onClick={props.onClickFindId}
-                isActive={props.isActive}
-              >
-                찾기
-              </S.JoinSlipper>
-            )}
+            <S.JoinSlipper
+              onClick={
+                props.email ? onClickMoveToPage("/login") : props.onClickFindId
+              }
+              isActive={props.isActive}
+            >
+              {props.email ? "로그인하러가기" : "찾기"}
+            </S.JoinSlipper>
           </S.JoinWrap>
         </S.WrapperIn>
       </S.WrapperOut>

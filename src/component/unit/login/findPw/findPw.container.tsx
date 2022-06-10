@@ -106,7 +106,7 @@ export default function FindPwContainer() {
   const onClickFindPw = async () => {
     if (email && phoneNum) {
       try {
-        const result = await updateUserPw({
+        await updateUserPw({
           variables: {
             email: email,
             pw: pw,

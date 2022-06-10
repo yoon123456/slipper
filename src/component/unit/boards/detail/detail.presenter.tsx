@@ -33,11 +33,9 @@ export default function DetailPresenter(props: IDetailPresenter) {
                   {props.data?.fetchBoard.images?.map(
                     (el: IBoardImage, idx: number) => (
                       <S.ImgWrapper key={idx}>
-                        {el.imageUrl === "" ? (
-                          <S.Img src="/image/logo.png" />
-                        ) : (
-                          <S.Img src={el.imageUrl} />
-                        )}
+                        <S.Img
+                          src={!el.imageUrl ? "/image/logo.png" : el.imageUrl}
+                        />
                       </S.ImgWrapper>
                     )
                   )}
@@ -73,29 +71,25 @@ export default function DetailPresenter(props: IDetailPresenter) {
           <S.TopRight>
             <S.UserWrap>
               <S.UserTitle>{props.data?.fetchBoard.title}</S.UserTitle>
-              {props.likeData?.fetchUserLike.isLike ? (
-                <S.BookMark
-                  id={props.data?.fetchBoard.id}
-                  src="/image/bookmarkpick.png"
-                  onClick={props.onClickLike}
-                />
-              ) : (
-                <S.BookMark
-                  id={props.data?.fetchBoard.id}
-                  src="/image/bookmark.png"
-                  onClick={props.onClickLike}
-                />
-              )}
+              <S.BookMark
+                id={props.data?.fetchBoard.id}
+                src={
+                  props.likeData?.fetchUserLike.isLike
+                    ? "/image/bookmarkpick.png"
+                    : "/image/bookmark.png"
+                }
+                onClick={props.onClickLike}
+              />
             </S.UserWrap>
             <S.Wrap>가게정보를 알려드릴게요</S.Wrap>
             <S.UserMiddle>
               <S.ShopName>{props.data?.fetchBoard.place}</S.ShopName>
               <S.CategoryWrap>
-                {props.data?.fetchBoard.category === "" ? (
-                  <S.Category>기타</S.Category>
-                ) : (
-                  <S.Category>{props.data?.fetchBoard.category}</S.Category>
-                )}
+                <S.Category>
+                  {props.data?.fetchBoard.category === ""
+                    ? "기타"
+                    : props.data?.fetchBoard.category}
+                </S.Category>
               </S.CategoryWrap>
               <S.ShopRatingWrap>
                 {props.data?.fetchBoard.score === 1 && (
@@ -123,17 +117,13 @@ export default function DetailPresenter(props: IDetailPresenter) {
             </S.UserMiddle>
             <S.UserInfoWrap>
               <S.User>
-                {props.data?.fetchBoard.user.imageUrl === "" ? (
-                  <S.UserImg src={"/image/usericon.png"} />
-                ) : (
-                  <S.UserImg
-                    src={
-                      props.data?.fetchBoard.user.imageUrl
-                        ? props.data?.fetchBoard.user.imageUrl
-                        : "/image/profileDefault.png"
-                    }
-                  />
-                )}
+                <S.UserImg
+                  src={
+                    props.data?.fetchBoard.user.imageUrl
+                      ? props.data?.fetchBoard.user.imageUrl
+                      : "/image/profileDefault.png"
+                  }
+                />
                 <S.UserName>{props.data?.fetchBoard.nickname}</S.UserName>
               </S.User>
               <S.UserLivingWrap>

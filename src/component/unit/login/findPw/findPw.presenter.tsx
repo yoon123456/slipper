@@ -40,7 +40,6 @@ export default function FindPwPresenter(props: IFindPwPresenter) {
                   </S.CheckEnd>
                 </S.CheckNumber>
               </S.ProfileBox>
-
               <S.Flex>
                 <S.NumberBox>
                   <Number flag={props.flag} />
