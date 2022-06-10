@@ -23,7 +23,6 @@ const schema = yup.object({
       "이메일 형식이 적합하지 않습니다"
     )
     .required("이메일은 필수입력사항 입니다"),
-
   pw: yup
     .string()
     .matches(

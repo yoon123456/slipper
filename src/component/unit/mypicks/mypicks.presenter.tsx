@@ -9,7 +9,6 @@ export default function MypicksPresenter(props: IMypicksPresenter) {
   return (
     <>
       <S.Head>찜한 글</S.Head>
-
       <S.Infinite style={{ height: "600px", overflow: "auto" }}>
         <InfiniteScroll
           pageStart={0}

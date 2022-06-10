@@ -6,7 +6,6 @@ import { useRouter } from "next/router";
 import { MouseEvent, useState } from "react";
 import {
   IMutation,
-  IMutationClickLikeArgs,
   IMutationDeleteBoardArgs,
   IQuery,
   IQueryFetchBoardArgs,
@@ -16,6 +15,7 @@ import { FETCH_USER } from "../../login/login.queries";
 import { CLICK_LIKE } from "../list/list.query";
 import DetailPresenter from "./detail.presenter";
 import { DELETE_BOARD, FETCH_BOARD, FETCH_USER_LIKE } from "./detail.query";
+import XMLParser from "react-xml-parser";
 
 export default function DetailContainer() {
   const router = useRouter();

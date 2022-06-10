@@ -51,7 +51,6 @@ export default function JoinPresenter(props: IJoinPresenter) {
                 <S.Or>소셜로그인</S.Or>
                 <S.OrRight></S.OrRight>
               </S.Orbox>
-
               <S.SnsBox>
                 <S.AWrap href="https://backend.slipperofficial.shop/login/kakao">
                   <S.KaKao src="https://upload.wikimedia.org/wikipedia/commons/e/e3/KakaoTalk_logo.svg" />

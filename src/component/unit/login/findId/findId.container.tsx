@@ -45,6 +45,8 @@ export default function FindIdContainer() {
     setPhoneNum(event.target.value);
     if (event.target.value.length === 11) {
       setIsActive(false);
+    } else {
+      setIsActive(true);
     }
   };
 

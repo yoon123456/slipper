@@ -1,4 +1,5 @@
 import { useQuery } from "@apollo/client";
+import { IQuery } from "../../../commons/types/generated/types";
 import MypaidsPresenter from "./mypaids.presenter";
 import { FETCH_PAYMENTS } from "./mypaids.queries";
 
