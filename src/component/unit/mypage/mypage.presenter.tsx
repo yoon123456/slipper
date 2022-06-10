@@ -42,14 +42,15 @@ export default function MyPagePresenter(props: IMyPagePresenter) {
             <S.ModalHead>닉네임 수정</S.ModalHead>
             <S.NicknameEditInput
               type="text"
-              value={props.nickname}
               onChange={props.onChangeNickname}
+              defaultValue={props.data?.fetchUser.nickname}
             />
             <S.ProfileImageEditWrapper>
               <S.ModalHead>프로필 이미지 수정</S.ModalHead>
               <ImageProfile
                 onChangeFileUrl={props.onChangeFileUrl}
                 fileUrl={props.fileUrl}
+                userImage={props.data?.fetchUser.imageUrl}
               />
             </S.ProfileImageEditWrapper>
             <S.ModalHead>자기소개글 수정</S.ModalHead>

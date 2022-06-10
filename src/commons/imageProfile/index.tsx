@@ -2,6 +2,7 @@ import { useMutation, gql } from "@apollo/client";
 import { ChangeEvent, useRef } from "react";
 import { Modal } from "antd";
 import styled from "@emotion/styled";
+import { ModalStaticFunctions } from "antd/lib/modal/confirm";
 
 const UPLOAD_PROFILE_IMAGE = gql`
   mutation uploadProfileImage($files: [Upload!]!) {
@@ -33,6 +34,7 @@ const UploadFileHidden = styled.input`
 interface IImageProfileProps {
   onChangeFileUrl: (fileUrl: string) => void;
   fileUrl?: string[];
+  userImage?: string;
 }
 export default function ImageProfile(props: IImageProfileProps) {
   const [uploadProfileImage] = useMutation(UPLOAD_PROFILE_IMAGE);
@@ -48,7 +50,7 @@ export default function ImageProfile(props: IImageProfileProps) {
       });
       console.log(result);
       props.onChangeFileUrl(result.data.uploadProfileImage);
-    } catch (error) {
+    } catch (error: any) {
       Modal.error({ content: error.message });
     }
   };
@@ -59,10 +61,10 @@ export default function ImageProfile(props: IImageProfileProps) {
 
   return (
     <>
-      {props.fileUrl[0] !== "" ? (
+      {props.userImage ? (
         <UploadImage onClick={onClickImgUpload} src={`${props.fileUrl}`} />
       ) : (
-        <UploadButton type="button" onClick={onClickImgUpload}>
+        <UploadButton onClick={onClickImgUpload}>
           <UploadImageBox src="/image/profile.png"></UploadImageBox>
         </UploadButton>
       )}
