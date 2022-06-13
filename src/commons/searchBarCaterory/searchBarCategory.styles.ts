@@ -17,7 +17,7 @@ export const SearchWrap = styled.div`
 
 export const Search = styled.input`
   width: 80%;
-  height: 80px;
+  height: 50px;
   background-color: #ffffff;
   border: none;
   border-radius: 10px;

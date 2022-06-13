@@ -1,5 +1,6 @@
-import { atom } from "recoil";
+import { atom, selector } from "recoil";
 import { string } from "yup";
+import { getAccessToken } from "../getAccessToken";
 
 export const visitedPageState = atom({
   key: "visitedPageState",
@@ -99,4 +100,12 @@ export const serchBar = atom({
 export const categoryBar = atom({
   key: "category",
   default: "",
+});
+
+export const restoreAccessTokenLoadable = selector({
+  key: "restoreAccessTokenLoadable",
+  get: async () => {
+    const newAccessToken = await getAccessToken();
+    return newAccessToken;
+  },
 });

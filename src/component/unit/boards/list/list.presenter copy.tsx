@@ -1,23 +1,58 @@
 // 예원작업 5/16
-import * as S from "./list.styles";
+import * as S from "./list.styles copy";
 import { useMovetoPage } from "../../../../commons/hooks/movePage";
 import KeyWord from "../../../../commons/kakao/keyword/kakaomap.container";
-import { IListPresenter } from "./list.types";
+import { IListPresenter } from "./list.types_copy";
 import SearchBarCategoryContainer from "../../../../commons/searchBarCaterory/searchBarCategory.container";
 import { useRecoilState } from "recoil";
-import { SearchBarIsActiveState } from "../../../../commons/store";
+import {
+  accessTokenState,
+  SearchBarIsActiveState,
+} from "../../../../commons/store";
 import InfiniteScroll from "react-infinite-scroller";
 import Banner from "../../../../commons/banner/banner.presenter";
 import Script from "next/script";
-import ListPresenterItem from "./list.presenterItem";
 import { v4 as uuidv4 } from "uuid";
+import Logo from "../../../../commons/logo";
+import ListPresenterItem from "./list.presenterItem";
 
-export default function ListPresenter(props: IListPresenter) {
+export default function ListPresenter2(props: IListPresenter) {
   const { onClickMoveToPage } = useMovetoPage();
   const [isActive] = useRecoilState(SearchBarIsActiveState);
-
+  const [accessToken] = useRecoilState(accessTokenState);
   return (
     <>
+      <S.WrapperOutH>
+        <S.WrapperBox>
+          <S.WrapperInLogo onClick={props.onClickMoveToPage("/boards")}>
+            <Logo />
+          </S.WrapperInLogo>
+          <S.WrapperIn>
+            {/* 해리 - 햄버거 없애보기 */}
+            <S.TestWrapper>
+              <S.Test onClick={props.onClickMoveToPage("/boards/new")}>
+                글쓰기
+              </S.Test>
+              <S.Test onClick={props.onClickMoveToPage("/payment")}>
+                구독서비스
+              </S.Test>
+              <S.Test onClick={props.onClickMoveToPage("/mypage")}>
+                내 신발장
+              </S.Test>
+            </S.TestWrapper>
+          </S.WrapperIn>
+          {accessToken ? (
+            <S.WrapUser>
+              <S.LogOut onClick={props.out}>로그아웃</S.LogOut>
+            </S.WrapUser>
+          ) : (
+            <S.LogIn onClick={props.onClickMoveToPage("/login")}>
+              로그인
+            </S.LogIn>
+          )}
+        </S.WrapperBox>
+      </S.WrapperOutH>
+
       {/* <Banner /> */}
       <S.WrapperOut isActive={isActive}>
         <Script
