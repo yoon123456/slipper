@@ -7,6 +7,7 @@ const toolbarOptions = [
   [{ color: [] }, { background: [] }],
   [{ align: [] }],
 ];
+
 export const formats = [
   "header",
   "font",

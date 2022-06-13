@@ -46,18 +46,15 @@ export default function KaKaoMapContainer(props: KaoKeyWord) {
 
   const foldList = () => {
     if (!listRef || !listRef.current) {
-      // useRef 변수가 비었을 때
-      return; // 그냥 리턴하도록 예외처리를 해주자
+      return;
     }
-    const style = listRef.current.style; // 접근할 DOM 요소의 스타일 속성을 미리 선언해둔다.
+    const style = listRef.current.style;
     if (closeList) {
-      // closeAllList 상태변수가 true 일 때
-      style.maxHeight = "500px"; // maxHeight 는 0이 되고 접힌다.
+      style.maxHeight = "500px";
     } else if (!closeList) {
-      // closeAllList 상태변수가 false 면
-      style.maxHeight = `${listRef.current.scrollHeight}px`; // maxHeight = scroll 길이가 되고 메뉴가 열린다.
+      style.maxHeight = `${listRef.current.scrollHeight}px`;
     }
-    setCloseList(!closeList); // 클릭할 때마다 상태를 반대로 바꾼다.
+    setCloseList(!closeList);
   };
 
   const onCancel = () => {

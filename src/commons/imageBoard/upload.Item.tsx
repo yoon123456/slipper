@@ -1,13 +1,17 @@
 import { useMutation } from "@apollo/client";
-import { ChangeEvent, useRef } from "react";
+import { ChangeEvent, useEffect, useRef, useState } from "react";
 import { Modal } from "antd";
 import { UPLOAD_BOARD_IMAGE } from "./upload.queries";
 import * as S from "./upload.styles";
 import { IImageUploadPageProps } from "./upload.types";
 
 export default function ImageBoardUpload(props: IImageUploadPageProps) {
+  console.log(props.fileUrl, "sdfsdf");
+  const [imageAddress, setImageAddress] = useState();
   const [uploadBoardImage] = useMutation(UPLOAD_BOARD_IMAGE);
   const fileRef = useRef<HTMLInputElement>(null);
+  const ImageRef = useRef<HTMLButtonElement>(null);
+
   const onChangeFile = async (event: ChangeEvent<HTMLInputElement>) => {
     const file = event.target.files;
     if (!file) return;
@@ -25,15 +29,21 @@ export default function ImageBoardUpload(props: IImageUploadPageProps) {
     fileRef.current?.click();
   };
 
+  useEffect(() => {
+    ImageRef.current?.click();
+  });
+
+  const ImgeSplit = () => {
+    const result = props.data?.fetchBoard.images;
+    const image = result.filter(function (image: any) {
+      return image.imageUrl !== "" ? setImageAddress(image.imageUrl) : "";
+    });
+  };
+
   return (
     <>
-      {props.data?.fetchBoard.images ? (
-        <S.UploadImage
-          onClick={onClickImgUpload}
-          src={
-            "https://storage.googleapis.com/slipper-bucket/board/d291bd62-1433-48bd-b5ae-a1390816b1a4/2.png"
-          }
-        />
+      {props.fileUrl ? (
+        <S.UploadImage onClick={onClickImgUpload} src={props.fileUrl} />
       ) : (
         <S.UploadButton onClick={onClickImgUpload}>
           <S.UploadIcon src="/image/boardimage.png" />
