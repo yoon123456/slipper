@@ -64,7 +64,7 @@ export const WrapperReserverd = styled.div`
 `;
 export const FlexBox = styled.div`
   padding: 2%;
-  margin-right: 7%;
+  margin-right: 2%;
   display: flex;
   flex-direction: column;
   align-items: flex-end;
