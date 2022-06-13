@@ -37,6 +37,7 @@ interface IImageProfileProps {
   userImage?: string;
 }
 export default function ImageProfile(props: IImageProfileProps) {
+  console.log(props.fileUrl, "파일이미지");
   const [uploadProfileImage] = useMutation(UPLOAD_PROFILE_IMAGE);
   const fileRef = useRef<HTMLInputElement>(null);
 

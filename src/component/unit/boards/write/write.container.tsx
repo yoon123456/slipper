@@ -1,9 +1,8 @@
-// haeri 작업시작 22.05.12
 import WritePresenter from "./write.presenter";
 import { CREATE_BOARD, UPDATE_BOARD } from "./write.query";
 import { useMutation } from "@apollo/client";
 import { Modal } from "antd";
-import { ChangeEvent, useState, MouseEvent, useEffect } from "react";
+import { ChangeEvent, useState, useEffect } from "react";
 import { useRouter } from "next/router";
 import { useRecoilState } from "recoil";
 import { kakaoAddress } from "../../../../commons/store/kakaounit";
@@ -60,70 +59,76 @@ export default function WriteContainer(props: IWriteContainer) {
     IMutationUpdateBoardArgs
   >(UPDATE_BOARD);
 
-  // haeri 1->2단계 이동
   const onClickFirstNext = () => {
-    if (startDate === "" || endDate === "") {
-      setDateError("거주 기간을 입력해주세요.");
-    }
-    if (title === "") {
-      setTitleError("제목을 입력해주세요.");
-    }
-    if (score === 0) {
-      setScoreError("만족도를 선택해주세요.");
-    }
-    if (contents === "") {
-      setContentsError("내용을 입력해주세요.");
-    }
-    if (
-      startDate !== "" &&
-      endDate !== "" &&
-      title !== "" &&
-      score !== 0 &&
-      contents !== ""
-    ) {
-      setActiveStep("second");
-      setMapStatus(true);
-    }
-    if (props.isEdit && !startDate && !startDate) {
-      setDateError("거주 기간에 수정된 부분이 없습니다.");
-    }
-    if (props.isEdit && !title) {
-      setTitleError("제목에 수정된 부분이 없습니다.");
-    }
-    if (props.isEdit && !score) {
-      setScoreError("만족도에 수정된 부분이 없습니다.");
-    }
-    if (props.isEdit && !contents) {
-      setContentsError("내용에 수정된 부분이 없습니다.");
+    if (!props.isEdit) {
+      if (startDate === "" || endDate === "") {
+        setDateError("거주 기간을 입력해주세요.");
+      }
+      if (title === "") {
+        setTitleError("제목을 입력해주세요.");
+      }
+      if (score === 0) {
+        setScoreError("만족도를 선택해주세요.");
+      }
+      if (contents === "") {
+        setContentsError("내용을 입력해주세요.");
+      }
+      if (
+        startDate !== "" &&
+        endDate !== "" &&
+        title !== "" &&
+        score !== 0 &&
+        contents !== ""
+      ) {
+        setActiveStep("second");
+        setMapStatus(true);
+      }
+    } else {
+      if (
+        props.data?.fetchBoard.startDate !== "" &&
+        props.data?.fetchBoard.endDate !== "" &&
+        props.data?.fetchBoard.title !== "" &&
+        props.data?.fetchBoard.score !== 0 &&
+        props.data?.fetchBoard.contents !== ""
+      ) {
+        setActiveStep("second");
+        setMapStatus(true);
+      }
     }
   };
 
-  // haeri 2->1단계 이동
   const onClickSecondPrev = () => {
     setActiveStep("first");
   };
 
-  // haeri 2->3단계 이동
   const onClickSecondNext = () => {
-    if (address.address_name === "") {
-      setMapError("가게 정보를 검색해주세요.");
+    if (!props.isEdit) {
+      if (address.address_name === "") {
+        setMapError("가게 정보를 검색해주세요.");
+      } else {
+        setMapError("");
+        setActiveStep("third");
+      }
+    } else {
+      if (props.data?.fetchBoard.address) {
+        setActiveStep("third");
+        setMapError("");
+      } else {
+        setMapError("가게 정보를 검색해주세요.");
+      }
     }
-    if (address.address_name !== "") setActiveStep("third");
   };
 
-  // haeri 3->2단계 이동
   const onClickThirdPrev = () => {
     setActiveStep("second");
   };
 
-  // haeri 기간 선택
   const onChangeRange = (date: any, dateString: any) => {
     setStartDate(dateString[0]);
     setEndDate(dateString[1]);
     setDateError("");
   };
 
-  // haeri 제목 입력
   const onChangeTitle = (event: ChangeEvent<HTMLInputElement>) => {
     setTitle(event.target.value);
     if (event.target.value !== "") {
@@ -131,7 +136,6 @@ export default function WriteContainer(props: IWriteContainer) {
     }
   };
 
-  // haeri 만족도 선택
   const onClickHappy = () => {
     setScore(1);
     setScoreError("");
@@ -145,12 +149,10 @@ export default function WriteContainer(props: IWriteContainer) {
     setScoreError("");
   };
 
-  // haeri 만족도 수정 전 리셋
   const onClickResetScore = () => {
     setResetScore(true);
   };
 
-  // haeri 내용 입력
   const onChangeContents = (value: string) => {
     setContents(value === "<p><br></p>" ? "" : value);
     if (value !== "") {
@@ -167,14 +169,12 @@ export default function WriteContainer(props: IWriteContainer) {
     }
   };
 
-  // haeri 이미지 등록
   const onChangeFileUrls = (fileUrl: string, index: number) => {
     const newFileUrls = [...fileUrls];
     newFileUrls[index] = fileUrl[0];
     setFileUrls(newFileUrls);
   };
 
-  // haeri 글 등록
   const onClickWriteBoard = async () => {
     try {
       const result = await createBoard({
@@ -206,7 +206,6 @@ export default function WriteContainer(props: IWriteContainer) {
     }
   };
 
-  // haeri 글 수정
   const onClickEditBoard = async () => {
     const updateBoardInput: IUpdateBoardInput = {};
     if (startDate) updateBoardInput.startDate = startDate;
@@ -222,6 +221,7 @@ export default function WriteContainer(props: IWriteContainer) {
     if (address.phone) updateBoardInput.placePhone = address.phone;
     if (address.place_url) updateBoardInput.placeUrl = address.place_url;
     if (fileUrls) updateBoardInput.images = fileUrls;
+
     try {
       await updateBoard({
         variables: {
@@ -231,7 +231,7 @@ export default function WriteContainer(props: IWriteContainer) {
       });
       Modal.success({ content: "회원님의 글이 정상적으로 수정되었습니다." });
       router.push(`/boards/${router.query.boardId}`);
-    } catch (error) {
+    } catch (error: any) {
       if (error instanceof Error) Modal.error({ content: error.message });
     }
   };
