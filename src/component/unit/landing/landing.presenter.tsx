@@ -1,30 +1,19 @@
 import * as S from "./landing.styles";
 import * as React from "react";
-import Logo from "../../../commons/logo";
 import { useMovetoPage } from "../../../commons/hooks/movePage";
-import Ham from "../../../commons/hamLanding";
 import Script from "next/script";
+import { ILandingPresenter } from "./landing.types";
+import AOS from "aos";
+import "aos/dist/aos.css";
+import { useEffect } from "react";
 
-const images = [
-  {
-    src: "/image/writebutton.png",
-    title: "Breakfast",
-    width: "33.3%",
-  },
-  {
-    src: "/image/searchbutton.png",
-    title: "Burgers",
-    width: "33.3%",
-  },
-  {
-    src: "/image/mypagebutton.png",
-    title: "Camera",
-    width: "33.3%",
-  },
-];
-
-export default function LandingPresenter() {
+export default function LandingPresenter(props: ILandingPresenter) {
   const { onClickMoveToPage } = useMovetoPage();
+  useEffect(() => {
+    AOS.init({
+      duration: 1500,
+    });
+  });
 
   return (
     <>
@@ -35,10 +24,6 @@ export default function LandingPresenter() {
       />
       <S.WrapperOut>
         <S.WrapperTop>
-          <S.LogoBox>
-            <Logo />
-          </S.LogoBox>
-
           <S.H1>
             <span>s</span>
             <span>l</span>
@@ -55,10 +40,6 @@ export default function LandingPresenter() {
             <S.MainBlue>
               <S.TextBox>
                 슬리퍼가
-                {/* <S.MainText>"슬리퍼가 대신 다녀올게."</S.MainText>
-    <S.SubText>
-      이사가는 곳 동네 인프라를 이제는 슬리퍼로 알아보세요!
-    </S.SubText> */}
                 <S.TextIn>
                   <S.TextO>
                     <S.TextFirst style={{ backgroundColor: "#42c58a" }}>
@@ -77,14 +58,58 @@ export default function LandingPresenter() {
                   </S.TextOut>
                 </S.TextIn>
                 대신 다녀올게!
-                <S.ArrowBox onClick={onClickMoveToPage("/boards")}>
-                  <S.Arrow src="/image/arrow2.png"></S.Arrow>
+                {/* <S.ArrowBox onClick={onClickMoveToPage("/boards")}>
+                  <S.Arrow src="/image/blackarrow.png"></S.Arrow>
                   <S.ArrowSpan>내게 딱_맞는 동네 찾으러 가기</S.ArrowSpan>
-                </S.ArrowBox>
+                </S.ArrowBox> */}
               </S.TextBox>
             </S.MainBlue>
           </S.MainFlex>
+          <S.ScrollArrow src="/image/ArrowDown.png" />
         </S.WrapperTop>
+        <S.Box>
+          <S.Pbox2>
+            <S.TBox>
+              <S.Txt>한 눈에 알아볼 수 있는 slipper 처음이세요? </S.Txt>
+              <S.Img2>슬리퍼만 있으면 어디든 갈 수 있어요!</S.Img2>
+            </S.TBox>
+            <S.ImgBox2 data-aos="fade-up">
+              <S.Img src="/image/banner2.png" />
+              <S.Middle>
+                <S.MiddleText>구경가기</S.MiddleText>
+              </S.Middle>
+            </S.ImgBox2>
+          </S.Pbox2>
+        </S.Box>
+        <S.Box>
+          <S.Pbox1>
+            <S.ImgBox1 data-aos="fade-up-right">
+              <S.Img src="/image/banner1.png" />
+              <S.Middle>
+                <S.MiddleText>함께 공유해요!</S.MiddleText>
+              </S.Middle>
+            </S.ImgBox1>
+            <S.TBox data-aos="fade-up-left">
+              <S.ImageCafe src="/image/landingcafe.jpeg" />
+              <S.Txt>슬리퍼가 여러분과 함께합니다.</S.Txt>
+              <S.Img1>야 , 너도 슬리퍼 신어볼래?</S.Img1>
+            </S.TBox>
+          </S.Pbox1>
+        </S.Box>
+        <S.Box>
+          <S.Pbox3>
+            <S.TBox data-aos="fade-right">
+              <S.Txt>사장님을 위한 슬리퍼 트렌드 </S.Txt>
+              <S.Img3>전국의 모든 사장님들 슬리퍼를 신어보세요. </S.Img3>
+            </S.TBox>
+            <S.ImgBox3 data-aos="fade-left">
+              <S.LastImage src="/image/banner3.png" />
+              <S.Middle>
+                <S.MiddleText>사장님 가게 알리기</S.MiddleText>
+              </S.Middle>
+            </S.ImgBox3>
+          </S.Pbox3>
+        </S.Box>
       </S.WrapperOut>
     </>
   );

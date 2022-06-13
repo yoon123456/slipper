@@ -22,6 +22,11 @@ export const fadein = keyframes`
         opacity:1;
     }
 `;
+export const bounceArrow = keyframes`
+  50% {
+    transform: translateY(-50%);
+  }
+`;
 
 export const WrapperOut = styled2.div`
 animation: ${fadein} 2s;
@@ -30,17 +35,37 @@ animation: ${fadein} 2s;
 // landing top
 export const WrapperTop = styled2.div`
   width: 100%;
+  :before {
+    animation: ${bounceArrow} 1s ease infinite;
+    bottom: 1rem;
+    color: #fff;
+    content: 'Scroll';
+    font-size: 2rem;
+    height: 3rem;
+    left: 50%;
+    letter-spacing: -1px;
+    line-height: 2rem;
+    margin-left: -2.5rem;
+    opacity: 0.8;
+    position: absolute;
+    text-align: center;
+}
+`;
+export const ScrollArrow = styled2.img`
+  animation: ${bounceArrow} 1s ease infinite;
+  bottom: 2.3rem;
+  left: 50%;
+  letter-spacing: -1px;
+  line-height: 4rem;
+  margin-left: -3rem;
+  position: absolute;
+  text-align: center;
+  width: 6rem; 
 `;
 export const LogoBox = styled2.div`
   position: absolute;
   width: 9%;
   margin: 40px;
-`;
-export const HamBox = styled2.div`
-  position: absolute;
-  right: 0;
-  padding: 10px;
-  margin: 30px;
 `;
 export const MainFlex = styled2.div`
   display: flex;
@@ -56,17 +81,14 @@ export const MainImg = styled2.img`
   height: 100%;
 `;
 export const MainBlue = styled2.div`
-  width: 100%;
-  height: 100vh;
-  background-color: #008af6;
   text-align: center;
 `;
 export const TextBox = styled2.div`
   position: absolute;
-  top: 35%;
-  right: 25%;
+  top: 33%;
+  right: 20%;
   transform: translate(50%, -80%);
-  color:#ffff;
+  color: white;
   text-transform: uppercase;
   font-size:4rem;
   font-weight:bold;
@@ -128,16 +150,16 @@ export const H1 = styled2.h1`
     left: 0;
     right: 0;
     bottom: 0;
-    width: 100%;
-    height: 100px;
+    width: 40%;
+    height: 150px;
     margin: auto;
     display: block;
-    text-align: center;
+    text-align: left;
     font-family: "Luckiest Guy", cursive;
     -webkit-font-smoothing: antialiased;
     span {
       position: relative;
-      top: 20px;
+      top: 10px;
       display: inline-block;
       -webkit-animation: ${bounce} 0.3s ease infinite alternate;
       font-size: 14rem;
@@ -260,7 +282,7 @@ export const ArrowBox = styled2.div`
   display: flex;
   justify-content: space-around;
   align-items: center;
-  border: 2px solid white;
+  border: 2px solid black;
   border-radius: 10px;
   cursor: pointer;
 
@@ -274,4 +296,126 @@ export const ArrowBox = styled2.div`
 export const Arrow = styled2.img`
 `;
 export const ArrowSpan = styled2.div`
+`;
+
+export const Box = styled2.div`
+  height: 100vh;
+`;
+export const TBox = styled2.div`
+  display: flex;
+  flex-direction: column;
+`;
+export const Img1 = styled2.div`
+  font-size: 30px;
+`;
+export const Img2 = styled2.div`
+  font-size: 30px;
+  text-align: center;
+`;
+export const Img3 = styled2.div`
+  width: 740px;
+  font-size: 30px;
+  text-align: center;
+`;
+
+export const Pbox1 = styled2.div`
+  height: 100%;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  background-color: #f4f4f4;
+`;
+export const ImageCafe = styled2.img`
+  width: 290px;e
+  display: flex;
+  justify-content: flex-end;
+  :hover {
+    filter: blur(3px);
+    transition: 0.3s ease-in-out;
+  }
+`;
+export const Pbox2 = styled2.div`
+  height: 100%;
+`;
+export const Pbox3 = styled2.div`
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+`;
+
+export const Txt = styled2.div`
+  margin-bottom: 15px;
+  margin-top: 25px;
+  font-size: 20px;
+  text-align: center;
+  font-weight: 300;
+`;
+
+export const Img = styled2.img``;
+export const LastImage = styled2.img`
+  margin-left: 100px;
+`;
+
+export const ImgBox1 = styled2.div`
+  width: 500px;
+  height: 500px;
+  background-color: #ff9f40;
+  :hover {
+    span {
+      opacity: 1;
+    }
+    /* filter: blur(5px);
+    transition: 0.3s ease-in-out; */
+    filter: opacity(0.7);
+    transition: 0.3s ease-in-out;
+  }
+  cursor: pointer;
+`;
+export const ImgBox2 = styled2.div`
+  width: 500px;
+  margin: 0 auto;
+  background-color: #42c58a;
+  margin-top: 50px;
+  backface-visibility: hidden;
+  :hover {
+    span {
+      opacity: 1;
+    }
+    filter: opacity(0.7);
+    transition: 0.3s ease-in-out;
+  }
+  cursor: pointer;
+`;
+export const ImgBox3 = styled2.div`
+  width: 700px;
+  background-color: #ff7ca8;
+  :hover {
+    span {
+      opacity: 1;
+    }
+
+    filter: opacity(0.7);
+    transition: 0.3s ease-in-out;
+    cursor: pointer;
+  }
+`;
+
+export const Middle = styled2.span`
+  transition: 0.3s ease-in-out;
+  opacity: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  text-align: center;
+`;
+export const MiddleText = styled2.div`
+  background-color: #fff;
+  color: black;
+  font-weight: 700;
+  font-size: 16px;
+  padding: 16px 32px;
+  cursor: pointer;
 `;
