@@ -63,3 +63,65 @@ export interface IWritePresenter {
 export interface IProps {
   isButtonActive: boolean;
 }
+
+export interface IPropsWriteContent {
+  activeStep?: string;
+  data?: Pick<IQuery, "fetchBoard">;
+  isEdit?: boolean;
+  onChangeRange: (date: any, dateString: any) => void;
+  startDate: string;
+  endDate: string;
+  dateError: string;
+  onChangeTitle: (event: ChangeEvent<HTMLInputElement>) => void;
+  title?: string;
+  titleError?: string;
+  resetScore?: boolean;
+  score?: number;
+  onClickHappy: () => void;
+  onClickUhm: () => void;
+  onClickSad: () => void;
+  onClickResetScore: () => void;
+  scoreError?: string;
+  onChangeContents: (value: string) => void;
+  contents?: string;
+  contentsError?: string;
+  isButtonActive: boolean;
+  onClickFirstNext: () => void;
+}
+
+export interface IPropsWriteSecond {
+  activeStep?: string;
+  mapError?: string;
+  mapStatus?: boolean;
+  isEdit?: boolean;
+  data?: Pick<IQuery, "fetchBoard">;
+  address?: {
+    address_name: string;
+    category_name: string;
+    content: string;
+    group_code: string;
+    group_name: string;
+    phone: string;
+    place_url: string;
+    road_name: string;
+    position: {
+      lat: string;
+      lng: string;
+    };
+  };
+  isButtonActive: boolean;
+  onClickSecondPrev: () => void;
+  onClickSecondNext: () => void;
+}
+
+export interface IPropsWriteThird {
+  activeStep?: string;
+  onChangeFileUrls: (fileUrl: string, index: number) => void;
+  fileUrls: string[];
+  isButtonActive: boolean;
+  onClickThirdPrev: () => void;
+  isEdit?: boolean;
+  onClickEditBoard: () => void;
+  onClickWriteBoard: () => void;
+  data?: Pick<IQuery, "fetchBoard">;
+}

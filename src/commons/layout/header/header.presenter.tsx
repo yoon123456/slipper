@@ -1,5 +1,4 @@
 import * as S from "./header.styles";
-import Ham from "../../ham";
 import Logo from "../../logo";
 import { HeaderPrpos } from "./header.types";
 import { useRecoilState } from "recoil";
@@ -16,7 +15,6 @@ export default function HeaderPresenter(props: HeaderPrpos) {
             <Logo />
           </S.WrapperInLogo>
           <S.WrapperIn>
-            {/* 해리 - 햄버거 없애보기 */}
             <S.TestWrapper>
               <S.Test onClick={props.onClickMoveToPage("/boards/new")}>
                 글쓰기

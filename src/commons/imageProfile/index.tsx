@@ -35,6 +35,7 @@ interface IImageProfileProps {
   fileUrl?: string[];
 }
 export default function ImageProfile(props: IImageProfileProps) {
+  console.log(props.fileUrl, "파일이미지");
   const [uploadProfileImage] = useMutation(UPLOAD_PROFILE_IMAGE);
   const fileRef = useRef<HTMLInputElement>(null);
 
@@ -48,7 +49,7 @@ export default function ImageProfile(props: IImageProfileProps) {
       });
       console.log(result);
       props.onChangeFileUrl(result.data.uploadProfileImage);
-    } catch (error) {
+    } catch (error: any) {
       Modal.error({ content: error.message });
     }
   };
@@ -62,7 +63,7 @@ export default function ImageProfile(props: IImageProfileProps) {
       {props.fileUrl[0] !== "" ? (
         <UploadImage onClick={onClickImgUpload} src={`${props.fileUrl}`} />
       ) : (
-        <UploadButton type="button" onClick={onClickImgUpload}>
+        <UploadButton onClick={onClickImgUpload}>
           <UploadImageBox src="/image/profile.png"></UploadImageBox>
         </UploadButton>
       )}
