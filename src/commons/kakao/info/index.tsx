@@ -11,7 +11,6 @@ export default function Criminal() {
       const result = await axios.get(
         "http://116.67.77.182/openapi/SOCitysStats/"
       );
-      console.log(result);
     } catch (error: any) {
       Modal.error({ content: error });
     }

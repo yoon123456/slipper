@@ -49,9 +49,8 @@ export default function WriteContainer(props) {
     SetStartDate(dateString[0]);
     SetEndDate(dateString[1]);
   };
-  // console.log(startDate, endDate);
+
   const onChangeContents = (value: string) => {
-    console.log(value);
     setValue("contents", value === "<p><br></p>" ? "" : value);
     trigger("contents");
   };
@@ -81,9 +80,7 @@ export default function WriteContainer(props) {
           email: "yw01124@naver.com",
         },
       });
-      console.log(data.title);
-      console.log(data.contents);
-      console.log(result);
+
       Modal.success({ content: "회원님의 글이 정상적으로 등록되었습니다." });
       // router.push(`/boards/${result.data.createBoard.id}`);
       router.push(`/boards/${result.data.testCreateBoard.id}`);

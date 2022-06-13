@@ -175,6 +175,8 @@ export default function WriteContainer(props: IWriteContainer) {
     setFileUrls(newFileUrls);
   };
 
+  console.log(fileUrls, "dfd");
+
   const onClickWriteBoard = async () => {
     try {
       const result = await createBoard({

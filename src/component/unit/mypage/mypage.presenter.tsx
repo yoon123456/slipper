@@ -50,7 +50,6 @@ export default function MyPagePresenter(props: IMyPagePresenter) {
               <ImageProfile
                 onChangeFileUrl={props.onChangeFileUrl}
                 fileUrl={props.fileUrl}
-                userImage={props.data?.fetchUser.imageUrl}
               />
             </S.ProfileImageEditWrapper>
             <S.ModalHead>자기소개글 수정</S.ModalHead>

@@ -15,8 +15,6 @@ export default function MyinformationContainer() {
     mode: "onChange",
   });
 
-  console.log(data);
-
   const [updateUser] = useMutation(UPDATE_USER);
 
   const onChangeFileUrl = (fileUrl: string) => {
