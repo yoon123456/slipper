@@ -92,27 +92,29 @@ export default function DetailPresenter(props: IDetailPresenter) {
                 </S.Category>
               </S.CategoryWrap>
               <S.ShopRatingWrap>
-                {props.data?.fetchBoard.score === 1 && (
-                  <S.RatingWrap>
-                    <S.Good src={"/image/happypick.png"} />
-                    <S.Soso src={"/image/uhm.png"} />
-                    <S.Bad src={"/image/sad.png"} />
-                  </S.RatingWrap>
-                )}
-                {props.data?.fetchBoard.score === 2 && (
-                  <S.RatingWrap>
-                    <S.Good src={"/image/happy.png"} />
-                    <S.Soso src={"/image/uhmpick.png"} />
-                    <S.Bad src={"/image/sad.png"} />
-                  </S.RatingWrap>
-                )}
-                {props.data?.fetchBoard.score === 3 && (
-                  <S.RatingWrap>
-                    <S.Good src={"/image/happy.png"} />
-                    <S.Soso src={"/image/uhm.png"} />
-                    <S.Bad src={"/image/sadpick.png"} />
-                  </S.RatingWrap>
-                )}
+                <S.RatingWrap>
+                  {props.data?.fetchBoard.score === 1 && (
+                    <>
+                      <S.Good src={"/image/happypick.png"} />
+                      <S.Soso src={"/image/uhm.png"} />
+                      <S.Bad src={"/image/sad.png"} />
+                    </>
+                  )}
+                  {props.data?.fetchBoard.score === 2 && (
+                    <>
+                      <S.Good src={"/image/happy.png"} />
+                      <S.Soso src={"/image/uhmpick.png"} />
+                      <S.Bad src={"/image/sad.png"} />
+                    </>
+                  )}
+                  {props.data?.fetchBoard.score === 3 && (
+                    <>
+                      <S.Good src={"/image/happy.png"} />
+                      <S.Soso src={"/image/uhm.png"} />
+                      <S.Bad src={"/image/sadpick.png"} />
+                    </>
+                  )}
+                </S.RatingWrap>
               </S.ShopRatingWrap>
             </S.UserMiddle>
             <S.UserInfoWrap>

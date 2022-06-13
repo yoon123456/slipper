@@ -52,3 +52,15 @@ export const FETCH_USER_LIKE = gql`
     }
   }
 `;
+
+export const UPDATE_PAYMENT = gql`
+  mutation updatePayment($userId: String!) {
+    updatePayment(userId: $userId)
+  }
+`;
+
+export const LOGOUT = gql`
+  mutation logout {
+    logout
+  }
+`;

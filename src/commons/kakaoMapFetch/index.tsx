@@ -44,6 +44,10 @@ export default function KakaoMapFetch(props: IKakaoMapFetch) {
             lat: lat,
             lng: lng,
           }}
+          image={{
+            src: "https://media.giphy.com/media/4mML4cVNOKVakSy649/giphy.gif",
+            size: { width: 20, height: 35 },
+          }}
         ></MapMarker>
       </Map>
     </>

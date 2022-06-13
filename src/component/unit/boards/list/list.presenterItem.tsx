@@ -9,9 +9,10 @@ import {
   IQuery,
   IQueryFetchUserLikeArgs,
 } from "../../../../commons/types/generated/types";
-import { CLICK_LIKE, FETCH_USER_LIKE, FETCH_BOARDS_PAGE } from "./list.query";
+import { CLICK_LIKE, FETCH_USER_LIKE } from "./list.query";
 import { Modal } from "antd";
 import { useRouter } from "next/router";
+import Detail from "../../../../../pages/boards/[boardId]/index";
 
 export default function ListPresenterItem(props: IListPresenterItem) {
   const router = useRouter();
@@ -56,16 +57,15 @@ export default function ListPresenterItem(props: IListPresenterItem) {
   return (
     <S.Wrapper>
       <S.UserContents>
-        {props.el._source.thumbnail !== "" && (
-          <S.ImageWrap onClick={props.onClickDetail} id={props.el._source.id}>
-            <S.Image src={props.el._source.thumbnail} />
-          </S.ImageWrap>
-        )}
-        {props.el._source.thumbnail === "" && (
-          <S.ImageWrap onClick={props.onClickDetail} id={props.el._source.id}>
-            <S.ImageLogo src={"/image/logo.png"} />
-          </S.ImageWrap>
-        )}
+        <S.ImageWrap onClick={props.onClickDetail} id={props.el._source.id}>
+          <S.Image
+            src={
+              props.el._source.thumbnail !== ""
+                ? props.el._source.thumbnail
+                : "/image/logo.png"
+            }
+          />
+        </S.ImageWrap>
         <S.UserWrap onClick={props.onClickDetail} id={props.el._source.id}>
           <S.ListTitle>{props.el._source.title}</S.ListTitle>
           <S.ListHometown>{props.el._source.address}</S.ListHometown>
@@ -73,25 +73,16 @@ export default function ListPresenterItem(props: IListPresenterItem) {
         </S.UserWrap>
         <S.UserDate>
           <S.LikeWrap>
-            {data?.fetchUserLike.isLike ? (
-              <>
-                <S.Marker
-                  id={props.el._source.id}
-                  src="image/bookmarkpick.png"
-                  onClick={onClickLike}
-                />
-                <S.Count>{data?.fetchUserLike.board.likeCount}</S.Count>
-              </>
-            ) : (
-              <>
-                <S.Marker
-                  id={props.el._source.id}
-                  src="image/bookmark.png"
-                  onClick={onClickLike}
-                />
-                <S.Count>{data?.fetchUserLike.board.likeCount}</S.Count>
-              </>
-            )}
+            <S.Marker
+              id={props.el._source.id}
+              src={
+                data?.fetchUserLike.isLike
+                  ? "image/bookmarkpick.png"
+                  : "image/bookmark.png"
+              }
+              onClick={onClickLike}
+            />
+            <S.Count>{data?.fetchUserLike.board.likeCount}</S.Count>
           </S.LikeWrap>
           {timeForToday(props.el._source.createdat)}
         </S.UserDate>
