@@ -21,7 +21,7 @@ export const Role = styled.input`
 export const Wrapper = styled.div`
   display: flex;
   height: 100vh;
-  padding: 5%;
+  padding: 2%;
 `;
 export const ImageBox = styled.div`
   width: 100%;
@@ -92,7 +92,7 @@ export const WrapperOut = styled.div`
 export const WrapperJoin = styled.div`
   width: 62%;
   margin: 0 auto;
-  margin-top: 12px;
+  /* margin-top: 12px; */
   animation: ${fadeInRight} 1s both;
 `;
 export const Join = styled.div`
@@ -165,7 +165,7 @@ export const Input = styled.input`
   width: 40%;
   height: 30px;
   border: 1px solid gainsboro;
-  margin-right: 22px;
+  margin-right: 17px;
   padding: 1%;
   border-radius: 5px;
   outline: none;
@@ -239,7 +239,7 @@ export const AgreeIn = styled.div`
   margin: 0 auto;
 `;
 export const Title = styled.h2`
-  margin-top: 10%;
+  margin-top: 5%;
   line-height: 2.5;
   font-size: 1.6rem;
   border-bottom: 1px solid black;

@@ -182,7 +182,7 @@ export default function DetailPresenter2(props: IDetailPresenter) {
 
       <S.WraperQuestion>
         <QuestionWriteContainer data={props.data} />
-        <QuestionListContainer data={props.data} />
+        <QuestionListContainer data={props.data} userData={props.userData} />
       </S.WraperQuestion>
     </>
   );

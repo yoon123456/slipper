@@ -6,12 +6,16 @@ export interface IWriteButtonProps {
 
 export interface IQuestionListUIItem {
   el: any;
+  listData: any;
+  userData: any;
   data?: any;
 }
 export interface IQuestionListContainer {
   data: any;
+  userData: any;
 }
 export interface IQuestionListPresenter {
   listData: any;
   data: any;
+  userData: any;
 }

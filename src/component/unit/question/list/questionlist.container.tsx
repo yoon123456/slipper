@@ -8,5 +8,11 @@ export default function QuestionListContainer(props: IQuestionListContainer) {
     variables: { boardId: String(props.data?.fetchBoard.id) },
   });
 
-  return <QuestionListPresenter listData={listData} data={props.data} />;
+  return (
+    <QuestionListPresenter
+      listData={listData}
+      data={props.data}
+      userData={props.userData}
+    />
+  );
 }

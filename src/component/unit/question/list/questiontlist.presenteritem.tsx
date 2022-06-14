@@ -52,6 +52,8 @@ export default function QuestionListUIItem(props: IQuestionListUIItem) {
   const onClickUpdate = () => {
     setIsEdit(true);
   };
+  console.log(props.el?.nickname);
+  console.log(props.userData?.fetchUser.nickname);
 
   return (
     <>
@@ -76,12 +78,14 @@ export default function QuestionListUIItem(props: IQuestionListUIItem) {
                   <S.Name>{props.el?.nickname}</S.Name>
                   <S.Time>{timeForToday(props.el?.createdAt)}</S.Time>
                 </S.Left>
-                <S.Option>
-                  <S.Edit onClick={onClickUpdate}>수정</S.Edit>
-                  <S.Delete onClick={onClickDelete} id={props.el?.id}>
-                    삭제
-                  </S.Delete>
-                </S.Option>
+                {props.el?.nickname === props.userData?.fetchUser.nickname ? (
+                  <S.Option>
+                    <S.Edit onClick={onClickUpdate}>수정</S.Edit>
+                    <S.Delete onClick={onClickDelete}>삭제</S.Delete>
+                  </S.Option>
+                ) : (
+                  <></>
+                )}
               </S.Top>
               <S.Question>{props.el?.contents}</S.Question>
               <S.AnswerBox>
@@ -96,7 +100,13 @@ export default function QuestionListUIItem(props: IQuestionListUIItem) {
         {/* 댓글수정 건드리지말것 */}
         {isEdit && <QuestionWriteContainer isEdit={isEdit} el={props.el} />}
         {/* 대댓글 목록 */}
-        {isActive && <AnswerListContainer el={props.el} isActive={isActive} />}
+        {isActive && (
+          <AnswerListContainer
+            el={props.el}
+            isActive={isActive}
+            userData={props.userData}
+          />
+        )}
       </S.WrapperOut>
     </>
   );
