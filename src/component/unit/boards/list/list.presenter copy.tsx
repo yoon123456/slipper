@@ -20,6 +20,7 @@ export default function ListPresenter2(props: IListPresenter) {
   const { onClickMoveToPage } = useMovetoPage();
   const [isActive] = useRecoilState(SearchBarIsActiveState);
   const [accessToken] = useRecoilState(accessTokenState);
+  console.log(props.data?.fetchBoardsPage);
   return (
     <>
       <S.WrapperOutH>
@@ -28,72 +29,70 @@ export default function ListPresenter2(props: IListPresenter) {
             <Logo />
           </S.WrapperInLogo>
           <S.WrapperIn>
-            {/* 해리 - 햄버거 없애보기 */}
-            <S.TestWrapper>
-              <S.Test onClick={props.onClickMoveToPage("/boards/new")}>
-                글쓰기
-              </S.Test>
-              <S.Test onClick={props.onClickMoveToPage("/payment")}>
-                구독서비스
-              </S.Test>
-              <S.Test onClick={props.onClickMoveToPage("/mypage")}>
-                내 신발장
-              </S.Test>
-            </S.TestWrapper>
+            <SearchBarCategoryContainer
+              refetch={props.refetch}
+              onChangeKeyword={props.onChangeKeyword}
+              data={props.data}
+            />
           </S.WrapperIn>
+          <S.MeneWrap>
+            <S.Menu onClick={props.onClickMoveToPage("/payment")}>구독</S.Menu>
+            <S.Menu onClick={props.onClickMoveToPage("/mypage")}>내정보</S.Menu>
+          </S.MeneWrap>
           {accessToken ? (
             <S.WrapUser>
               <S.LogOut onClick={props.out}>로그아웃</S.LogOut>
             </S.WrapUser>
           ) : (
-            <S.LogIn onClick={props.onClickMoveToPage("/login")}>
-              로그인
-            </S.LogIn>
+            <S.WrapUser>
+              <S.LogIn onClick={props.onClickMoveToPage("/login")}>
+                로그인
+              </S.LogIn>
+            </S.WrapUser>
+          )}
+          {accessToken ? (
+            <S.UserImage>
+              <S.UserImg src={props.userData?.fetchUser.imageUrl} />
+            </S.UserImage>
+          ) : (
+            <S.UserImage></S.UserImage>
           )}
         </S.WrapperBox>
       </S.WrapperOutH>
-
-      {/* <Banner /> */}
       <S.WrapperOut isActive={isActive}>
         <Script
           type="text/javascript"
           src="//dapi.kakao.com/v2/maps/sdk.js?appkey=10933d05118bfc99d732e83a2814b76a&libraries=services&autoload=false"
           strategy="beforeInteractive"
         />
-        <S.WrapperTop>
-          <SearchBarCategoryContainer
-            refetch={props.refetch}
-            onChangeKeyword={props.onChangeKeyword}
-            data={props.data}
-          />
-        </S.WrapperTop>
         <S.WrapperContents isActive={isActive}>
-          <S.WrapperMiddle>
-            <S.WrapperArray>
-              <S.Array
-                array={props.array}
-                id="recent"
-                onClick={props.onClickArray}
-              >
-                최신순
-              </S.Array>
-              <S.Pick
-                array={props.array}
-                id="like"
-                onClick={props.onClickArray}
-              >
-                찜한순
-              </S.Pick>
-            </S.WrapperArray>
-            <S.WrapperWrite>
-              <S.Button onClick={onClickMoveToPage("/boards/new")}>
-                글쓰기
-              </S.Button>
-            </S.WrapperWrite>
-          </S.WrapperMiddle>
           <S.WrapperBody>
             {props.data?.fetchBoardsPage.length !== 0 ? (
               <S.WrapperLeft>
+                <S.WrapperMiddle>
+                  <S.WrapperArray>
+                    <S.Array
+                      array={props.array}
+                      id="recent"
+                      onClick={props.onClickArray}
+                    >
+                      최신순
+                    </S.Array>
+                    <S.Pick
+                      array={props.array}
+                      id="like"
+                      onClick={props.onClickArray}
+                    >
+                      찜한순
+                    </S.Pick>
+                  </S.WrapperArray>
+                  <S.WrapperWrite>
+                    <S.Button onClick={onClickMoveToPage("/boards/new")}>
+                      글쓰기
+                    </S.Button>
+                  </S.WrapperWrite>
+                </S.WrapperMiddle>
+
                 {/* 에원 무한스크롤 기능 추가 5.22 */}
                 <S.Infinite style={{ height: "100%", overflow: "auto" }}>
                   <InfiniteScroll

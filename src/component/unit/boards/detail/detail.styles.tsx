@@ -1,32 +1,137 @@
 import styled from "@emotion/styled";
-import Slider from "react-slick";
 
 export const WrapperOut = styled.div`
-  width: 60%;
-  height: 100vh;
+  width: 70%;
   margin: 0 auto;
-  padding-top: 3%;
+  padding-top: 80px;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   position: relative;
-  /* border: 1px solid red; */
+  font-family: "HallymGothic-Regular";
 `;
 export const WrapperTop = styled.div`
   width: 100%;
   height: 100%;
   display: flex;
-  flex-direction: row;
-`;
-export const TopLeft = styled.div`
-  width: 50%;
-  display: flex;
   flex-direction: column;
-  padding: 5% 5% 5% 0%;
+`;
+export const Top = styled.div`
+  width: 100%;
+  display: flex;
+  padding-bottom: 100px;
+`;
+export const Map = styled.div`
+  width: 50%;
+  height: 400px;
+  margin: 0 auto;
+  padding: 10px;
+`;
+
+export const ImageWrap = styled.div`
+  width: 50%;
+  height: 200px;
+
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+`;
+
+export const ImgWrapper = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 50%;
+  height: 100%;
+  padding: 10px;
+  :hover {
+    padding: 0;
+  }
+`;
+export const Img = styled.img`
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+`;
+
+export const Middle = styled.div`
+  width: 100%;
+  display: flex;
+`;
+export const Left = styled.div`
+  width: 65%;
+  padding: 10px;
+`;
+export const LeftTop = styled.div`
+  display: flex;
+`;
+export const Label = styled.div`
+  width: 91%;
+  margin-left: 1%;
+  font-size: 2.7rem;
+  padding-bottom: 20px;
+  color: black;
+  font-weight: 900;
+`;
+export const BookMark = styled.img`
+  width: 8%;
+  height: 50px;
+  cursor: pointer;
+`;
+
+export const Tr = styled.div`
+  width: 100%;
+  height: 100px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  border-bottom: 1px solid gainsboro;
+`;
+export const Th = styled.div`
+  font-size: 1.8rem;
+  font-weight: 900;
+  width: 30%;
+  padding-left: 10px;
+`;
+export const Info = styled.div`
+  font-size: 1.8rem;
+`;
+export const InfoA = styled.a`
+  font-size: 1.8rem;
+`;
+export const RatingWrap = styled.div`
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+`;
+export const Good = styled.img`
+  width: 13%;
+  padding-right: 10px;
+`;
+export const Soso = styled.img`
+  width: 13%;
+  padding-right: 10px;
+`;
+export const Bad = styled.img`
+  width: 13%;
+  padding-right: 10px;
+`;
+
+export const Right = styled.div`
+  width: 30%;
+  margin: 0 auto;
+  padding: 20px;
+  padding-top: 80px;
+  box-shadow: 1px 1px 10px 0px rgb(233 233 233);
+  position: relative;
 `;
 export const EditDeleteWrap = styled.div`
-  width: 37%;
+  width: 85%;
   position: absolute;
-  top: 12%;
+  top: 20px;
   right: 6%;
   display: flex;
   justify-content: space-between;
@@ -44,143 +149,58 @@ export const Icon = styled.img`
   width: 25px;
   cursor: pointer;
 `;
-// slider
-export const SliderWrap = styled.div`
-  width: 90%;
-  margin: 0% auto 7% auto;
-`;
-export const ImageWrap = styled.div`
-  width: 100%;
-  height: 350px;
-`;
-
-export const SliderStyle = styled(Slider)`
-  width: 100%;
-  height: 100%;
-`;
-
-export const ImgWrapper = styled(Slider)`
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  margin: 0 auto;
-  width: 100%;
-  height: 100%;
-`;
-export const Img = styled.img`
-  width: 80%;
-  height: 350px;
-  object-fit: contain;
-  margin-right: 10px;
-  border-radius: 10px;
-`;
-//
-export const TopRight = styled.div`
-  width: 50%;
-  margin: 2% auto;
-  padding: 6%;
-  padding-top: 10%;
-  border-radius: 41px 41px 41px 41px;
-  -moz-border-radius: 41px 41px 41px 41px;
-  -webkit-border-radius: 41px 41px 41px 41px;
-  -webkit-box-shadow: 10px 10px 20px 3px rgba(214, 214, 214, 1);
-  -moz-box-shadow: 10px 10px 20px 3px rgba(214, 214, 214, 1);
-  box-shadow: 1px 1px 20px 0px rgb(233 233 233);
-`;
-export const UserWrap = styled.div`
-  display: flex;
-`;
-export const UserTitle = styled.div`
-  width: 100%;
-  font-size: 2.7rem;
-  padding-left: 2%;
-`;
-export const BookMark = styled.img`
-  width: 9%;
-  height: 40px;
-  cursor: pointer;
-`;
-
-export const Wrap = styled.div`
-  font-size: 1.4rem;
-  padding: 4% 0 0 2%;
-  color: #a7a7a7;
-`;
-
 export const UserInfoWrap = styled.div`
   width: 100%;
   display: flex;
+  flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  padding: 5% 2% 0 2%;
 `;
 export const User = styled.div`
-  width: 30%;
+  width: 100%;
   display: flex;
 `;
 export const UserImg = styled.img`
-  width: 20%;
-  border-radius: 50%;
+  width: 25%;
+  border-radius: 20px;
+  padding: 10px;
 `;
-
 export const UserName = styled.div`
   width: 70%;
-  font-size: 1.8rem;
+  font-size: 3rem;
   margin-left: 10%;
   display: flex;
   align-items: center;
 `;
 export const UserLivingWrap = styled.div`
-  width: 70%;
+  width: 100%;
   display: flex;
+  padding-top: 15px;
 `;
 
 export const UserLiving = styled.div`
   width: 30%;
-  height: 30px;
   font-size: 1.5rem;
-  color: gray;
-  padding: 0 5% 0 3%;
+  padding: 0 3% 0 3%;
   display: flex;
-  justify-content: flex-end;
+  justify-content: flex-start;
   align-items: center;
 `;
 export const UserLivingPeriod = styled.div`
   width: 70%;
   font-size: 1.5rem;
-  color: gray;
   display: flex;
   align-items: center;
 `;
-export const UserMiddle = styled.div`
+export const UserWrap = styled.div`
+  display: flex;
+  padding-top: 20px;
+`;
+export const UserTitle = styled.div`
   width: 100%;
-  display: flex;
-  /* justify-content: space-between; */
-  align-items: center;
-  padding: 0 2% 3% 2%;
-  border-bottom: 0.5px solid rgba(0, 0, 0, 0.16);
-`;
-export const ShopName = styled.div`
-  width: 50%;
-  font-size: 1.9rem;
-  /* margin-right: 3%; */
-`;
-export const ShopRatingWrap = styled.div`
-  width: 60%;
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-`;
-export const ShopRating = styled.div`
-  /* width: 20%; */
-  font-size: 1.6rem;
-`;
-export const RatingWrap = styled.div`
-  width: 100%;
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
+  font-size: 2.6rem;
+  font-weight: 900;
+  padding: 3% 0 3% 2%;
 `;
 
 export const UserContents = styled.div`
@@ -198,55 +218,13 @@ export const UserContents = styled.div`
   }
 `;
 
-export const Map = styled.div`
-  width: 88%;
-  height: 350px;
-  background-color: aliceblue;
-  margin: 0 auto;
-`;
-export const CategoryWrap = styled.div`
-  width: 30%;
-  padding: 3% 0 4% 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-`;
-
-export const Category = styled.button`
-  width: 90%;
-  height: 35px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: #ffffff;
-  font-size: 1.3rem;
-  border: none;
-  border-radius: 30px;
-  box-shadow: 0px 2px 4px 0px #e1e1e1;
-  color: #008af6;
-  margin: 1%;
-`;
-
-export const Good = styled.img`
-  width: 20%;
-  padding: 3%;
-`;
-export const Soso = styled.img`
-  width: 20%;
-  padding: 3%;
-`;
-export const Bad = styled.img`
-  width: 20%;
-  padding: 3%;
-`;
-
 export const WrapperBottom = styled.div`
   width: 70%;
-  margin: 5% auto;
+  margin: 0 auto;
   display: flex;
   justify-content: space-around;
   align-items: center;
-  padding: 3%;
+  padding: 20px;
 `;
 export const Button = styled.button`
   width: 30%;
@@ -268,16 +246,6 @@ export const Button = styled.button`
 `;
 
 export const WraperQuestion = styled.div`
-  width: 64%;
+  width: 70%;
   margin: 6% auto;
-  padding-left: 3%;
-  padding-right: 1%;
-
-  /* margin-bottom: 10%; */
-`;
-export const Question = styled.div`
-  font-size: 1.7rem;
-  margin-top: 10%;
-  margin-bottom: 5%;
-  border-bottom: 1px solid gainsboro;
 `;

@@ -20,7 +20,7 @@ const HIDDEN_HEADERS = [
   "/join",
   "/settimeout",
   "/map",
-  "/boards/list",
+  "/boards",
 ];
 const HIDDEN_FOOTER = ["/login", "/join", "/settimeout", "/map"];
 

@@ -8,7 +8,7 @@ export interface IListPresenter {
   onChangeKeyword: (value: string) => void; //chan 검색 기능 추가 22.05.19
   keyword: string; //chan 검색 keyword 추가 22.05.19
   data?: Pick<IQuery, "fetchBoardsPage">; //chan 검색 keyword 추가 22.05.19
-  // onClickLikeArray: () => void;
+  userData: any;
   refetch: (
     variables:
       | Partial<{ page: number; category: string; search: string }>
