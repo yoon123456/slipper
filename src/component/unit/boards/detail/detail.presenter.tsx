@@ -173,7 +173,7 @@ export default function DetailPresenter(props: IDetailPresenter) {
       </S.WrapperOut>
       <S.WraperQuestion>
         <QuestionWriteContainer data={props.data} />
-        <QuestionListContainer data={props.data} />
+        <QuestionListContainer data={props.data} userData={props.userData} />
       </S.WraperQuestion>
     </>
   );
