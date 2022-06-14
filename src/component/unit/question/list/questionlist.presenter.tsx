@@ -6,7 +6,13 @@ export default function QuestionListPresenter(props: IQuestionListPresenter) {
   return (
     <>
       {props.listData?.fetchComments.map((el: any) => (
-        <QuestionListUIItem key={uuidv4()} el={el} data={props.data} />
+        <QuestionListUIItem
+          key={uuidv4()}
+          el={el}
+          data={props.data}
+          listData={props.listData}
+          userData={props.userData}
+        />
       ))}
     </>
   );

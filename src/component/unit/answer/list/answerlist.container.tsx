@@ -9,6 +9,11 @@ export default function AnswerListContainer(props: IAnswerListContainer) {
   });
 
   return (
-    <AnswerListPresenter data={data} el={props.el} isActive={props.isActive} />
+    <AnswerListPresenter
+      data={data}
+      el={props.el}
+      isActive={props.isActive}
+      userData={props.userData}
+    />
   );
 }

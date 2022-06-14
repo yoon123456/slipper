@@ -24,6 +24,7 @@ export default function AnswerListPresenter(props: IAnswerListPresenter) {
           subCommentEl={subCommentEl}
           isActive={props.isActive}
           el={props.el}
+          userData={props.userData}
         />
       ))}
     </>
