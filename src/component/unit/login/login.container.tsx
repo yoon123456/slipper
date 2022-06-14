@@ -34,7 +34,7 @@ const schema = yup.object({
 
 export default function LoginContainer() {
   const router = useRouter();
-  const [, setAccessToken] = useRecoilState(accessTokenState);
+  const [aaa, setAccessToken] = useRecoilState(accessTokenState);
   const [, setUserNickname] = useRecoilState(userNicknameState);
   const [isActive, setIsActive] = useState(false);
 
@@ -84,7 +84,7 @@ export default function LoginContainer() {
       }
     }
   };
-
+  console.log(aaa, "acccccccc");
   return (
     <LoginPresenter
       register={register}

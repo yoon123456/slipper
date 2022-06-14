@@ -1,7 +1,7 @@
 import styled from "@emotion/styled";
 
 export const WrapperOut = styled.div`
-  width: 70%;
+  width: 100%;
   margin: 0 auto;
   display: flex;
   flex-direction: column;
@@ -17,7 +17,7 @@ export const SearchWrap = styled.div`
 
 export const Search = styled.input`
   width: 80%;
-  height: 50px;
+  height: 40px;
   background-color: #ffffff;
   border: none;
   border-radius: 10px;
@@ -26,16 +26,15 @@ export const Search = styled.input`
   outline: none;
   padding: 20px;
   margin-right: 5%;
+  margin-left: 2%;
   font-size: 2rem;
 `;
 export const SearchButton = styled.button`
   width: 13%;
-  height: 5%;
+  height: 40px;
   padding: 1%;
   color: gray;
   font-size: 1.3rem;
-  text-decoration: none;
-  text-shadow: 0px 0px 0px #f0f0f0;
   border: none;
   border-radius: 10px;
   background-color: white;
@@ -50,24 +49,6 @@ export const SearchButton = styled.button`
     color: #008af6;
   }
 `;
-// export const SearchButton = styled.button`
-//   width: 15%;
-//   height: 40px;
-//   margin: 0 auto;
-//   background-color: #ffffff;
-//   display: flex;
-//   justify-content: center;
-//   align-items: center;
-//   border: 2px solid #008af6;
-//   border-radius: 10px;
-//   color: #008af6;
-//   font-size: 1.8rem;
-//   cursor: pointer;
-//   :hover {
-//     background-color: #008af6;
-//     color: white;
-//   }
-// `;
 
 export const CategoryWrapperOut = styled.div`
   width: 80%;
@@ -81,8 +62,9 @@ export const CategoryWrapperOut = styled.div`
   border-radius: 10px;
   background-color: rgba(255, 255, 255, 0.9);
   position: absolute;
-  top: 65px;
+  top: 30px;
   z-index: 2;
+  margin-left: 2%;
 `;
 export const BoxWrap = styled.div`
   display: flex;
@@ -98,7 +80,7 @@ export const Box = styled.button`
   justify-content: center;
   align-items: center;
   background-color: #ffffff;
-  font-size: 1.3rem;
+  font-size: 1.2rem;
   border: none;
   border-radius: 30px;
   box-shadow: 0px 2px 4px 0px #e1e1e1;

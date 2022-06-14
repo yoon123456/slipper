@@ -1,4 +1,4 @@
-import * as S from "./list.styles";
+import * as S from "./list.styles copy";
 import { timeForToday } from "../../../../commons/timefortoday/timeForToday";
 import { IListPresenterItem } from "./list.types";
 import { MouseEvent } from "react";

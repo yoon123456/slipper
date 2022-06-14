@@ -14,7 +14,6 @@ import {
 import { FETCH_USER } from "../../login/login.queries";
 import { CLICK_LIKE } from "../list/list.query";
 import DetailPresenter from "./detail.presenter";
-import DetailPresenter2 from "./detail.presenter copy";
 import { DELETE_BOARD, FETCH_BOARD, FETCH_USER_LIKE } from "./detail.query";
 
 export default function DetailContainer() {
@@ -28,7 +27,6 @@ export default function DetailContainer() {
   >(FETCH_BOARD, {
     variables: { boardId: String(router.query.boardId) },
   });
-  console.log(data, "data");
 
   const { data: likeData } = useQuery<
     Pick<IQuery, "fetchUserLike">,
@@ -108,7 +106,7 @@ export default function DetailContainer() {
   };
 
   return (
-    <DetailPresenter2
+    <DetailPresenter
       onClickDeleteBoard={onClickDeleteBoard}
       data={data}
       likeData={likeData}

@@ -173,6 +173,7 @@ export default function ListContainer2() {
 
   useEffect(() => {
     userPayment();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [data]);
 
   return (
@@ -182,6 +183,7 @@ export default function ListContainer2() {
       onChangeKeyword={onChangeKeyword}
       keyword={keyword} // chan
       data={data} //예원
+      userData={userData}
       refetch={refetch} //예원
       onLoadMore={onLoadMore} //예원
       btnRef={btnRef}

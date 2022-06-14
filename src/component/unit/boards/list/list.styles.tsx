@@ -154,15 +154,15 @@ export const Wrapper = styled.div`
 
 // 각각의 글 상세로 들어가는것 수정
 export const UserContents = styled.div`
-  width: 80%;
+  width: 98%;
   display: flex;
   flex-direction: row;
   justify-content: space-around;
   position: relative;
   cursor: pointer;
   box-shadow: 6px 4px 6px -5px gainsboro;
-  border-radius: 10px;
-  margin: 0 auto 20px auto;
+  /* border-radius: 10px; */
+  /* margin: 0 auto 20px auto; */
   :hover {
     box-shadow: 5px 5px 15px 5px #e1e1e1;
   }
@@ -212,7 +212,7 @@ export const Count = styled.div`
 export const Image = styled.img`
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain;
   border-radius: 10px 0 0 10px;
   position: relative;
 `;
