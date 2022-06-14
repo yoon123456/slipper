@@ -91,10 +91,3 @@ export default function MyPageContainer() {
     />
   );
 }
-
-// const ModalError = () => {
-//   if (!nickname && !fileUrl && !introduce) {
-//     Modal.error({ content: "수정한 내용이 없습니다." });
-//     return;
-//   }
-// };

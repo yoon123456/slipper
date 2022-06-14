@@ -3,6 +3,7 @@ import { useMutation, gql } from "@apollo/client";
 import { ChangeEvent, useRef, useState } from "react";
 import { Modal } from "antd";
 import styled from "@emotion/styled";
+import { AnyARecord } from "dns";
 
 const UPLOAD_BUSINESS_IMAGE = gql`
   mutation uploadBusinessImage($files: [Upload!]!) {
@@ -52,9 +53,9 @@ export default function ImageBoss(props: IImageBossProps) {
       const result = await uploadBusinessImage({
         variables: { files: file },
       });
-      console.log(result);
+
       props.onChangeBusinessFileUrl(result.data.uploadBusinessImage);
-    } catch (error) {
+    } catch (error: any) {
       Modal.error({ content: error.message });
     }
   };
@@ -62,7 +63,6 @@ export default function ImageBoss(props: IImageBossProps) {
   const onClickImgUpload = () => {
     fileRef.current?.click();
   };
-  console.log(props.isShow, "ddd");
 
   return (
     <>

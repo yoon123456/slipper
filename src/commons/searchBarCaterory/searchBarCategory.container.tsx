@@ -34,7 +34,7 @@ export default function SearchBarCategoryContainer(props: ISearchKeyWord) {
     const searchSplit = totalSearch.split(" ")[0];
     const tag = event.currentTarget.value;
     const searchTag = `${searchSplit} ${tag}`;
-    console.log(tag);
+
     setSearchBar(searchSplit);
     setCategoryBar(tag);
     if (category === tag) {
