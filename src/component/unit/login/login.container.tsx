@@ -8,7 +8,7 @@ import { FETCH_USER, LOGIN } from "./login.queries";
 import { IFormValues } from "./login.types";
 import { Modal } from "antd";
 import { useRecoilState } from "recoil";
-import { accessTokenState, userNicknameState } from "../../../commons/store";
+import { accessTokenState, userInfoState } from "../../../commons/store";
 import { useState } from "react";
 import {
   IMutation,
@@ -34,9 +34,8 @@ const schema = yup.object({
 
 export default function LoginContainer() {
   const router = useRouter();
-  const [aaa, setAccessToken] = useRecoilState(accessTokenState);
-  const [, setUserNickname] = useRecoilState(userNicknameState);
-  const [isActive, setIsActive] = useState(false);
+  const [, setAccessToken] = useRecoilState(accessTokenState);
+  const [, setUserInfo] = useRecoilState(userInfoState);
 
   const { register, handleSubmit, formState } = useForm<IFormValues>({
     resolver: yupResolver(schema),
@@ -48,19 +47,12 @@ export default function LoginContainer() {
   );
   const client = useApolloClient();
 
-  register("pw", {
-    onChange: () => {
-      setIsActive(true);
-    },
-  });
-
   const onclickLogin = async (data: IFormValues) => {
     if (data.email && data.pw) {
       try {
         const result = await login({
           variables: {
-            email: data.email,
-            pw: data.pw,
+            ...data,
           },
         });
         const accessToken = result.data?.login;
@@ -74,9 +66,10 @@ export default function LoginContainer() {
           },
         });
 
-        const userInfo = resultUserInfo.data?.fetchUser.nickname;
+        const userInfo = resultUserInfo.data?.fetchUser;
         setAccessToken(accessToken || "");
-        setUserNickname(userInfo);
+        setUserInfo(userInfo);
+        // localStorage.setItem("userInfo", JSON.stringify(userInfo));
         Modal.success({ content: "슬리퍼 장착 성공" });
         router.push("/boards");
       } catch (error) {
@@ -84,14 +77,12 @@ export default function LoginContainer() {
       }
     }
   };
-  console.log(aaa, "acccccccc");
   return (
     <LoginPresenter
       register={register}
       handleSubmit={handleSubmit}
       formState={formState}
       onclickLogin={onclickLogin}
-      isActive={isActive}
     />
   );
 }

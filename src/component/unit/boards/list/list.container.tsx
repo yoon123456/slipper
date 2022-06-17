@@ -10,15 +10,19 @@ import {
   serchBar,
 } from "../../../../commons/store";
 import ListPresenter from "./list.presenter";
-import { useQuery } from "@apollo/client";
-import { FETCH_BOARDS_PAGE } from "./list.query";
+import { useMutation, useQuery } from "@apollo/client";
+import { FETCH_BOARDS_PAGE, LOGOUT, UPDATE_PAYMENT } from "./list.query";
 import { FETCH_USER } from "./list.query";
 import {
+  IMutation,
+  IMutationUpdatePaymentArgs,
   IQuery,
   IQueryFetchBoardsPageArgs,
 } from "../../../../commons/types/generated/types";
 import { Modal } from "antd";
-import ListPresenter2 from "./list.presenter copy";
+import ListPresenter2 from "./list.presenter";
+import { useMovetoPage } from "../../../../commons/hooks/movePage";
+import { getDate } from "../../../../commons/libraries/date";
 
 export default function ListContainer() {
   const router = useRouter();
@@ -102,12 +106,9 @@ export default function ListContainer() {
       localStorage.setItem("isClickedNum", String(isClickedNum));
       setDetailId((prev) => [...prev, ...aaa]);
       localStorage.setItem("detailId", JSON.stringify(detailId));
-      // setDetail(false);
 
       router.push(`boards/${event.currentTarget.id}`);
     } else {
-      // setDetail(false);
-
       router.push(`boards/${event.currentTarget.id}`);
     }
   };
@@ -117,18 +118,76 @@ export default function ListContainer() {
     setKeyword(value);
   }
 
+  // 헤더기능
+  const { onClickMoveToPage } = useMovetoPage();
+  const [logout] = useMutation<Pick<IMutation, "logout">>(LOGOUT);
+
+  const [udpatePayment] = useMutation<
+    Pick<IMutation, "updatePayment">,
+    IMutationUpdatePaymentArgs
+  >(UPDATE_PAYMENT);
+
+  const userPayment = async () => {
+    if (userData?.fetchUser.subType) {
+      const current = new Date(getDate()),
+        currentTime = current.getTime(); // 현재
+      const sub = new Date(userData?.fetchUser.subEnd),
+        subTime = sub.getTime(); // 쿠폰
+      const result = subTime - 9 * 60 * 60 * 1000;
+      if (currentTime >= result) {
+        try {
+          await udpatePayment({
+            variables: {
+              userId: userData.fetchUser.id,
+            },
+          });
+          Modal.success({
+            content: "결재기간이 만료되어 결제창으로 이동합니다.",
+          });
+          out();
+          setIsClickedNum(0);
+          router.push("/login");
+        } catch (error: any) {
+          Modal.error({ content: "오류" });
+          return false;
+        }
+      } else {
+        return false;
+      }
+    }
+  };
+
+  const out = async () => {
+    try {
+      await logout();
+      Modal.success({ content: "다시 로그인 해주세요" });
+      router.push("/boards");
+    } catch (error: any) {
+      Modal.error({ content: error.message });
+    }
+  };
+
+  useEffect(() => {
+    userPayment();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [userData]);
+
   return (
-    <ListPresenter2
+    <ListPresenter
       onClickDetail={onClickDetail}
       onClickArray={onClickArray}
       onChangeKeyword={onChangeKeyword}
       keyword={keyword} // chan
       data={data} //예원
+      userData={userData}
       refetch={refetch} //예원
       onLoadMore={onLoadMore} //예원
       btnRef={btnRef}
       handleScroll={handleScroll}
       array={array}
+      // 헤더추가
+      onClickMoveToPage={onClickMoveToPage}
+      out={out}
     />
   );
 }

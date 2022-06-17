@@ -5,60 +5,119 @@ import KeyWord from "../../../../commons/kakao/keyword/kakaomap.container";
 import { IListPresenter } from "./list.types";
 import SearchBarCategoryContainer from "../../../../commons/searchBarCaterory/searchBarCategory.container";
 import { useRecoilState } from "recoil";
-import { SearchBarIsActiveState } from "../../../../commons/store";
+import {
+  accessTokenState,
+  SearchBarIsActiveState,
+} from "../../../../commons/store";
 import InfiniteScroll from "react-infinite-scroller";
-import Banner from "../../../../commons/banner/banner.presenter";
 import Script from "next/script";
-import ListPresenterItem from "./list.presenterItem";
 import { v4 as uuidv4 } from "uuid";
+import Logo from "../../../../commons/logo";
+import ListPresenterItem from "./list.presenterItem";
+import { useState } from "react";
 
 export default function ListPresenter(props: IListPresenter) {
   const { onClickMoveToPage } = useMovetoPage();
   const [isActive] = useRecoilState(SearchBarIsActiveState);
-
+  const [accessToken] = useRecoilState(accessTokenState);
+  console.log(props.data?.fetchBoardsPage);
+  const [over, setOver] = useState(false);
+  const onMouseOver = () => {
+    setOver(true);
+  };
+  const onMouseOut = () => {
+    setOver(false);
+  };
   return (
     <>
-      {/* <Banner /> */}
+      <S.WrapperOutH>
+        <S.WrapperBox>
+          <S.WrapperInLogo onClick={props.onClickMoveToPage("/boards")}>
+            <Logo />
+          </S.WrapperInLogo>
+          <S.WrapperIn>
+            <SearchBarCategoryContainer
+              refetch={props.refetch}
+              onChangeKeyword={props.onChangeKeyword}
+              data={props.data}
+            />
+          </S.WrapperIn>
+          <S.WrapperUser>
+            {accessToken ? (
+              <S.WrapUser>
+                <S.LogIn onClick={props.out}>로그아웃</S.LogIn>
+              </S.WrapUser>
+            ) : (
+              <S.WrapperUserLogin>
+                <S.LogIn onClick={props.onClickMoveToPage("/login")}>
+                  로그인
+                  <S.LogoutIcon src="image/logouticon.png" />
+                </S.LogIn>
+              </S.WrapperUserLogin>
+            )}
+            {accessToken ? (
+              <S.UserImage onMouseOver={onMouseOver} onMouseOut={onMouseOut}>
+                <S.UserImgWrap>
+                  <S.UserImg
+                    src={
+                      props.userData?.fetchUser.imageUrl
+                        ? props.userData?.fetchUser.imageUrl
+                        : "image/profileDefault.png"
+                    }
+                  />
+                  <S.Drop src="image/down.png" />
+                </S.UserImgWrap>
+                <S.DropdownList over={over}>
+                  <S.List onClick={props.onClickMoveToPage("/payment")}>
+                    구독하기
+                  </S.List>
+                  <S.List onClick={props.onClickMoveToPage("/mypage")}>
+                    내신발장
+                  </S.List>
+                </S.DropdownList>
+              </S.UserImage>
+            ) : (
+              <></>
+              //  <S.UserImage>
+              //   <S.UserImg src="image/profileDefault.png" />}
+              //  </S.UserImage>
+            )}
+          </S.WrapperUser>
+        </S.WrapperBox>
+      </S.WrapperOutH>
       <S.WrapperOut isActive={isActive}>
         <Script
           type="text/javascript"
           src="//dapi.kakao.com/v2/maps/sdk.js?appkey=10933d05118bfc99d732e83a2814b76a&libraries=services&autoload=false"
           strategy="beforeInteractive"
         />
-        <S.WrapperTop>
-          <SearchBarCategoryContainer
-            refetch={props.refetch}
-            onChangeKeyword={props.onChangeKeyword}
-            data={props.data}
-          />
-        </S.WrapperTop>
         <S.WrapperContents isActive={isActive}>
-          <S.WrapperMiddle>
-            <S.WrapperArray>
-              <S.Array
-                array={props.array}
-                id="recent"
-                onClick={props.onClickArray}
-              >
-                최신순
-              </S.Array>
-              <S.Pick
-                array={props.array}
-                id="like"
-                onClick={props.onClickArray}
-              >
-                찜한순
-              </S.Pick>
-            </S.WrapperArray>
-            <S.WrapperWrite>
-              <S.Button onClick={onClickMoveToPage("/boards/new")}>
-                글쓰기
-              </S.Button>
-            </S.WrapperWrite>
-          </S.WrapperMiddle>
           <S.WrapperBody>
             {props.data?.fetchBoardsPage.length !== 0 ? (
               <S.WrapperLeft>
+                <S.WrapperMiddle>
+                  <S.WrapperArray>
+                    <S.Array
+                      array={props.array}
+                      id="recent"
+                      onClick={props.onClickArray}
+                    >
+                      최신순
+                    </S.Array>
+                    <S.Pick
+                      array={props.array}
+                      id="like"
+                      onClick={props.onClickArray}
+                    >
+                      찜한순
+                    </S.Pick>
+                  </S.WrapperArray>
+                  <S.WrapperWrite>
+                    <S.Button onClick={onClickMoveToPage("/boards/new")}>
+                      글쓰기
+                    </S.Button>
+                  </S.WrapperWrite>
+                </S.WrapperMiddle>
                 {/* 에원 무한스크롤 기능 추가 5.22 */}
                 <S.Infinite style={{ height: "100%", overflow: "auto" }}>
                   <InfiniteScroll
