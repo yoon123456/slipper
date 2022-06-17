@@ -6,9 +6,7 @@ import * as S from "./upload.styles";
 import { IImageUploadPageProps } from "./upload.types";
 
 export default function ImageBoardUpload(props: IImageUploadPageProps) {
-  console.log(props.fileUrl);
-  console.log(props.data.fetchBoard.images);
-  console.log(props.index);
+  console.log(props, "imggggg");
 
   const [imageAddress, setImageAddress] = useState();
   const [uploadBoardImage] = useMutation(UPLOAD_BOARD_IMAGE);

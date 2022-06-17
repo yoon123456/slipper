@@ -47,6 +47,13 @@ export default function MyPagePresenter(props: IMyPagePresenter) {
             />
             <S.ProfileImageEditWrapper>
               <S.ModalHead>프로필 이미지 수정</S.ModalHead>
+              <S.ProfileImage
+                src={
+                  props.data?.fetchUser.imageUrl
+                    ? props.data?.fetchUser.imageUrl
+                    : "/image/profileDefault.png"
+                }
+              />
               <ImageProfile
                 onChangeFileUrl={props.onChangeFileUrl}
                 fileUrl={props.fileUrl}
@@ -92,7 +99,12 @@ export default function MyPagePresenter(props: IMyPagePresenter) {
         <S.Right>
           {props.mypageRight === "mypicks" && <MypicksContainer />}
           {props.mypageRight === "myboards" && <MyBoardsContainer />}
-          {props.mypageRight === "mypaids" && <MypaidsContainer />}
+          {props.mypageRight === "mypaids" && (
+            <MypaidsContainer
+              data={props.payment}
+              fecthMore={props.payFecthMore}
+            />
+          )}
         </S.Right>
       </S.WrapperRight>
     </S.WrapperOut>

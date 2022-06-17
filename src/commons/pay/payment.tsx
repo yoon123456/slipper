@@ -73,8 +73,8 @@ export default function PaymentPage(props: IpropsPayment) {
             },
           });
           Modal.success({ content: "결제완료" });
-
           setIsClickedNum(99999);
+          console.log(amount);
         } else {
           Modal.error({ content: "결제가 되지 않았습니다." });
         }

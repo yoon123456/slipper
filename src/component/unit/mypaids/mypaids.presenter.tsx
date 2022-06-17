@@ -20,11 +20,11 @@ export default function MypaidsPresenter(props: IMypaidsPresenter) {
             hasMore={true}
             useWindow={false}
           >
-            {props.data?.fetchPayments.map((el: any) => (
-              <S.RowWrapper key={el.id}>
-                <S.RowFirst id={el.id}>{el.subType}</S.RowFirst>
-                <S.Row id={el.id}>{getDate(el.subStart)}</S.Row>
-                <S.Row id={el.id}>{getDate(el.subEnd)}</S.Row>
+            {props.data?.fetchPayments.map((el: any, index: number) => (
+              <S.RowWrapper key={index}>
+                <S.RowFirst>{el.subType}</S.RowFirst>
+                <S.Row>{getDate(el.subStart)}</S.Row>
+                <S.Row>{getDate(el.subEnd)}</S.Row>
               </S.RowWrapper>
             )) || <S.RowWrapper></S.RowWrapper>}
           </InfiniteScroll>

@@ -140,10 +140,12 @@ export default function WriteContainer(props: IWriteContainer) {
     setScore(1);
     setScoreError("");
   };
+
   const onClickUhm = () => {
     setScore(2);
     setScoreError("");
   };
+
   const onClickSad = () => {
     setScore(3);
     setScoreError("");
@@ -174,8 +176,6 @@ export default function WriteContainer(props: IWriteContainer) {
     newFileUrls[index] = fileUrl[0];
     setFileUrls(newFileUrls);
   };
-
-  console.log(fileUrls, "dfd");
 
   const onClickWriteBoard = async () => {
     try {
@@ -210,6 +210,11 @@ export default function WriteContainer(props: IWriteContainer) {
 
   const onClickEditBoard = async () => {
     const updateBoardInput: IUpdateBoardInput = {};
+
+    const currentFiles = JSON.stringify(fileUrls);
+    const defaultFiles = JSON.stringify(props.data?.fetchBoard.images);
+    const isChangedFiles = currentFiles !== defaultFiles;
+
     if (startDate) updateBoardInput.startDate = startDate;
     if (endDate) updateBoardInput.endDate = endDate;
     if (score) updateBoardInput.score = score;
@@ -237,6 +242,12 @@ export default function WriteContainer(props: IWriteContainer) {
       if (error instanceof Error) Modal.error({ content: error.message });
     }
   };
+
+  useEffect(() => {
+    if (props.data?.fetchBoard.images?.length) {
+      setFileUrls([...props.data?.fetchBoard.images]);
+    }
+  }, [props.data]);
 
   return (
     <WritePresenter
