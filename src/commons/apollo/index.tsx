@@ -25,6 +25,7 @@ export default function ApolloSetting(props: IProps) {
     restoreAccessToken.toPromise().then((newAccessToken) => {
       setAccessToken(newAccessToken);
     });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const errorLink = onError(({ graphQLErrors, operation, forward }) => {

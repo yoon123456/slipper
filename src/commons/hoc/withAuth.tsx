@@ -1,4 +1,5 @@
 /* eslint-disable react/display-name */
+import { Modal } from "antd";
 import { useRouter } from "next/router";
 import { useEffect } from "react";
 import { useRecoilState, useRecoilValueLoadable } from "recoil";
@@ -15,7 +16,7 @@ export const withAuth = (Component) => (props) => {
     if (!accessToken) {
       restoreAccessToken.toPromise().then((newAccessToken) => {
         if (!newAccessToken) {
-          alert("로그인 후 이용 가능합니다!!!");
+          Modal.error({ content: "로그인 후 이용 가능합니다" });
           router.push("/login");
         }
       });

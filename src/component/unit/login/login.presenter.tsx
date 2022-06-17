@@ -29,7 +29,9 @@ export default function JoinPresenter(props: IJoinPresenter) {
               </S.ProfileBox>
             </S.Profile>
             <S.JoinWrap>
-              <S.JoinSlipper isActive={props.isActive}>로그인</S.JoinSlipper>
+              <S.JoinSlipper isActive={props.formState.isValid}>
+                로그인
+              </S.JoinSlipper>
             </S.JoinWrap>
             <S.Menu>
               <S.MenuBox>

@@ -8,6 +8,7 @@ export interface IListPresenter {
   onChangeKeyword: (value: string) => void; //chan 검색 기능 추가 22.05.19
   keyword: string; //chan 검색 keyword 추가 22.05.19
   data?: Pick<IQuery, "fetchBoardsPage">; //chan 검색 keyword 추가 22.05.19
+  userData: any;
   refetch: (
     variables:
       | Partial<{ page: number; category: string; search: string }>
@@ -18,6 +19,8 @@ export interface IListPresenter {
   btnRef: LegacyRef<HTMLButtonElement>; //chan 타입 변경
   handleScroll: () => void;
   array: string;
+  onClickMoveToPage: (path: string) => () => void;
+  out: () => void;
 }
 
 export interface IListPresenterItem {
@@ -41,4 +44,5 @@ export interface IListPresenterItem {
 export interface Iprops {
   isActive?: boolean;
   array?: string;
+  over?: boolean;
 }

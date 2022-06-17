@@ -13,7 +13,6 @@ export interface IJoinPresenter {
   register: UseFormRegister<IFormValues>;
   handleSubmit: UseFormHandleSubmit<IFormValues>;
   formState: FormState<IFormValues>;
-  isActive: boolean;
   onclickLogin: (data: IFormValues) => void;
 }
 

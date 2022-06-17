@@ -1,9 +1,8 @@
-import styled from "@emotion/styled";
 import { Iprops } from "./list.types";
+import styled from "@emotion/styled";
 
 export const WrapperOut = styled.div`
   width: 100%;
-  padding-top: 1%;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -11,17 +10,18 @@ export const WrapperOut = styled.div`
   font-family: "HallymGothic-Regular";
   background-color: ${(props: Iprops) =>
     props.isActive ? "#27272C14" : "none"};
+  font-family: "HallymGothic-Regular";
 `;
 export const WrapperLeft = styled.div`
   width: 60%;
   margin: 0 auto;
   margin-bottom: 50px;
-  height: 110vh;
+  height: 100vh;
 `;
 export const EmphyLeft = styled.div`
   width: 60%;
   margin: 0 auto;
-  height: 110vh;
+  height: 100vh;
   border-top: 1px solid gainsboro;
   margin-top: 35px;
   text-align: center;
@@ -44,7 +44,6 @@ export const WrapperTop = styled.div`
   display: flex;
   justify-content: space-around;
   align-items: center;
-  padding: 30px 0 0 0;
 `;
 export const WrapperContents = styled.div`
   width: 100%;
@@ -67,25 +66,20 @@ export const WrapperMiddle = styled.div`
   margin: 0 auto;
 `;
 export const WrapperWrite = styled.div`
-  width: 10%;
-  /* display: flex;
-  justify-content: flex-end;
-  align-items: center; */
+  width: 20%;
 `;
 
 export const WrapperArray = styled.div`
-  width: 77%;
+  width: 80%;
   display: flex;
   justify-content: flex-start;
 `;
 
 export const Array = styled.div`
-  width: 7%;
-  height: 30px;
+  width: 16%;
   line-height: 2;
-  border-radius: 10px;
-  text-align: center;
   font-size: 1.6rem;
+  margin-left: 30px;
   color: #008af6;
   cursor: pointer;
   :hover {
@@ -95,11 +89,8 @@ export const Array = styled.div`
     props.array === "recent" && "underline"};
 `;
 export const Pick = styled.div`
-  width: 7%;
-  height: 30px;
+  width: 40%;
   line-height: 2;
-  border-radius: 10px;
-  text-align: center;
   font-size: 1.6rem;
   margin-left: 10px;
   color: #008af6;
@@ -119,12 +110,11 @@ export const WrapperBottom = styled.div`
 
 export const Button = styled.div`
   width: 95%;
-  height: 35px;
   text-align: center;
   line-height: 2;
   color: white;
   border-radius: 10px;
-  font-size: 1.7rem;
+  font-size: 1.4rem;
   cursor: pointer;
   :hover {
     font-weight: bold;
@@ -135,7 +125,6 @@ export const WrapperRight = styled.div`
   width: 100%;
   height: 110vh;
   margin: 0 auto;
-  padding-right: 6%;
   overflow: scroll;
   ::-webkit-scrollbar {
     display: none;
@@ -161,8 +150,7 @@ export const UserContents = styled.div`
   position: relative;
   cursor: pointer;
   box-shadow: 6px 4px 6px -5px gainsboro;
-  /* border-radius: 10px; */
-  /* margin: 0 auto 20px auto; */
+  margin: 0 auto 20px auto;
   :hover {
     box-shadow: 5px 5px 15px 5px #e1e1e1;
   }
@@ -213,7 +201,6 @@ export const Image = styled.img`
   width: 100%;
   height: 100%;
   object-fit: contain;
-  border-radius: 10px 0 0 10px;
   position: relative;
 `;
 export const ListTitleWrap = styled.div`
@@ -234,6 +221,126 @@ export const ListShopName = styled.div`
   color: #2a2f2f;
   font-size: 1.5rem;
 `;
+
+// 헤더추가
+export const WrapperOutH = styled.div`
+  height: 70px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 2px 9px 11px 0px #f2f2f2;
+  font-family: "HallymGothic-Regular";
+`;
+export const WrapperBox = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+`;
+// 로고 박스
+export const WrapperInLogo = styled.div`
+  width: 100px;
+  margin-left: 50px;
+  cursor: pointer;
+  :hover {
+    font-size: 1.4rem;
+  }
+`;
+
+export const WrapperIn = styled.div`
+  width: 48%;
+  display: flex;
+
+  align-items: center;
+`;
+//#008af6;
+export const WrapperUser = styled.div`
+  display: flex;
+  align-items: center;
+  margin-right: 20px;
+`;
+export const WrapperUserLogin = styled.div`
+  display: flex;
+  align-items: center;
+`;
+export const WrapUser = styled.div`
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+`;
+
+export const MeneWrap = styled.div`
+  width: 20%;
+  display: flex;
+  text-align: center;
+`;
+
+export const Menu = styled.div`
+  width: 50%;
+  font-size: 1.6rem;
+  cursor: pointer;
+  :hover {
+    color: #008af6;
+  }
+`;
+export const LogoutIcon = styled.img`
+  width: 18%;
+  margin-left: 5px;
+  margin-bottom: 3px;
+`;
+
+export const LogIn = styled.div`
+  width: 110px;
+  height: 30px;
+  line-height: 2.1;
+  color: black;
+  border-radius: 10px;
+  font-size: 1.6rem;
+  text-align: center;
+  cursor: pointer;
+`;
+export const UserImage = styled.div`
+  width: 100px;
+  position: relative;
+`;
+export const UserImgWrap = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
+export const UserImg = styled.img`
+  width: 35%;
+  border-radius: 10px;
+`;
+
+export const Drop = styled.img`
+  width: 20px;
+  height: 20px;
+`;
+
+export const DropdownList = styled.div`
+  display: ${(props: Iprops) => (props.over ? "block" : "none")};
+  position: absolute;
+  top: 50;
+  background-color: white;
+  width: 100px;
+  z-index: 9;
+  text-align: center;
+  margin-top: 10px;
+`;
+
+export const List = styled.div`
+  color: black;
+  padding: 10px 20px;
+  font-size: 1.2rem;
+  display: block;
+  cursor: pointer;
+`;
+// ${DropdownList} {
+//   :hover {
+//     display: block;
+//   }
+// }
 
 // hover
 
