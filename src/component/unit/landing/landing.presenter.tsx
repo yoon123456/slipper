@@ -1,6 +1,5 @@
 import * as S from "./landing.styles";
 import * as React from "react";
-import { useMovetoPage } from "../../../commons/hooks/movePage";
 import Script from "next/script";
 import { ILandingPresenter } from "./landing.types";
 import AOS from "aos";
@@ -8,7 +7,6 @@ import "aos/dist/aos.css";
 import { useEffect } from "react";
 
 export default function LandingPresenter(props: ILandingPresenter) {
-  const { onClickMoveToPage } = useMovetoPage();
   useEffect(() => {
     AOS.init({
       duration: 1500,
@@ -58,10 +56,6 @@ export default function LandingPresenter(props: ILandingPresenter) {
                   </S.TextOut>
                 </S.TextIn>
                 대신 다녀올게!
-                {/* <S.ArrowBox onClick={onClickMoveToPage("/boards")}>
-                  <S.Arrow src="/image/blackarrow.png"></S.Arrow>
-                  <S.ArrowSpan>내게 딱_맞는 동네 찾으러 가기</S.ArrowSpan>
-                </S.ArrowBox> */}
               </S.TextBox>
             </S.MainBlue>
           </S.MainFlex>
@@ -76,7 +70,9 @@ export default function LandingPresenter(props: ILandingPresenter) {
             <S.ImgBox2 data-aos="fade-up">
               <S.Img src="/image/banner2.png" />
               <S.Middle>
-                <S.MiddleText>구경가기</S.MiddleText>
+                <S.MiddleText onClick={props.onClickMoveToList}>
+                  구경가기
+                </S.MiddleText>
               </S.Middle>
             </S.ImgBox2>
           </S.Pbox2>
@@ -86,7 +82,9 @@ export default function LandingPresenter(props: ILandingPresenter) {
             <S.ImgBox1 data-aos="fade-up-right">
               <S.Img src="/image/banner1.png" />
               <S.Middle>
-                <S.MiddleText>함께 공유해요!</S.MiddleText>
+                <S.MiddleText onClick={props.onClickMoveBoardNew}>
+                  함께 공유해요!
+                </S.MiddleText>
               </S.Middle>
             </S.ImgBox1>
             <S.TBox data-aos="fade-up-left">

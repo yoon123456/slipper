@@ -7,10 +7,10 @@ export const WrapperOut = styled.div`
   flex-direction: column;
   align-items: flex-end;
   margin-bottom: 20px;
-  /* border-top: 1px solid lightgray; */
 `;
 export const RowBox = styled.div`
   display: flex;
+  justify-content: space-around;
   width: 100%;
   margin-top: 2.5%;
 `;
@@ -21,9 +21,10 @@ export const ProfileImage = styled.img`
   width: 80%;
   height: 65%;
   border-radius: 10px;
+  border: 1px solid black;
 `;
 export const RightBox = styled.div`
-  width: 90%;
+  width: 93%;
 `;
 export const Top = styled.div`
   display: flex;

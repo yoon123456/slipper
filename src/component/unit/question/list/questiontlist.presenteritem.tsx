@@ -52,8 +52,6 @@ export default function QuestionListUIItem(props: IQuestionListUIItem) {
   const onClickUpdate = () => {
     setIsEdit(true);
   };
-  console.log(props.el?.nickname);
-  console.log(props.userData?.fetchUser.nickname);
 
   return (
     <>

@@ -2,7 +2,7 @@ import styled from "@emotion/styled";
 import { IWriteButtonProps } from "./questionwrite.types";
 
 export const Div = styled.div`
-  width: 97%;
+  width: 100%;
   display: flex;
   align-items: baseline;
   margin-bottom: 2%;

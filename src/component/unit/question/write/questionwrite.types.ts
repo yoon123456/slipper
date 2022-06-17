@@ -10,7 +10,7 @@ export interface IQuestionWritePresenter {
   isCancle: boolean;
   isEdit?: boolean;
   question: string;
-  el: any;
+  el?: any;
 }
 export interface IQuestionWriteContainer {
   isEdit?: boolean;
