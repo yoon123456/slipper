@@ -1,4 +1,3 @@
-import { ChangeEvent, useState } from "react";
 import * as S from "./answerwrite.styles";
 import { IAnswerWritePresenter } from "./answerwrite.types";
 

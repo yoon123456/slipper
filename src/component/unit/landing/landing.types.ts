@@ -1,3 +1,4 @@
-import { MouseEvent } from "react";
-
-export interface ILandingPresenter {}
+export interface ILandingPresenter {
+  onClickMoveToList: () => void;
+  onClickMoveBoardNew: () => void;
+}
