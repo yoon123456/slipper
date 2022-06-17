@@ -1,5 +1,5 @@
 import MyPagePresenter from "./mypage.presenter";
-import { FETCH_USER, UPDATE_USER } from "./mypage.queries";
+import { FETCH_USER, UPDATE_USER, FETCH_PAYMENTS } from "./mypage.queries";
 import { useMutation, useQuery } from "@apollo/client";
 import React, { ChangeEvent, useState } from "react";
 import { Modal } from "antd";
@@ -7,7 +7,8 @@ import { IUpdateUserInput } from "./mypage.types";
 
 export default function MyPageContainer() {
   const [updateUser] = useMutation(UPDATE_USER);
-  const { data, refetch } = useQuery(FETCH_USER);
+  const { data, refetch, fetchMore } = useQuery(FETCH_USER);
+  const { data: payment, fetchMore: payFecthMore } = useQuery(FETCH_PAYMENTS);
   const [modalVisible, setModalVisible] = useState(false);
   const [nickname, setNickname] = useState("");
   const [fileUrl, setFileUrl] = useState([""]);
@@ -88,6 +89,8 @@ export default function MyPageContainer() {
       onChangeIntroduce={onChangeIntroduce}
       modalOk={modalOk}
       nickname={nickname}
+      payment={payment}
+      payFecthMore={payFecthMore}
     />
   );
 }

@@ -1,3 +1,8 @@
+import {
+  FetchMoreOptions,
+  FetchMoreQueryOptions,
+  OperationVariables,
+} from "@apollo/client";
 import { ChangeEvent } from "react";
 import { IQuery } from "../../../commons/types/generated/types";
 
@@ -21,6 +26,11 @@ export interface IMyPagePresenter {
   onChangeIntroduce: (event: ChangeEvent<HTMLInputElement>) => void;
   modalOk: () => void;
   nickname: string;
+  payment: Pick<IQuery, "fetchPayments"> | undefined;
+  payFecthMore: (
+    fetchMoreOptions: FetchMoreQueryOptions<OperationVariables, any> &
+      FetchMoreOptions<any, OperationVariables>
+  ) => void;
 }
 
 export interface IProps {

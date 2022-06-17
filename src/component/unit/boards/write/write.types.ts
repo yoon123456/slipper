@@ -1,9 +1,9 @@
 import { ChangeEvent, MouseEvent } from "react";
-import { IQuery } from "../../../../commons/types/generated/types";
+import { IQuery, IBoardImage } from "../../../../commons/types/generated/types";
 
 export interface IWriteContainer {
   isEdit?: boolean;
-  data?: Pick<IQuery, "fetchBoard">;
+  data?: any;
 }
 export interface IUpdateBoardInput {
   startDate?: string;
