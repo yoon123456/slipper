@@ -18,6 +18,7 @@ import { accessTokenState } from "../../../../commons/store";
 export default function WriteContainer(props: IWriteContainer) {
   const [accessToken, setAccessToken] = useRecoilState(accessTokenState);
   const router = useRouter();
+  const [imageAddress, setImageAddress] = useState(["", "", "", ""]);
   // useEffect(() => {
   //   if (!accessToken) {
   //     Modal.error({ content: "로그인이 필요한 서비스 입니다" });
@@ -211,10 +212,6 @@ export default function WriteContainer(props: IWriteContainer) {
   const onClickEditBoard = async () => {
     const updateBoardInput: IUpdateBoardInput = {};
 
-    const currentFiles = JSON.stringify(fileUrls);
-    const defaultFiles = JSON.stringify(props.data?.fetchBoard.images);
-    const isChangedFiles = currentFiles !== defaultFiles;
-
     if (startDate) updateBoardInput.startDate = startDate;
     if (endDate) updateBoardInput.endDate = endDate;
     if (score) updateBoardInput.score = score;
@@ -227,7 +224,7 @@ export default function WriteContainer(props: IWriteContainer) {
     if (address.content) updateBoardInput.place = address.content;
     if (address.phone) updateBoardInput.placePhone = address.phone;
     if (address.place_url) updateBoardInput.placeUrl = address.place_url;
-    if (isChangedFiles) updateBoardInput.images = fileUrls;
+    if (fileUrls) updateBoardInput.images = fileUrls;
 
     try {
       await updateBoard({
@@ -247,8 +244,24 @@ export default function WriteContainer(props: IWriteContainer) {
     if (props.data?.fetchBoard.images?.length) {
       setFileUrls([...props.data?.fetchBoard.images]);
     }
+    console.log(props.data?.fetchBoard.images.imageUrl, "sdfsfsfsdfsdfdsf");
+    // const image = fileUrls.filter(function (image: any) {
+    //   for (let i = 0; i < imageAddress.length; i++) {
+    //     console.log(image);
+    //     if (image.imageUrl) {
+    //       return setImageAddress([...image.imageUrl]);
+    //     } else {
+    //       return setImageAddress([""]);
+    //     }
+    //   }
+    // });
+    // const aaa = fileUrls
+    //   .filter((image: any) => image)
+    //   .map((image: any) =>
+    //     image.imageUrl ? setImageAddress([...image.imageUrl]) : ""
+    //   );
   }, [props.data]);
-  console.log(fileUrls, "라필");
+
   return (
     <WritePresenter
       isEdit={props.isEdit}

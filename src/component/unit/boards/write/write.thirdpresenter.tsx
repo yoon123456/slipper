@@ -10,7 +10,7 @@ export default function Third(props: IPropsWriteThird) {
           <S.ImageBodyWrapper>
             <S.Body>
               <S.ImageBody>
-                {props.fileUrls.map((el, index) => (
+                {props.fileUrls.map((el: any, index: any) => (
                   <ImageBoardUpload
                     key={uuidv4()}
                     index={index}

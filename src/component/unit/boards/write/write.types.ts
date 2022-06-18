@@ -117,7 +117,7 @@ export interface IPropsWriteSecond {
 export interface IPropsWriteThird {
   activeStep?: string;
   onChangeFileUrls: (fileUrl: string, index: number) => void;
-  fileUrls: string[];
+  fileUrls: any;
   isButtonActive: boolean;
   onClickThirdPrev: () => void;
   isEdit?: boolean;
