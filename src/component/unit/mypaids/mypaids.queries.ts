@@ -4,9 +4,16 @@ export const FETCH_PAYMENTS = gql`
   query fetchPayments {
     fetchPayments {
       id
+      paymentStatus
       subStart
       subEnd
-      subType
+      impUid
+      user {
+        id
+        email
+        nickname
+        phone
+      }
     }
   }
 `;

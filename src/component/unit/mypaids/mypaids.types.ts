@@ -3,10 +3,11 @@ import {
   FetchMoreQueryOptions,
   OperationVariables,
 } from "@apollo/client";
+import { AnyMessageParams } from "yup/lib/types";
 import { IQuery } from "../../../commons/types/generated/types";
 
 export interface IMypaidsPresenter {
-  data: Pick<IQuery, "fetchPayments"> | undefined; // 예원 수정 6/9
+  data: any; // 예원 수정 6/9
   // data?: Pick<IQuery, "fetchUser">;
   loadMore: () => void;
 }

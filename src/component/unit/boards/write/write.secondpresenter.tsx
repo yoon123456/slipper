@@ -6,6 +6,15 @@ export default function Second(props: IPropsWriteSecond) {
     <>
       {props.activeStep === "second" && (
         <>
+          {/* <S.TopWrapper>
+            <S.TopOn>
+              <S.TopRow>
+                <S.TopImg src="/image/writeSlipper.png" />
+                <S.StepName>STEP 2</S.StepName>
+              </S.TopRow>
+              <S.StepDetail>가게가 어디에 있나요?</S.StepDetail>
+            </S.TopOn>
+          </S.TopWrapper> */}
           <S.BodyWrapper>
             <S.Body>
               <S.MapWrapper>

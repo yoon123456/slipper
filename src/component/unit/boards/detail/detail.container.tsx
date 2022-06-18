@@ -109,6 +109,7 @@ export default function DetailContainer() {
   //     alert("실패");
   //   }
   // };
+
   const onClickLike = async (event: MouseEvent<HTMLImageElement>) => {
     try {
       const result = await clicklike({

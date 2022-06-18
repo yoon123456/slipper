@@ -10,7 +10,7 @@ const ReactQuill = dynamic(() => import("react-quill"), { ssr: false });
 
 export const WrapperOut = styled.div`
   font-family: "HallymGothic-Regular";
-  width: 50%;
+  width: 70%;
   margin: 6% auto;
   display: flex;
   flex-direction: column;
@@ -23,7 +23,7 @@ export const TopWrapper = styled.div`
   justify-content: space-between;
 `;
 export const TopOn = styled.div`
-  width: 33.5%;
+  width: 26%;
   height: 90px;
   margin-top: 20px;
   padding: 2%;
@@ -31,14 +31,12 @@ export const TopOn = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
+  border-bottom: 1px solid #008af6;
   background-color: white;
-  border-top-left-radius: 20px;
-  border-top-right-radius: 20px;
-  box-shadow: 0px -6px 9px rgb(221 220 220);
   z-index: 9999;
 `;
 export const TopOff = styled.div`
-  width: 33.5%;
+  width: 26%;
   height: 90px;
   margin-top: 20px;
   padding: 2%;
@@ -46,18 +44,19 @@ export const TopOff = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
-  color: gray;
-  background-color: #f4f7f9b3;
+  color: lightgray;
+  /* border-bottom: 1px solid gray; */
+  /* background-color: #f4f7f9b3; */
   border-top-left-radius: 20px;
   border-top-right-radius: 20px;
-  box-shadow: 7px -3px 8px 0px rgb(238 238 238);
+  /* box-shadow: 7px -3px 8px 0px rgb(238 238 238); */
 `;
 export const TopRow = styled.div`
   width: 35%;
-  display: flex;
+  /* display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: space-between;
+  justify-content: space-between; */
 `;
 export const TopImg = styled.img`
   width: 25%;
@@ -65,6 +64,7 @@ export const TopImg = styled.img`
 `;
 export const StepName = styled.div`
   font-size: 2rem;
+  text-align: center;
 `;
 export const StepDetail = styled.div`
   width: 100%;
@@ -74,9 +74,9 @@ export const StepDetail = styled.div`
 export const BodyWrapper = styled.div`
   width: 100%;
   height: 1000px;
-  padding: 7% 15% 5% 15%;
-  border-radius: 0px 0px 41px 41px;
-  box-shadow: 4px 2px 14px 0px #e8e8e8;
+  padding: 7% 3% 5% 3%;
+  /* border-radius: 0px 0px 41px 41px; */
+  /* box-shadow: 4px 2px 14px 0px #e8e8e8; */
   z-index: 0;
 `;
 export const Body = styled.div`
@@ -121,7 +121,7 @@ export const RatingWrapper = styled.div`
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  padding-top: 1%;
+  /* padding-top: 1%; */
 `;
 export const RatingImg = styled.img`
   cursor: pointer;
@@ -139,7 +139,6 @@ export const ResetScore = styled.button`
   font-size: 1rem;
   border: 1px solid gray;
   border-radius: 5px;
-  background-color: white;
   color: gray;
   cursor: pointer;
   :active {
@@ -196,9 +195,10 @@ export const Button = styled.button`
   text-shadow: 0px 0px 0px #f0f0f0;
   border: none;
   border-radius: 10px;
-  background-color: ${(props: IProps) =>
-    props.isButtonActive ? "#008af6" : "#f4f7f9b3"};
+  background-color: white;
   color: ${(props: IProps) => (props.isButtonActive ? "white" : "#008af6")};
+  /* border-bottom: ${(props: IProps) =>
+    props.isButtonActive ? "white" : "#008af6"}; */
   display: inline-block;
   cursor: pointer;
   :active {
@@ -246,8 +246,8 @@ export const ImageBodyWrapper = styled.div`
   width: 100%;
   height: 1000px;
   padding: 7% 15% 5% 15%;
-  border-radius: 0px 0px 41px 41px;
-  box-shadow: 0px 10px 20px rgba(214, 214, 214, 1);
+  /* border-radius: 0px 0px 41px 41px; */
+  /* box-shadow: 0px 10px 20px rgba(214, 214, 214, 1); */
 `;
 export const ImageBody = styled.div`
   width: 100%;

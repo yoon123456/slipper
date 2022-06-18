@@ -14,29 +14,36 @@ export default function MyPageContainer() {
   const [fileUrl, setFileUrl] = useState([""]);
   const [introduce, setIntroduce] = useState("");
   const [mypageRight, setMypageRight] = useState("mypicks");
-
+  console.log(payment);
   const onClickMypicks = () => {
     setMypageRight("mypicks");
   };
+
   const onClickMyboards = () => {
     setMypageRight("myboards");
   };
+
   const onClickMypaids = () => {
     setMypageRight("mypaids");
   };
+
   const showModal = () => {
     setModalVisible(true);
   };
+
   const modalCancel = () => {
     setModalVisible(false);
   };
+
   const onChangeNickname = (event: ChangeEvent<HTMLInputElement>) => {
     setNickname(event.target.value);
   };
+
   const onChangeFileUrl = (fileUrl: string) => {
     const newFileUrl = [fileUrl];
     setFileUrl(newFileUrl);
   };
+
   const onChangeIntroduce = (event: ChangeEvent<HTMLInputElement>) => {
     setIntroduce(event.target.value);
   };
@@ -61,7 +68,6 @@ export default function MyPageContainer() {
       },
     });
   };
-
   const modalOk = () => {
     try {
       myInfo();
@@ -72,7 +78,6 @@ export default function MyPageContainer() {
       if (error instanceof Error) Modal.error({ content: error.message });
     }
   };
-
   return (
     <MyPagePresenter
       mypageRight={mypageRight}
