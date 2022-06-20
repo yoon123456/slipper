@@ -19,13 +19,8 @@ export default function WriteContainer(props: IWriteContainer) {
   const [accessToken, setAccessToken] = useRecoilState(accessTokenState);
   const router = useRouter();
   const [imageAddress, setImageAddress] = useState(["", "", "", ""]);
-  // useEffect(() => {
-  //   if (!accessToken) {
-  //     Modal.error({ content: "로그인이 필요한 서비스 입니다" });
-  //     router.push("/login");
-  //   }
-  // });
 
+  console.log(props.data);
   const [activeStep, setActiveStep] = useState("first");
 
   const [startDate, setStartDate] = useState("");
@@ -213,7 +208,7 @@ export default function WriteContainer(props: IWriteContainer) {
     const updateBoardInput: IUpdateBoardInput = {};
 
     const currentFiles = JSON.stringify(fileUrls);
-    const defaultFiles = JSON.stringify(props.data?.fetchBoard.images.imageUrl);
+    const defaultFiles = JSON.stringify(props.data?.fetchBoard.imageUrl);
     const isChangedFiles = currentFiles !== defaultFiles;
 
     if (startDate) updateBoardInput.startDate = startDate;
@@ -245,11 +240,11 @@ export default function WriteContainer(props: IWriteContainer) {
   };
 
   useEffect(() => {
-    if (props.data?.fetchBoard.images?.length) {
-      setFileUrls([...props.data?.fetchBoard.images]);
+    if (props.data?.fetchBoard.imagesUrl?.length) {
+      setFileUrls([...props.data?.fetchBoard.imagesUrl]);
     }
   }, [props.data]);
-  console.log(fileUrls);
+
   return (
     <WritePresenter
       isEdit={props.isEdit}

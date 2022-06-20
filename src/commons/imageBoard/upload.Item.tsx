@@ -48,7 +48,6 @@ export default function ImageBoardUpload(props: IImageUploadPageProps) {
           <S.UploadIcon src={"/image/boardimage.png"} />
         </S.UploadButton>
       )}
-
       <S.UploadFileHidden type="file" onChange={onChangeFile} ref={fileRef} />
     </>
   );
