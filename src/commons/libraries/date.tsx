@@ -1,6 +1,5 @@
-export const getDate = (add = 0) => {
-  const time = new Date();
-
+export const getDate = (date: number) => {
+  const time = new Date(date);
   const yyyy = String(time.getFullYear());
   const mm = String(time.getMonth() + 1).padStart(2, "0");
   const dd = String(time.getDate()).padStart(2, "0");
@@ -9,7 +8,7 @@ export const getDate = (add = 0) => {
   const s = String(time.getSeconds()).padStart(2, "0");
   const ms = String(time.getMilliseconds()).padStart(3, "0");
 
-  return `${yyyy}-${mm}-${dd}T${h}:${m}`;
+  return `${yyyy}-${mm}-${dd} ${h}:${m}`;
 };
 
 export function currentTime(t: any | number) {

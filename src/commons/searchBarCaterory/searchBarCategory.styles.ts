@@ -27,7 +27,7 @@ export const Search = styled.input`
   padding: 20px;
   margin-right: 5%;
   margin-left: 2%;
-  font-size: 2rem;
+  font-size: 1.6rem;
 `;
 export const SearchButton = styled.button`
   width: 13%;
@@ -82,7 +82,7 @@ export const Box = styled.button`
   background-color: #ffffff;
   font-size: 1.2rem;
   border: none;
-  border-radius: 30px;
+  border-radius: 10px;
   box-shadow: 0px 2px 4px 0px #e1e1e1;
   cursor: pointer;
   :hover {
@@ -93,5 +93,4 @@ export const Box = styled.button`
     color: #008af6;
     border: 1px solid #008af6;
   }
-  margin: 1%;
 `;

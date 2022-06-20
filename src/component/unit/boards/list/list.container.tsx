@@ -129,7 +129,7 @@ export default function ListContainer() {
 
   const userPayment = async () => {
     if (userData?.fetchUser.subType) {
-      const current = new Date(getDate()),
+      const current = new Date(),
         currentTime = current.getTime(); // 현재
       const sub = new Date(userData?.fetchUser.subEnd),
         subTime = sub.getTime(); // 쿠폰

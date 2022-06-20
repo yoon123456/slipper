@@ -115,13 +115,13 @@ export const Or = styled.div`
   margin-top: 4%;
 `;
 export const OrLeft = styled.div`
-  width: 40%;
+  width: 38%;
   border-bottom: 2px solid gainsboro;
   margin-top: 4%;
   margin-right: 2%;
 `;
 export const OrRight = styled.div`
-  width: 40%;
+  width: 38%;
   border-bottom: 2px solid gainsboro;
   margin-top: 4%;
   margin-left: 2%;
