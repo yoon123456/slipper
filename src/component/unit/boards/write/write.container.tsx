@@ -212,6 +212,10 @@ export default function WriteContainer(props: IWriteContainer) {
   const onClickEditBoard = async () => {
     const updateBoardInput: IUpdateBoardInput = {};
 
+    const currentFiles = JSON.stringify(fileUrls);
+    const defaultFiles = JSON.stringify(props.data?.fetchBoard.images.imageUrl);
+    const isChangedFiles = currentFiles !== defaultFiles;
+
     if (startDate) updateBoardInput.startDate = startDate;
     if (endDate) updateBoardInput.endDate = endDate;
     if (score) updateBoardInput.score = score;
@@ -224,7 +228,7 @@ export default function WriteContainer(props: IWriteContainer) {
     if (address.content) updateBoardInput.place = address.content;
     if (address.phone) updateBoardInput.placePhone = address.phone;
     if (address.place_url) updateBoardInput.placeUrl = address.place_url;
-    if (fileUrls) updateBoardInput.images = fileUrls;
+    if (isChangedFiles) updateBoardInput.images = fileUrls;
 
     try {
       await updateBoard({
@@ -244,24 +248,8 @@ export default function WriteContainer(props: IWriteContainer) {
     if (props.data?.fetchBoard.images?.length) {
       setFileUrls([...props.data?.fetchBoard.images]);
     }
-    console.log(props.data?.fetchBoard.images.imageUrl, "sdfsfsfsdfsdfdsf");
-    // const image = fileUrls.filter(function (image: any) {
-    //   for (let i = 0; i < imageAddress.length; i++) {
-    //     console.log(image);
-    //     if (image.imageUrl) {
-    //       return setImageAddress([...image.imageUrl]);
-    //     } else {
-    //       return setImageAddress([""]);
-    //     }
-    //   }
-    // });
-    // const aaa = fileUrls
-    //   .filter((image: any) => image)
-    //   .map((image: any) =>
-    //     image.imageUrl ? setImageAddress([...image.imageUrl]) : ""
-    //   );
   }, [props.data]);
-
+  console.log(fileUrls);
   return (
     <WritePresenter
       isEdit={props.isEdit}

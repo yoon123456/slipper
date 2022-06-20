@@ -63,7 +63,7 @@ export default function KakaomapPresenter(props: KaoKaoMap) {
         >
           {props.isActive1 && (
             <S.SerchLength>
-              {props.search}으로 검색된 결과 총 {props.markersLenght} 건입니다{" "}
+              {props.search}으로 검색된 결과 총 {props.markersLenght} 건입니다
             </S.SerchLength>
           )}
           <S.Category>

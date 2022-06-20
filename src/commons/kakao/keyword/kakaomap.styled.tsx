@@ -17,9 +17,7 @@ export const KakaoMapMarker = styled(MapMarker)`
 `;
 export const KakaoMapTypeId = styled(MapTypeId)``;
 export const KakaoMapInfoWindow = styled(MapInfoWindow)``;
-export const KakaoMapRoadview = styled(Roadview)`
-  border: 2px solid red;
-`;
+export const KakaoMapRoadview = styled(Roadview)``;
 
 export const KakaoCustomOverlayRoadview = styled(CustomOverlayRoadview)``;
 
@@ -214,9 +212,6 @@ export const SerchLength = styled.p`
 export const HiddenBox = styled.div`
   width: 100px;
   height: 100px;
-  /* border: 1px solid red; */
 `;
 
-export const WeatherBox = styled.div`
-  border: 2px solid red;
-`;
+export const WeatherBox = styled.div``;

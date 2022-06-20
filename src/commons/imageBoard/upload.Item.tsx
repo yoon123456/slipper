@@ -28,8 +28,7 @@ export default function ImageBoardUpload(props: IImageUploadPageProps) {
   const onClickImgUpload = () => {
     fileRef.current?.click();
   };
-
-  useEffect(() => {
+  ~useEffect(() => {
     ImageRef.current?.click();
   });
 
@@ -39,7 +38,7 @@ export default function ImageBoardUpload(props: IImageUploadPageProps) {
       return image.imageUrl !== "" ? setImageAddress([...image.imageUrl]) : "";
     });
   };
-  console.log(props.fileUrl);
+
   return (
     <>
       {props.fileUrl ? (
