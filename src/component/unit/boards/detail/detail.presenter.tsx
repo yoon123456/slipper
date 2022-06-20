@@ -28,12 +28,10 @@ export default function DetailPresenter(props: IDetailPresenter) {
               <KakaoMapFetch data={props.data} />
             </S.Map>
             <S.ImageWrap>
-              {props.data?.fetchBoard.images?.map(
+              {props.data?.fetchBoard.imagesUrl?.map(
                 (el: IBoardImage, idx: number) => (
                   <S.ImgWrapper key={idx}>
-                    <S.Img
-                      src={!el.imageUrl ? "/image/logo.png" : el.imageUrl}
-                    />
+                    <S.Img src={!el ? "image/logo.png" : el} />
                   </S.ImgWrapper>
                 )
               )}
