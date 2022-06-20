@@ -25,7 +25,7 @@ export type IBoard = {
   contents: Scalars['String'];
   createdAt?: Maybe<Scalars['DateTime']>;
   endDate?: Maybe<Scalars['String']>;
-  groupCode: Scalars['String'];
+  groupCode?: Maybe<Scalars['String']>;
   id: Scalars['String'];
   images?: Maybe<Array<IBoardImage>>;
   lat: Scalars['String'];
@@ -101,7 +101,7 @@ export type ICreateBoardInput = {
   category: Scalars['String'];
   contents: Scalars['String'];
   endDate?: InputMaybe<Scalars['String']>;
-  groupCode: Scalars['String'];
+  groupCode?: InputMaybe<Scalars['String']>;
   images?: InputMaybe<Array<Scalars['String']>>;
   lat: Scalars['String'];
   lng: Scalars['String'];
@@ -181,6 +181,7 @@ export type IMutation = {
   login: Scalars['String'];
   logout: Scalars['String'];
   proofToken: Scalars['String'];
+  refundPayment: IPayment;
   restoreAccessToken: Scalars['String'];
   searchUserEmail: IJoin;
   updateBoard: IBoard;
@@ -234,7 +235,7 @@ export type IMutationCreateCommentArgs = {
 
 
 export type IMutationCreatePaymentArgs = {
-  amount: Scalars['Float'];
+  amount: Scalars['Int'];
   impUid: Scalars['String'];
 };
 
@@ -304,6 +305,11 @@ export type IMutationLoginArgs = {
 export type IMutationProofTokenArgs = {
   mytoken: Scalars['String'];
   phone: Scalars['String'];
+};
+
+
+export type IMutationRefundPaymentArgs = {
+  impUid: Scalars['String'];
 };
 
 
@@ -382,7 +388,9 @@ export type IPayment = {
   id: Scalars['String'];
   impUid: Scalars['String'];
   paymentAmount: Scalars['Int'];
+  paymentStatus: Scalars['String'];
   subEnd: Scalars['DateTime'];
+  subRefund?: Maybe<Scalars['DateTime']>;
   subStart: Scalars['DateTime'];
   subType: IPayment_Status_Enum;
   user?: Maybe<IJoin>;
@@ -395,7 +403,7 @@ export type IQuery = {
   TEST_fetchBoardsPage: Array<Scalars['JSONObject']>;
   TEST_fetchUser: IJoin;
   fetchAllUser: Array<IJoin>;
-  fetchBoard: IBoard;
+  fetchBoard: Scalars['JSONObject'];
   fetchBoardLikeCount: Scalars['Int'];
   fetchBoardsPage: Array<Scalars['JSONObject']>;
   fetchBusinessBoard: IBusinessBoard;

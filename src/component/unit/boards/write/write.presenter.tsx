@@ -18,7 +18,7 @@ export default function WritePresenter(props: IWritePresenter) {
         {props.activeStep === "first" && (
           <S.TopOn>
             <S.TopRow>
-              <S.TopImg src="/image/writeSlipper.png" />
+              {/* <S.TopImg src="/image/writeSlipper.png" /> */}
               <S.StepName>STEP 1</S.StepName>
             </S.TopRow>
             <S.StepDetail> 거주 기간, 만족도, 내용을 작성해주세요</S.StepDetail>
@@ -33,7 +33,7 @@ export default function WritePresenter(props: IWritePresenter) {
         {props.activeStep === "second" && (
           <S.TopOn>
             <S.TopRow>
-              <S.TopImg src="/image/writeSlipper.png" />
+              {/* <S.TopImg src="/image/writeSlipper.png" /> */}
               <S.StepName>STEP 2</S.StepName>
             </S.TopRow>
             <S.StepDetail>가게가 어디에 있나요?</S.StepDetail>
@@ -48,7 +48,7 @@ export default function WritePresenter(props: IWritePresenter) {
         {props.activeStep === "third" && (
           <S.TopOn>
             <S.TopRow>
-              <S.TopImg src="/image/writeSlipper.png" />
+              {/* <S.TopImg src="/image/writeSlipper.png" /> */}
               <S.StepName>STEP 3</S.StepName>
             </S.TopRow>
             <S.StepDetail>사진을 공유해주세요</S.StepDetail>

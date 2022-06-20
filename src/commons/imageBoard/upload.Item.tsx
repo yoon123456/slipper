@@ -6,15 +6,14 @@ import * as S from "./upload.styles";
 import { IImageUploadPageProps } from "./upload.types";
 
 export default function ImageBoardUpload(props: IImageUploadPageProps) {
-  console.log(props, "imggggg");
-
-  const [imageAddress, setImageAddress] = useState();
+  const [imageAddress, setImageAddress] = useState(["", "", "", ""]);
   const [uploadBoardImage] = useMutation(UPLOAD_BOARD_IMAGE);
   const fileRef = useRef<HTMLInputElement>(null);
   const ImageRef = useRef<HTMLButtonElement>(null);
 
   const onChangeFile = async (event: ChangeEvent<HTMLInputElement>) => {
     const file = event.target.files;
+
     if (!file) return;
     try {
       const result = await uploadBoardImage({
@@ -29,15 +28,14 @@ export default function ImageBoardUpload(props: IImageUploadPageProps) {
   const onClickImgUpload = () => {
     fileRef.current?.click();
   };
-
-  useEffect(() => {
+  ~useEffect(() => {
     ImageRef.current?.click();
   });
 
   const ImgeSplit = () => {
     const result = props.data?.fetchBoard.images;
     const image = result.filter(function (image: any) {
-      return image.imageUrl !== "" ? setImageAddress(image.imageUrl) : "";
+      return image.imageUrl !== "" ? setImageAddress([...image.imageUrl]) : "";
     });
   };
 
@@ -47,9 +45,10 @@ export default function ImageBoardUpload(props: IImageUploadPageProps) {
         <S.UploadImage onClick={onClickImgUpload} src={props.fileUrl} />
       ) : (
         <S.UploadButton onClick={onClickImgUpload}>
-          <S.UploadIcon src="/image/boardimage.png" />
+          <S.UploadIcon src={"/image/boardimage.png"} />
         </S.UploadButton>
       )}
+
       <S.UploadFileHidden type="file" onChange={onChangeFile} ref={fileRef} />
     </>
   );

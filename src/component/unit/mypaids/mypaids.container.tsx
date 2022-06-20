@@ -1,11 +1,11 @@
 import { useQuery } from "@apollo/client";
 
 import MypaidsPresenter from "./mypaids.presenter";
-import { FETCH_PAYMENTS } from "../mypage/mypage.queries";
+import { FETCH_PAYMENTS } from "./mypaids.queries";
 import { IMyPaymentHistory } from "./mypaids.types";
 export default function MypaidsContainer(props: IMyPaymentHistory) {
   const { data, fetchMore } = useQuery(FETCH_PAYMENTS);
-
+  console.log(data);
   const loadMore = () => {
     if (!data) return;
     fetchMore({
