@@ -2,7 +2,6 @@ import { useMutation, gql } from "@apollo/client";
 import { ChangeEvent, useRef } from "react";
 import { Modal } from "antd";
 import styled from "@emotion/styled";
-import { ModalStaticFunctions } from "antd/lib/modal/confirm";
 
 const UPLOAD_PROFILE_IMAGE = gql`
   mutation uploadProfileImage($files: [Upload!]!) {

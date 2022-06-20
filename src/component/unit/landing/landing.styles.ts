@@ -354,7 +354,8 @@ export const Txt = styled2.div`
 
 export const Img = styled2.img``;
 export const LastImage = styled2.img`
-  margin-left: 100px;
+  // margin-left: 100px;
+  width: 100%;
 `;
 
 export const ImgBox1 = styled2.div`
