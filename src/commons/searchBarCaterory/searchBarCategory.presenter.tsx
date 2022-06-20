@@ -38,7 +38,6 @@ export default function SearchBarCategoryPresenter(
           value={props.search}
           onKeyUp={props.onEnterButton}
         />
-
         <S.SearchButton
           key={uuidv4()}
           type="submit"

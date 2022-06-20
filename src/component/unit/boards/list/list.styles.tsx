@@ -298,6 +298,9 @@ export const LogIn = styled.div`
   font-size: 1.6rem;
   text-align: center;
   cursor: pointer;
+  :hover {
+    color: #008af6;
+  }
 `;
 export const UserImage = styled.div`
   width: 100px;
@@ -311,6 +314,7 @@ export const UserImgWrap = styled.div`
 export const UserImg = styled.img`
   width: 35%;
   border-radius: 10px;
+  margin-right: 10px;
 `;
 
 export const Drop = styled.img`

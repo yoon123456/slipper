@@ -27,6 +27,7 @@ export default function DetailContainer() {
   >(FETCH_BOARD, {
     variables: { boardId: String(router.query.boardId) },
   });
+  console.log(data, "data");
 
   const { data: likeData } = useQuery<
     Pick<IQuery, "fetchUserLike">,
@@ -84,31 +85,6 @@ export default function DetailContainer() {
   };
 
   // 좋아요 함수
-  // const onClickLike = async (event: MouseEvent<HTMLImageElement>) => {
-  //   try {
-  //     const result = await clicklike({
-  //       variables: {
-  //         boardId: String((event.target as HTMLImageElement).id),
-  //       },
-  //       update(cache, { data }) {
-  //         const fetchUserLike = data?.fetchUserLike;
-  //         cache.modify({
-  //           fields: {
-  //             fetchUserLike: (prev, { readField }) => {
-  //               const filteredPrev = prev.filter(
-  //                 (el: any) => readField("id", el) !== fetchUserLike
-  //               );
-  //               return [...filteredPrev];
-  //             },
-  //           },
-  //         });
-  //       },
-  //     });
-  //     setIsActive(result.data?.clickLike);
-  //   } catch (error) {
-  //     alert("실패");
-  //   }
-  // };
   const onClickLike = async (event: MouseEvent<HTMLImageElement>) => {
     try {
       const result = await clicklike({
