@@ -311,7 +311,7 @@ export default function KakaomapMarks(props: MarkerProps) {
               position={marker.position}
               onClick={props.markerClick(marker)}
               image={{
-                src: "/p.png",
+                src: "/image/p.png",
                 size: { width: 40, height: 40 },
               }}
             >

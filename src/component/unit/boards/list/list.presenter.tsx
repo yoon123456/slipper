@@ -14,20 +14,12 @@ import Script from "next/script";
 import { v4 as uuidv4 } from "uuid";
 import Logo from "../../../../commons/logo";
 import ListPresenterItem from "./list.presenterItem";
-import { useState } from "react";
 
 export default function ListPresenter(props: IListPresenter) {
   const { onClickMoveToPage } = useMovetoPage();
   const [isActive] = useRecoilState(SearchBarIsActiveState);
   const [accessToken] = useRecoilState(accessTokenState);
-  console.log(props.data?.fetchBoardsPage);
-  const [over, setOver] = useState(false);
-  const onMouseOver = () => {
-    setOver(true);
-  };
-  const onMouseOut = () => {
-    setOver(false);
-  };
+
   return (
     <>
       <S.WrapperOutH>
@@ -45,7 +37,10 @@ export default function ListPresenter(props: IListPresenter) {
           <S.WrapperUser>
             {accessToken ? (
               <S.WrapUser>
-                <S.LogIn onClick={props.out}>로그아웃</S.LogIn>
+                <S.LogIn onClick={props.out}>
+                  로그아웃
+                  <S.LogoutIcon src="image/logouticon.png" />
+                </S.LogIn>
               </S.WrapUser>
             ) : (
               <S.WrapperUserLogin>
@@ -56,7 +51,10 @@ export default function ListPresenter(props: IListPresenter) {
               </S.WrapperUserLogin>
             )}
             {accessToken ? (
-              <S.UserImage onMouseOver={onMouseOver} onMouseOut={onMouseOut}>
+              <S.UserImage
+                onMouseOver={props.onMouseOver}
+                onMouseOut={props.onMouseOut}
+              >
                 <S.UserImgWrap>
                   <S.UserImg
                     src={
@@ -67,7 +65,7 @@ export default function ListPresenter(props: IListPresenter) {
                   />
                   <S.Drop src="image/down.png" />
                 </S.UserImgWrap>
-                <S.DropdownList over={over}>
+                <S.DropdownList over={props.over}>
                   <S.List onClick={props.onClickMoveToPage("/payment")}>
                     구독하기
                   </S.List>

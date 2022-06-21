@@ -9,7 +9,7 @@ export default function HeaderPresenter(props: HeaderPrpos) {
 
   return (
     <>
-      <S.WrapperOut>
+      <S.WrapperOutH>
         <S.WrapperBox>
           <S.WrapperInLogo onClick={props.onClickMoveToPage("/boards")}>
             <Logo />
@@ -27,23 +27,43 @@ export default function HeaderPresenter(props: HeaderPrpos) {
               </S.Test>
             </S.TestWrapper>
           </S.WrapperIn>
-          {accessToken ? (
-            <S.WrapUser>
-              <S.WrapperInUser>
-                {props.data?.fetchUser.nickname}
-              </S.WrapperInUser>
-              <S.WrapperInMy>님 안녕하세요</S.WrapperInMy>
-              <S.LogOut onClick={props.out}>로그아웃</S.LogOut>
-            </S.WrapUser>
-          ) : (
-            <S.LogIn onClick={props.onClickMoveToPage("/login")}>
-              로그인
-            </S.LogIn>
-          )}
-          {/* <S.WrapperInHam>햄버거</S.WrapperInHam> */}
-          {/* <Ham /> */}
+          <S.WrapperUser>
+            {accessToken ? (
+              <S.WrapperUserLogin>
+                <S.LogIn onClick={props.out}>
+                  로그아웃
+                  <S.LogoutIcon src="/image/logouticon.png" />
+                </S.LogIn>
+              </S.WrapperUserLogin>
+            ) : (
+              <S.WrapperUserLogin>
+                <S.LogIn onClick={props.onClickMoveToPage("/login")}>
+                  로그인
+                  <S.LogoutIcon src="/image/logouticon.png" />
+                </S.LogIn>
+              </S.WrapperUserLogin>
+            )}
+            {accessToken ? (
+              <S.UserImage>
+                <S.UserImgWrap>
+                  <S.UserImg
+                    src={
+                      props.data?.fetchUser.imageUrl
+                        ? props.data?.fetchUser.imageUrl
+                        : "image/profileDefault.png"
+                    }
+                  />
+                </S.UserImgWrap>
+              </S.UserImage>
+            ) : (
+              <></>
+              //  <S.UserImage>
+              //   <S.UserImg src="image/profileDefault.png" />}
+              //  </S.UserImage>
+            )}
+          </S.WrapperUser>
         </S.WrapperBox>
-      </S.WrapperOut>
+      </S.WrapperOutH>
     </>
   );
 }

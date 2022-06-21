@@ -18,11 +18,6 @@ export default function ListPresenter(props: IListPresenter) {
       <S.WrapperTop>
         {/* chan 검색 기능 추가 22.05.19 */}
         {/* 예원 검색,카테고리,검색버튼 컴포넌트추가 22.05.21 */}
-        {/* <Searchbars01 onChangeKeyword={props.onChangeKeyword} />
-        <S.CategoryWrap>
-          <Category />
-        </S.CategoryWrap>
-        <S.SearchButton type="submit">검색</S.SearchButton> */}
         <SearchBarCategoryContainer
           refetch={props.refetch}
           onChangeKeyword={props.onChangeKeyword}

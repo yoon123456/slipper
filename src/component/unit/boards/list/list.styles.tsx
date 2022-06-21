@@ -112,14 +112,14 @@ export const Button = styled.div`
   width: 95%;
   text-align: center;
   line-height: 2;
-  color: white;
+  color: black;
+  background-color: #f2f2f2;
   border-radius: 10px;
   font-size: 1.4rem;
   cursor: pointer;
   :hover {
     font-weight: bold;
   }
-  background-color: #008af6;
 `;
 export const WrapperRight = styled.div`
   width: 100%;
