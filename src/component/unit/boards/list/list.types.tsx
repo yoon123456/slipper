@@ -21,6 +21,9 @@ export interface IListPresenter {
   array: string;
   onClickMoveToPage: (path: string) => () => void;
   out: () => void;
+  over: boolean;
+  onMouseOver: () => void;
+  onMouseOut: () => void;
 }
 
 export interface IListPresenterItem {

@@ -29,7 +29,7 @@ export default function DetailPresenter(props: IDetailPresenter) {
             </S.Map>
             <S.ImageWrap>
               {props.data?.fetchBoard.imagesUrl?.map(
-                (el: IBoardImage, idx: number) => (
+                (el: string, idx: number) => (
                   <S.ImgWrapper key={idx}>
                     <S.Img src={!el ? "image/logo.png" : el} />
                   </S.ImgWrapper>

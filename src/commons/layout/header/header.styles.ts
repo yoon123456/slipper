@@ -1,4 +1,5 @@
 import styled from "@emotion/styled";
+import { Iprops } from "../../../component/unit/boards/list/list.types";
 
 export const WrapperOut = styled.div`
   height: 70px;
@@ -7,39 +8,7 @@ export const WrapperOut = styled.div`
   align-items: center;
   box-shadow: 2px 9px 11px 0px #f2f2f2; ;
 `;
-export const WrapperBox = styled.div`
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  width: 910%;
-`;
-// 로고 박스
-export const WrapperInLogo = styled.div`
-  width: 150px;
-  margin-left: 80px;
-  cursor: pointer;
-  :hover {
-    font-size: 1.4rem;
-  }
-`;
 
-// 데이터 및 햄버거 박스
-export const WrapperIn = styled.div`
-  /* width: 20%; */
-  width: 50%;
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-  padding-right: 50px;
-  font-family: "HallymGothic-Regular";
-`;
-//#008af6;
-
-export const WrapUser = styled.div`
-  width: 380px;
-  display: flex;
-  align-items: center;
-`;
 // 데이터
 export const WrapperInUser = styled.div`
   text-align: center;
@@ -89,15 +58,121 @@ export const LogOut = styled.div`
   margin-left: 20px;
   cursor: pointer;
 `;
+
+export const WrapperOutH = styled.div`
+  height: 70px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 2px 9px 11px 0px #f2f2f2;
+  font-family: "HallymGothic-Regular";
+`;
+export const WrapperBox = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+`;
+// 로고 박스
+export const WrapperInLogo = styled.div`
+  width: 100px;
+  margin-left: 50px;
+  cursor: pointer;
+  :hover {
+    font-size: 1.4rem;
+  }
+`;
+
+export const WrapperIn = styled.div`
+  width: 48%;
+  display: flex;
+
+  align-items: center;
+`;
+//#008af6;
+export const WrapperUser = styled.div`
+  display: flex;
+  align-items: center;
+  margin-right: 20px;
+`;
+export const WrapperUserLogin = styled.div`
+  display: flex;
+  align-items: center;
+`;
+export const WrapUser = styled.div`
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+`;
+
+export const MeneWrap = styled.div`
+  width: 20%;
+  display: flex;
+  text-align: center;
+`;
+
+export const Menu = styled.div`
+  width: 50%;
+  font-size: 1.6rem;
+  cursor: pointer;
+  :hover {
+    color: #008af6;
+  }
+`;
+export const LogoutIcon = styled.img`
+  width: 18%;
+  margin-left: 5px;
+  margin-bottom: 3px;
+`;
+
 export const LogIn = styled.div`
-  width: 115px;
+  width: 110px;
   height: 30px;
   line-height: 2.1;
-  background-color: #008af6;
-  color: white;
+  color: black;
   border-radius: 10px;
-  font-size: 1.4rem;
+  font-size: 1.6rem;
   text-align: center;
-  margin-right: 70px;
+  cursor: pointer;
+  :hover {
+    color: #008af6;
+  }
+`;
+export const UserImage = styled.div`
+  width: 100px;
+  position: relative;
+`;
+export const UserImgWrap = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
+export const UserImg = styled.img`
+  width: 35%;
+  border-radius: 10px;
+  margin-right: 10px;
+`;
+
+export const Drop = styled.img`
+  width: 20px;
+  height: 20px;
+`;
+
+export const DropdownList = styled.div`
+  display: ${(props: Iprops) => (props.over ? "block" : "none")};
+  position: absolute;
+  top: 50;
+  background-color: white;
+  width: 100px;
+  z-index: 9;
+  text-align: center;
+  margin-top: 10px;
+`;
+
+export const List = styled.div`
+  color: black;
+  padding: 10px 20px;
+  font-size: 1.2rem;
+  display: block;
   cursor: pointer;
 `;

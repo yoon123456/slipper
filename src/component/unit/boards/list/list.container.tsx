@@ -20,9 +20,8 @@ import {
   IQueryFetchBoardsPageArgs,
 } from "../../../../commons/types/generated/types";
 import { Modal } from "antd";
-import ListPresenter2 from "./list.presenter";
 import { useMovetoPage } from "../../../../commons/hooks/movePage";
-import { getDate } from "../../../../commons/libraries/date";
+import { getPaymentDate } from "../../../../commons/libraries/date";
 
 export default function ListContainer() {
   const router = useRouter();
@@ -37,6 +36,15 @@ export default function ListContainer() {
   const [throttle, setThrottle] = useState(true);
   const [serch] = useRecoilState(serchBar);
   const [category] = useRecoilState(categoryBar);
+  const [over, setOver] = useState(false);
+
+  // 헤더에 메뉴 드롭다운기능
+  const onMouseOver = () => {
+    setOver(true);
+  };
+  const onMouseOut = () => {
+    setOver(false);
+  };
 
   useEffect(() => {
     btnRef.current?.click();
@@ -129,7 +137,7 @@ export default function ListContainer() {
 
   const userPayment = async () => {
     if (userData?.fetchUser.subType) {
-      const current = new Date(),
+      const current = new Date(getPaymentDate()),
         currentTime = current.getTime(); // 현재
       const sub = new Date(userData?.fetchUser.subEnd),
         subTime = sub.getTime(); // 쿠폰
@@ -188,6 +196,9 @@ export default function ListContainer() {
       // 헤더추가
       onClickMoveToPage={onClickMoveToPage}
       out={out}
+      over={over}
+      onMouseOver={onMouseOver}
+      onMouseOut={onMouseOut}
     />
   );
 }

@@ -85,7 +85,6 @@ export default function DetailContainer() {
   };
 
   // 좋아요 함수
-
   const onClickLike = async (event: MouseEvent<HTMLImageElement>) => {
     try {
       const result = await clicklike({
