@@ -2,7 +2,7 @@ import { useMutation, useQuery } from "@apollo/client";
 import { useMovetoPage } from "../../hooks/movePage";
 import HeaderPresenter from "./header.presenter";
 import { FETCH_USER, UPDATE_PAYMENT, LOGOUT } from "./header.queries";
-import { getDate } from "../../libraries/date";
+import { getPaymentDate } from "../../libraries/date";
 import {
   IMutation,
   IMutationUpdatePaymentArgs,
@@ -27,7 +27,7 @@ export default function HeaderContainer() {
 
   const userPayment = async () => {
     if (data?.fetchUser.subType) {
-      const current = new Date(getDate()),
+      const current = new Date(getPaymentDate()),
         currentTime = current.getTime(); // 현재
       const sub = new Date(data?.fetchUser.subEnd),
         subTime = sub.getTime(); // 쿠폰

@@ -17,32 +17,23 @@ import { accessTokenState } from "../../../../commons/store";
 
 export default function WriteContainer(props: IWriteContainer) {
   const [accessToken, setAccessToken] = useRecoilState(accessTokenState);
+
   const router = useRouter();
-  const [imageAddress, setImageAddress] = useState(["", "", "", ""]);
-
-  console.log(props.data);
   const [activeStep, setActiveStep] = useState("first");
-
   const [startDate, setStartDate] = useState("");
   const [endDate, setEndDate] = useState("");
   const [dateError, setDateError] = useState("");
-
   const [title, setTitle] = useState("");
   const [titleError, setTitleError] = useState("");
-
   const [score, setScore] = useState(0);
   const [scoreError, setScoreError] = useState("");
   const [resetScore, setResetScore] = useState(false);
-
   const [contents, setContents] = useState("");
   const [contentsError, setContentsError] = useState("");
-
   const [mapStatus, setMapStatus] = useState(false);
   const [address, setAddress] = useRecoilState(kakaoAddress);
   const [mapError, setMapError] = useState("");
-
   const [fileUrls, setFileUrls] = useState(["", "", "", ""]);
-
   const [isButtonActive, setIsButtonActive] = useState(false);
 
   const [createBoard] = useMutation<

@@ -28,7 +28,8 @@ export default function ImageBoardUpload(props: IImageUploadPageProps) {
   const onClickImgUpload = () => {
     fileRef.current?.click();
   };
-  ~useEffect(() => {
+
+  useEffect(() => {
     ImageRef.current?.click();
   });
 

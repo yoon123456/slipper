@@ -27,14 +27,17 @@ const UploadButton = styled.div`
 const UploadImageBox = styled.img`
   width: 100%;
 `;
+
 const UploadFileHidden = styled.input`
   display: none;
 `;
+
 interface IImageProfileProps {
   onChangeFileUrl: (fileUrl: string) => void;
   fileUrl?: string[];
   userImage?: string;
 }
+
 export default function ImageProfile(props: IImageProfileProps) {
   const [uploadProfileImage] = useMutation(UPLOAD_PROFILE_IMAGE);
   const fileRef = useRef<HTMLInputElement>(null);
@@ -42,12 +45,10 @@ export default function ImageProfile(props: IImageProfileProps) {
   const onChangeFile = async (event: ChangeEvent<HTMLInputElement>) => {
     const file = event.target.files;
     if (!file) return;
-
     try {
       const result = await uploadProfileImage({
         variables: { files: file },
       });
-      console.log(result);
       props.onChangeFileUrl(result.data.uploadProfileImage);
     } catch (error: any) {
       Modal.error({ content: error.message });
@@ -58,21 +59,18 @@ export default function ImageProfile(props: IImageProfileProps) {
     fileRef.current?.click();
   };
 
+  const aaa = JSON.stringify(props.fileUrl);
+
   return (
     <>
-      {props.fileUrl ? (
+      {aaa !== `[""]` ? (
         <UploadImage onClick={onClickImgUpload} src={`${props.fileUrl}`} />
       ) : (
         <UploadButton onClick={onClickImgUpload}>
           <UploadImageBox src="/image/profile.png"></UploadImageBox>
         </UploadButton>
       )}
-      <UploadFileHidden
-        style={{ display: "none" }}
-        type="file"
-        onChange={onChangeFile}
-        ref={fileRef}
-      />
+      <UploadFileHidden type="file" onChange={onChangeFile} ref={fileRef} />
     </>
   );
 }
