@@ -3,6 +3,7 @@ import { v4 as uuidv4 } from "uuid";
 import { IPropsWriteThird } from "./write.types";
 import * as S from "./write.styles";
 export default function Third(props: IPropsWriteThird) {
+  console.log(props.fileUrls);
   return (
     <>
       {props.activeStep === "third" && (

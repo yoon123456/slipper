@@ -28,6 +28,7 @@ export default function ImageBoardUpload(props: IImageUploadPageProps) {
   const onClickImgUpload = () => {
     fileRef.current?.click();
   };
+
   useEffect(() => {
     ImageRef.current?.click();
   });
@@ -48,7 +49,6 @@ export default function ImageBoardUpload(props: IImageUploadPageProps) {
           <S.UploadIcon src={"/image/boardimage.png"} />
         </S.UploadButton>
       )}
-
       <S.UploadFileHidden type="file" onChange={onChangeFile} ref={fileRef} />
     </>
   );

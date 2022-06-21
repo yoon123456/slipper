@@ -131,7 +131,7 @@ export default function JoinContainer() {
   const onClickJoin = async (data: IFormValues) => {
     if (data.email && data.pw && data.nickname) {
       try {
-        const result = await createUser({
+        await createUser({
           variables: {
             createUserInput: {
               email: data.email,

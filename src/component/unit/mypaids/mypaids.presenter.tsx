@@ -1,7 +1,6 @@
 import * as S from "./mypaids.styles";
 import { IMypaidsPresenter } from "./mypaids.types";
 import InfiniteScroll from "react-infinite-scroller";
-import { getDate } from "../../../commons/libraries/date";
 
 export default function MypaidsPresenter(props: IMypaidsPresenter) {
   return (
