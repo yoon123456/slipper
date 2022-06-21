@@ -1,20 +1,21 @@
 import MyPagePresenter from "./mypage.presenter";
 import { FETCH_USER, UPDATE_USER, FETCH_PAYMENTS } from "./mypage.queries";
 import { useMutation, useQuery } from "@apollo/client";
-import React, { ChangeEvent, useState } from "react";
+import React, { ChangeEvent, useEffect, useState } from "react";
 import { Modal } from "antd";
 import { IUpdateUserInput } from "./mypage.types";
 
 export default function MyPageContainer() {
   const [updateUser] = useMutation(UPDATE_USER);
-  const { data, refetch, fetchMore } = useQuery(FETCH_USER);
+  const { data } = useQuery(FETCH_USER);
   const { data: payment, fetchMore: payFecthMore } = useQuery(FETCH_PAYMENTS);
   const [modalVisible, setModalVisible] = useState(false);
   const [nickname, setNickname] = useState("");
   const [fileUrl, setFileUrl] = useState([""]);
+  const [updateUrl, setUpdateUrl] = useState(0);
   const [introduce, setIntroduce] = useState("");
   const [mypageRight, setMypageRight] = useState("mypicks");
-  console.log(payment);
+
   const onClickMypicks = () => {
     setMypageRight("mypicks");
   };
@@ -50,9 +51,15 @@ export default function MyPageContainer() {
 
   const myInfo = async () => {
     const updateUserInput: IUpdateUserInput = {};
+
+    const currentFiles = JSON.stringify(fileUrl);
+    const defaultFiles = JSON.stringify(data.fetchUser.imageUrl);
+    const isChangedFiles = currentFiles !== defaultFiles;
+
     if (nickname) updateUserInput.nickname = nickname;
     if (fileUrl) updateUserInput.imageUrl = String(fileUrl);
     if (introduce) updateUserInput.introduce = introduce;
+
     await updateUser({
       variables: {
         updateUserInput,
@@ -68,6 +75,7 @@ export default function MyPageContainer() {
       },
     });
   };
+
   const modalOk = () => {
     try {
       myInfo();
@@ -78,6 +86,14 @@ export default function MyPageContainer() {
       if (error instanceof Error) Modal.error({ content: error.message });
     }
   };
+
+  useEffect(() => {
+    if (data?.fetchUser.imageUrl?.length) {
+      setFileUrl([data?.fetchUser.imageUrl]);
+      setUpdateUrl(1);
+    }
+  }, [updateUrl]);
+
   return (
     <MyPagePresenter
       mypageRight={mypageRight}

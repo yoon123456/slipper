@@ -1,8 +1,8 @@
 import { gql } from "@apollo/client";
 
 export const FETCH_PAYMENTS = gql`
-  query fetchPayments {
-    fetchPayments {
+  query fetchPayments($page: Int) {
+    fetchPayments(page: $page) {
       id
       paymentStatus
       subStart
