@@ -45,12 +45,12 @@ export default function KaKaoMapContainer(props: KaoKeyWord) {
   }
 
   const foldList = () => {
-    if (!listRef || !listRef.current) {
+    if (!listRef.current) {
       return;
     }
     const style = listRef.current.style;
     if (closeList) {
-      style.maxHeight = "500px";
+      style.maxHeight = "1000px";
     } else if (!closeList) {
       style.maxHeight = `${listRef.current.scrollHeight}px`;
     }

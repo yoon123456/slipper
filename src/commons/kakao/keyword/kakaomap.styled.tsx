@@ -9,7 +9,6 @@ import {
 } from "react-kakao-maps-sdk";
 import styled from "@emotion/styled";
 import { KaKaoMapStylesProps } from "./kakaomap.types";
-import { keyframes } from "@emotion/react";
 
 export const KaKaoMap = styled(Map)``;
 export const KakaoMapMarker = styled(MapMarker)`

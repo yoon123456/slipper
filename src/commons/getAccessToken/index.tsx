@@ -11,6 +11,7 @@ const RESTORE_ACCESS_TOKEN = gql`
 `;
 
 export async function getAccessToken() {
+  console.log("어섹스토큰스테이트", accessTokenState);
   if (!accessTokenState) {
     try {
       const graphQLClient = new GraphQLClient(
@@ -19,6 +20,7 @@ export async function getAccessToken() {
         { credentials: "include" }
       );
       const result = await graphQLClient.request(RESTORE_ACCESS_TOKEN);
+
       const newAccessToken = result.restoreAccessToken;
       return newAccessToken;
     } catch (error) {

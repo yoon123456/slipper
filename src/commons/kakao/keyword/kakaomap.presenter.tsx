@@ -34,7 +34,7 @@ export default function KakaomapPresenter(props: KaoKaoMap) {
                 }}
                 style={{
                   width: "100%",
-                  height: "30%",
+                  height: "100%",
                 }}
               >
                 <S.KakaoCustomOverlayRoadview
@@ -46,7 +46,7 @@ export default function KakaomapPresenter(props: KaoKaoMap) {
                   xAnchor={0.5}
                   yAnchor={0.5}
                 ></S.KakaoCustomOverlayRoadview>
-              </S.KakaoMapRoadview>{" "}
+              </S.KakaoMapRoadview>
             </>
           ) : (
             <>
@@ -118,7 +118,6 @@ export default function KakaomapPresenter(props: KaoKaoMap) {
             <ZoomControl />
 
             <KakaomapMarks
-              key={uuidv4()}
               markers={props.markers}
               markerClick={props.markerClick}
               info={props.info}

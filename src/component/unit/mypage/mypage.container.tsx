@@ -88,11 +88,10 @@ export default function MyPageContainer() {
   };
 
   useEffect(() => {
-    if (data?.fetchUser.imageUrl?.length) {
-      setFileUrl([data?.fetchUser.imageUrl]);
-      setUpdateUrl(1);
+    if (data?.fetchUser.imageUrl.length) {
+      setFileUrl((prev) => [data?.fetchUser.imageUrl]);
     }
-  }, [updateUrl]);
+  }, [data?.fetchUser.imageUrl]);
 
   return (
     <MyPagePresenter
