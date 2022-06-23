@@ -33,7 +33,10 @@ export default function LandingPresenter(props: ILandingPresenter) {
           </S.H1>
           <S.MainFlex>
             <S.Main>
-              <S.MainImg src="/image/night.webp"></S.MainImg>
+              <S.MainText>
+                &#34;이사가는 곳 인프라를 한눈에 보고싶은 당신을 위한&#34;
+              </S.MainText>
+              <S.MainImg src="/image/night.webp" />
             </S.Main>
             <S.MainBlue>
               <S.TextBox>
