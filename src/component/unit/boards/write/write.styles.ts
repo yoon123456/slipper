@@ -181,6 +181,7 @@ export const MapDetail = styled.div`
 export const ButtonWrapper = styled.div`
   width: 100%;
   height: 10%;
+  margin-top: 35px;
   display: flex;
   flex-direction: row;
   align-items: center;

@@ -95,21 +95,28 @@ export default function ListPresenter(props: IListPresenter) {
               <S.WrapperLeft>
                 <S.WrapperMiddle>
                   <S.WrapperArray>
-                    <S.Array
-                      array={props.array}
-                      id="recent"
-                      onClick={props.onClickArray}
-                    >
-                      최신순
-                    </S.Array>
-                    <S.Pick
-                      array={props.array}
-                      id="like"
-                      onClick={props.onClickArray}
-                    >
-                      찜한순
-                    </S.Pick>
+                    <S.ArrayBox>
+                      <S.Array
+                        array={props.array}
+                        id="recent"
+                        onClick={props.onClickArray}
+                      >
+                        최신순
+                      </S.Array>
+                      <S.ListArray src="/image/listarrow.png" />
+                    </S.ArrayBox>
+                    <S.ArrayBox>
+                      <S.Pick
+                        array={props.array}
+                        id="like"
+                        onClick={props.onClickArray}
+                      >
+                        찜한순
+                      </S.Pick>
+                      <S.ListArray src="/image/listarrow.png" />
+                    </S.ArrayBox>
                   </S.WrapperArray>
+
                   <S.WrapperWrite>
                     <S.Button onClick={onClickMoveToPage("/boards/new")}>
                       글쓰기
