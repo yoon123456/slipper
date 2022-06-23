@@ -92,6 +92,7 @@ export default function KaKaoMapContainer(props: KaoKeyWord) {
   const onclickGeoLocation = () => {
     const handleSuccess = (pos: any) => {
       const { latitude, longitude } = pos.coords;
+
       setgeoLat(latitude);
       setgeoLng(longitude);
     };

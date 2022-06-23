@@ -15,9 +15,7 @@ export default function KakaomapPresenter(props: KaoKaoMap) {
         src="//dapi.kakao.com/v2/maps/sdk.js?appkey=10933d05118bfc99d732e83a2814b76a&libraries=services&autoload=false"
         strategy="beforeInteractive"
       />
-      <S.WeatherBox>
-        <WeatherAppleCation lat={props.geoLat} lng={props.geoLng} />
-      </S.WeatherBox>
+
       {props.roadViewFlag && (
         <>
           {props.address?.position.lat ? (
@@ -25,6 +23,7 @@ export default function KakaomapPresenter(props: KaoKaoMap) {
               <S.RoadButton type="button" onClick={props.onClickRoadView}>
                 로드뷰
               </S.RoadButton>
+
               <S.KakaoMapRoadview // 로드뷰를 표시할 Container
                 position={{
                   // 지도의 중심좌표
@@ -87,6 +86,7 @@ export default function KakaomapPresenter(props: KaoKaoMap) {
               >
                 현재위치
               </S.LocationButton>
+
               {!props.mapStatus && (
                 <>
                   <S.TrappickButton
@@ -95,9 +95,12 @@ export default function KakaomapPresenter(props: KaoKaoMap) {
                   >
                     교통정보
                   </S.TrappickButton>
+                  {/* <WeatherAppleCation lat={props.geoLat} lng={props.geoLng} /> */}
+
                   <S.RoadButton type="button" onClick={props.onClickRoadView}>
                     로드뷰
                   </S.RoadButton>
+                  <WeatherAppleCation lat={props.geoLat} lng={props.geoLng} />
                 </>
               )}
             </S.CategorySearch>

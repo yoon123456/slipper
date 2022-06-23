@@ -12,7 +12,6 @@ export default function MyPageContainer() {
   const [modalVisible, setModalVisible] = useState(false);
   const [nickname, setNickname] = useState("");
   const [fileUrl, setFileUrl] = useState([""]);
-  const [updateUrl, setUpdateUrl] = useState(0);
   const [introduce, setIntroduce] = useState("");
   const [mypageRight, setMypageRight] = useState("mypicks");
 
@@ -89,7 +88,7 @@ export default function MyPageContainer() {
 
   useEffect(() => {
     if (data?.fetchUser.imageUrl.length) {
-      setFileUrl((prev) => [data?.fetchUser.imageUrl]);
+      setFileUrl([data?.fetchUser.imageUrl]);
     }
   }, [data?.fetchUser.imageUrl]);
 

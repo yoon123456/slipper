@@ -57,9 +57,6 @@ export default function HeaderPresenter(props: HeaderPrpos) {
               </S.UserImage>
             ) : (
               <></>
-              //  <S.UserImage>
-              //   <S.UserImg src="image/profileDefault.png" />}
-              //  </S.UserImage>
             )}
           </S.WrapperUser>
         </S.WrapperBox>
