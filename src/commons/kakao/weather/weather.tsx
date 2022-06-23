@@ -1,8 +1,8 @@
 // 0549982cd3b0d3e5c607cdd39e8c682d
 import axios from "axios";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { WeatherProps, IWeatherOutput } from "../map.types";
-import { currentTime } from "../../libraries/date";
+import * as S from "./weather.styled";
 
 let current: IWeatherOutput | undefined;
 
@@ -10,6 +10,7 @@ export default function WeatherAppleCation(props: WeatherProps) {
   const API_KEY = "3ec951baf1ef4dc9278598d83dab35be";
 
   const [data, setData] = useState();
+  const weatherRef = useRef<HTMLButtonElement>(null);
 
   const callRestApi = async () => {
     const result = await axios.get(
@@ -19,22 +20,27 @@ export default function WeatherAppleCation(props: WeatherProps) {
     current = data;
   };
 
+  useEffect(() => {
+    weatherRef.current?.click();
+  }, [props.lat, props.lng]);
+
   return (
     <>
-      <div>
-        <button onClick={callRestApi}>버튼 </button>
-        <div>
-          {current?.weather?.map((el: any) => (
+      <S.WrapperOut>
+        <S.ApiButton onClick={callRestApi} ref={weatherRef}>
+          버튼
+        </S.ApiButton>
+        <S.CurrentWeather>
+          {current?.weather?.map((el: any, index: number) => (
             <>
-              <div key={el.id}></div>
-              <div>{el.description}</div>
-              <img src={`http://openweathermap.org/img/wn/${el.icon}.png`} />
+              <S.CurrentWeatherId key={index}></S.CurrentWeatherId>
+              <S.CurrentWeatherIcon
+                src={`http://openweathermap.org/img/wn/${el.icon}.png`}
+              />
             </>
           ))}
-        </div>
-        <div>{current?.feels_like}</div>
-      </div>
-      <div>{currentTime(current?.dt)}</div>
+        </S.CurrentWeather>
+      </S.WrapperOut>
     </>
   );
 }

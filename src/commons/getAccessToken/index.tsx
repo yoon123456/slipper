@@ -10,6 +10,7 @@ const RESTORE_ACCESS_TOKEN = gql`
 `;
 
 export async function getAccessToken() {
+
   try {
     const graphQLClient = new GraphQLClient(
       "https://backend.slipperofficial.shop/graphql",
@@ -21,5 +22,6 @@ export async function getAccessToken() {
     return newAccessToken;
   } catch (error) {
     console.log(error, "에러");
+
   }
 }
