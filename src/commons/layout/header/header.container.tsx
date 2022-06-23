@@ -16,21 +16,20 @@ import { isClickedNumState } from "../../store";
 export default function HeaderContainer() {
   const { onClickMoveToPage } = useMovetoPage();
   const [, setIsClickedNum] = useRecoilState(isClickedNumState);
+
   const { data } = useQuery(FETCH_USER);
   const [logout] = useMutation<Pick<IMutation, "logout">>(LOGOUT);
   const router = useRouter();
-
   const [udpatePayment] = useMutation<
     Pick<IMutation, "updatePayment">,
     IMutationUpdatePaymentArgs
   >(UPDATE_PAYMENT);
-
   const userPayment = async () => {
     if (data?.fetchUser.subType) {
       const current = new Date(getPaymentDate()),
-        currentTime = current.getTime(); // 현재
+        currentTime = current.getTime();
       const sub = new Date(data?.fetchUser.subEnd),
-        subTime = sub.getTime(); // 쿠폰
+        subTime = sub.getTime();
       const result = subTime - 9 * 60 * 60 * 1000;
       if (currentTime >= result) {
         try {
@@ -54,7 +53,6 @@ export default function HeaderContainer() {
       }
     }
   };
-
   const out = async () => {
     try {
       await logout();
@@ -65,12 +63,10 @@ export default function HeaderContainer() {
       Modal.error({ content: error.message });
     }
   };
-
   useEffect(() => {
     userPayment();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [data]);
-
   return (
     <HeaderPresenter
       onClickMoveToPage={onClickMoveToPage}

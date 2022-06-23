@@ -41,3 +41,13 @@ export const resetAdress = atom({
     },
   },
 });
+
+export const KaokaoLat = atom({
+  key: "KaokaoLat",
+  default: 0,
+});
+
+export const KaokaoLng = atom({
+  key: "KaokaoLng",
+  default: 0,
+});

@@ -1,7 +1,7 @@
 import * as S from "./mypaids.styles";
 import { IMypaidsPresenter } from "./mypaids.types";
 import InfiniteScroll from "react-infinite-scroller";
-
+import { getDate } from "../../../commons/libraries/date";
 export default function MypaidsPresenter(props: IMypaidsPresenter) {
   return (
     <S.WrapperOut>
@@ -22,8 +22,8 @@ export default function MypaidsPresenter(props: IMypaidsPresenter) {
             {props.data?.fetchPayments.map((el: any, index: number) => (
               <S.RowWrapper key={index}>
                 <S.RowFirst>{el.subType}</S.RowFirst>
-                <S.Row>{el.subStart}</S.Row>
-                <S.Row>{el.subEnd}</S.Row>
+                <S.Row>{getDate(el.subStart)}</S.Row>
+                <S.Row>{getDate(el.subEnd)}</S.Row>
               </S.RowWrapper>
             )) || <S.RowWrapper></S.RowWrapper>}
           </InfiniteScroll>

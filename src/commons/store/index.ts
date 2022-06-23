@@ -1,5 +1,5 @@
 import { atom, selector } from "recoil";
-import { string } from "yup";
+import { number, string } from "yup";
 import { getAccessToken } from "../getAccessToken";
 
 export const visitedPageState = atom({
@@ -22,7 +22,7 @@ export const isLoadedState = atom({
   key: "isLoadedState",
   default: true,
 });
-
+// 경찬 추가 22.06.01
 export const addressName = atom({
   key: "addressName",
   default: [
@@ -75,7 +75,7 @@ export const userInfoState = atom({
     nickname: "",
   },
 });
-
+// 경찬 추가 22.06.01
 export const userLoginInfo = atom({
   key: "userLoginInfo",
   default: {
@@ -90,21 +90,25 @@ export const userLoginInfo = atom({
   },
 });
 
+// 경찬 추가 22.06.01
 export const detailIdState = atom({
   key: "detailIdState",
   default: [""],
 });
 
+// 경찬 추가 22.06.01
 export const serchBar = atom({
   key: "serch",
   default: "",
 });
 
+// 경찬 추가 22.06.01
 export const categoryBar = atom({
   key: "category",
   default: "",
 });
 
+// 경찬 추가 22.06.01
 export const restoreAccessTokenLoadable = selector({
   key: "restoreAccessTokenLoadable",
   get: async () => {
