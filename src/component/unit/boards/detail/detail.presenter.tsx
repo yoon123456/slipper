@@ -6,7 +6,6 @@ import { getDate } from "../../../../commons/libraries/date";
 import KakaoMapFetch from "../../../../commons/kakaoMapFetch";
 import QuestionWriteContainer from "../../question/write/questionwrite.container";
 import Dompurify from "dompurify";
-import { IBoardImage } from "../../../../commons/types/generated/types";
 import QuestionListContainer from "../../question/list/questionlist.container";
 import AOS from "aos";
 import "aos/dist/aos.css";

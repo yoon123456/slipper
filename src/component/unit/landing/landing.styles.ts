@@ -80,6 +80,15 @@ export const MainImg = styled2.img`
   width: 100%;
   height: 100%;
 `;
+export const MainText = styled2.div`
+  z-index: 9999;
+  color: black;
+  position: absolute;
+  left: 38%;
+  top: 5%;
+  font-size: 2rem;
+  font-weight: 300;
+`;
 export const MainBlue = styled2.div`
   text-align: center;
 `;

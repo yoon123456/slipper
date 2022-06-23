@@ -19,7 +19,6 @@ export default function QuestionListUIItem(props: IQuestionListUIItem) {
 
   const [isActive, setIsActive] = useState(false);
   const [isEdit, setIsEdit] = useState(false);
-  // const [question, setQuestion] = useState("");
 
   const [deleteComment] = useMutation<
     Pick<IMutation, "deleteComment">,
