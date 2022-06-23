@@ -34,7 +34,6 @@ export default function QuestionWriteContainer(props: IQuestionWriteContainer) {
     setQuestion(event.target.value);
     setIsActive(true);
   };
-  console.log(props.data?.fetchBoard.id, "갑자기 왜 못받아와");
 
   // 댓글 뮤테이션 날리기
   const onClickQuestion = async () => {
