@@ -27,7 +27,6 @@ export default function DetailContainer() {
   >(FETCH_BOARD, {
     variables: { boardId: String(router.query.boardId) },
   });
-  console.log(data, "data");
 
   const { data: likeData } = useQuery<
     Pick<IQuery, "fetchUserLike">,
