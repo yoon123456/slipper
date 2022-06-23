@@ -46,9 +46,6 @@ export const ImgWrapper = styled.div`
   width: 50%;
   height: 100%;
   padding: 10px;
-  :hover {
-    padding: 0;
-  }
 `;
 export const Img = styled.img`
   width: 100%;
@@ -146,29 +143,33 @@ export const IconWrap = styled.div`
   align-items: center;
 `;
 export const Icon = styled.img`
-  width: 25px;
+  width: 22px;
   cursor: pointer;
+  margin-left: 8px;
 `;
 export const UserInfoWrap = styled.div`
   width: 100%;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
+  margin-bottom: 10px;
 `;
 export const User = styled.div`
   width: 100%;
   display: flex;
 `;
 export const UserImg = styled.img`
-  width: 25%;
+  width: 60px;
+  height: 60px;
+  object-fit: cover;
   border-radius: 20px;
   padding: 10px;
 `;
 export const UserName = styled.div`
   width: 70%;
-  font-size: 3rem;
-  margin-left: 10%;
+  font-size: 2rem;
+  margin-left: 5%;
   display: flex;
   align-items: center;
 `;
@@ -180,7 +181,7 @@ export const UserLivingWrap = styled.div`
 
 export const UserLiving = styled.div`
   width: 30%;
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   padding: 0 3% 0 3%;
   display: flex;
   justify-content: flex-start;
@@ -188,7 +189,7 @@ export const UserLiving = styled.div`
 `;
 export const UserLivingPeriod = styled.div`
   width: 70%;
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   display: flex;
   align-items: center;
 `;
@@ -198,7 +199,7 @@ export const UserWrap = styled.div`
 `;
 export const UserTitle = styled.div`
   width: 100%;
-  font-size: 2.6rem;
+  font-size: 2rem;
   font-weight: 900;
   padding: 3% 0 3% 2%;
 `;
