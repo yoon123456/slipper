@@ -76,7 +76,7 @@ export const WrapperArray = styled.div`
 `;
 
 export const Array = styled.div`
-  width: 16%;
+  /* width: 16%; */
   line-height: 2;
   font-size: 1.6rem;
   margin-left: 30px;
@@ -88,11 +88,19 @@ export const Array = styled.div`
   text-decoration: ${(props: Iprops) =>
     props.array === "recent" && "underline"};
 `;
+export const ArrayBox = styled.div`
+  display: flex;
+  align-items: center;
+`;
+export const ListArray = styled.img`
+  width: 17px;
+  margin-left: 2px;
+`;
 export const Pick = styled.div`
-  width: 40%;
+  /* width: 40%; */
   line-height: 2;
   font-size: 1.6rem;
-  margin-left: 10px;
+  margin-left: 20px;
   color: #008af6;
   cursor: pointer;
   :hover {
@@ -109,12 +117,12 @@ export const WrapperBottom = styled.div`
 `;
 
 export const Button = styled.div`
-  width: 95%;
+  width: 80%;
   text-align: center;
   line-height: 2;
   color: black;
   background-color: #f2f2f2;
-  border-radius: 10px;
+  border-radius: 7px;
   font-size: 1.4rem;
   cursor: pointer;
   :hover {
@@ -163,7 +171,7 @@ export const ImageWrap = styled.div`
 export const ImageLogo = styled.img`
   width: 100%;
   height: 100%;
-  object-fit: contain;
+  object-fit: cover;
   border-radius: 10px 0 0 10px;
   position: relative;
 `;
@@ -200,7 +208,7 @@ export const Count = styled.div`
 export const Image = styled.img`
   width: 100%;
   height: 100%;
-  object-fit: contain;
+  object-fit: cover;
   position: relative;
 `;
 export const ListTitleWrap = styled.div`
@@ -312,7 +320,9 @@ export const UserImgWrap = styled.div`
   align-items: center;
 `;
 export const UserImg = styled.img`
-  width: 35%;
+  width: 40px;
+  height: 40px;
+  object-fit: cover;
   border-radius: 10px;
   margin-right: 10px;
 `;
@@ -330,7 +340,6 @@ export const DropdownList = styled.div`
   width: 100px;
   z-index: 9;
   text-align: center;
-  margin-top: 10px;
 `;
 
 export const List = styled.div`
