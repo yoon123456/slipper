@@ -11,29 +11,33 @@ export const Head = styled.div`
 export const BodyWrapper = styled.div`
   width: 100%;
   padding: 1%;
+`;
+export const FlexBox = styled.div`
+  width: 100%;
+  height: 100%;
   display: flex;
-  flex-direction: column;
+  align-items: center;
 `;
 export const BodyHeadWrapper = styled.div`
   width: 100%;
-  height: 5px;
+  height: 55px;
   margin: 1%;
   padding: 2%;
-  padding-top: 5%;
   display: flex;
-  flex-direction: row;
   align-items: center;
-  justify-content: left;
 `;
 export const BodyHeadFirst = styled.div`
-  width: 20%;
-  font-size: 1.5rem;
+  width: 100px;
+  font-size: 1.4rem;
+  text-align: center;
 `;
 export const BodyHead = styled.div`
-  width: 34.5%;
-  font-size: 1.5rem;
+  width: 20%;
+  font-size: 1.2rem;
+  text-align: center;
 `;
 export const Body = styled.div`
+  width: 100%;
   height: 500px;
   overflow: scroll;
   ::-webkit-scrollbar {
@@ -46,17 +50,35 @@ export const RowWrapper = styled.div`
   margin: 1%;
   padding: 2%;
   display: flex;
-  flex-direction: row;
   align-items: center;
-  justify-content: left;
   background-color: #f4f7f9b3;
   border-radius: 5px;
 `;
 export const RowFirst = styled.div`
-  width: 20%;
+  width: 100px;
   font-size: 1.4rem;
+  text-align: center;
 `;
 export const Row = styled.div`
-  width: 35%;
-  font-size: 1.4rem;
+  width: 20%;
+
+  font-size: 1.1rem;
+  text-align: center;
+`;
+
+export const refundPaymentButtonHidden = styled.div`
+  cursor: pointer;
+  width: 20%;
+  text-align: center;
+
+  :hover {
+    text-decoration: underline;
+  }
+`;
+export const refundPaymentButton = styled.div`
+  cursor: pointer;
+  display: none;
+  :hover {
+    text-decoration: underline;
+  }
 `;

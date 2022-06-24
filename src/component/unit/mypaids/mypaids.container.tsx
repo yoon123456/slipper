@@ -6,11 +6,8 @@ import {
 import MypaidsPresenter from "./mypaids.presenter";
 import { FETCH_PAYMENTS, REFUND_PAYMENT } from "./mypaids.queries";
 import { IMyPaymentHistory } from "./mypaids.types";
-import { MouseEvent } from "react";
-import { JoinPathTuple } from "react-hook-form/dist/types/path/common";
-import { modalGlobalConfig } from "antd/lib/modal/confirm";
+import { MouseEvent, useEffect, useState } from "react";
 import { Modal } from "antd";
-import { Content } from "antd/lib/layout/layout";
 
 export default function MypaidsContainer(props: IMyPaymentHistory) {
   const { data, fetchMore } = useQuery(FETCH_PAYMENTS, {
@@ -24,11 +21,14 @@ export default function MypaidsContainer(props: IMyPaymentHistory) {
     IMutationRefundPaymentArgs
   >(REFUND_PAYMENT);
 
-  const deletePayment = async (event: MouseEvent<HTMLButtonElement>) => {
+  const [subStart, setSubStart] = useState([""]);
+  const [subEnd, setSubEnd] = useState([""]);
+
+  const deletePayment = async (event: MouseEvent<HTMLDivElement>) => {
     try {
       await refundPayment({
         variables: {
-          impUid: (event.target as HTMLButtonElement).id,
+          impUid: (event.target as HTMLDivElement).id,
         },
         update(cache, { data }) {
           const refundPayment = data?.refundPayment;
@@ -69,6 +69,19 @@ export default function MypaidsContainer(props: IMyPaymentHistory) {
       },
     });
   };
+
+  // useEffect(() => {
+  //   const startTime = data?.fetchPayments.map((el: any) => {
+  //     const start = el.subStart;
+  //     console.log(el.subStart.substring);
+  //     setSubStart(start.substring(0, 10));
+  //   });
+
+  //   const endTime = data?.fetchPayments.map((el: any) => {
+  //     setSubEnd(el.subEnd);
+  //   });
+  //   console.log(subStart);
+  // });
 
   return (
     <MypaidsPresenter
