@@ -12,21 +12,25 @@ const Num = styled.h2`
   margin-top: 5%;
 `;
 
-export default function Number(props: any) {
+interface INmumberProps {
+  flag: boolean;
+}
+
+export default function Number(props: INmumberProps) {
   const [minutes, setMinutes] = useState(3);
   const [seconds, setSeconds] = useState(0);
 
   useEffect(() => {
     if (props.flag) {
       const countdown = setInterval(() => {
-        if (parseInt(seconds) > 0) {
-          setSeconds(parseInt(seconds) - 1);
+        if (seconds > 0) {
+          setSeconds(seconds - 1);
         }
-        if (parseInt(seconds) === 0) {
-          if (parseInt(minutes) === 0) {
+        if (seconds === 0) {
+          if (minutes === 0) {
             clearInterval(countdown);
           } else {
-            setMinutes(parseInt(minutes) - 1);
+            setMinutes(minutes - 1);
             setSeconds(59);
           }
         }
