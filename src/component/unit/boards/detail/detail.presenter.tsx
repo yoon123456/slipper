@@ -10,6 +10,7 @@ import QuestionListContainer from "../../question/list/questionlist.container";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import { useEffect } from "react";
+import { useMovetoPage } from "../../../../commons/hooks/movePage";
 
 export default function DetailPresenter(props: IDetailPresenter) {
   useEffect(() => {
@@ -17,6 +18,7 @@ export default function DetailPresenter(props: IDetailPresenter) {
       duration: 2000,
     });
   });
+  const { onClickMoveToPage } = useMovetoPage();
 
   return (
     <>
@@ -152,6 +154,7 @@ export default function DetailPresenter(props: IDetailPresenter) {
               </S.UserWrap>
               {typeof window !== "undefined" && (
                 <S.UserContents
+                  className="css-19t73uj"
                   dangerouslySetInnerHTML={{
                     __html: Dompurify.sanitize(
                       props.data?.fetchBoard.contents
@@ -162,7 +165,7 @@ export default function DetailPresenter(props: IDetailPresenter) {
                 ></S.UserContents>
               )}
               <S.WrapperBottom>
-                <S.Button onClick={props.onClickMoveToList}>목록</S.Button>
+                <S.Button onClick={onClickMoveToPage("/boards")}>목록</S.Button>
               </S.WrapperBottom>
             </S.Right>
           </S.Middle>

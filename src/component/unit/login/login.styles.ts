@@ -3,12 +3,22 @@ import { IProps } from "./login.types";
 
 export const Back = styled.div`
   width: 100px;
+  height: 60px;
+  font-size: 1.5rem;
+  cursor: pointer;
+  font-family: "HallymGothic-Regular";
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #008af6;
+  border-radius: 10px;
 `;
 
 export const Wrapper = styled.div`
   display: flex;
   height: 100vh;
   margin: 0 auto;
+  font-family: "HallymGothic-Regular";
 `;
 
 export const WrapperOut = styled.div`
