@@ -3,6 +3,9 @@ import { IMypaidsPresenter } from "./mypaids.types";
 import InfiniteScroll from "react-infinite-scroller";
 import { getDate } from "../../../commons/libraries/date";
 export default function MypaidsPresenter(props: IMypaidsPresenter) {
+  props.data?.fetchPayments.map((el: any) => {
+    console.log(el);
+  });
   return (
     <S.WrapperOut>
       <S.Head>이용권 결제 내역</S.Head>
@@ -20,11 +23,20 @@ export default function MypaidsPresenter(props: IMypaidsPresenter) {
             useWindow={false}
           >
             {props.data?.fetchPayments.map((el: any, index: number) => (
-              <S.RowWrapper key={index}>
-                <S.RowFirst>{el.subType}</S.RowFirst>
-                <S.Row>{getDate(el.subStart)}</S.Row>
-                <S.Row>{getDate(el.subEnd)}</S.Row>
-              </S.RowWrapper>
+              <>
+                <button
+                  type="button"
+                  id={el.impUid}
+                  onClick={props.deletePayment}
+                >
+                  환불
+                </button>
+                <S.RowWrapper key={index}>
+                  <S.RowFirst>{el.subType}</S.RowFirst>
+                  <S.Row>{el.subStart}</S.Row>
+                  <S.Row>{el.subEnd}</S.Row>
+                </S.RowWrapper>
+              </>
             )) || <S.RowWrapper></S.RowWrapper>}
           </InfiniteScroll>
         </S.Body>

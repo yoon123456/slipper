@@ -8,6 +8,7 @@ export const FETCH_PAYMENTS = gql`
       subStart
       subEnd
       impUid
+      subType
       user {
         id
         email
@@ -15,5 +16,11 @@ export const FETCH_PAYMENTS = gql`
         phone
       }
     }
+  }
+`;
+
+export const REFUND_PAYMENT = gql`
+  mutation refundPayment($impUid: String!) {
+    refundPayment(impUid: $impUid)
   }
 `;
