@@ -34,6 +34,7 @@ export const TopOn = styled.div`
   border-bottom: 1px solid #008af6;
   background-color: white;
   z-index: 9999;
+  cursor: pointer;
 `;
 export const TopOff = styled.div`
   width: 26%;
@@ -45,18 +46,12 @@ export const TopOff = styled.div`
   align-items: center;
   justify-content: space-between;
   color: lightgray;
-  /* border-bottom: 1px solid gray; */
-  /* background-color: #f4f7f9b3; */
   border-top-left-radius: 20px;
   border-top-right-radius: 20px;
-  /* box-shadow: 7px -3px 8px 0px rgb(238 238 238); */
+  cursor: pointer;
 `;
 export const TopRow = styled.div`
   width: 35%;
-  /* display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-between; */
 `;
 export const TopImg = styled.img`
   width: 25%;
@@ -75,8 +70,6 @@ export const BodyWrapper = styled.div`
   width: 100%;
   height: 1000px;
   padding: 7% 3% 5% 3%;
-  /* border-radius: 0px 0px 41px 41px; */
-  /* box-shadow: 4px 2px 14px 0px #e8e8e8; */
   z-index: 0;
 `;
 export const Body = styled.div`
@@ -188,18 +181,17 @@ export const ButtonWrapper = styled.div`
   justify-content: space-between;
 `;
 export const Button = styled.button`
-  width: 15%;
-  height: 50%;
+  width: 100px;
+  height: 40px;
   padding: 1%;
   font-size: 1.5rem;
   text-decoration: none;
   text-shadow: 0px 0px 0px #f0f0f0;
   border: none;
   border-radius: 10px;
-  background-color: white;
-  color: ${(props: IProps) => (props.isButtonActive ? "white" : "#008af6")};
-  /* border-bottom: ${(props: IProps) =>
-    props.isButtonActive ? "white" : "#008af6"}; */
+  color: ${(props: IProps) => (props.isButtonActive ? "#fff" : "#008af6")};
+  background-color: ${(props: IProps) =>
+    props.isButtonActive ? "#008af6" : "#f4f7f9b3"};
   display: inline-block;
   cursor: pointer;
   :active {
@@ -226,8 +218,8 @@ export const MapButtonOn = styled.button`
   }
 `;
 export const MapButtonOff = styled.button`
-  width: 15%;
-  height: 50%;
+  width: 100px;
+  height: 40px;
   padding: 1%;
   font-size: 1.5rem;
   text-decoration: none;
@@ -247,8 +239,6 @@ export const ImageBodyWrapper = styled.div`
   width: 100%;
   height: 1000px;
   padding: 7% 15% 5% 15%;
-  /* border-radius: 0px 0px 41px 41px; */
-  /* box-shadow: 0px 10px 20px rgba(214, 214, 214, 1); */
 `;
 export const ImageBody = styled.div`
   width: 100%;
@@ -269,8 +259,8 @@ export const ImageButtonWrapper = styled.div`
   justify-content: space-between;
 `;
 export const FinishButton = styled.button`
-  width: 15%;
-  height: 50%;
+  width: 100px;
+  height: 40px;
   padding: 1%;
   font-size: 1.5rem;
   text-decoration: none;

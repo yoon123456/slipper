@@ -67,10 +67,10 @@ export default function ListPresenter(props: IListPresenter) {
                 </S.UserImgWrap>
                 <S.DropdownList over={props.over}>
                   <S.List onClick={props.onClickMoveToPage("/payment")}>
-                    구독하기
+                    구독 서비스
                   </S.List>
                   <S.List onClick={props.onClickMoveToPage("/mypage")}>
-                    내신발장
+                    마이페이지
                   </S.List>
                 </S.DropdownList>
               </S.UserImage>
@@ -145,7 +145,7 @@ export default function ListPresenter(props: IListPresenter) {
               </S.WrapperLeft>
             ) : (
               <S.EmphyLeft>
-                <S.EmphyText>검색 결과가 없습니다</S.EmphyText>
+                <S.EmphyText>등록된 결과가 없습니다</S.EmphyText>
               </S.EmphyLeft>
             )}
             <S.WrapperRight>

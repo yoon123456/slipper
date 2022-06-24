@@ -135,7 +135,7 @@ export default function KakaomapPresenter(props: KaoKaoMap) {
               position={{ lat: props.geoLat, lng: props.geoLng }}
               image={{
                 src: "https://media.giphy.com/media/rcSLJHmBdAMfRJ67bs/giphy.gif",
-                size: { width: 50, height: 55 },
+                size: { width: 40, height: 40 },
               }}
             ></S.KakaoMapMarker>
             {props.trrapicFlag ? (

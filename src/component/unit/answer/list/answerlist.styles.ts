@@ -20,11 +20,10 @@ export const ProfileImage = styled.img`
   width: 90%;
   height: 100%;
   border-radius: 10px;
-  border: 1px solid black;
 `;
 export const RightBox = styled.div`
   width: 90%;
-  margin-left: 5px;
+  margin-left: 15px;
 `;
 export const Top = styled.div`
   /* background-color: red; */
@@ -51,14 +50,12 @@ export const Time = styled.span`
   margin-left: 1%;
 `;
 export const Question = styled.div`
-  /* margin-top: 5px; */
   font-size: 1.3rem;
-  /* height: 35%; */
   outline: none;
   border-radius: 12px;
   padding: 1%;
-  box-shadow: 8px 13px 3px lightgrey;
-  background-color: #f6f6f6;
+  box-shadow: 8px 13px 3px #e0e0e0;
+  background-color: #f9f9f9;
 `;
 export const QuestionAnswer = styled.div`
   width: 100px;
