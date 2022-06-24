@@ -12,7 +12,7 @@ export const WrapperOut = styled.div`
   font-family: "HallymGothic-Regular";
 `;
 export const WrapperLeft = styled.div`
-  width: 25%;
+  width: 20%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -21,7 +21,7 @@ export const WrapperLeft = styled.div`
   border-radius: 41px 0 0 41px;
 `;
 export const LeftTop = styled.div`
-  width: 90%;
+  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -55,9 +55,11 @@ export const ProfileImage = styled.img`
   width: 110px;
   height: 110px;
   margin-bottom: 10%;
+  border-radius: 10px;
 `;
 export const Introduce = styled.div`
-  width: 90%;
+  width: 100%;
+  word-break: break-all;
   height: 130px;
   font-size: 1.4rem;
   text-align: center;
@@ -65,7 +67,6 @@ export const Introduce = styled.div`
   padding: 5%;
   margin-top: 10%;
   margin-bottom: 20%;
-  overflow: scroll;
   ::-webkit-scrollbar {
     display: none;
   }
@@ -90,10 +91,9 @@ export const ProfileImageEditWrapper = styled.div`
   height: 10%;
   display: flex;
   flex-direction: column;
-  /* justify-content: safe; */
   padding-bottom: 7%;
 `;
-export const IntroduceEditInput = styled.input`
+export const IntroduceEditInput = styled.textarea`
   width: 100%;
   height: 100px;
   text-align: start;
@@ -102,9 +102,10 @@ export const IntroduceEditInput = styled.input`
   font-family: "HallymGothic-Regular";
   border: 1px solid lightgray;
   outline: none;
+  resize: none;
 `;
 export const MenuWrapper = styled.div`
-  width: 100%;
+  width: 90%;
   height: 70px;
   display: flex;
   flex-direction: row;
@@ -134,4 +135,8 @@ export const WrapperRight = styled.div`
 export const Right = styled.div`
   width: 100%;
   padding: 5%;
+`;
+export const Length = styled.div`
+  text-align: right;
+  color: gray;
 `;

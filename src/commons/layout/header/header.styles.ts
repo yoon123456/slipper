@@ -1,5 +1,6 @@
 import styled from "@emotion/styled";
 import { Iprops } from "../../../component/unit/boards/list/list.types";
+import { IPropsHeader } from "./header.types";
 
 export const WrapperOut = styled.div`
   height: 70px;
@@ -38,13 +39,23 @@ export const TestWrapper = styled.div`
   display: flex;
   text-align: center;
 `;
-export const Test = styled.div`
+export const Board = styled.div`
   width: 33.3%;
   font-size: 1.6rem;
   cursor: pointer;
-  :hover {
-    color: #008af6;
-  }
+  color: ${(props: IPropsHeader) => (props.ClickBoard ? "#008af6" : "#000")};
+`;
+export const Payment = styled.div`
+  width: 33.3%;
+  font-size: 1.6rem;
+  cursor: pointer;
+  color: ${(props: IPropsHeader) => (props.ClickPayment ? "#008af6" : "#000")};
+`;
+export const Mypage = styled.div`
+  width: 33.3%;
+  font-size: 1.6rem;
+  cursor: pointer;
+  color: ${(props: IPropsHeader) => (props.ClickMypage ? "#008af6" : "#000")};
 `;
 export const LogOut = styled.div`
   width: 115px;
@@ -148,7 +159,9 @@ export const UserImgWrap = styled.div`
   align-items: center;
 `;
 export const UserImg = styled.img`
-  width: 35%;
+  width: 40px;
+  height: 40px;
+  object-fit: cover;
   border-radius: 10px;
   margin-right: 10px;
 `;

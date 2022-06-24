@@ -14,12 +14,21 @@ import { useRecoilState } from "recoil";
 import { isClickedNumState } from "../../store";
 
 export default function HeaderContainer() {
+  const router = useRouter();
   const { onClickMoveToPage } = useMovetoPage();
+
+  const BOARDS_NEW = ["/boards/new"];
+  const PAYMENT = ["/payment"];
+  const MYPAGE = ["/mypage"];
+
+  const ClickBoard = BOARDS_NEW.includes(router.asPath);
+  const ClickPayment = PAYMENT.includes(router.asPath);
+  const ClickMypage = MYPAGE.includes(router.asPath);
+
   const [, setIsClickedNum] = useRecoilState(isClickedNumState);
 
   const { data } = useQuery(FETCH_USER);
   const [logout] = useMutation<Pick<IMutation, "logout">>(LOGOUT);
-  const router = useRouter();
   const [udpatePayment] = useMutation<
     Pick<IMutation, "updatePayment">,
     IMutationUpdatePaymentArgs
@@ -71,6 +80,9 @@ export default function HeaderContainer() {
       onClickMoveToPage={onClickMoveToPage}
       data={data}
       out={out}
+      ClickBoard={ClickBoard}
+      ClickPayment={ClickPayment}
+      ClickMypage={ClickMypage}
     />
   );
 }

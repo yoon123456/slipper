@@ -23,7 +23,7 @@ export interface IMyPagePresenter {
   modalCancel: () => void;
   onChangeNickname: (event: ChangeEvent<HTMLInputElement>) => void;
   onChangeFileUrl: (fileUrl: string) => void;
-  onChangeIntroduce: (event: ChangeEvent<HTMLInputElement>) => void;
+  onChangeIntroduce: (event: ChangeEvent<HTMLTextAreaElement>) => void;
   modalOk: () => void;
   nickname: string;
   payment: Pick<IQuery, "fetchPayments"> | undefined;
@@ -31,6 +31,7 @@ export interface IMyPagePresenter {
     fetchMoreOptions: FetchMoreQueryOptions<OperationVariables, any> &
       FetchMoreOptions<any, OperationVariables>
   ) => void;
+  length: number;
 }
 
 export interface IProps {

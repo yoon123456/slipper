@@ -55,14 +55,15 @@ export default function MyPagePresenter(props: IMyPagePresenter) {
 
             <S.ModalHead>자기소개글 수정</S.ModalHead>
             <S.IntroduceEditInput
-              type="text"
               defaultValue={
                 props.data?.fetchUser.introduce
                   ? props.data?.fetchUser.introduce
                   : ""
               }
+              maxLength={100}
               onChange={props.onChangeIntroduce}
             />
+            <S.Length>{props.length} / 100</S.Length>
           </Modal>
         </S.LeftTop>
         {/* 메뉴버튼 */}
@@ -77,7 +78,7 @@ export default function MyPagePresenter(props: IMyPagePresenter) {
           onClick={props.onClickMyboards}
           mypageRight={props.mypageRight === "myboards"}
         >
-          <S.Icon src="/image/myboardsColored.png"></S.Icon>
+          <S.Icon src="/image/mypagelist.png"></S.Icon>
           <S.MenuButton>내가 쓴 글</S.MenuButton>
         </S.MenuWrapper>
         <S.MenuWrapper

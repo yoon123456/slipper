@@ -108,7 +108,10 @@ export default function DetailPresenter(props: IDetailPresenter) {
             <S.Right data-aos="fade-left">
               <S.EditDeleteWrap>
                 <S.UserWriteDate>
-                  {getPaymentDate(props.data?.fetchBoard.createdAt)}
+                  {getPaymentDate(props.data?.fetchBoard.createdAt).substring(
+                    0,
+                    10
+                  )}
                 </S.UserWriteDate>
                 {props.data?.fetchBoard.nickname ===
                 props.userData?.fetchUser.nickname ? (

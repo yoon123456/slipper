@@ -106,10 +106,11 @@ export default function JoinPresenter(props: IJoinPresenterProps) {
                 </S.CheckEnd>
               </S.CheckNumber>
               <S.Introduce
-                type="textarea"
-                placeholder="간단한 소개글"
+                placeholder="간단한 소개글(100자 이내)"
                 {...props.register("introduce")}
+                maxLength={100}
               />
+              <S.Length>{props.length}/100</S.Length>
               <S.JoinSlipper>슬리퍼 신기</S.JoinSlipper>
             </form>
           </S.WrapperJoin>

@@ -16,15 +16,24 @@ export default function HeaderPresenter(props: HeaderPrpos) {
           </S.WrapperInLogo>
           <S.WrapperIn>
             <S.TestWrapper>
-              <S.Test onClick={props.onClickMoveToPage("/boards/new")}>
+              <S.Board
+                onClick={props.onClickMoveToPage("/boards/new")}
+                ClickBoard={props.ClickBoard}
+              >
                 글쓰기
-              </S.Test>
-              <S.Test onClick={props.onClickMoveToPage("/payment")}>
+              </S.Board>
+              <S.Payment
+                onClick={props.onClickMoveToPage("/payment")}
+                ClickPayment={props.ClickPayment}
+              >
                 구독서비스
-              </S.Test>
-              <S.Test onClick={props.onClickMoveToPage("/mypage")}>
-                내 신발장
-              </S.Test>
+              </S.Payment>
+              <S.Mypage
+                onClick={props.onClickMoveToPage("/mypage")}
+                ClickMypage={props.ClickMypage}
+              >
+                마이페이지
+              </S.Mypage>
             </S.TestWrapper>
           </S.WrapperIn>
           <S.WrapperUser>

@@ -313,6 +313,7 @@ export const Box = styled2.div`
 export const FlexBox = styled2.div`
   display: flex;
   align-items: center;
+  margin-top: 80px;
 `;
 export const TBox = styled2.div`
   display: flex;
@@ -344,7 +345,7 @@ export const Pbox1 = styled2.div`
   background-color: #f4f4f4;
 `;
 export const ImageCafe = styled2.img`
-  width: 290px;e
+  width: 290px;
   display: flex;
   justify-content: flex-end;
   :hover {
@@ -397,7 +398,7 @@ export const ImgBox1 = styled2.div`
 `;
 export const ImgBox2 = styled2.div`
   width: 500px;
-  margin-right: 70px;
+  margin-right: 130px;
   background-color: #42c58a;
   margin-top: 50px;
   backface-visibility: hidden;

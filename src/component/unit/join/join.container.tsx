@@ -45,7 +45,7 @@ const schema = yup.object({
 
 export default function JoinContainer() {
   const router = useRouter();
-  const { register, handleSubmit, formState } = useForm<IFormValues>({
+  const { register, handleSubmit, watch, formState } = useForm<IFormValues>({
     resolver: yupResolver(schema),
     mode: "onChange",
   });
@@ -61,6 +61,8 @@ export default function JoinContainer() {
   const [role, setRole] = useState("");
   const [isEdit, setIsEdit] = useState(false);
   const [isShow, setIsShow] = useState(true);
+
+  const length = watch().introduce?.length;
 
   const [createUser] = useMutation<
     Pick<IMutation, "createUser">,
@@ -190,6 +192,7 @@ export default function JoinContainer() {
         onClickRadio={onClickRadio}
         onClickRole={onClickRole}
         onClickCancle={onClickCancle}
+        length={length}
       />
     </>
   );

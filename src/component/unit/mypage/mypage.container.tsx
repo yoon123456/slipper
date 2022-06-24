@@ -4,8 +4,8 @@ import { useMutation, useQuery } from "@apollo/client";
 import React, { ChangeEvent, useEffect, useState } from "react";
 import { Modal } from "antd";
 import { IUpdateUserInput } from "./mypage.types";
-import { withAuth } from "../../../commons/hoc/withAuth";
-function MyPageContainer() {
+
+export default function MyPageContainer() {
   const [updateUser] = useMutation(UPDATE_USER);
   const { data } = useQuery(FETCH_USER);
   const { data: payment, fetchMore: payFecthMore } = useQuery(FETCH_PAYMENTS);
@@ -14,6 +14,7 @@ function MyPageContainer() {
   const [fileUrl, setFileUrl] = useState([""]);
   const [introduce, setIntroduce] = useState("");
   const [mypageRight, setMypageRight] = useState("mypicks");
+  const [length, setLength] = useState(0);
 
   const onClickMypicks = () => {
     setMypageRight("mypicks");
@@ -44,8 +45,9 @@ function MyPageContainer() {
     setFileUrl(newFileUrl);
   };
 
-  const onChangeIntroduce = (event: ChangeEvent<HTMLInputElement>) => {
+  const onChangeIntroduce = (event: ChangeEvent<HTMLTextAreaElement>) => {
     setIntroduce(event.target.value);
+    setLength(event.target.value.length);
   };
 
   const myInfo = async () => {
@@ -110,7 +112,7 @@ function MyPageContainer() {
       nickname={nickname}
       payment={payment}
       payFecthMore={payFecthMore}
+      length={length}
     />
   );
 }
-export default withAuth(MyPageContainer);
