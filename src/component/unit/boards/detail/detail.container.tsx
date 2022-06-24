@@ -78,11 +78,6 @@ export default function DetailContainer() {
     router.push(`/boards/${router.query.boardId}/edit`);
   };
 
-  // 페이지 이동 함수
-  const onClickMoveToList = () => {
-    router.push("/boards");
-  };
-
   // 좋아요 함수
   const onClickLike = async (event: MouseEvent<HTMLImageElement>) => {
     try {
@@ -110,7 +105,6 @@ export default function DetailContainer() {
       onClickDeleteBoard={onClickDeleteBoard}
       data={data}
       likeData={likeData}
-      onClickMoveToList={onClickMoveToList}
       onClickMoveToBoardEdit={onClickMoveToBoardEdit}
       onClickLike={onClickLike}
       isActive={isActive}

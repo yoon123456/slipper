@@ -1,11 +1,7 @@
 import styled from "@emotion/styled";
-import { HeaderPrpos } from "../layout/header/header.types";
 
-const LogoBox = styled.div`
-  /* background-color: #fff314; */
-`;
+const LogoBox = styled.div``;
 const LogoText = styled.img`
-  /* padding: 40px; */
   width: 100%;
 `;
 

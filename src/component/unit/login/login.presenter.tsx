@@ -7,7 +7,7 @@ export default function JoinPresenter(props: IJoinPresenter) {
 
   return (
     <form onSubmit={props.handleSubmit(props.onclickLogin)}>
-      <S.Back onClick={onClickMoveToPage("/boards")}>뒤로</S.Back>
+      <S.Back onClick={onClickMoveToPage("/boards")}>{"⇦"}목록</S.Back>
       <S.Wrapper>
         <S.WrapperOut>
           <S.WrapperIn>
