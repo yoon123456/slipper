@@ -206,7 +206,7 @@ export const PasswordCheck2 = styled.input`
     transition: 0.5s linear;
   }
 `;
-export const Introduce = styled.input`
+export const Introduce = styled.textarea`
   width: 100%;
   height: 50px;
   display: block;
@@ -215,6 +215,11 @@ export const Introduce = styled.input`
   border: none;
   border: 1.5px solid gainsboro;
   outline: none;
+  resize: none;
+`;
+export const Length = styled.div`
+  text-align: right;
+  color: gray;
 `;
 export const JoinSlipper = styled.button`
   width: 100px;

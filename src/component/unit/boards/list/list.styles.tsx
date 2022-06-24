@@ -180,7 +180,7 @@ export const UserWrap = styled.div`
   padding-left: 5%;
 `;
 export const UserDate = styled.div`
-  width: 10%;
+  width: 13%;
   padding: 2%;
   display: flex;
   flex-direction: column;
@@ -213,7 +213,7 @@ export const ListTitleWrap = styled.div`
 `;
 
 export const ListTitle = styled.div`
-  font-size: 2rem;
+  font-size: 1.6rem;
   font-weight: 500;
   padding-bottom: 2%;
 `;
@@ -224,7 +224,7 @@ export const ListHometown = styled.div`
 `;
 export const ListShopName = styled.div`
   color: #2a2f2f;
-  font-size: 1.5rem;
+  font-size: 1.3rem;
 `;
 
 // 헤더추가
