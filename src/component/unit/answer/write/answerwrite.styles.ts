@@ -17,7 +17,7 @@ export const Person = styled.img`
 `;
 export const CommentBox = styled.div`
   width: 90%;
-  margin-left: 15px;
+  margin-left: 20px;
 `;
 export const Top = styled.div`
   /* background-color: red; */

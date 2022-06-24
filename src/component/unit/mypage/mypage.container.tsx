@@ -4,8 +4,8 @@ import { useMutation, useQuery } from "@apollo/client";
 import React, { ChangeEvent, useEffect, useState } from "react";
 import { Modal } from "antd";
 import { IUpdateUserInput } from "./mypage.types";
-
-export default function MyPageContainer() {
+import { withAuth } from "../../../commons/hoc/withAuth";
+function MyPageContainer() {
   const [updateUser] = useMutation(UPDATE_USER);
   const { data } = useQuery(FETCH_USER);
   const { data: payment, fetchMore: payFecthMore } = useQuery(FETCH_PAYMENTS);
@@ -113,3 +113,4 @@ export default function MyPageContainer() {
     />
   );
 }
+export default withAuth(MyPageContainer);

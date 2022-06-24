@@ -22,7 +22,6 @@ export const EmphyLeft = styled.div`
   width: 60%;
   margin: 0 auto;
   height: 100vh;
-  border-top: 1px solid gainsboro;
   margin-top: 35px;
   text-align: center;
   font-size: 2.5rem;
@@ -76,9 +75,8 @@ export const WrapperArray = styled.div`
 `;
 
 export const Array = styled.div`
-  /* width: 16%; */
   line-height: 2;
-  font-size: 1.6rem;
+  font-size: 1.4rem;
   margin-left: 30px;
   color: #008af6;
   cursor: pointer;
@@ -97,10 +95,9 @@ export const ListArray = styled.img`
   margin-left: 2px;
 `;
 export const Pick = styled.div`
-  /* width: 40%; */
   line-height: 2;
-  font-size: 1.6rem;
-  margin-left: 20px;
+  font-size: 1.4rem;
+  margin-left: 15px;
   color: #008af6;
   cursor: pointer;
   :hover {
@@ -120,7 +117,7 @@ export const Button = styled.div`
   width: 80%;
   text-align: center;
   line-height: 2;
-  color: black;
+  color: gray;
   background-color: #f2f2f2;
   border-radius: 7px;
   font-size: 1.4rem;
@@ -137,8 +134,8 @@ export const WrapperRight = styled.div`
   ::-webkit-scrollbar {
     display: none;
   }
-  display: flex;
-  flex-direction: column;
+  /* display: flex;
+  flex-direction: column; */
 `;
 
 export const Wrapper = styled.div`
@@ -248,7 +245,7 @@ export const WrapperBox = styled.div`
 // 로고 박스
 export const WrapperInLogo = styled.div`
   width: 100px;
-  margin-left: 50px;
+  margin-left: 40px;
   cursor: pointer;
   :hover {
     font-size: 1.4rem;
@@ -344,76 +341,8 @@ export const DropdownList = styled.div`
 
 export const List = styled.div`
   color: black;
-  padding: 10px 20px;
+  padding: 17px 10px;
   font-size: 1.2rem;
   display: block;
   cursor: pointer;
 `;
-// ${DropdownList} {
-//   :hover {
-//     display: block;
-//   }
-// }
-
-// hover
-
-// export const Gallery = styled.div`
-//   width: 30%;
-//   height: 250px;
-//   overflow: hidden;
-
-//   display: flex;
-//   justify-content: center;
-//   align-items: center;
-//   border-radius: 10%;
-//   margin-bottom: 20px;
-// `;
-// export const A = styled(Gallery)`
-//   display: block; /* 영역적용위해 사용 */
-//   width: 100%;
-//   height: 100%;
-//   position: relative; /* absolute의 기본기준은 body로 처리 - 현재 요소로 기준변경 */
-// `;
-
-// export const Figcaption = styled(Gallery)`
-//   width: 100%;
-//   /* height: 100%; */
-//   background-color: rgba(0, 0, 0, 0.7);
-
-//   /* display: flex;
-//   flex-direction: column;
-//   justify-content: center;
-//   align-items: center; */
-
-//   position: absolute; /* 이미지와 겹치게 처리 */
-//   top: 0;
-//   left: 0;
-
-//   color: #fff;
-//   text-align: center;
-//   line-height: 200px;
-
-//   opacity: 0; /* 처음엔 안보이고 */
-
-//   transition: 0.3s;
-//   :hover {
-//     opacity: 1;
-//   }
-// `;
-// export const Img = styled.img`
-//   width: 100%;
-// `;
-// export const Icon = styled.div`
-//   position: absolute;
-//   top: -70px;
-//   right: 10px;
-//   height: 20px;
-// `;
-// export const Categoty = styled.div`
-//   position: absolute;
-//   top: -50px;
-// `;
-// export const Title = styled.div`
-//   position: absolute;
-//   top: 10px;
-// `;

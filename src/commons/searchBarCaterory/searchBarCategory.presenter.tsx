@@ -31,7 +31,7 @@ export default function SearchBarCategoryPresenter(
       <S.SearchWrap>
         <S.Search
           type="text"
-          placeholder="원하는 동네로 이동해보세요"
+          placeholder="원하는 동네를 검색해보세요"
           // onChange={props.onChangeSearchbar}
           onMouseDown={props.onMouseDown}
           onChange={props.onChangeSearch}

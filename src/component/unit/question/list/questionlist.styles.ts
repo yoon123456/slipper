@@ -21,7 +21,6 @@ export const ProfileImage = styled.img`
   width: 80%;
   height: 65%;
   border-radius: 10px;
-  border: 1px solid black;
 `;
 export const RightBox = styled.div`
   width: 93%;
@@ -56,8 +55,8 @@ export const Question = styled.div`
   outline: none;
   border-radius: 12px;
   padding: 1%;
-  box-shadow: 8px 13px 3px lightgray;
-  background-color: #f6f6f6;
+  box-shadow: 8px 13px 3px #e0e0e0;
+  background-color: #f9f9f9;
 `;
 export const QuestionAnswer = styled.div`
   width: 80px;

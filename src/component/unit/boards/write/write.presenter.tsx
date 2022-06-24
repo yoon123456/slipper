@@ -21,13 +21,13 @@ export default function WritePresenter(props: IWritePresenter) {
               {/* <S.TopImg src="/image/writeSlipper.png" /> */}
               <S.StepName>STEP 1</S.StepName>
             </S.TopRow>
-            <S.StepDetail> 거주 기간, 만족도, 내용을 작성해주세요</S.StepDetail>
+            <S.StepDetail> 내용을 공유해주세요</S.StepDetail>
           </S.TopOn>
         )}
         {props.activeStep !== "first" && (
           <S.TopOff>
             <S.StepName onClick={props.onClickSecondPrev}>STEP 1</S.StepName>
-            <S.StepDetail> 거주 기간, 만족도, 내용을 작성해주세요</S.StepDetail>
+            <S.StepDetail> 내용을 공유해주세요</S.StepDetail>
           </S.TopOff>
         )}
         {props.activeStep === "second" && (

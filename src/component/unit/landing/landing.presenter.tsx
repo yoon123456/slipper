@@ -64,22 +64,30 @@ export default function LandingPresenter(props: ILandingPresenter) {
           </S.MainFlex>
           <S.ScrollArrow src="/image/ArrowDown.png" />
         </S.WrapperTop>
+
         <S.Box>
           <S.Pbox2>
-            <S.TBox>
-              <S.Txt>한 눈에 알아볼 수 있는 slipper 처음이세요? </S.Txt>
-              <S.Img2>슬리퍼만 있으면 어디든 갈 수 있어요!</S.Img2>
-            </S.TBox>
-            <S.ImgBox2 data-aos="fade-up">
-              <S.Img src="/image/banner2.png" />
-              <S.Middle>
-                <S.MiddleText onClick={props.onClickMoveToList}>
-                  구경가기
-                </S.MiddleText>
-              </S.Middle>
-            </S.ImgBox2>
+            <S.FlexBox>
+              <S.BoxIn>
+                <S.TBox>
+                  <S.Txt>한 눈에 알아볼 수 있는 slipper 처음이세요? </S.Txt>
+                  <S.Img2>슬리퍼만 있으면 어디든 갈 수 있어요!</S.Img2>
+                </S.TBox>
+                <S.BoardImage src="/image/BoardImage2.png" />
+              </S.BoxIn>
+
+              <S.ImgBox2 data-aos="fade-up">
+                <S.Img src="/image/banner2.png" />
+                <S.Middle>
+                  <S.MiddleText onClick={props.onClickMoveToList}>
+                    솔직한 후기 구경가기
+                  </S.MiddleText>
+                </S.Middle>
+              </S.ImgBox2>
+            </S.FlexBox>
           </S.Pbox2>
         </S.Box>
+
         <S.Box>
           <S.Pbox1>
             <S.ImgBox1 data-aos="fade-up-right">
@@ -97,6 +105,7 @@ export default function LandingPresenter(props: ILandingPresenter) {
             </S.TBox>
           </S.Pbox1>
         </S.Box>
+
         <S.Box>
           <S.Pbox3>
             <S.TBox data-aos="fade-right">

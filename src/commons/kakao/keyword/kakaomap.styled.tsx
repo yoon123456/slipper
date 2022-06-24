@@ -23,7 +23,7 @@ export const KakaoCustomOverlayRoadview = styled(CustomOverlayRoadview)``;
 export const KaKaoWarp = styled.div`
   width: 100%;
   height: ${(props: KaKaoMapStylesProps) =>
-    props.mapStatus ? "250px" : "95vh"};
+    props.mapStatus ? "250px" : "110vh"};
   display: ${(props: KaKaoMapStylesProps) =>
     props.roadViewFlag ? "none" : ""};
 `;

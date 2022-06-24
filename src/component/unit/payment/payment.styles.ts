@@ -52,7 +52,6 @@ export const Voucher = styled.div`
   }
 `;
 export const ExplainRow = styled.div`
-  width: 75%;
   display: flex;
   flex-direction: row;
   justify-content: space-around;
@@ -64,7 +63,8 @@ export const ExplainColored = styled.div`
   color: #008af6;
 `;
 export const Explain = styled.div`
-  font-size: 1.6rem;
+  font-size: 1.5rem;
+  margin-left: 5px;
 `;
 export const Price = styled.div`
   font-size: 2.7rem;
@@ -81,10 +81,4 @@ export const Button = styled.div`
   background-color: #ffcfec;
   border-radius: 5%;
   cursor: pointer;
-  :hover {
-    padding: 2.2% 9% 2.2% 9%;
-    background-color: white;
-    color: #ffcfec;
-    border: 2px solid #ffcfec;
-  }
 `;

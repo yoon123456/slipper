@@ -3,15 +3,13 @@ import styled from "@emotion/styled";
 import { IProps } from "./mypage.types";
 
 export const WrapperOut = styled.div`
-  width: 55%;
+  width: 80%;
   height: 800px;
   margin: 8% auto;
   display: flex;
   flex-direction: row;
   justify-content: center;
   font-family: "HallymGothic-Regular";
-  box-shadow: 10px 10px 20px 3px rgba(214, 214, 214, 1);
-  border-radius: 41px;
 `;
 export const WrapperLeft = styled.div`
   width: 25%;
@@ -21,7 +19,6 @@ export const WrapperLeft = styled.div`
   background-color: white;
   padding: 5% 0% 10% 0%;
   border-radius: 41px 0 0 41px;
-  border-right: 1px solid lightgray;
 `;
 export const LeftTop = styled.div`
   width: 90%;
@@ -42,9 +39,10 @@ export const Nickname = styled.div`
   color: #008af6;
 `;
 export const NicknameFixed = styled.div`
-  font-size: 1.5rem;
+  font-size: 1.7rem;
   line-height: 2;
   color: #008af6;
+  margin-left: 5px;
 `;
 export const EditIcon = styled.img`
   width: 19px;
@@ -53,15 +51,15 @@ export const EditIcon = styled.img`
   cursor: pointer;
 `;
 export const ProfileImage = styled.img`
-  object-fit: contain;
-  width: 100%;
+  object-fit: cover;
+  width: 110px;
   height: 110px;
   margin-bottom: 10%;
 `;
 export const Introduce = styled.div`
   width: 90%;
   height: 130px;
-  font-size: 1.2rem;
+  font-size: 1.4rem;
   text-align: center;
   background-color: #f4f7f9b3;
   padding: 5%;

@@ -310,9 +310,18 @@ export const ArrowSpan = styled2.div`
 export const Box = styled2.div`
   height: 100vh;
 `;
+export const FlexBox = styled2.div`
+  display: flex;
+  align-items: center;
+`;
 export const TBox = styled2.div`
   display: flex;
   flex-direction: column;
+`;
+export const BoxIn = styled2.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 `;
 export const Img1 = styled2.div`
   font-size: 30px;
@@ -345,6 +354,10 @@ export const ImageCafe = styled2.img`
 `;
 export const Pbox2 = styled2.div`
   height: 100%;
+`;
+export const BoardImage = styled2.img`
+  margin-top: 50px;
+  width: 45%;
 `;
 export const Pbox3 = styled2.div`
   height: 100%;
@@ -384,7 +397,7 @@ export const ImgBox1 = styled2.div`
 `;
 export const ImgBox2 = styled2.div`
   width: 500px;
-  margin: 0 auto;
+  margin-right: 70px;
   background-color: #42c58a;
   margin-top: 50px;
   backface-visibility: hidden;
