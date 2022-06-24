@@ -1,6 +1,10 @@
 import styled from "@emotion/styled";
 import { IProps } from "./login.types";
 
+export const Back = styled.div`
+  width: 100px;
+`;
+
 export const Wrapper = styled.div`
   display: flex;
   height: 100vh;

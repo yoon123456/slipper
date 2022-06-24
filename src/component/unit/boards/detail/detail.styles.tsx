@@ -67,14 +67,14 @@ export const LeftTop = styled.div`
 export const Label = styled.div`
   width: 91%;
   margin-left: 1%;
-  font-size: 2.7rem;
+  font-size: 2.5rem;
   padding-bottom: 20px;
   color: black;
   font-weight: 900;
 `;
 export const BookMark = styled.img`
-  width: 8%;
-  height: 50px;
+  width: 40px;
+  height: 40px;
   cursor: pointer;
 `;
 

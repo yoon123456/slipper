@@ -3,7 +3,6 @@ import { useMutation, gql } from "@apollo/client";
 import { ChangeEvent, useRef, useState } from "react";
 import { Modal } from "antd";
 import styled from "@emotion/styled";
-import { AnyARecord } from "dns";
 
 const UPLOAD_BUSINESS_IMAGE = gql`
   mutation uploadBusinessImage($files: [Upload!]!) {

@@ -2,7 +2,7 @@
 
 import * as S from "./detail.styles";
 import { IDetailPresenter } from "./detail.types";
-import { getDate } from "../../../../commons/libraries/date";
+import { getPaymentDate } from "../../../../commons/libraries/date";
 import KakaoMapFetch from "../../../../commons/kakaoMapFetch";
 import QuestionWriteContainer from "../../question/write/questionwrite.container";
 import Dompurify from "dompurify";
@@ -108,7 +108,7 @@ export default function DetailPresenter(props: IDetailPresenter) {
             <S.Right data-aos="fade-left">
               <S.EditDeleteWrap>
                 <S.UserWriteDate>
-                  {getDate(props.data?.fetchBoard.createdAt)}
+                  {getPaymentDate(props.data?.fetchBoard.createdAt)}
                 </S.UserWriteDate>
                 {props.data?.fetchBoard.nickname ===
                 props.userData?.fetchUser.nickname ? (
