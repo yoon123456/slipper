@@ -24,6 +24,7 @@ export default function HeaderContainer() {
     Pick<IMutation, "updatePayment">,
     IMutationUpdatePaymentArgs
   >(UPDATE_PAYMENT);
+
   const userPayment = async () => {
     if (data?.fetchUser.subType) {
       const current = new Date(getPaymentDate()),
@@ -41,9 +42,8 @@ export default function HeaderContainer() {
           Modal.success({
             content: "결재기간이 만료되어 결제창으로 이동합니다.",
           });
-          out();
           setIsClickedNum(0);
-          router.push("/login");
+          router.push("/boards");
         } catch (error: any) {
           Modal.error({ content: "오류" });
           return false;
@@ -57,7 +57,6 @@ export default function HeaderContainer() {
     try {
       await logout();
       Modal.success({ content: "다시 로그인 해주세요" });
-      // location.reload();
       router.push("/boards");
     } catch (error: any) {
       Modal.error({ content: error.message });

@@ -1,14 +1,21 @@
 export const getDate = (date: number) => {
-  const time = new Date(date);
-  const yyyy = String(time.getFullYear());
-  const mm = String(time.getMonth() + 1).padStart(2, "0");
-  const dd = String(time.getDate()).padStart(2, "0");
-  const h = String(time.getHours()).padStart(2, "0");
-  const m = String(time.getMinutes()).padStart(2, "0");
-  const s = String(time.getSeconds()).padStart(2, "0");
-  const ms = String(time.getMilliseconds()).padStart(3, "0");
+  const current = new Date(date),
+    currentTime = current.getTime();
+  const sub = new Date(date),
+    subTime = sub.getTime();
+  const result = subTime - 9 * 60 * 60 * 1000;
 
-  return `${yyyy}-${mm}-${dd} ${h}:${m}`;
+  // const time = new Date(date);
+  // const yyyy = String(time.getFullYear());
+  // const mm = String(time.getMonth() + 1).padStart(2, "0");
+  // const dd = String(time.getDate()).padStart(2, "0");
+  // const h = String(time.getHours()).padStart(2, "0");
+  // const m = String(time.getMinutes()).padStart(2, "0");
+  // const s = String(time.getSeconds()).padStart(2, "0");
+  // const ms = String(time.getMilliseconds()).padStart(3, "0");
+
+  // return `${yyyy}-${mm}-${dd} ${h}:${m}`;
+  return result;
 };
 
 export const getPaymentDate = (add = 0) => {
