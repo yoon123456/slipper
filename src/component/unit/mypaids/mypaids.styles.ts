@@ -31,6 +31,13 @@ export const BodyHeadFirst = styled.div`
   font-size: 1.4rem;
   text-align: center;
 `;
+
+export const KeyDiv = styled.span`
+  font-size: 1.1rem;
+  display: flex;
+  justify-content: space-between;
+  text-align: center;
+`;
 export const BodyHead = styled.div`
   width: 20%;
   font-size: 1.2rem;

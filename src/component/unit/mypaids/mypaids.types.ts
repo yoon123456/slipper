@@ -9,7 +9,9 @@ export interface IMypaidsPresenter {
   data: any; // 예원 수정 6/9
   // data?: Pick<IQuery, "fetchUser">;
   loadMore: () => void;
-  deletePayment: (eveent: MouseEvent<HTMLDivElement>) => void;
+  cancelPayment: (eveent: MouseEvent<HTMLDivElement>) => void;
+  afterDay: number;
+  currentDay: number;
 }
 
 export interface IMyPaymentHistory {

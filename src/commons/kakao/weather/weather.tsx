@@ -32,12 +32,12 @@ export default function WeatherAppleCation(props: WeatherProps) {
         </S.ApiButton>
         <S.CurrentWeather>
           {current?.weather?.map((el: any, index: number) => (
-            <>
+            <S.CurrentWeatherId key={index}>
               <S.CurrentWeatherId key={index}></S.CurrentWeatherId>
               <S.CurrentWeatherIcon
                 src={`http://openweathermap.org/img/wn/${el.icon}.png`}
               />
-            </>
+            </S.CurrentWeatherId>
           ))}
         </S.CurrentWeather>
       </S.WrapperOut>

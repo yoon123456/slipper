@@ -18,12 +18,10 @@ export default function KaKaoMapContainer(props: KaoKeyWord) {
   const [map, setMap] = useState<KaoKaoMap>();
   const [, setUserAddress] = useState();
   const [position, setPosition] = useState();
-
   const [address, setAddress] = useRecoilState(kakaoAddress);
   const [adressReset] = useRecoilState(resetAdress);
   const [search, setSearch] = useRecoilState(SearchState);
   const [isActive1, setIsActive1] = useRecoilState(SearchBarIsActiveState);
-
   const [isActive, setIsActive] = useState<boolean>(false);
   const [roadViewFlag, setroadViewFlag] = useState<boolean>(false);
   const [trrapicFlag, setTrrapicFlag] = useState<boolean>(false);
@@ -31,7 +29,6 @@ export default function KaKaoMapContainer(props: KaoKeyWord) {
   const [userContentFlag, setUserContentFlag] = useState<boolean>(false);
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const [closeList, setCloseList] = useState<boolean>(false);
-
   const btnRef = useRef<HTMLButtonElement>(null);
   const listRef = useRef<HTMLDivElement>(null);
 
@@ -92,7 +89,6 @@ export default function KaKaoMapContainer(props: KaoKeyWord) {
   const onclickGeoLocation = () => {
     const handleSuccess = (pos: any) => {
       const { latitude, longitude } = pos.coords;
-
       setgeoLat(latitude);
       setgeoLng(longitude);
     };

@@ -60,11 +60,6 @@ export default function KakaomapPresenter(props: KaoKaoMap) {
           mapStatus={props.mapStatus}
           roadViewFlag={props.roadViewFlag}
         >
-          {props.isActive1 && (
-            <S.SerchLength>
-              {props.search}으로 검색된 결과 총 {props.markersLenght} 건입니다
-            </S.SerchLength>
-          )}
           <S.Category>
             {props.mapStatus && (
               <S.Search
@@ -95,8 +90,6 @@ export default function KakaomapPresenter(props: KaoKaoMap) {
                   >
                     교통정보
                   </S.TrappickButton>
-                  {/* <WeatherAppleCation lat={props.geoLat} lng={props.geoLng} /> */}
-
                   <S.RoadButton type="button" onClick={props.onClickRoadView}>
                     로드뷰
                   </S.RoadButton>
