@@ -2,16 +2,22 @@ import styled from "@emotion/styled";
 import { IProps } from "./login.types";
 
 export const Back = styled.div`
-  width: 100px;
-  height: 60px;
-  font-size: 1.5rem;
-  cursor: pointer;
-  font-family: "HallymGothic-Regular";
   display: flex;
-  justify-content: center;
   align-items: center;
+  margin-left: 50px;
+  margin-top: 20px;
+  cursor: pointer;
+  :hover {
+    text-decoration: underline;
+    color: #008af6;
+  }
+`;
+export const BackImg = styled.img``;
+export const BackText = styled.div`
+  font-size: 1.8rem;
+  font-family: "HallymGothic-Regular";
   color: #008af6;
-  border-radius: 10px;
+  margin-left: 10px;
 `;
 
 export const Wrapper = styled.div`

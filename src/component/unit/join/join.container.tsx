@@ -104,16 +104,16 @@ export default function JoinContainer() {
           phone: phoneNum,
         },
       });
-      alert("인증번호가 전송되었습니다");
+      Modal.success({ content: "인증번호가 전송되었습니다" });
     } catch (error) {
-      alert(error);
+      Modal.error({ content: "인증번호 전송에 실패하였습니다." });
     }
     setFlag(true);
   };
 
   const onClickCheckProof = async () => {
     if (proofNum === "") {
-      alert("안돼");
+      Modal.error({ content: "올바른 인증번호를 입력해주세요" });
       return;
     }
     try {

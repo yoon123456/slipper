@@ -58,7 +58,7 @@ export const ProfileImage = styled.img`
   border-radius: 10px;
 `;
 export const Introduce = styled.div`
-  width: 100%;
+  width: 90%;
   word-break: break-all;
   height: 130px;
   font-size: 1.4rem;
@@ -126,6 +126,7 @@ export const Icon = styled.img`
 `;
 export const MenuButton = styled.div`
   width: 80%;
+  padding-left: 10px;
 `;
 export const WrapperRight = styled.div`
   width: 75%;
