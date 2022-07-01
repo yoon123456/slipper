@@ -168,7 +168,7 @@ export default function ListContainer() {
   const out = async () => {
     try {
       await logout();
-      Modal.success({ content: "다시 로그인 해주세요" });
+      Modal.success({ content: "로그아웃 되었습니다" });
       router.push("/boards");
     } catch (error: any) {
       Modal.error({ content: error.message });
