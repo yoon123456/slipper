@@ -38,7 +38,11 @@ export default function Contents(props: ContentProps) {
         <>
           <BoxFirst
             className="customoverlay"
-            onClick={onClickMoveToPage(`/boards/${props.el?._id}`)}
+            onClick={
+              props.el?._id
+                ? onClickMoveToPage(`/boards/${props.el?._id}`)
+                : onClickMoveToPage(`${props.marker?.place_url}`)
+            }
           >
             <BoxContent>
               {props.el?._source.place
@@ -72,6 +76,7 @@ export default function Contents(props: ContentProps) {
                 ? props.el?._source.placeurl
                 : props.marker?.place_url}
             </BoxPlaceUrl>
+            ㅕ768
           </BoxFirst>
         </>
       </BoxInner>

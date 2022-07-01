@@ -38,7 +38,7 @@ export default function PaymentPage(props: IpropsPayment) {
   const [, setIsClickedNum] = useRecoilState(isClickedNumState);
   const [amount, setAmount] = useState(0);
   const router = useRouter();
-
+  console.log(props.data);
   useEffect(() => {
     setIsClickedNum(0);
     aaa();
@@ -48,7 +48,7 @@ export default function PaymentPage(props: IpropsPayment) {
     setAmount(props.value);
   }
   const requestPay = () => {
-    const IMP = window.IMP; // 생략 가능
+    const IMP = window.IMP;
     IMP.init("imp62545658");
     IMP.request_pay(
       {
@@ -61,7 +61,6 @@ export default function PaymentPage(props: IpropsPayment) {
         buyer_tel: "010-4242-4242",
         buyer_addr: "서울특별시 강남구 신사동",
         buyer_postcode: "01181",
-        // m_redirect_url: "http://localhost:3000/user",
       },
       // callback
       async (rsp: any) => {

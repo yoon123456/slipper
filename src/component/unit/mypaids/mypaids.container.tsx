@@ -10,6 +10,9 @@ import { MouseEvent, useEffect, useState } from "react";
 import { Modal } from "antd";
 
 export default function MypaidsContainer(props: IMyPaymentHistory) {
+  const [afterDay, setAfterDay] = useState(0);
+  const [currentDay, setCurrentDay] = useState(0);
+  const [endDate, setEndDate] = useState("");
   const { data, fetchMore } = useQuery(FETCH_PAYMENTS, {
     variables: {
       page: 1,
@@ -21,30 +24,29 @@ export default function MypaidsContainer(props: IMyPaymentHistory) {
     IMutationRefundPaymentArgs
   >(REFUND_PAYMENT);
 
-  const [subStart, setSubStart] = useState([""]);
-  const [subEnd, setSubEnd] = useState([""]);
-
-  const deletePayment = async (event: MouseEvent<HTMLDivElement>) => {
+  const cancelPayment = async (event: MouseEvent<HTMLDivElement>) => {
     try {
       await refundPayment({
         variables: {
           impUid: (event.target as HTMLDivElement).id,
         },
         update(cache, { data }) {
-          const refundPayment = data?.refundPayment;
           cache.modify({
             fields: {
-              refundPayment: (prev, { readField }) => {
-                const filterPrev = prev.filter(
-                  (el: any) => readField("id", el) !== refundPayment
-                );
-                return [...filterPrev];
+              refundPayment: (prev) => {
+                return [data?.refundPayment, ...prev];
               },
             },
           });
         },
       });
       Modal.success({ content: "환불처리 완료" });
+      if (afterDay < currentDay) {
+        if (!endDate) {
+          Modal.error({ content: `환불요청은${afterDay}까지입니다.` });
+          return;
+        }
+      }
     } catch (error: any) {
       if (error instanceof Error) Modal.error({ content: error.message });
     }
@@ -70,24 +72,28 @@ export default function MypaidsContainer(props: IMyPaymentHistory) {
     });
   };
 
-  // useEffect(() => {
-  //   const startTime = data?.fetchPayments.map((el: any) => {
-  //     const start = el.subStart;
-  //     console.log(el.subStart.substring);
-  //     setSubStart(start.substring(0, 10));
-  //   });
+  useEffect(() => {
+    const startTime = data?.fetchPayments.map((el: any) => {
+      const paymentDay = new Date(el.subStart);
+      const afterThreeDay = paymentDay.getDate() + 3;
+      const current = new Date();
+      const currentDate = current.getDate();
+      setEndDate(el.subEnd);
 
-  //   const endTime = data?.fetchPayments.map((el: any) => {
-  //     setSubEnd(el.subEnd);
-  //   });
-  //   console.log(subStart);
-  // });
+      if (afterDay === 0) {
+        setAfterDay(afterThreeDay);
+        setCurrentDay(currentDate);
+      }
+    });
+  });
 
   return (
     <MypaidsPresenter
       data={data}
       loadMore={loadMore}
-      deletePayment={deletePayment}
+      cancelPayment={cancelPayment}
+      afterDay={afterDay}
+      currentDay={currentDay}
     />
   );
 }

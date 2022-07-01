@@ -9,6 +9,7 @@ export const FETCH_PAYMENTS = gql`
       subEnd
       impUid
       subType
+      subRefund
       user {
         id
         email

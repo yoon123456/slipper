@@ -1,9 +1,8 @@
 import * as S from "./mypaids.styles";
 import { IMypaidsPresenter } from "./mypaids.types";
 import InfiniteScroll from "react-infinite-scroller";
-
+import { v4 as uuidv4 } from "uuid";
 export default function MypaidsPresenter(props: IMypaidsPresenter) {
-  console.log(props.data?.fetchPayments.map((el: any) => console.log(el)));
   return (
     <S.WrapperOut>
       <S.Head>이용권 결제 내역</S.Head>
@@ -19,39 +18,47 @@ export default function MypaidsPresenter(props: IMypaidsPresenter) {
         </S.BodyHeadWrapper>
         <S.Body>
           <InfiniteScroll
+            key={uuidv4()}
             pageStart={0}
             loadMore={props.loadMore}
             hasMore={true}
             useWindow={false}
           >
-            {props.data?.fetchPayments.map((el: any, index: number) => (
-              <>
-                <S.RowWrapper key={index}>
-                  <S.FlexBox>
-                    <S.RowFirst>{el.subType}</S.RowFirst>
-                    <S.Row>{el.subStart.substring(0, 10)}</S.Row>
-                    <S.Row>{el.subEnd.substring(0, 10)}</S.Row>
-
-                    {el.paymentStatus === 1 ? (
-                      <>
-                        <S.Row>{el.paymentStatus === 1 && "결제"}</S.Row>
+            {props.data?.fetchPayments.map((el: any) => (
+              <S.RowWrapper key={uuidv4()}>
+                <S.FlexBox>
+                  <S.RowFirst>{el.subType}</S.RowFirst>
+                  <S.Row>{el.subStart.substring(0, 10)}</S.Row>
+                  <S.Row>{el.subEnd.substring(0, 10)}</S.Row>
+                  {el.paymentStatus === 1 ? (
+                    <S.KeyDiv>
+                      <S.Hi>{el.paymentStatus === 1 && "결제"}</S.Hi>
+                      {props.afterDay < props.currentDay ? (
                         <S.refundPaymentButtonHidden
                           id={el.impUid}
-                          onClick={props.deletePayment}
+                          onClick={props.cancelPayment}
                         >
                           환불
                         </S.refundPaymentButtonHidden>
-                      </>
-                    ) : (
+                      ) : (
+                        <S.Hi>환불요청 {Number(props.afterDay)}일까지</S.Hi>
+                      )}
+                    </S.KeyDiv>
+                  ) : (
+                    <>
                       <S.Row>취소완료</S.Row>
-                    )}
-                  </S.FlexBox>
-                </S.RowWrapper>
-              </>
+                      <S.Row>{el.subRefund.substring(0, 10)}</S.Row>
+                    </>
+                  )}
+                </S.FlexBox>
+              </S.RowWrapper>
             )) || <S.RowWrapper></S.RowWrapper>}
           </InfiniteScroll>
         </S.Body>
       </S.BodyWrapper>
     </S.WrapperOut>
   );
+}
+
+{
 }
