@@ -59,6 +59,7 @@ export default function PaymentPresenter(props: PaymentIprops) {
           </S.Voucher>
         </S.VoucherWrapper>
       </S.BodyWrapper>
+      <S.Footer>결제기준일 포함 3일간 환불이 가능합니다</S.Footer>
     </S.WrapperOut>
   );
 }

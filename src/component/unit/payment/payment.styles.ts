@@ -82,3 +82,11 @@ export const Button = styled.div`
   border-radius: 5%;
   cursor: pointer;
 `;
+export const Footer = styled.div`
+  height: 130px;
+  font-size: 1.2rem;
+  color: gray;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;

@@ -96,7 +96,7 @@ export default function DetailContainer() {
       });
       setIsActive(result.data?.clickLike);
     } catch (error) {
-      alert("실패");
+      Modal.error({ content: "다시 시도해주세요" });
     }
   };
 
