@@ -32,7 +32,7 @@ export default function MypaidsPresenter(props: IMypaidsPresenter) {
                   <S.Row>{el.subEnd.substring(0, 10)}</S.Row>
                   {el.paymentStatus === 1 ? (
                     <S.KeyDiv>
-                      <S.Row>{el.paymentStatus === 1 && "결제"}</S.Row>
+                      <S.Hi>{el.paymentStatus === 1 && "결제"}</S.Hi>
                       {props.afterDay < props.currentDay ? (
                         <S.refundPaymentButtonHidden
                           id={el.impUid}
@@ -41,7 +41,7 @@ export default function MypaidsPresenter(props: IMypaidsPresenter) {
                           환불
                         </S.refundPaymentButtonHidden>
                       ) : (
-                        `환불요청${Number(props.afterDay)}일까지`
+                        <S.Hi>환불요청 {Number(props.afterDay)}일까지</S.Hi>
                       )}
                     </S.KeyDiv>
                   ) : (

@@ -32,12 +32,15 @@ export const BodyHeadFirst = styled.div`
   text-align: center;
 `;
 
-export const KeyDiv = styled.span`
+export const KeyDiv = styled.div`
   font-size: 1.1rem;
-  display: flex;
-  justify-content: space-between;
-  text-align: center;
+  width: 40%;
 `;
+export const Hi = styled.div`
+  width: 50%;
+  display: inline-block;
+  text-align: center;
+`
 export const BodyHead = styled.div`
   width: 20%;
   font-size: 1.2rem;
@@ -68,7 +71,6 @@ export const RowFirst = styled.div`
 `;
 export const Row = styled.div`
   width: 20%;
-
   font-size: 1.1rem;
   text-align: center;
 `;
